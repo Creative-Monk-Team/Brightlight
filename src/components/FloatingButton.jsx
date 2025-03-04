@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/FloatingButton.module.css";
+import Link from "next/link";
 
 let FloatingButton = () => {
   let [showButton, setShowButton] = useState(true);
@@ -18,12 +19,12 @@ let FloatingButton = () => {
   return (
     <>
       {showButton ? (
-        <button
+        <Link
           className={styles.floatingFreeButton}
-          onClick={() => window.open("/booking", "_blank")}
+          href="/booking"
         >
           Book Free Assessment
-        </button>
+        </Link>
       ) : null}
     </>
   );

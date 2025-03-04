@@ -142,7 +142,7 @@ const PermanentResidency = ({ metaData, pData }) => {
       <div
         id="Pathways-becoming-PR"
         ref={(el) => (sectionsRef.current[1] = el)}
-        className={`container ${styles.pathwayParent} ${visibleSections.includes("Pathways-becoming-PR") ? styles.visible : ""
+        className={`${styles.pathwayParent} ${visibleSections.includes("Pathways-becoming-PR") ? styles.visible : ""
           }`}
       >
         <div className={styles.pathway}>
@@ -160,7 +160,46 @@ const PermanentResidency = ({ metaData, pData }) => {
                     width={500}
                   />
                 </div>
-                <h2>{pData?.p1Heading}</h2>
+                <h2>Express Entry</h2>
+              </Link>
+            </div>
+            <div className={styles.pathwayCards}>
+              <Link href="/pilot-programs">
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={studyVisaImg}
+                    alt="Pilot Programs"
+                    height={500}
+                    width={500}
+                  />
+                </div>
+                <h2>Pilot Programs</h2>
+              </Link>
+            </div>
+            <div className={styles.pathwayCards}>
+              <Link href="/pnp">
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={studyVisaImg}
+                    alt="PNP"
+                    height={500}
+                    width={500}
+                  />
+                </div>
+                <h2>PNP</h2>
+              </Link>
+            </div>
+            <div className={styles.pathwayCards}>
+              <Link href="/rnip">
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={studyVisaImg}
+                    alt="RNIP"
+                    height={500}
+                    width={500}
+                  />
+                </div>
+                <h2>RNIP</h2>
               </Link>
             </div>
             {/* Repeat for other cards */}

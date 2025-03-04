@@ -25,84 +25,70 @@ import Link from "next/link";
 let HomePage = () => {
   const swiperRef = useRef(null);
 
-  let [newsSectionData, setNewsSectionData] = useState([]);
-  let [linkedinLink, setLinkedingLink] = useState([]);
-  let [newsData, setNewsData] = useState([]);
-  let [topSection, setTopSection] = useState([]);
-  let [headline1Rest, setHeadline1Rest] = useState("");
-  let [headline1Last, setHeadline1Last] = useState("");
-  let [headline2Rest, setHeadline2Rest] = useState("");
-  let [headline2Last, setHeadline2Last] = useState("");
-  let [memberData, setMemberData] = useState([]);
-  let [featuresData, setFeaturesData] = useState([]);
-  let [loveneetBgImage, setLoveneetBgImage] = useState([]);
-  let [achiementsData, setAchievementsData] = useState([]);
-  let [servicesData, setServicesData] = useState([]);
-  let [services, setServices] = useState([]);
-  let [loaded, setLoaded] = useState(false); // To manage loading state
+  // State Variables
+  const [newsSectionData, setNewsSectionData] = useState([]);
+  const [linkedinLink, setLinkedingLink] = useState(""); // Should be a string, not an array
+  const [newsData, setNewsData] = useState([]);
+  const [topSection, setTopSection] = useState([]);
+  const [headline1Rest, setHeadline1Rest] = useState("");
+  const [headline1Last, setHeadline1Last] = useState("");
+  const [headline2Rest, setHeadline2Rest] = useState("");
+  const [headline2Last, setHeadline2Last] = useState("");
+  const [memberData, setMemberData] = useState([]);
+  const [featuresData, setFeaturesData] = useState([]);
+  const [loveneetBgImage, setLoveneetBgImage] = useState("");
+  const [achiementsData, setAchievementsData] = useState([]);
+  const [servicesData, setServicesData] = useState([]);
+  const [services, setServices] = useState([]);
+  const [loaded, setLoaded] = useState(false); // Manage loading state
+
+  // Intersection Observer States & Refs
   const expertiseContentParentRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+
   const [isFeaturesVisible, setIsFeaturesVisible] = useState(false);
   const featuresSectionRef = useRef(null);
 
   const [isTestimonialsVisible, setIsTestimonialsVisible] = useState(false);
   const testimonialsSectionRef = useRef(null);
-  // const swiperRef = useRef(null);
+
   const autoSlideIntervalRef = useRef(null);
+  const simplifyingRef = useRef(null); // Ref for simplifying section
 
-  const simplifyingRef = useRef(null); // Ref for the simplifying section
-
-  let [metaData, setMetaData] = useState([]);
-  let [loveneetAlt, setLoveneetAlt] = useState([]);
-  let [memberOfAlt, setMemberOfAlt] = useState([]);
-  let [simplifyData, setSimplifyData] = useState([]);
+  // Meta & Image Data
+  const [metaData, setMetaData] = useState([]);
+  const [loveneetAlt, setLoveneetAlt] = useState("");
+  const [memberOfAlt, setMemberOfAlt] = useState("");
+  const [simplifyData, setSimplifyData] = useState([]);
 
   useEffect(() => {
     const sections = [
       { ref: sectionRef, callback: setIsVisible },
       { ref: featuresSectionRef, callback: setIsFeaturesVisible },
       { ref: testimonialsSectionRef, callback: setIsTestimonialsVisible },
-      // Add other sections here
     ];
 
     const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        const target = entry.target;
-        const section = sections.find((section) => section.ref.current === target);
-
-        // Ensure section and callback exist before calling it
-        if (entry.isIntersecting && section?.callback) {
-          section.callback(true);
-        } else if (section?.callback) {
-          section.callback(false);
+        const section = sections.find((s) => s.ref.current === entry.target);
+        if (section?.callback) {
+          section.callback(entry.isIntersecting);
         }
       });
     }, observerOptions);
 
-    // Observe all sections
+    // Observe sections
     sections.forEach(({ ref }) => {
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
+      if (ref.current) observer.observe(ref.current);
     });
 
-    // Cleanup observer on unmount
+    // Cleanup function
     return () => {
       sections.forEach(({ ref }) => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
-        }
+        if (ref.current) observer.unobserve(ref.current);
       });
-    };
-
-
-    return () => {
-      if (featuresSectionRef.current) {
-        observer.unobserve(featuresSectionRef.current);
-      }
     };
   }, []);
 
@@ -773,7 +759,7 @@ let HomePage = () => {
         ref={featuresSectionRef}
       >
         <div ref={simplifyingRef} className={`${styles.simplifyingMain}`}>
-          <h1 className={styles.simplifyingHeading}>Why Us?</h1>
+          <h1 className={`text-2xl md:text-4xl text-[#132f46] font-semibold`}>Why Us?</h1>
           {featuresData &&
             [1, 2, 3, 4].map(
               (num) =>

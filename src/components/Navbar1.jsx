@@ -627,7 +627,7 @@ const Navbar1 = (props) => {
                   onMouseEnter={() => setShowCalculatorsDropdown(true)}
                   onMouseLeave={() => setShowCalculatorsDropdown(false)}
                 >
-                  <Link href="/Federal-Skilled">FSW Calculator</Link>
+                  <Link href="/federal-skilled">FSW Calculator</Link>
                   <Link href="/clb-ilets-calculator">CLB Calculator</Link>
                   <Link href="/bcpnp-calculator">BCPNP Calculator</Link>
                 </div>
@@ -906,7 +906,7 @@ const Navbar1 = (props) => {
                 {isCalculatorsOpen && (
                   <div className={styles.subDropdownContent}>
                     {/* <Link href="/calculators">CALCULATORS</Link> */}
-                    <Link href="/Federal-Skilled">FSWP Calculator</Link>
+                    <Link href="/federal-skilled">FSWP Calculator</Link>
                     <Link href="/clb-ilets-calculator">CLB Calculator</Link>
                     <Link href="/bcpnp-calculator">BCPNP Calculator</Link>
                   </div>
