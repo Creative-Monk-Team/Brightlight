@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import editIcon from "../assets/edit.png";
 import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
-
+import Image from "next/image";
 const InternationalPostGraduateContent = () => {
   const notifySuccess = () => {
     toast.success("Success", {

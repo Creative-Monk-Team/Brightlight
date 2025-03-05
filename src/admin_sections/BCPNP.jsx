@@ -3,7 +3,7 @@ import styles from "../styles/Admin.module.css";
 import editIcon from "../assets/edit.png";
 import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
-
+import Image from "next/image";
 const BCPNP = () => {
   const notifySuccess = () => {
     toast.success("Success", {

@@ -58,7 +58,7 @@ let Login = () => {
       localStorage.setItem("isLoggedIn", "true");
       login();
       setTimeout(() => {
-        router.replace("/dash/panel/overwrite");
+        router.replace("/admin");
       }, 3000);
     } else {
       notifyError();

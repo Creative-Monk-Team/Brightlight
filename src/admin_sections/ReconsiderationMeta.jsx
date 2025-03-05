@@ -4,7 +4,7 @@ import editIcon from "../assets/edit.png";
 import deleteIcon from "../assets/delete.png";
 import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
-
+import Image from "next/image";
 let ReconsiderationMeta = () => {
   let notifySuccess = () => {
     toast.success("Success", {

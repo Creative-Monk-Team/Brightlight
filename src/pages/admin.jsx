@@ -218,6 +218,7 @@ import MemberSectionAlt from "../admin_sections/MemberOfAlt";
 import WhyUsAlt from "../admin_sections/WhyUsAlt";
 import Redirects from "../admin_sections/Redirects";
 import PrivateRoute from "../components/PrivateRoute";
+import Image from "next/image";
 
 let AdminDashboard = () => {
   const pages = [
@@ -471,7 +472,7 @@ let AdminDashboard = () => {
   };
   let handleLogout = () => {
     logout();
-    window.location.href = "/auth/panel/dash/bright";
+    window.location.href = "/login";
   };
 
   let handleSearch = (e) => {

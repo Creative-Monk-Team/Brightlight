@@ -8,7 +8,7 @@ const PrivateRoute = ({ Component }) => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      router.replace("/auth/panel/dash/bright");
+      router.replace("/login");
     }
   }, [isAuthenticated, router]);
 

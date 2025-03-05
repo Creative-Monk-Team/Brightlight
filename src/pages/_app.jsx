@@ -55,7 +55,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const updateBackgroundColor = () => {
       document.body.style.backgroundColor =
-        window.location.pathname === "/dash/panel/overwrite"
+        window.location.pathname === "/admin"
           ? "rgb(241, 241, 241)"
           : "white";
     };

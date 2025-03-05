@@ -607,7 +607,7 @@ const Navbar1 = (props) => {
               <Link href="/blogs">BLOGS</Link>
 
               {/* NEWS */}
-              <Link href="/news">NEWS</Link>
+              {/*<Link href="/news">NEWS</Link>*/}
 
               {/* CALCULATORS Menu with Dropdown */}
               <div className={styles.relativeDiv}>
@@ -917,9 +917,9 @@ const Navbar1 = (props) => {
               <Link href="/blogs" className={styles.sidebarLink}>
                 BLOGS
               </Link>
-              <Link href="/news" className={styles.sidebarLink}>
+              {/* <Link href="/news" className={styles.sidebarLink}>
                 NEWS
-              </Link>
+              </Link> */}
               <Link href="/about-us" className={styles.sidebarLink}>
                 ABOUT
               </Link>
