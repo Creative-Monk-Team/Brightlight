@@ -12,7 +12,8 @@ import Sandclock from "../assets/sandclock-immigration.png";
 import SandclockWhite from "../assets/sandclock-immigration-white.png";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
-
+import Image from "next/image";
+import Link from "next/link";
 let Immigration = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   let [metaData, setMetaData] = useState([]);
@@ -129,11 +130,11 @@ let Immigration = () => {
           ) : (
             <div className={styles.cardParent}>
               {cardsData?.map((tool, index) => (
-                <div
+                <Link
                   key={index}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  onClick={() => handleCardClick(tool.tool_link)}
+                  href={tool.tool_link}
                   style={{ cursor: "pointer" }}
                 >
                      <Image height={50} width={100}
@@ -146,7 +147,7 @@ let Immigration = () => {
                   />
                   <h2>{tool.tool_name}</h2>
                   <p>{tool.tool_desc}</p>
-                </div>
+                </Link>
               ))}
             </div>
           )}
