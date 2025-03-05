@@ -105,7 +105,7 @@ let ParentsGrandparentsMeta = () => {
   };
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/outsideCanadaMeta")
+    fetch("https://brightlight-node.onrender.com/parentsGrandParMeta")
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {
