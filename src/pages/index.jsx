@@ -21,6 +21,7 @@ import Odometer from "../components/Odometer";
 import { debounce } from "lodash";
 import Image from "next/image";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 
 let HomePage = () => {
   const swiperRef = useRef(null);
@@ -540,49 +541,22 @@ let HomePage = () => {
 
   return (
     <>
-      <Head>
-        <link rel="canonical" href="https://brightlightimmigration.ca/" />
-        <title>
-          {metaData?.metaTitle
-            ? metaData?.metaTitle
-            : "Brightlight Immigration"}
-        </title>
-        <meta
-          name="description"
-          content={
-            metaData?.metaDesc
-              ? metaData?.metaDesc
-              : "Learn about Brightlight Immigration, our mission, values, and the dedicated team behind our immigration services. We are committed to providing honest and accurate advice to guide you through your immigration journey."
-          }
-        />
-        <meta
-          name="title"
-          property="og:title"
-          content={
-            metaData?.metaOgTitle
-              ? metaData?.metaOgTitle
-              : " Brightlight Immigration"
-          }
-        />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:image:type" content="image/png" />
-        <meta
-          property="og:description"
-          content={
-            metaData?.metaOgDesc
-              ? metaData?.metaOgDesc
-              : "Discover the story behind Brightlight Immigration, our commitment to providing honest and accurate advice, and how our team can assist you with your immigration needs."
-          }
-        />
-        <meta
-          name="Keywords"
-          content={
-            metaData?.metaKeywords
-              ? metaData?.metaKeywords
-              : " Brightlight Immigration, Immigration Services, Mission, Team"
-          }
-        />
-      </Head>
+      <NextSeo
+        title={metaData?.metaTitle || "Brightlight Immigration"}
+        description={
+          metaData?.metaDesc ||
+          "Learn about Brightlight Immigration, our mission, values, and dedicated team."
+        }
+        canonical="https://brightlightimmigration.ca/"
+        openGraph={{
+          title: metaData?.metaOgTitle || "Brightlight Immigration",
+          description:
+            metaData?.metaOgDesc ||
+            "Discover the story behind Brightlight Immigration.",
+          images: [{ url: ogImage, type: "image/png" }],
+          site_name: "Brightlight Immigration",
+        }}
+      />
 
       <Navbar1 showBlue={true} />
       <div className={styles.bannerParent}>
