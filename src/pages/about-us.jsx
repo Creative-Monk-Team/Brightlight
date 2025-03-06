@@ -558,8 +558,11 @@ let About = () => {
 
           <p>{socialMediaData?.description2}</p>
 
-          <div className={styles.socialMoblileImgDiv}>
-               <Image height={50} width={100} src={socialMedia?.image} />
+          <div className={`w-full flex items-center justify-center`}>
+            <div className={`relative w-[18vw] my-5  h-[82vh] ${styles.socialMoblileImgDiv}`}>
+              <Image fill src={socialMedia?.image} />
+            </div>
+               
           </div>
 
           <div className={styles.socialPresenceIconsParent}>

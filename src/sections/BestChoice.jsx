@@ -1,145 +1,14 @@
-// import React, { useEffect, useState, useRef } from "react";
-// import styles from "../styles/BestChoice.module.css";
-
-// let BestChoice = () => {
-//   let [planeTop, setPlaneTop] = useState(150);
-//   let [isTrackImageVisible, setIsTrackImageVisible] = useState(false);
-//   let trackImageRef = useRef(null);
-//   let bestChoiceHeadingRef = useRef(null);
-//   let [bestChoiceHeading, setBestChoiceHeading] = useState([]);
-//   let [bestChoiceImage, setBestChoiceImage] = useState([]);
-//   let [plane, setPlane] = useState([]);
-
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         setIsTrackImageVisible(entry.isIntersecting);
-//         if (entry.isIntersecting) {
-//           entry.target.classList.add(styles.visible);
-//         } else {
-//           entry.target.classList.remove(styles.visible);
-//         }
-//       },
-//       { threshold: 0.17 }
-//     );
-
-//     if (trackImageRef.current) {
-//       observer.observe(trackImageRef.current);
-//     }
-
-//     if (bestChoiceHeadingRef.current) {
-//       observer.observe(bestChoiceHeadingRef.current);
-//     }
-
-//     return () => {
-//       if (trackImageRef.current) {
-//         observer.unobserve(trackImageRef.current);
-//       }
-//       if (bestChoiceHeadingRef.current) {
-//         observer.unobserve(bestChoiceHeadingRef.current);
-//       }
-//     };
-//   }, []);
-
-//   useEffect(() => {
-//     let lastScrollY = window.scrollY;
-
-//     const handleScroll = () => {
-//       if (!isTrackImageVisible) return;
-
-//       const currentScrollY = window.scrollY;
-//       if (currentScrollY > lastScrollY) {
-//         if (window.innerWidth < 700) {
-//           setPlaneTop((prevTop) => prevTop + 5);
-//         } else {
-//           setPlaneTop((prevTop) => prevTop + 12.5);
-//         }
-//       } else {
-
-//         if (window.innerWidth < 700) {
-//           setPlaneTop((prevTop) => prevTop - 5);
-//         } else {
-//           setPlaneTop((prevTop) => prevTop - 12.5);
-//         }
-//       }
-//       lastScrollY = currentScrollY;
-//     };
-
-//     window.addEventListener("scroll", handleScroll);
-
-//     return () => {
-//       window.removeEventListener("scroll", handleScroll);
-//     };
-//   }, [isTrackImageVisible]);
-
-//   useEffect(() => {
-//     fetch("https://brightlight-node.onrender.com/aboutUsBestChoiceSection")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         if (data) {
-//           setBestChoiceHeading(data[0]);
-//         }
-//       })
-//       .catch((error) => console.log(error));
-
-//     fetch("https://brightlight-node.onrender.com/bestChoice")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         if (data) {
-//           setBestChoiceImage(data[0]);
-//         }
-//       })
-//       .catch((error) => console.log(error));
-
-//     fetch("https://brightlight-node.onrender.com/plane")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         if (data) {
-//           setPlane(data[0]);
-//         }
-//       })
-//       .catch((error) => console.log(error));
-//   }, []);
-
-//   return (
-//     <div className={styles.bestChoiceParent}>
-//       <div className={styles.bestChoice}>
-//         <div
-//           className={`${styles.bestChoiceHeading} ${styles.fadeIn}`}
-//           ref={bestChoiceHeadingRef}
-//         >
-//           <h2>{bestChoiceHeading?.heading}</h2>
-//         </div>
-//            <Image height={50} width={100}
-//  
-//           src={plane?.image}
-//           className={styles.plane}
-//           style={{ top: `${planeTop}px` }}
-//         />
-//            <Image height={50} width={100}
-//  
-//           src={bestChoiceImage?.image}
-//           ref={trackImageRef}
-//           className={`${styles.trackImage} ${styles.fadeIn}`}
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default BestChoice;
-
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "../styles/BestChoice.module.css";
-import UpdateBestChoice from "../assets/best-choice-update.png";
 import Image from "next/image";
-let BestChoice = () => {
-  let [planeTop, setPlaneTop] = useState(150);
-  let [isTrackImageVisible, setIsTrackImageVisible] = useState(false);
-  let trackImageRef = useRef(null);
-  let [bestChoiceHeading, setBestChoiceHeading] = useState([]);
-  let [bestChoiceImage, setBestChoiceImage] = useState([]);
-  let [plane, setPlane] = useState([]);
+
+const BestChoice = () => {
+  const [planeTop, setPlaneTop] = useState(150);
+  const [isTrackImageVisible, setIsTrackImageVisible] = useState(false);
+  const trackImageRef = useRef(null);
+  const [bestChoiceHeading, setBestChoiceHeading] = useState({});
+  const [bestChoiceImage, setBestChoiceImage] = useState({});
+  const [plane, setPlane] = useState({});
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -195,44 +64,27 @@ let BestChoice = () => {
   }, [isTrackImageVisible]);
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/aboutUsBestChoiceSection")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setBestChoiceHeading(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const fetchData = async () => {
+      try {
+        const [headingRes, imageRes, planeRes] = await Promise.all([
+          fetch("https://brightlight-node.onrender.com/aboutUsBestChoiceSection"),
+          fetch("https://brightlight-node.onrender.com/bestChoice"),
+          fetch("https://brightlight-node.onrender.com/plane"),
+        ]);
 
-    fetch("https://brightlight-node.onrender.com/bestChoice")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setBestChoiceImage(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        const headingData = await headingRes.json();
+        const imageData = await imageRes.json();
+        const planeData = await planeRes.json();
 
-    fetch("https://brightlight-node.onrender.com/plane")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setPlane(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        if (headingData) setBestChoiceHeading(headingData[0]);
+        if (imageData) setBestChoiceImage(imageData[0]);
+        if (planeData) setPlane(planeData[0]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -241,21 +93,21 @@ let BestChoice = () => {
         <div className={styles.bestChoiceHeading}>
           <h2>{bestChoiceHeading?.heading}</h2>
         </div>
-           <Image height={50} width={100}
-         
-          
+        <Image
           src={plane?.image}
-          alt="err"
+          alt="Plane"
           className={styles.plane}
           style={{ top: `${planeTop}px` }}
+          width={100} // Set appropriate width
+          height={500} // Set appropriate height
         />
-           <Image height={50} width={100}
-         
-          
-          src={UpdateBestChoice}
+        <Image
+          src="/assets/best-choice-update.png"
           ref={trackImageRef}
-          alt="err"
+          alt="Track"
           className={styles.trackImage}
+          width={800} // Set appropriate width
+          height={400} // Set appropriate height
         />
       </div>
     </div>
