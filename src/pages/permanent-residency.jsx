@@ -152,7 +152,7 @@ const PermanentResidency = ({ metaData, pData }) => {
           <div className={styles.pathwayCardsParent}>
             <div className={styles.pathwayCards}>
               <Link href="/express-entry">
-                <div className={styles.imageContainer}>
+                <div className={"flex items-center justify-center"}>
                   <Image
                     src={studyVisaImg}
                     alt="Express Entry"
@@ -160,12 +160,12 @@ const PermanentResidency = ({ metaData, pData }) => {
                     width={500}
                   />
                 </div>
-                <h2>Express Entry</h2>
+                <h2 className="text-2xl font-semibold">Express Entry</h2>
               </Link>
             </div>
             <div className={styles.pathwayCards}>
               <Link href="/pilot-programs">
-                <div className={styles.imageContainer}>
+                <div className={"flex items-center justify-center"}>
                   <Image
                     src={studyVisaImg}
                     alt="Pilot Programs"
@@ -173,12 +173,12 @@ const PermanentResidency = ({ metaData, pData }) => {
                     width={500}
                   />
                 </div>
-                <h2>Pilot Programs</h2>
+                <h2 className="text-2xl font-semibold">Pilot Programs</h2>
               </Link>
             </div>
             <div className={styles.pathwayCards}>
               <Link href="/pnp">
-                <div className={styles.imageContainer}>
+                <div className={"flex items-center justify-center"}>
                   <Image
                     src={studyVisaImg}
                     alt="PNP"
@@ -186,12 +186,12 @@ const PermanentResidency = ({ metaData, pData }) => {
                     width={500}
                   />
                 </div>
-                <h2>PNP</h2>
+                <h2 className="text-2xl font-semibold">PNP</h2>
               </Link>
             </div>
             <div className={styles.pathwayCards}>
               <Link href="/rnip">
-                <div className={styles.imageContainer}>
+                <div className={"flex items-center justify-center"}>
                   <Image
                     src={studyVisaImg}
                     alt="RNIP"
@@ -199,7 +199,7 @@ const PermanentResidency = ({ metaData, pData }) => {
                     width={500}
                   />
                 </div>
-                <h2>RNIP</h2>
+                <h2 className="text-2xl font-semibold">RNIP</h2>
               </Link>
             </div>
             {/* Repeat for other cards */}

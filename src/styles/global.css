@@ -264,7 +264,8 @@ ol{
   font-size: 40px !important;
 }
 
-.navigation_button_02 .swiper-button-prev,
+.navigation_button_02,
+.swiper-button-prev,
 .swiper-button-next {
   top: auto !important;
   bottom: -60px !important;
@@ -311,7 +312,7 @@ ol{
   }
 }
 
-                                                    /* //CreativeMonk 2024// */
+/* //CreativeMonk 2024// */
 
 
 /* Custom CSS */

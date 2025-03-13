@@ -71,7 +71,7 @@ const OurProcess = () => {
             {steps.map((step, index) => (
               <div
                 key={step.id}
-                className={`p-10 rounded-4xl ${step.id % 2 === 0 ? "our-process-card-even-shadow" : "our-process-card-odd-shadow"}`}
+                className={`p-10 group hover:scale-[1.03] transition-all duration-500 rounded-4xl ${step.id % 2 === 0 ? "our-process-card-even-shadow" : "our-process-card-odd-shadow"}`}
                 onMouseEnter={() => handlePlanePosition(index)}
               >
                 <div className="relative flex items-center justify-center">
@@ -79,7 +79,7 @@ const OurProcess = () => {
                     src={step.pointer}
                     alt={`Step ${step.id}`}
                     loading="lazy"
-                    className="h-40 object-cover w-36 transform transition-all duration-500"
+                    className="h-40 object-cover w-36 transform transition-all duration-500 group-hover:-rotate-90"
                   />
                   <p className={`${step.id % 2 === 0 ? "text-[#e0b969]" : "text-[#184d79]"} text-6xl font-semibold absolute top-1/2 transform -translate-y-1/2 left-1/2 -translate-x-1/2`}>
                     {step.id}

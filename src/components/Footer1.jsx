@@ -160,14 +160,17 @@ const Footer1 = () => {
                 alt="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198"
                 title="Linkedin"
               />
-              <InstagramIcon
+              <Image
+                src={"/assets/instagram.svg"}
+                height={25}
+                width={25}
+                style={{height: "25px", width:"25px", marginBottom: "15px"}}
                 onClick={() =>
                   window.open(
                     "https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p",
                     "_blank"
                   )
                 }
-                className={styles.socialIcon}
                 alt="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
                 title="Instagram"
               />

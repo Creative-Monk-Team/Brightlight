@@ -93,6 +93,7 @@ let HomePage = () => {
     };
   }, []);
 
+  
   useEffect(() => {
     // Load data
     const fetchData = async () => {
@@ -751,7 +752,6 @@ let HomePage = () => {
                         title={simplifyData[`alt${num}`]}
                         loading="lazy"
                       // Arbitrary number, Next.js auto-adjusts it
-
                       />
                     </div>
                     <div className={styles.simplifyingContent}>
@@ -768,7 +768,7 @@ let HomePage = () => {
 
       <div className={styles.expertiseParent}>
         <div
-          className={styles.expertiseContentParent}
+          className={`relative ${styles.expertiseContentParent}`}
           ref={expertiseContentParentRef}
         >
           <div className={styles.expertiseContentHeading}>
@@ -776,7 +776,7 @@ let HomePage = () => {
             <p>{servicesData?.description}</p>
 
             <button className={styles.knowButton}>
-              <Link href="/more-services">Know More</Link>
+              <a href="/more-services">Know More</a>
             </button>
           </div>
           <div
@@ -808,12 +808,12 @@ let HomePage = () => {
                   <div className={styles.expertiseDiv}>
                     <h4>{item.title}</h4>
                     <p>{item.desc}</p>
-                    <Link
+                    <a
                       className={styles.expertiseKnowMore}
                       href={link(item.title)}
                     >
                       Know More
-                    </Link>
+                    </a>
                   </div>
                 </SwiperSlide>
               ))}
@@ -827,10 +827,7 @@ let HomePage = () => {
             </div>
           </div>
 
-          <div
-            className={`${styles.navigationButtons} navigation_button_02`}
-
-          >
+          <div className={`absolute w-[12%] -bottom-5 left-1/2 transform -translate-x-1/2 flex flex-row-reverse`}>
             <div className="swiper-button-prev"></div>
             <div className="swiper-button-next"></div>
           </div>

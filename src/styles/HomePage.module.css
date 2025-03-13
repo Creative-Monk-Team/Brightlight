@@ -1209,7 +1209,7 @@
 .navigationButtons {
   display: flex;
   justify-content: center; /* Center the buttons horizontally */
-  margin-top: 20px; /* Adds space between the Swiper and buttons */
+  /* margin-top: 20px; Adds space between the Swiper and buttons */
 }
 
 .swiper-button-prev,

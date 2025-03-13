@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Navbar1.module.css";
-import IconGear from "../assets/gearIcon.svg";
-import RightArrow from "../assets/rightArrow.svg";
-import PhoneIcon from "../assets/phoneIcon.svg";
+import IconGear  from "../assets/gearIcon.svg";
+import RightArrow  from "../assets/rightArrow.svg";
+import PhoneIcon  from "../assets/phoneIcon.svg";
 import BrightlightBlueLogo from "../assets/brlightlight-icon.webp";
 import LocationIcon from "../assets/location-white.png";
 import EmailIcon from "../assets/mail-white.png";
 import EmailBlue from "../assets/mailBlue.png";
 import LocationBlue from "../assets/locationBlue.png";
-import Search from "../assets/search.svg";
-import TikTokIcon from "../assets/tiktok.svg";
-import LinkedInIcon from "../assets/linkedin.svg";
-import InstagramIcon from "../assets/instagram2.svg";
-import FacebookIcon from "../assets/facebook.svg";
-import YouTubeIcon from "../assets/youtube.svg";
+import Search  from "../assets/search.svg";
+import TikTokIcon  from "../assets/tiktok.svg";
+import LinkedInIcon  from "../assets/linkedin.svg";
+import InstagramIcon  from "../assets/instagram.svg";
+import FacebookIcon  from "../assets/facebook.svg";
+import YouTubeIcon  from "../assets/youtube.svg";
 import Facebookblue from "../assets/facebookBlue.png";
 import Youtubeblue from "../assets/youtubeBlue.png";
 import Instagramblue from "../assets/instagramBlue.png";
@@ -24,7 +24,6 @@ import hamBurgerIconBlue from "../assets/hamBurgerIconBlue.svg";
 import whiteLogo from "../assets/brightlight-logo-white.png";
 import Link from "next/link";
 import Image from "next/image";
-import { FaInstagram } from "react-icons/fa6";
 
 const Navbar1 = (props) => {
   const [inputValue, setInputValue] = useState("");
@@ -41,6 +40,49 @@ const Navbar1 = (props) => {
   const [isFederalSkilledProgramOpen, setIsFederalSkilledProgramOpen] =
     useState(false);
 
+  const [isFederalSkilledOpenTwo, setIsFederalSkilledOpenTwo] = useState(false);
+  const [isFederalSkilledProgramOpenTwo, setIsFederalSkilledProgramOpenTwo] =
+    useState(false);
+
+  const [isFederalSkilledOpenThree, setIsFederalSkilledOpenThree] =
+    useState(false);
+  const [isFederalSkilledProgramOpenFour, setIsFederalSkilledProgramOpenFour] =
+    useState(false);
+
+  const [isFederalSkilledProgramOpenFive, setIsFederalSkilledProgramOpenFive] =
+    useState(false);
+
+  const [isFederalSkilledProgramOpenSix, setIsFederalSkilledProgramOpenSix] =
+    useState(false);
+
+  const [
+    isFederalSkilledProgramOpenSeven,
+    setIsFederalSkilledProgramOpenSeven,
+  ] = useState(false);
+
+  const [
+    isFederalSkilledProgramOpenEight,
+    setIsFederalSkilledProgramOpenEight,
+  ] = useState(false);
+
+  const [isFederalSkilledProgramOpenNine, setIsFederalSkilledProgramOpenNine] =
+    useState(false);
+
+  const [isFederalSkilledProgramOpenTen, setIsFederalSkilledProgramOpenTen] =
+    useState(false);
+
+  const [isFederalSkilledProgramOpenEl, setIsFederalSkilledProgramOpenEl] =
+    useState(false);
+
+  const [isFederalSkilledProgramOpenTw, setIsFederalSkilledProgramOpenTw] =
+    useState(false);
+
+  const [isFederalSkilledProgramOpenTh, setIsFederalSkilledProgramOpenTh] =
+    useState(false);
+
+  const [isFederalSkilledProgramOpenFt, setIsFederalSkilledProgramOpenFt] =
+    useState(false);
+
   const toggleFederalSkilled = (e) => {
     e.preventDefault();
     setIsFederalSkilledOpen(!isFederalSkilledOpen);
@@ -49,6 +91,59 @@ const Navbar1 = (props) => {
   const toggleFederalSkilledProgram = (e) => {
     e.preventDefault();
     setIsFederalSkilledProgramOpen(!isFederalSkilledProgramOpen);
+  };
+  const toggleFederalSkilledProgramTwo = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenTwo(!isFederalSkilledProgramOpenTwo);
+  };
+  const toggleFederalSkilledProgramThree = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledOpenThree(!isFederalSkilledOpenThree);
+  };
+  const toggleFederalSkilledProgramFour = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenFour(!isFederalSkilledProgramOpenFour);
+  };
+  const toggleFederalSkilledProgramFive = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenFive(!isFederalSkilledProgramOpenFive);
+  };
+  const toggleFederalSkilledProgramSix = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenSix(!isFederalSkilledProgramOpenSix);
+  };
+  const toggleFederalSkilledProgramSeven = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenSeven(!isFederalSkilledProgramOpenSeven);
+  };
+  const toggleFederalSkilledProgramEight = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenEight(!isFederalSkilledProgramOpenEight);
+  };
+  const toggleFederalSkilledProgramNine = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenNine(!isFederalSkilledProgramOpenNine);
+  };
+  const toggleFederalSkilledProgramTen = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenTen(!isFederalSkilledProgramOpenTen);
+  };
+
+  const toggleFederalSkilledProgramEl = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenEl(!isFederalSkilledProgramOpenEl);
+  };
+  const toggleFederalSkilledProgramTw = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenTw(!isFederalSkilledProgramOpenTw);
+  };
+  const toggleFederalSkilledProgramTh = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenTh(!isFederalSkilledProgramOpenTh);
+  };
+  const toggleFederalSkilledProgramFt = (e) => {
+    e.preventDefault();
+    setIsFederalSkilledProgramOpenFt(!isFederalSkilledProgramOpenFt);
   };
   const { showBlue } = props;
   let [hideContactNavbar, setHideContactNavbar] = useState(false);
@@ -63,11 +158,31 @@ const Navbar1 = (props) => {
   let [showNestedDropdown5, setShowNestedDropdown5] = useState(false);
   let [showNestedDropdown6, setShowNestedDropdown6] = useState(false);
   let [showNestedDropdown7, setShowNestedDropdown7] = useState(false);
+  let [showNestedDropdown8, setShowNestedDropdown8] = useState(false);
+  let [showNestedDropdown9, setShowNestedDropdown9] = useState(false);
+  let [showNestedDropdown10, setShowNestedDropdown10] = useState(false);
+  let [showNestedDropdown11, setShowNestedDropdown11] = useState(false);
+  let [showNestedDropdown12, setShowNestedDropdown12] = useState(false);
+  let [showNestedDropdown13, setShowNestedDropdown13] = useState(false);
   let [doubleNested1, setDoubleNested1] = useState(false);
   let [doubleNested2, setDoubleNested2] = useState(false);
   let [doubleNested3, setDoubleNested3] = useState(false);
   let [doubleNested4, setDoubleNested4] = useState(false);
   let [doubleNested7, setDoubleNested7] = useState(false);
+  let [showHamburgerServicesDropdown, setShowHamburgerServicesDropdown] =
+    useState(false);
+  const dropdownRef = useRef(null);
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //       setShowHamburgerServicesDropdown(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
 
   useEffect(() => {
     let handleScroll = () => {
@@ -123,7 +238,6 @@ const Navbar1 = (props) => {
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
-
   return (
     <>
       <div className={styles.navbar}>
@@ -176,31 +290,16 @@ const Navbar1 = (props) => {
         >
           <div className={styles.secondNavbar}>
             <Link href="/" className={`${styles.logo} ${styles.logoDesktop}`}>
-              <Image
-                height={50}
-                width={100} // Arbitrary number, Next.js auto-adjusts it
-                src={BrightlightBlueLogo}
-                alt="Brightlight Blue Logo"
-              />
+                 <Image height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
             </Link>
 
             {showBlue ? (
               <Link href="/" className={`${styles.logo} ${styles.logoMobile}`}>
-                <Image
-                  height={50}
-                  width={100} // Arbitrary number, Next.js auto-adjusts it
-                  src={BrightlightBlueLogo}
-                  alt="Brightlight Blue Logo"
-                />
+                   <Image height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
               </Link>
             ) : (
               <Link href="/" className={`${styles.logo} ${styles.logoMobile}`}>
-                <Image
-                  height={50}
-                  width={100} // Arbitrary number, Next.js auto-adjusts it
-                  src={whiteLogo}
-                  alt="Brightlight Blue Logo"
-                />
+                   <Image height={50} width={100} src={whiteLogo} alt="Brightlight Blue Logo" />
               </Link>
             )}
 
@@ -210,7 +309,7 @@ const Navbar1 = (props) => {
               </Link>
               <div className={styles.relativeDiv}>
                 <Link
-                  href="#"
+                  href="/more-services"
                   onMouseEnter={() => setShowServicesDropdown(true)}
                   onMouseLeave={() => setShowServicesDropdown(false)}
                 >
@@ -259,17 +358,44 @@ const Navbar1 = (props) => {
                           onMouseEnter={() => setDoubleNested3(true)}
                           onMouseLeave={() => setDoubleNested3(false)}
                         >
-                          <Link href="/federal-skilled-worker-program">
-                            FSWP
-                          </Link>
-                          <Link href="/federal-skilled-trades-program">
-                            FSTP
-                          </Link>
+                          <Link href="/federal-skilled-worker-program">FSWP</Link>
+                          <Link href="/federal-skilled-trades-program">FSTP</Link>
                           <Link href="/canadian-experience-class">CEC</Link>
-                          <Link href="/category-based">Category Based</Link>
-                          <Link href="/transport-occupation">
-                            Transport Occupations
-                          </Link>
+                          <div
+                            className={`${styles.relativeDiv} ${styles.flex}`}
+                          >
+                            <Link
+                              href="/category-based"
+                              onMouseEnter={() => setShowNestedDropdown7(true)}
+                              onMouseLeave={() => setShowNestedDropdown7(false)}
+                            >
+                              Category Based
+                            </Link>
+                            <div
+                              className={`${styles.doubleNested} ${
+                                showNestedDropdown7 ? styles.showNested : null
+                              }`}
+                              onMouseEnter={() => setShowNestedDropdown7(true)}
+                              onMouseLeave={() => setShowNestedDropdown7(false)}
+                            >
+                              <Link href="/french-targeted-draw">
+                                French Language Proficiency
+                              </Link>
+                              <Link href="/healthcare-targeted-draw">
+                                Healthcare Occupations
+                              </Link>
+                              <Link href="/stem-targeted-draw">STEM Occupations</Link>
+                              <Link href="/trade-occupation-targeted-draw">
+                                Trade Occupations
+                              </Link>
+                              <Link href="/transport-occupation-targeted-draw">
+                                Transport Occupation Targeted Draws
+                              </Link>
+                              <Link href="/agriculture-agri-food-occupation">
+                                Agriculture and Agri-Food Occupation
+                              </Link>
+                            </div>
+                          </div>
                         </div>
                       </div>
 
@@ -289,9 +415,7 @@ const Navbar1 = (props) => {
                           onMouseEnter={() => setDoubleNested4(true)}
                           onMouseLeave={() => setDoubleNested4(false)}
                         >
-                          <Link href="/agri-food-pilot-program">
-                            Agri Food Pilot
-                          </Link>
+                          <Link href="/agri-food-pilot-program">Agri Food Pilot</Link>
                         </div>
                       </div>
 
@@ -310,9 +434,43 @@ const Navbar1 = (props) => {
                           onMouseEnter={() => setDoubleNested7(true)}
                           onMouseLeave={() => setDoubleNested7(false)}
                         >
-                          <Link href="/bridging-open-work-permit-lp">
-                            BCPNP
-                          </Link>
+                          <div
+                            className={`${styles.relativeDiv} ${styles.flex}`}
+                          >
+                            <Link
+                              href="/bc-pnp"
+                              onMouseEnter={() => setShowNestedDropdown(true)}
+                              onMouseLeave={() => setShowNestedDropdown(false)}
+                            >
+                              BCPNP
+                            </Link>
+                            <div
+                              className={`${styles.doubleNested} ${
+                                showNestedDropdown ? styles.showNested : null
+                              }`}
+                              onMouseEnter={() => setShowNestedDropdown(true)}
+                              onMouseLeave={() => setShowNestedDropdown(false)}
+                            >
+                              <Link href="/skilled-worker-stream">
+                                Skilled Worker
+                              </Link>
+                              <Link href="/health-authority-stream">
+                                Health Authority
+                              </Link>
+                              <Link href="/entry-level-semi-skilled">
+                                Entry Level and Semi-Skilled (ELSS)
+                              </Link>
+                              <Link href="/international-graduate-program">
+                                International Graduate
+                              </Link>
+                              <Link href="/international-post-graduate-program">
+                                International Post-Graduate
+                              </Link>
+                              <Link href="/priorities-program">
+                                Program Priorities
+                              </Link>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div>
@@ -323,7 +481,7 @@ const Navbar1 = (props) => {
 
                   <div className={`${styles.relativeDiv} ${styles.flex}`}>
                     <Link
-                      href="/temporary-resident-permit-draft"
+                      href="/temporary-resident"
                       onMouseEnter={() => setShowNestedDropdown2(true)}
                       onMouseLeave={() => setShowNestedDropdown2(false)}
                     >
@@ -359,7 +517,7 @@ const Navbar1 = (props) => {
                             Business Visitor Visa
                           </Link>
                           <Link href="/dual-intent-visa">Dual Intent Visa</Link>
-                          <Link href="/super-visa">Super Visa</Link>
+                          {/* <Link href="/super-visa">Super Visa</Link> */}
                           <Link href="/reconsideration">
                             Reconsideration for Refusal
                           </Link>
@@ -387,7 +545,7 @@ const Navbar1 = (props) => {
                             setDoubleNestedSpousalPermit(false)
                           }
                         >
-                          Spousal Permit
+                          Spousal Open Work Permit
                         </Link>
                         <div
                           className={`${styles.doubleNested} ${
@@ -400,14 +558,17 @@ const Navbar1 = (props) => {
                             setDoubleNestedSpousalPermit(false)
                           }
                         >
-                          <Link href="/spousal-open-work-permit">
-                            For Spouse of Worker
+                          <Link href="/common-law-partner-temporary">
+                            Open Work Permit - For Spouse of Worker
                           </Link>
-                          <Link href="/international-graduate-program">
-                            For Spouse of Student
+                          <Link href="/cby">
+                            Open Work Permit - For Spouse of Student
                           </Link>
-                          <Link href="/open-work-permit">
+                          <Link href="/open-work-permit-for-spouse-inland">
                             PR Open Work Permit, Inland
+                          </Link>
+                          <Link href="/francophone-mobility-program">
+                            Francophone Mobility Program
                           </Link>
                           {/* <Link href="/cby">Cby</Link> */}
                         </div>
@@ -433,7 +594,7 @@ const Navbar1 = (props) => {
                       {/* Outside Canada with subheadings */}
                       <div className={`${styles.relativeDiv} ${styles.flex}`}>
                         <Link
-                          href="/outside-cananda"
+                          href="/outside-canada"
                           onMouseEnter={() =>
                             setDoubleNestedOutsideCanada(true)
                           }
@@ -479,19 +640,15 @@ const Navbar1 = (props) => {
                             setDoubleNestedInsideCanada(false)
                           }
                         >
-                          <Link href="/change-college-program">
-                            Change of College Program
-                          </Link>
-                          <Link href="/visitor-to-student">
-                            Visitor to Student
-                          </Link>
+                          <Link href="/visitor-to-student">Visitor to Student</Link>
+                          <Link href="/change-college-program">DLI Change</Link>
+                          {/* <Link href="#">Admission</Link> */}
+                          {/* <Link href="#">Transfer DLI</Link> */}
                         </div>
                       </div>
 
                       {/* Other menu items */}
-                      <Link href="/study-permit-minors">
-                        Study Permit Minors
-                      </Link>
+                      <Link href="/study-permit-minors">Study Permit For Minor</Link>
                     </div>
                   </div>
                   {/*  */}
@@ -503,7 +660,7 @@ const Navbar1 = (props) => {
                       onMouseEnter={() => setShowNestedDropdown4(true)}
                       onMouseLeave={() => setShowNestedDropdown4(false)}
                     >
-                      Family Reunification
+                      Family Reunification & Sponsorship
                     </Link>
                     <div
                       className={`${styles.permanentNestedSection} ${
@@ -512,14 +669,33 @@ const Navbar1 = (props) => {
                       onMouseEnter={() => setShowNestedDropdown4(true)}
                       onMouseLeave={() => setShowNestedDropdown4(false)}
                     >
-                      <Link href="/spousal-open-work-permit">
-                        Spousal Permit
-                      </Link>
+                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
+                        <Link
+                          href="/spouse-common-law-sponsership"
+                          onMouseEnter={() => setShowNestedDropdown8(true)}
+                          onMouseLeave={() => setShowNestedDropdown8(false)}
+                        >
+                          Spousal Sponsorship
+                        </Link>
+                        <div
+                          className={`${styles.permanentNestedSection} ${
+                            showNestedDropdown8 ? styles.showNested : null
+                          }`}
+                          onMouseEnter={() => setShowNestedDropdown8(true)}
+                          onMouseLeave={() => setShowNestedDropdown8(false)}
+                        >
+                          <Link href="/spouse-inland">Inside Canada</Link>
+                          <Link href="/spouse-outland">Outside Canada</Link>
+                          <Link href="/same-sex">Same Sex</Link>
+                        </div>
+                      </div>
+
+                      <Link href="/ParentsGrandparents">Parents / Grandparents</Link>
                       <Link href="/dependent-children">Dependent Children</Link>
                       <Link href="/humanitarian-compassionate">H & C</Link>
                       <Link href="/orphan">Orphan</Link>
                       <Link href="/adoption">Adoption</Link>
-                      {/* <Link href="/spouse">Spouse</Link> */}
+                      <Link href="/lonely-canadian">Lonely Canadian</Link>
                     </div>
                   </div>
 
@@ -529,11 +705,11 @@ const Navbar1 = (props) => {
 
                   <div className={`${styles.relativeDiv} ${styles.flex}`}>
                     <Link
-                      href="/parents-grandparents"
+                      href="/work-permit"
                       onMouseEnter={() => setShowNestedDropdown5(true)}
                       onMouseLeave={() => setShowNestedDropdown5(false)}
                     >
-                      Parents and Grandparents
+                      Work Permit
                     </Link>
                     <div
                       className={`${styles.permanentNestedSection} ${
@@ -548,11 +724,11 @@ const Navbar1 = (props) => {
                     >
                       <div className={`${styles.relativeDiv} ${styles.flex}`}>
                         <Link
-                          href="#"
+                          href="/lmia-reviewed"
                           onMouseEnter={() => setDoubleNested1(true)}
                           onMouseLeave={() => setDoubleNested1(false)}
                         >
-                          Work Permit
+                          LMIA
                         </Link>
                         <div
                           className={`${styles.doubleNested} ${
@@ -561,19 +737,24 @@ const Navbar1 = (props) => {
                           onMouseEnter={() => setDoubleNested1(true)}
                           onMouseLeave={() => setDoubleNested1(false)}
                         >
-                          <Link href="/open-work-permit">Open Work Permit</Link>
-                          <Link href="/bridging-open-work-permit-lp">BOWP</Link>
-                          <Link href="/pgwp">PGWP</Link>
+                          <Link href="/low-wage-lmia">High Wage / Low Wage</Link>
+                          <Link href="/agriculture-stream-lmia">Agriculture</Link>
+                          {/* <Link href="#">PR Supporting</Link> */}
+                          <Link href="/global-stream-lmia">Global Talent Stream</Link>
+                          <Link href="/in-home-caregiver-program-lp">
+                            Caregiver LMIA
+                          </Link>
                         </div>
                       </div>
+
                       {/* // */}
                       <div className={`${styles.relativeDiv} ${styles.flex}`}>
                         <Link
-                          href="#"
+                          href="/open-work-permit"
                           onMouseEnter={() => setDoubleNested2(true)}
                           onMouseLeave={() => setDoubleNested2(false)}
                         >
-                          LMIA{" "}
+                          Open Work Permit{" "}
                         </Link>
                         <div
                           className={`${styles.doubleNested} ${
@@ -582,23 +763,158 @@ const Navbar1 = (props) => {
                           onMouseEnter={() => setDoubleNested2(true)}
                           onMouseLeave={() => setDoubleNested2(false)}
                         >
-                          <Link href="/low-wage-lmia">Low Wage Lmia</Link>
-                          <Link href="/agriculture-stream-lmia">
-                            Seasonal Agricultural
+                          <Link href="/bridging-open-work-permit-lp">
+                            BOWP – Bridging Open Work Permit
                           </Link>
-                          <Link href="/global-stream-lmia">Global Talent</Link>
-                          <Link href="/pathways-for-caregiver">Caregiver</Link>
+                          <Link href="/pgwp">
+                            PGWP – Post Graduate Open Work Permit
+                          </Link>
+                          <Link href="/spousal-open-work-permit">
+                            SOWP – Spousal Open Work Permit
+                          </Link>
+                          <Link href="/francophone-mobility-program">
+                            Francophone Mobility Program
+                          </Link>
+                          <Link href="/open-work-vulnerable-lp">
+                            Vulnerable Worker
+                          </Link>
+                          <Link href="/openWork-dependent-children">
+                            Dependent Child of Worker
+                          </Link>
                         </div>
                       </div>
-                      {/* // */}
+                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
+                        <Link
+                          href="/spouse-common-law-sponsership"
+                          onMouseEnter={() => setShowNestedDropdown10(true)}
+                          onMouseLeave={() => setShowNestedDropdown10(false)}
+                        >
+                          Spousal Permit
+                        </Link>
+                        <div
+                          className={`${styles.doubleNested} ${
+                            showNestedDropdown10 ? styles.showNested : null
+                          }`}
+                          onMouseEnter={() => setShowNestedDropdown10(true)}
+                          onMouseLeave={() => setShowNestedDropdown10(false)}
+                        >
+                          <Link href="/spousal-open-work-permit">
+                            Open Work Permit - For Spouse of Worker
+                          </Link>
+                          <Link href="/cby">
+                            Open Work Permit - For Spouse of Student
+                          </Link>
+                          <Link href="/open-work-permit">
+                            Open Work Permit - For Spouse of PR
+                          </Link>
+                          {/* <Link href="/cby">Cby</Link> */}
+                        </div>
+                      </div>
+                      <Link href="/francophone-mobility-program">
+                        Francophone Mobility Program
+                      </Link>
+                    </div>
+                  </div>
+                  <Link href="/lmia-reviewed">LMIA</Link>
+                  <Link href="/francophone-mobility-program">
+                    Francophone Mobility Program
+                  </Link>
+                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
+                    <Link
+                      href="/pathways-for-caregiver"
+                      onMouseEnter={() => setShowNestedDropdown9(true)}
+                      onMouseLeave={() => setShowNestedDropdown9(false)}
+                    >
+                      Caregiver
+                    </Link>
+                    <div
+                      className={`${styles.permanentNestedSection} ${
+                        showNestedDropdown9 ? styles.showNested : null
+                      }`}
+                      onMouseEnter={() => {
+                        setShowNestedDropdown9(true);
+                      }}
+                      onMouseLeave={() => {
+                        setShowNestedDropdown9(false);
+                      }}
+                    >
+                      <Link href="/in-home-caregiver-program-lp">
+                        Inside - With LMIA
+                      </Link>
+                      <Link href="/permanent-residence-pathways-caregivers-lp">
+                        PR Pathways for Care-Giver
+                      </Link>
+                      {/* <div className={`${styles.relativeDiv} ${styles.flex}`}>
+                        <Link
+                          onMouseEnter={() => setShowNestedDropdown10(true)}
+                          onMouseLeave={() => setShowNestedDropdown10(false)}
+                        >
+                          Outside
+                        </Link>
+                        <div
+                          className={`${styles.permanentNestedSection} ${
+                            showNestedDropdown10 ? styles.showNested : null
+                          }`}
+                          onMouseEnter={() => {
+                            setShowNestedDropdown10(true);
+                          }}
+                          onMouseLeave={() => {
+                            setShowNestedDropdown10(false);
+                          }}
+                        >
+                          <Link>Home Child Care Provider Pilot</Link>
+                          <Link>Home Support Worker</Link>
+                        </div>
+                      </div> */}
+                    </div>
+                  </div>
+                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
+                    <Link href="/pr-renewal">PR Renewal</Link>
+                    <div
+                      className={`${styles.permanentNestedSection} ${
+                        showNestedDropdown11 ? styles.showNested : null
+                      }`}
+                    >
                       <Link href="/pr-renewal">PR Renewal</Link>
+                    </div>
+                  </div>
+                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
+                    <Link href="/citizenship">Citizenship</Link>
+                    <div
+                      className={`${styles.permanentNestedSection} ${
+                        showNestedDropdown12 ? styles.showNested : null
+                      }`}
+                    >
                       <Link href="/citizenship">Citizenship</Link>
                     </div>
                   </div>
                   <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link href="/previous-draw-history">
-                      Prevoius Draw History
+                    <Link
+                      href="#"
+                      onMouseEnter={() => setShowNestedDropdown13(true)}
+                      onMouseLeave={() => setShowNestedDropdown13(false)}
+                    >
+                      Other Services
                     </Link>
+                    <div
+                      className={`${styles.permanentNestedSection} ${
+                        showNestedDropdown13 ? styles.showNested : null
+                      }`}
+                      onMouseEnter={() => {
+                        setShowNestedDropdown13(true);
+                      }}
+                      onMouseLeave={() => {
+                        setShowNestedDropdown13(false);
+                      }}
+                    >
+                      <Link href="/reconsideration">
+                        Reconsideration of Refusal Decision
+                      </Link>
+                      <Link href="/additional-document">
+                        Additional Document Request
+                      </Link>
+                      <Link href="/reply-to-pfl-page">PFL</Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -607,7 +923,7 @@ const Navbar1 = (props) => {
               <Link href="/blogs">BLOGS</Link>
 
               {/* NEWS */}
-              {/*<Link href="/news">NEWS</Link>*/}
+              {/* <Link href="/news">NEWS</Link> */}
 
               {/* CALCULATORS Menu with Dropdown */}
               <div className={styles.relativeDiv}>
@@ -627,9 +943,10 @@ const Navbar1 = (props) => {
                   onMouseEnter={() => setShowCalculatorsDropdown(true)}
                   onMouseLeave={() => setShowCalculatorsDropdown(false)}
                 >
-                  <Link href="/federal-skilled">FSW Calculator</Link>
+                  <Link href="/federal-skilled">FSWP Calculator</Link>
                   <Link href="/clb-ilets-calculator">CLB Calculator</Link>
                   <Link href="/bcpnp-calculator">BCPNP Calculator</Link>
+                  <Link href="/previous-draw-history">Previous Draws History</Link>
                 </div>
               </div>
 
@@ -663,10 +980,8 @@ const Navbar1 = (props) => {
             {/* Hamburger Icon */}
             <div className={styles.hamburger} onClick={toggleSidebar}>
               {/* &#9776; */}{" "}
-              <Image
-                height={50}
-                width={100} // Arbitrary number, Next.js auto-adjusts it
-                src={"https://www.svgrepo.com/show/493683/hamburger-2-menu-mobile.svg"}
+                 <Image height={50} width={100}
+                src={showBlue ? hamBurgerIconBlue : hamBurgerIconWhite}
                 className={styles.hamburgerColoredIcon}
                 alt="wee"
               />
@@ -682,70 +997,145 @@ const Navbar1 = (props) => {
             {/* ///// */}
             <div className={styles.sidebarContent}>
               <div className={styles.closeBtn} onClick={toggleSidebar}>
-                <Image height={30} width={30} src={"https://www.svgrepo.com/show/474223/close-circle.svg"}/>
+                &times;
               </div>
               <Link href="/" className={styles.sidebarLink}>
                 HOME
               </Link>
               <div className={styles.dropdown}>
-                <Link href="#" className={styles.dropbtn}>
+                <Link
+                  href="#"
+                  className={styles.dropbtn}
+                  onClick={() =>
+                    setShowHamburgerServicesDropdown(
+                      !showHamburgerServicesDropdown
+                    )
+                  }
+                  ref={dropdownRef}
+                >
                   SERVICES
                   <span className={styles.arrow}>▼</span>
                 </Link>
-                <div className={styles.dropdownContent}>
+                <div
+                  className={styles.dropdownContent}
+                  style={
+                    showHamburgerServicesDropdown
+                      ? { display: "block" }
+                      : { display: "none" }
+                  }
+                >
                   {/* Federal Skilled with Clickable Dropdown */}
                   <div className={styles.subDropdown}>
-                    <Link href="/permanent-residency" onClick={toggleFederalSkilled}>
+                    <Link href="#" onClick={toggleFederalSkilled}>
                       Permanent Residency
                       <span className={styles.arrow}>▼</span>
                     </Link>
                     {isFederalSkilledOpen && (
                       <div className={styles.subDropdownContent}>
                         <div className={styles.subSubDropdown}>
-                          <Link href="/permanent-residency">
-                            Permanent Residency
-                          </Link>
-                          <Link
-                            href="/express-entry"
-                            onClick={toggleFederalSkilledProgram}
-                          >
+                          <Link href="/permanent-residency">Permanent Residency</Link>
+                          <Link href="#" onClick={toggleFederalSkilledProgram}>
                             Express Entry
                             <span className={styles.arrow}>▼</span>
                           </Link>
                           {isFederalSkilledProgramOpen && (
                             <div className={styles.subSubDropdownContent}>
                               <Link href="/express-entry">Express Entry</Link>
-                              <Link href="/federal-skilled-worker-program">
-                                FSWP
-                              </Link>
-                              <Link href="/federal-skilled-trades-program">
-                                FSTP
-                              </Link>
+                              <Link href="/federal-skilled-worker-program">FSWP</Link>
+                              <Link href="/federal-skilled-trades-program">FSTP</Link>
                               <Link href="/canadian-experience-class">CEC</Link>
-                              <Link href="/category-based">Category Based</Link>
-                              <Link href="/transport-occupation">
-                                Transport Occupations
+                              <Link
+                                href="#"
+                                onClick={toggleFederalSkilledProgramTwo}
+                              >
+                                Category Based{" "}
+                                <span className={styles.arrow}>▼</span>
                               </Link>
+                              {isFederalSkilledProgramOpenTwo && (
+                                <div className={styles.subSubDropdownContent}>
+                                  <Link href="/category-based">Category Based</Link>
+                                  <Link href="/french-targeted-draw">
+                                    French Language Proficiency
+                                  </Link>
+                                  <Link href="/healthcare-targeted-draw">
+                                    Healthcare Occupations
+                                  </Link>
+                                  <Link href="/stem-targeted-draw">
+                                    STEM Occupationss
+                                  </Link>
+                                  <Link href="/trade-occupation-targeted-draw">
+                                    Trade Occupations
+                                  </Link>
+                                  <Link href="/transport-occupation-targeted-draw">
+                                    Transport Occupation Targeted Draws
+                                  </Link>
+                                  <Link href="/agriculture-agri-food-occupation">
+                                    Agriculture and Agri-Food Occupation
+                                  </Link>
+                                </div>
+                              )}
                             </div>
                           )}
                         </div>
                         <div className={styles.subSubDropdown}>
-                          <Link href="#" onClick={toggleFederalSkilledProgram}>
+                          <Link
+                            href="#"
+                            onClick={toggleFederalSkilledProgramThree}
+                          >
                             Pilot Programs
                             <span className={styles.arrow}>▼</span>
                           </Link>
-                          {isFederalSkilledProgramOpen && (
+                          {isFederalSkilledOpenThree && (
                             <div className={styles.subSubDropdownContent}>
-                              <Link href="/pilot-programs">Pilot Programs</Link>
                               <Link href="/agri-food-pilot-program">
                                 Agri Food Pilot
                               </Link>
+                              <Link href="/pilot-programs"> Pilot Programs</Link>
                             </div>
                           )}
                         </div>
-                        <div>
-                          <Link href="/rnip">RNIP</Link>
+                        <div className={styles.subSubDropdown}>
+                          <Link href="#" onClick={toggleFederalSkilledProgramFour}>
+                            PNP
+                            <span className={styles.arrow}>▼</span>
+                          </Link>
+                          {isFederalSkilledProgramOpenFour && (
+                            <div className={styles.subSubDropdownContent}>
+                              <Link
+                                href="#"
+                                onClick={toggleFederalSkilledProgramFive}
+                              >
+                                BCPNP
+                                <span className={styles.arrow}>▼</span>
+                              </Link>
+                              {isFederalSkilledProgramOpenFive && (
+                                <div className={styles.subSubDropdownContent}>
+                                  <Link href="/pnp">PNP</Link>
+                                  <Link href="/bc-pnp">BCPNP</Link>
+                                  <Link href="/skilled-worker-stream">
+                                    Skilled Worker
+                                  </Link>
+                                  <Link href="/health-authority-stream">
+                                    Health Authority
+                                  </Link>
+                                  <Link href="/entry-level-semi-skilled">
+                                    Entry Level and Semi-Skilled (ELSS)
+                                  </Link>
+                                  <Link href="/international-graduate-program">
+                                    International Graduate
+                                  </Link>
+                                  <Link href="/international-post-graduate-program">
+                                    International Post-Graduate
+                                  </Link>
+                                  <Link href="/priorities-program">
+                                    Program Priorities
+                                  </Link>
+                                </div>
+                              )}
+                            </div>
+                          )}
                         </div>
+                        <Link href="/rnip">RNIP</Link>
                       </div>
                     )}
                   </div>
@@ -758,9 +1148,7 @@ const Navbar1 = (props) => {
                     </Link>
                     {isTemporaryResidencyOpen && (
                       <div className={styles.subDropdownContent}>
-                        <Link href="/temporary-resident-permit-draft">
-                          Temporary Residency
-                        </Link>
+                        <Link href="/temporary-resident">Temporary Residency</Link>
                         <Link href="/super-visa">Super Visa</Link>
 
                         <div className={styles.subSubDropdown}>
@@ -771,12 +1159,9 @@ const Navbar1 = (props) => {
                           {isVisitorVisaOpen && (
                             <div className={styles.subSubDropdownContent}>
                               <Link href="/visitor-visa">Visitor Visa</Link>
-                              <Link href="/business-visitor-visa">
-                                Business Visitor Visa
-                              </Link>
-                              <Link href="/dual-intent-visa">
-                                Dual Intent Visa
-                              </Link>
+                              <Link href="/business-visitor-visa">Business Visa</Link>
+                              <Link href="/dual-intent-visa">Dual Intent Visa</Link>
+                              {/* <Link href="#">Super Visa</Link> */}
                               <Link href="/reconsideration">
                                 Reconsideration for Refusal
                               </Link>
@@ -787,27 +1172,25 @@ const Navbar1 = (props) => {
                         <Link href="/temporary-resident-permit-draft">
                           Temporary Resident Permits
                         </Link>
-                        <Link href="/restoration-status-draft">
-                          Restoration
-                        </Link>
+                        <Link href="/restoration-status-draft">Restoration</Link>
                         <Link href="/extensions-draft">Extend Stay</Link>
                         <Link href="/flagpoling">Flagpoling</Link>
 
                         <div className={styles.subSubDropdown}>
                           <Link href="#" onClick={toggleSpousalPermit}>
-                            Spousal Permit
+                            Spousal Open Work Permit
                             <span className={styles.arrow}>▼</span>
                           </Link>
                           {isSpousalPermitOpen && (
                             <div className={styles.subSubDropdownContent}>
-                              <Link href="/spousal-open-work-permit">
-                                For Spouse of Worker
+                              <Link href="/common-law-partner-temporary">
+                                Open Work Permit - For Spouse of Worker
                               </Link>
-                              <Link href="/international-graduate-program">
-                                For Spouse of Student
+                              <Link href="/cby">
+                                Open Work Permit - For Spouse of Student
                               </Link>
                               <Link href="/open-work-permit">
-                                PR Open Work Permit, Inland
+                                Open Work Permit - For Spouse of PR
                               </Link>
                             </div>
                           )}
@@ -834,7 +1217,7 @@ const Navbar1 = (props) => {
                             <div className={styles.subSubDropdownContent}>
                               <Link href="/outside-canada">Outside Canada</Link>
                               <Link href="/sds">SDS</Link>
-                              <Link href="/non-sds">NON SDS</Link>
+                              <Link href="/non-sds">Non SDS</Link>
                             </div>
                           )}
                         </div>
@@ -847,19 +1230,17 @@ const Navbar1 = (props) => {
                           {isInsideCanadaOpen && (
                             <div className={styles.subSubDropdownContent}>
                               <Link href="/inside-canada">Inside Canada</Link>
-                              <Link href="/change-college-program">
-                                Change of College Program
-                              </Link>
                               <Link href="/visitor-to-student">
-                                Visitor to Student
+                                Visitor To Student
                               </Link>
+                              <Link href="/change-college-program">DLI Change</Link>
+                              {/* <Link href="#">Admission</Link>
+                              <Link href="#">Transfer DLI</Link> */}
                             </div>
                           )}
                         </div>
 
-                        <Link href="/study-permit-minors">
-                          Study Permit Minors
-                        </Link>
+                        <Link href="/study-permit-minors">Study Permit Minors</Link>
                       </div>
                     )}
                   </div>
@@ -867,32 +1248,182 @@ const Navbar1 = (props) => {
                   {/* Family Reunification with Subheadings */}
                   <div className={styles.subDropdown}>
                     <Link href="#" onClick={toggleFamilyReunification}>
-                      Family Reunification
+                      Family Reunification & Sponsorship
                       <span className={styles.arrow}>▼</span>
                     </Link>
                     {isFamilyReunificationOpen && (
                       <div className={styles.subDropdownContent}>
                         <Link href="/family-reunification-sponsorship">
-                          Family Reunification
+                          Family Reunification & Sponsorship
                         </Link>
-                        <Link href="/spousal-open-work-permit">
-                          Spousal Permit
-                        </Link>
-                        <Link href="/dependent-children">
-                          Dependent Children
-                        </Link>
+                        <div className={styles.subSubDropdown}>
+                          <Link
+                            href="#"
+                            onClick={toggleFederalSkilledProgramSeven}
+                          >
+                            Spousal Sponsorship{" "}
+                            <span className={styles.arrow}>▼</span>
+                          </Link>
+                          {isFederalSkilledProgramOpenSeven && (
+                            <div className={styles.subSubDropdownContent}>
+                              <Link href="/spouse-common-law-sponsership">
+                                Spousal Sponsorship
+                              </Link>
+                              <Link href="/spouse-inland">Inside Canada</Link>
+                              <Link href="/spouse-outland">Outside Canada</Link>
+                              <Link href="/same-sex">Same Sex</Link>
+                            </div>
+                          )}
+                        </div>
+                        <Link href="/dependent-children">Dependent Children</Link>
                         <Link href="/humanitarian-compassionate">H & C</Link>
                         <Link href="/orphan">Orphan</Link>
                         <Link href="/adoption">Adoption</Link>
-                        {/* <Link href="/spouse">Spouse</Link> */}
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.subDropdown}>
+                    <Link href="#" onClick={toggleFederalSkilledProgramSix}>
+                      Work Permit <span className={styles.arrow}>▼</span>
+                    </Link>
+                    {isFederalSkilledProgramOpenSix && (
+                      <div className={styles.subDropdownContent}>
+                        <Link href="/work-permit">Work Permit</Link>
+                        <div className={styles.subSubDropdown}>
+                          <Link
+                            href="#"
+                            onClick={toggleFederalSkilledProgramEight}
+                          >
+                            LMIA
+                            <span className={styles.arrow}>▼</span>
+                          </Link>
+                          {isFederalSkilledProgramOpenEight && (
+                            <div className={styles.subSubDropdownContent}>
+                              <Link href="/low-wage-lmia">High Wage / Low Wage</Link>
+                              <Link href="/agriculture-stream-lmia">
+                                Agriculture Stream LMIA
+                              </Link>
+                              {/* <Link href="#">PR Supporting</Link> */}
+                              <Link href="/global-stream-lmia">
+                                Global Talent Stream
+                              </Link>
+                              <Link href="/in-home-caregiver-program-lp">
+                                Caregiver LMIA
+                              </Link>
+                            </div>
+                          )}
+
+                          <Link href="#" onClick={toggleFederalSkilledProgramNine}>
+                            Open Work Permit
+                            <span className={styles.arrow}>▼</span>
+                          </Link>
+                          {isFederalSkilledProgramOpenNine && (
+                            <div className={styles.subSubDropdownContent}>
+                              <Link href="/bridging-open-work-permit-lp">
+                                BOWP – Bridging Open Work Permit
+                              </Link>
+                              <Link href="/pgwp">
+                                PGWP – Post Graduate Open Work Permit
+                              </Link>
+                              <Link href="/spousal-open-work-permit">
+                                SOWP – Spousal Open Work Permit
+                              </Link>
+                              <Link href="/francophone-mobility-program">
+                                Francophone Mobility Program
+                              </Link>
+                              <Link href="/open-work-vulnerable-lp">
+                                Vulnerable Worker
+                              </Link>
+                              <Link href="/openWork-dependent-children">
+                                Dependent Child of Worker
+                              </Link>
+                            </div>
+                          )}
+                          <Link href="#" onClick={toggleFederalSkilledProgramTw}>
+                            Spousal Permit
+                            <span className={styles.arrow}>▼</span>
+                          </Link>
+                          {isFederalSkilledProgramOpenTw && (
+                            <div className={styles.subSubDropdownContent}>
+                              <Link href="/spouse-common-law-sponsership">
+                                Spousal Permit
+                              </Link>
+                              <Link href="/spousal-open-work-permit">
+                                Open Work Permit - For Spouse of Worker
+                              </Link>
+                              <Link href="/cby">
+                                Open Work Permit - For Spouse of Student
+                              </Link>
+                              <Link href="/open-work-permit-for-spouse-inland">
+                                PR Open Work Permit, Inland
+                              </Link>
+                              <Link href="/francophone-mobility-program">
+                                Francophone Mobility Program
+                              </Link>
+                            </div>
+                          )}
+
+                          <Link href="/francophone-mobility-program">
+                            Francophone Mobility Program
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <Link href="/lmia-reviewed">LMIA</Link>
+                  <Link href="/francophone-mobility-program">
+                    Francophone Mobility Program
+                  </Link>
+                  <div className={styles.subDropdown}>
+                    <Link href="#" onClick={toggleFederalSkilledProgramTen}>
+                      Caregiver <span className={styles.arrow}>▼</span>
+                    </Link>
+                    {isFederalSkilledProgramOpenTen && (
+                      <div className={styles.subDropdownContent}>
+                        <Link href="/pathways-for-caregiver">Caregiver</Link>
+                        <Link href="/in-home-caregiver-program-lp">
+                          Inside - With LMIA{" "}
+                        </Link>
+                        <Link href="/permanent-residence-pathways-caregivers-lp">
+                          PR Pathways for Care-Giver
+                        </Link>
+                        <Link href="#" onClick={toggleFederalSkilledProgramEl}>
+                          Outside <span className={styles.arrow}>▼</span>
+                        </Link>
+                        {/* <div className={styles.subSubDropdown}>
+                          {isFederalSkilledProgramOpenEl && (
+                            <div className={styles.subSubDropdownContent}>
+                              <Link href="#">Home Child Care Provider Pilot</Link>
+                              <Link href="#">Home Support Worker</Link>
+                            </div>
+                          )}
+                        </div> */}
                       </div>
                     )}
                   </div>
                   <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link href="/previous-draw-history">
-                      Previous Draw History
-                    </Link>
+                    <Link href="/pr-renewal">PR Renewal</Link>
                   </div>
+                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
+                    <Link href="/citizenship">Citizenship</Link>
+                  </div>
+                  <div className={styles.subDropdown}>
+                    <Link href="#" onClick={toggleFederalSkilledProgramEl}>
+                      Other Services <span className={styles.arrow}>▼</span>
+                    </Link>
+                    {isFederalSkilledProgramOpenEl && (
+                      <div className={styles.subDropdownContent}>
+                        <Link href="/reconsideration">
+                          Reconsideration of Refusal Decision
+                        </Link>
+                        <Link href="/additional-document">
+                          Additional Document Request
+                        </Link>
+                        <Link href="/reply-to-pfl-page">PFL</Link>
+                      </div>
+                    )}
+                  </div>
+                  <Link href="/more-services">More Services</Link>
                 </div>
               </div>
 
@@ -906,9 +1437,10 @@ const Navbar1 = (props) => {
                 {isCalculatorsOpen && (
                   <div className={styles.subDropdownContent}>
                     {/* <Link href="/calculators">CALCULATORS</Link> */}
-                    <Link href="/federal-skilled">FSWP Calculator</Link>
+                    <Link href="/Federal-Skilled">FSWP Calculator</Link>
                     <Link href="/clb-ilets-calculator">CLB Calculator</Link>
                     <Link href="/bcpnp-calculator">BCPNP Calculator</Link>
+                    <Link href="/previous-draw-history">Previous Draws History</Link>
                   </div>
                 )}
               </div>
@@ -937,17 +1469,13 @@ const Navbar1 = (props) => {
             <div className={styles.contactInfo}>
               <div className={styles.location}>
                 {showBlue ? (
-                  <Image
-                    height={50}
-                    width={100} // Arbitrary number, Next.js auto-adjusts it
+                     <Image height={50} width={100}
                     src={LocationBlue}
                     alt="Location Blue"
                     className={styles.icon}
                   />
                 ) : (
-                  <Image
-                    height={50}
-                    width={100} // Arbitrary number, Next.js auto-adjusts it
+                     <Image height={50} width={100}
                     src={LocationIcon}
                     alt="Location"
                     className={styles.icon}
@@ -960,35 +1488,26 @@ const Navbar1 = (props) => {
                   <Link
                     href="https://g.co/kgs/9BZVS85"
                     className={styles.lowerFooterText}
-                    style={showBlue ? { color: "#164c95" } : { color: "white" }}
+                    style={showBlue ? { color: "#164c95" } : { color: "white" }}  target="_blank"
                   >
-                    {" "}
                     Vancouver
                   </Link>
                 </span>
               </div>
               <div className={styles.email}>
                 {showBlue ? (
-                  <Image
-                    height={50}
-                    width={100} // Arbitrary number, Next.js auto-adjusts it
+                     <Image height={50} width={100}
                     src={EmailBlue}
                     alt="Email blue"
-                    className={styles.icon}
+                    className={styles.icon}  target="_blank"
                   />
                 ) : (
-                  <Image
-                    height={50}
-                    width={100} // Arbitrary number, Next.js auto-adjusts it
-                    src={EmailIcon}
-                    alt="Email"
-                    className={styles.icon}
-                  />
+                     <Image height={50} width={100} src={EmailIcon} alt="Email" className={styles.icon} />
                 )}
 
                 <span
                   className={styles.lowerFooterText}
-                  style={showBlue ? { color: "#164c95" } : { color: "white" }}
+                  style={showBlue ? { color: "#164c95" } : { color: "white" }}  target="_blank"
                 >
                   info@brightlightimmigration.ca
                 </span>
@@ -1000,12 +1519,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1"
                 >
-                  <Image
-                    height={50}
-                    width={100} // Arbitrary number, Next.js auto-adjusts it
-                    src={Tiktokblue}
-                    alt="tik-tok"
-                  />
+                     <Image height={50} width={100} src={Tiktokblue} />
                 </Link>
               ) : (
                 <Link
@@ -1020,12 +1534,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198"
                 >
-                  <Image
-                    height={50}
-                    width={100} // Arbitrary number, Next.js auto-adjusts it
-                    src={Linkedinblue}
-                    alt="linkedin"
-                  />
+                     <Image height={50} width={100} src={Linkedinblue} />
                 </Link>
               ) : (
                 <Link
@@ -1040,19 +1549,14 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
                 >
-                  <Image
-                    height={50}
-                    width={100} // Arbitrary number, Next.js auto-adjusts it
-                    src={Instagramblue}
-                    alt="insta"
-                  />
+                     <Image height={50} width={100} src={Instagramblue} />
                 </Link>
               ) : (
                 <Link
                   target="_blank"
                   href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
                 >
-                  <FaInstagram  className={`ms-2 scale-[1.3]`} />
+                  <InstagramIcon className={styles.socialIcon} />
                 </Link>
               )}
               {showBlue ? (
@@ -1060,12 +1564,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.facebook.com/brightlightimmigration"
                 >
-                  <Image
-                    height={50}
-                    width={100} // Arbitrary number, Next.js auto-adjusts it
-                    src={Facebookblue}
-                    alt="fb"
-                  />
+                     <Image height={50} width={100} src={Facebookblue} />
                 </Link>
               ) : (
                 <Link
@@ -1080,12 +1579,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.youtube.com/channel/UC2NJoKhIOconAE_IFCxX7uA"
                 >
-                  <Image
-                    height={50}
-                    width={100} // Arbitrary number, Next.js auto-adjusts it
-                    src={Youtubeblue}
-                    alt="youtube"
-                  />
+                     <Image height={50} width={100} src={Youtubeblue} />
                 </Link>
               ) : (
                 <Link
