@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Footer1 from "../components/Footer1";
 import Navbar1 from "../components/Navbar1";
 import styles from "../styles/Search.module.css";
-
+import Image from "next/image";
+import Link from "next/link";
 const stripHtmlTags = (text) => (text ? text.replace(/<[^>]*>/g, "") : "");
 
 const truncateText = (text, numChars) => {
@@ -250,7 +251,7 @@ const Search = () => {
                 <h2 className={styles.sectionHeading}>Blogs</h2>
                 <div className={styles.blogsGridSection}>
                   {blogsData.map((item, index) => (
-                    <a
+                    <Link
                       key={index}
                       onClick={() => {
                         localStorage.setItem("blog_heading", item.blog_heading);
@@ -266,7 +267,7 @@ const Search = () => {
                       {item.blog_content && (
                         <p>{truncateText(item.blog_content, 100)}</p>
                       )}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -277,7 +278,7 @@ const Search = () => {
                 <h2 className={styles.sectionHeading}>News</h2>
                 <div className={styles.newsGridSection}>
                   {newsData.map((item, index) => (
-                    <a
+                    <Link
                       key={index}
                       onClick={() => {
                         localStorage.setItem("news_heading", item.news_heading);
@@ -293,7 +294,7 @@ const Search = () => {
                       {item.news_content && (
                         <p>{truncateText(item.news_content, 100)}</p>
                       )}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

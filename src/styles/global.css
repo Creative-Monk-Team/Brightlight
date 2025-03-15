@@ -120,6 +120,10 @@ ol li:empty {
   display: none;
 }
 
+h1{
+  font-size: xx-large;
+}
+
 /* ul{
   margin-left: 40px !important;
 }

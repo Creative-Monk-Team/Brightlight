@@ -1,19 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Navbar1.module.css";
-import IconGear  from "../assets/gearIcon.svg";
-import RightArrow  from "../assets/rightArrow.svg";
-import PhoneIcon  from "../assets/phoneIcon.svg";
+import IconGear from "../assets/gearIcon.svg";
+import RightArrow from "../assets/rightArrow.svg";
+import PhoneIcon from "../assets/phoneIcon.svg";
 import BrightlightBlueLogo from "../assets/brlightlight-icon.webp";
 import LocationIcon from "../assets/location-white.png";
 import EmailIcon from "../assets/mail-white.png";
 import EmailBlue from "../assets/mailBlue.png";
 import LocationBlue from "../assets/locationBlue.png";
-import Search  from "../assets/search.svg";
-import TikTokIcon  from "../assets/tiktok.svg";
-import LinkedInIcon  from "../assets/linkedin.svg";
-import InstagramIcon  from "../assets/instagram.svg";
-import FacebookIcon  from "../assets/facebook.svg";
-import YouTubeIcon  from "../assets/youtube.svg";
+import Search from "../assets/search.svg";
+import TikTokIcon from "../assets/tiktok.svg";
+import LinkedInIcon from "../assets/linkedin.svg";
+import InstagramIcon from "../assets/instagram.svg";
+import FacebookIcon from "../assets/facebook.svg";
+import YouTubeIcon from "../assets/youtube.svg";
 import Facebookblue from "../assets/facebookBlue.png";
 import Youtubeblue from "../assets/youtubeBlue.png";
 import Instagramblue from "../assets/instagramBlue.png";
@@ -243,11 +243,12 @@ const Navbar1 = (props) => {
       <div className={styles.navbar}>
         <div className={styles.firstNavbar}>
           <div className={styles.calculatorIcon}>
-            <IconGear className={styles.iconGearIcon} width={25} height={25} />
+            <Image src={"/assets/gearIcon.svg"} className={styles.iconGearIcon} width={25} height={25} />
             <p onClick={() => (window.location.href = "/immigration-tools")}>
               Immigration Tools
             </p>
-            <RightArrow
+            <Image
+              src={"/assets/rightArrow.svg"}
               className={styles.RightArrowIcon}
               width={10}
               height={10}
@@ -284,22 +285,21 @@ const Navbar1 = (props) => {
         </div>
 
         <div
-          className={`${styles.bottomSectionNavbar} ${
-            hideContactNavbar ? styles.makeNavbarFixed : null
-          }`}
+          className={`${styles.bottomSectionNavbar} ${hideContactNavbar ? styles.makeNavbarFixed : null
+            }`}
         >
           <div className={styles.secondNavbar}>
             <Link href="/" className={`${styles.logo} ${styles.logoDesktop}`}>
-                 <Image height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
+              <Image height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
             </Link>
 
             {showBlue ? (
               <Link href="/" className={`${styles.logo} ${styles.logoMobile}`}>
-                   <Image height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
+                <Image height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
               </Link>
             ) : (
               <Link href="/" className={`${styles.logo} ${styles.logoMobile}`}>
-                   <Image height={50} width={100} src={whiteLogo} alt="Brightlight Blue Logo" />
+                <Image height={50} width={100} src={whiteLogo} alt="Brightlight Blue Logo" />
               </Link>
             )}
 
@@ -316,9 +316,8 @@ const Navbar1 = (props) => {
                   SERVICES
                 </Link>
                 <div
-                  className={`${styles.servicesDropdown} ${
-                    showServicesDropdown ? styles.showServicesDropdown : null
-                  }`}
+                  className={`${styles.servicesDropdown} ${showServicesDropdown ? styles.showServicesDropdown : null
+                    }`}
                   onMouseEnter={() => setShowServicesDropdown(true)}
                   onMouseLeave={() => setShowServicesDropdown(false)}
                 >
@@ -333,9 +332,8 @@ const Navbar1 = (props) => {
                       Permanent Residency
                     </Link>
                     <div
-                      className={`${styles.permanentNestedSection} ${
-                        showNestedDropdown3 ? styles.showNested : null
-                      }`}
+                      className={`${styles.permanentNestedSection} ${showNestedDropdown3 ? styles.showNested : null
+                        }`}
                       onMouseEnter={() => {
                         setShowNestedDropdown3(true);
                       }}
@@ -352,9 +350,8 @@ const Navbar1 = (props) => {
                           Express Entry
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            doubleNested3 ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${doubleNested3 ? styles.showNested : null
+                            }`}
                           onMouseEnter={() => setDoubleNested3(true)}
                           onMouseLeave={() => setDoubleNested3(false)}
                         >
@@ -372,9 +369,8 @@ const Navbar1 = (props) => {
                               Category Based
                             </Link>
                             <div
-                              className={`${styles.doubleNested} ${
-                                showNestedDropdown7 ? styles.showNested : null
-                              }`}
+                              className={`${styles.doubleNested} ${showNestedDropdown7 ? styles.showNested : null
+                                }`}
                               onMouseEnter={() => setShowNestedDropdown7(true)}
                               onMouseLeave={() => setShowNestedDropdown7(false)}
                             >
@@ -409,9 +405,8 @@ const Navbar1 = (props) => {
                           Pilot Program
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            doubleNested4 ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${doubleNested4 ? styles.showNested : null
+                            }`}
                           onMouseEnter={() => setDoubleNested4(true)}
                           onMouseLeave={() => setDoubleNested4(false)}
                         >
@@ -428,9 +423,8 @@ const Navbar1 = (props) => {
                           PNP
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            doubleNested7 ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${doubleNested7 ? styles.showNested : null
+                            }`}
                           onMouseEnter={() => setDoubleNested7(true)}
                           onMouseLeave={() => setDoubleNested7(false)}
                         >
@@ -445,9 +439,8 @@ const Navbar1 = (props) => {
                               BCPNP
                             </Link>
                             <div
-                              className={`${styles.doubleNested} ${
-                                showNestedDropdown ? styles.showNested : null
-                              }`}
+                              className={`${styles.doubleNested} ${showNestedDropdown ? styles.showNested : null
+                                }`}
                               onMouseEnter={() => setShowNestedDropdown(true)}
                               onMouseLeave={() => setShowNestedDropdown(false)}
                             >
@@ -488,9 +481,8 @@ const Navbar1 = (props) => {
                       Temporary Residency
                     </Link>
                     <div
-                      className={`${styles.permanentNestedSection} ${
-                        showNestedDropdown2 ? styles.showNested : null
-                      }`}
+                      className={`${styles.permanentNestedSection} ${showNestedDropdown2 ? styles.showNested : null
+                        }`}
                       onMouseEnter={() => setShowNestedDropdown2(true)}
                       onMouseLeave={() => setShowNestedDropdown2(false)}
                     >
@@ -507,9 +499,8 @@ const Navbar1 = (props) => {
                           Visitor Visa
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            doubleNestedVisitorVisa ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${doubleNestedVisitorVisa ? styles.showNested : null
+                            }`}
                           onMouseEnter={() => setDoubleNestedVisitorVisa(true)}
                           onMouseLeave={() => setDoubleNestedVisitorVisa(false)}
                         >
@@ -548,9 +539,8 @@ const Navbar1 = (props) => {
                           Spousal Open Work Permit
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            doubleNestedSpousalPermit ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${doubleNestedSpousalPermit ? styles.showNested : null
+                            }`}
                           onMouseEnter={() =>
                             setDoubleNestedSpousalPermit(true)
                           }
@@ -585,9 +575,8 @@ const Navbar1 = (props) => {
                       Student Visa
                     </Link>
                     <div
-                      className={`${styles.permanentNestedSection} ${
-                        showNestedDropdown6 ? styles.showNested : null
-                      }`}
+                      className={`${styles.permanentNestedSection} ${showNestedDropdown6 ? styles.showNested : null
+                        }`}
                       onMouseEnter={() => setShowNestedDropdown6(true)}
                       onMouseLeave={() => setShowNestedDropdown6(false)}
                     >
@@ -605,9 +594,8 @@ const Navbar1 = (props) => {
                           Outside Canada
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            doubleNestedOutsideCanada ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${doubleNestedOutsideCanada ? styles.showNested : null
+                            }`}
                           onMouseEnter={() =>
                             setDoubleNestedOutsideCanada(true)
                           }
@@ -632,9 +620,8 @@ const Navbar1 = (props) => {
                           Inside Canada
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            doubleNestedInsideCanada ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${doubleNestedInsideCanada ? styles.showNested : null
+                            }`}
                           onMouseEnter={() => setDoubleNestedInsideCanada(true)}
                           onMouseLeave={() =>
                             setDoubleNestedInsideCanada(false)
@@ -663,9 +650,8 @@ const Navbar1 = (props) => {
                       Family Reunification & Sponsorship
                     </Link>
                     <div
-                      className={`${styles.permanentNestedSection} ${
-                        showNestedDropdown4 ? styles.showNested : null
-                      }`}
+                      className={`${styles.permanentNestedSection} ${showNestedDropdown4 ? styles.showNested : null
+                        }`}
                       onMouseEnter={() => setShowNestedDropdown4(true)}
                       onMouseLeave={() => setShowNestedDropdown4(false)}
                     >
@@ -678,9 +664,8 @@ const Navbar1 = (props) => {
                           Spousal Sponsorship
                         </Link>
                         <div
-                          className={`${styles.permanentNestedSection} ${
-                            showNestedDropdown8 ? styles.showNested : null
-                          }`}
+                          className={`${styles.permanentNestedSection} ${showNestedDropdown8 ? styles.showNested : null
+                            }`}
                           onMouseEnter={() => setShowNestedDropdown8(true)}
                           onMouseLeave={() => setShowNestedDropdown8(false)}
                         >
@@ -712,9 +697,8 @@ const Navbar1 = (props) => {
                       Work Permit
                     </Link>
                     <div
-                      className={`${styles.permanentNestedSection} ${
-                        showNestedDropdown5 ? styles.showNested : null
-                      }`}
+                      className={`${styles.permanentNestedSection} ${showNestedDropdown5 ? styles.showNested : null
+                        }`}
                       onMouseEnter={() => {
                         setShowNestedDropdown5(true);
                       }}
@@ -731,9 +715,8 @@ const Navbar1 = (props) => {
                           LMIA
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            doubleNested1 ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${doubleNested1 ? styles.showNested : null
+                            }`}
                           onMouseEnter={() => setDoubleNested1(true)}
                           onMouseLeave={() => setDoubleNested1(false)}
                         >
@@ -757,9 +740,8 @@ const Navbar1 = (props) => {
                           Open Work Permit{" "}
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            doubleNested2 ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${doubleNested2 ? styles.showNested : null
+                            }`}
                           onMouseEnter={() => setDoubleNested2(true)}
                           onMouseLeave={() => setDoubleNested2(false)}
                         >
@@ -792,9 +774,8 @@ const Navbar1 = (props) => {
                           Spousal Permit
                         </Link>
                         <div
-                          className={`${styles.doubleNested} ${
-                            showNestedDropdown10 ? styles.showNested : null
-                          }`}
+                          className={`${styles.doubleNested} ${showNestedDropdown10 ? styles.showNested : null
+                            }`}
                           onMouseEnter={() => setShowNestedDropdown10(true)}
                           onMouseLeave={() => setShowNestedDropdown10(false)}
                         >
@@ -828,9 +809,8 @@ const Navbar1 = (props) => {
                       Caregiver
                     </Link>
                     <div
-                      className={`${styles.permanentNestedSection} ${
-                        showNestedDropdown9 ? styles.showNested : null
-                      }`}
+                      className={`${styles.permanentNestedSection} ${showNestedDropdown9 ? styles.showNested : null
+                        }`}
                       onMouseEnter={() => {
                         setShowNestedDropdown9(true);
                       }}
@@ -871,9 +851,8 @@ const Navbar1 = (props) => {
                   <div className={`${styles.relativeDiv} ${styles.flex}`}>
                     <Link href="/pr-renewal">PR Renewal</Link>
                     <div
-                      className={`${styles.permanentNestedSection} ${
-                        showNestedDropdown11 ? styles.showNested : null
-                      }`}
+                      className={`${styles.permanentNestedSection} ${showNestedDropdown11 ? styles.showNested : null
+                        }`}
                     >
                       <Link href="/pr-renewal">PR Renewal</Link>
                     </div>
@@ -881,9 +860,8 @@ const Navbar1 = (props) => {
                   <div className={`${styles.relativeDiv} ${styles.flex}`}>
                     <Link href="/citizenship">Citizenship</Link>
                     <div
-                      className={`${styles.permanentNestedSection} ${
-                        showNestedDropdown12 ? styles.showNested : null
-                      }`}
+                      className={`${styles.permanentNestedSection} ${showNestedDropdown12 ? styles.showNested : null
+                        }`}
                     >
                       <Link href="/citizenship">Citizenship</Link>
                     </div>
@@ -897,9 +875,8 @@ const Navbar1 = (props) => {
                       Other Services
                     </Link>
                     <div
-                      className={`${styles.permanentNestedSection} ${
-                        showNestedDropdown13 ? styles.showNested : null
-                      }`}
+                      className={`${styles.permanentNestedSection} ${showNestedDropdown13 ? styles.showNested : null
+                        }`}
                       onMouseEnter={() => {
                         setShowNestedDropdown13(true);
                       }}
@@ -935,11 +912,10 @@ const Navbar1 = (props) => {
                   CALCULATORS
                 </Link>
                 <div
-                  className={`${styles.calculatorsDropdown} ${
-                    showCalculatorsDropdown
+                  className={`${styles.calculatorsDropdown} ${showCalculatorsDropdown
                       ? styles.showCalculatorsDropdown
                       : null
-                  }`}
+                    }`}
                   onMouseEnter={() => setShowCalculatorsDropdown(true)}
                   onMouseLeave={() => setShowCalculatorsDropdown(false)}
                 >
@@ -980,7 +956,7 @@ const Navbar1 = (props) => {
             {/* Hamburger Icon */}
             <div className={styles.hamburger} onClick={toggleSidebar}>
               {/* &#9776; */}{" "}
-                 <Image height={50} width={100}
+              <Image height={50} width={100}
                 src={showBlue ? hamBurgerIconBlue : hamBurgerIconWhite}
                 className={styles.hamburgerColoredIcon}
                 alt="wee"
@@ -990,9 +966,8 @@ const Navbar1 = (props) => {
 
           {/* Sidebar */}
           <div
-            className={`${styles.sidebar} ${
-              showSidebar ? styles.showSidebar : ""
-            }`}
+            className={`${styles.sidebar} ${showSidebar ? styles.showSidebar : ""
+              }`}
           >
             {/* ///// */}
             <div className={styles.sidebarContent}>
@@ -1462,20 +1437,19 @@ const Navbar1 = (props) => {
           </div>
 
           <div
-            className={`${styles.contactNavbar} ${
-              hideContactNavbar ? styles.hideContactNumber : null
-            }`}
+            className={`${styles.contactNavbar} ${hideContactNavbar ? styles.hideContactNumber : null
+              }`}
           >
             <div className={styles.contactInfo}>
               <div className={styles.location}>
                 {showBlue ? (
-                     <Image height={50} width={100}
+                  <Image height={50} width={100}
                     src={LocationBlue}
                     alt="Location Blue"
                     className={styles.icon}
                   />
                 ) : (
-                     <Image height={50} width={100}
+                  <Image height={50} width={100}
                     src={LocationIcon}
                     alt="Location"
                     className={styles.icon}
@@ -1488,7 +1462,7 @@ const Navbar1 = (props) => {
                   <Link
                     href="https://g.co/kgs/9BZVS85"
                     className={styles.lowerFooterText}
-                    style={showBlue ? { color: "#164c95" } : { color: "white" }}  target="_blank"
+                    style={showBlue ? { color: "#164c95" } : { color: "white" }} target="_blank"
                   >
                     Vancouver
                   </Link>
@@ -1496,18 +1470,18 @@ const Navbar1 = (props) => {
               </div>
               <div className={styles.email}>
                 {showBlue ? (
-                     <Image height={50} width={100}
+                  <Image height={50} width={100}
                     src={EmailBlue}
                     alt="Email blue"
-                    className={styles.icon}  target="_blank"
+                    className={styles.icon} target="_blank"
                   />
                 ) : (
-                     <Image height={50} width={100} src={EmailIcon} alt="Email" className={styles.icon} />
+                  <Image height={50} width={100} src={EmailIcon} alt="Email" className={styles.icon} />
                 )}
 
                 <span
                   className={styles.lowerFooterText}
-                  style={showBlue ? { color: "#164c95" } : { color: "white" }}  target="_blank"
+                  style={showBlue ? { color: "#164c95" } : { color: "white" }} target="_blank"
                 >
                   info@brightlightimmigration.ca
                 </span>
@@ -1519,7 +1493,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1"
                 >
-                     <Image height={50} width={100} src={Tiktokblue} />
+                  <Image height={50} width={100} src={Tiktokblue} />
                 </Link>
               ) : (
                 <Link
@@ -1534,7 +1508,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198"
                 >
-                     <Image height={50} width={100} src={Linkedinblue} />
+                  <Image height={50} width={100} src={Linkedinblue} />
                 </Link>
               ) : (
                 <Link
@@ -1549,7 +1523,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
                 >
-                     <Image height={50} width={100} src={Instagramblue} />
+                  <Image height={50} width={100} src={Instagramblue} />
                 </Link>
               ) : (
                 <Link
@@ -1564,7 +1538,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.facebook.com/brightlightimmigration"
                 >
-                     <Image height={50} width={100} src={Facebookblue} />
+                  <Image height={50} width={100} src={Facebookblue} />
                 </Link>
               ) : (
                 <Link
@@ -1579,7 +1553,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.youtube.com/channel/UC2NJoKhIOconAE_IFCxX7uA"
                 >
-                     <Image height={50} width={100} src={Youtubeblue} />
+                  <Image height={50} width={100} src={Youtubeblue} />
                 </Link>
               ) : (
                 <Link
