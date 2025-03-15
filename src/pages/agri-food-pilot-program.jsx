@@ -8,7 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const AgriFoodPilotProgram = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
