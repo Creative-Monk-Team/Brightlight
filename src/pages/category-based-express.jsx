@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const CategoryBasedExpress = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -347,9 +348,9 @@ const handleScroll = () => {
               </li>
               <li>
               {pData?.ha4}
-                <a href="/booking">
+                <Link href="/booking">
                   Click here
-                </a>
+                </Link>
               </li>
               <li>
               {pData?.ha5}

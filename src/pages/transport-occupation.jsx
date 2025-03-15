@@ -8,7 +8,7 @@ import Footer1 from "../components/Footer1";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
-
+import Link from "next/link";
 const TransportOccupationTargetedDraw = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   let [metaData, setMetaData] = useState([]);
@@ -286,12 +286,12 @@ const handleScroll = () => {
           </ul>
           {/* <p>
             Here is the list of eligible NOCs:{" "}
-            <a
+            <Link
               href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations/category-based-selection.html"
               className={styles.link}
             >
               Eligible NOCs List
-            </a>
+            </Link>
           </p> */}
         </div>
 
@@ -375,7 +375,7 @@ const handleScroll = () => {
           <p>
           {pData?.ExpressEntryPara }
           </p>
-          {/* <a href="" className={styles.button}></a> */}
+          {/* <Link href="" className={styles.button}></Link> */}
           <button
             className={styles.button}
             onClick={() => (window.location.href = "/previous-draw-history")}
@@ -396,7 +396,7 @@ const handleScroll = () => {
           <p>
           {pData?.s2 }
           </p>
-          {/* <a href="/contact" className={styles.button}></a> */}
+          {/* <Link href="/contact" className={styles.button}></Link> */}
           <button
             className={styles.button}
             onClick={() => (window.location.href = "/contact")}

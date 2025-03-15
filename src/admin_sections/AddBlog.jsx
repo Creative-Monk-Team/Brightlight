@@ -5,6 +5,7 @@ import deleteIcon from "../assets/delete.png";
 import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Image from "next/image";
+import Link from "next/link";
 let AddBlog = () => {
   const [textareaValue, setTextareaValue] = useState(
     "Your Selection Code Here"
@@ -31,7 +32,7 @@ let AddBlog = () => {
         break;
       case "Link_Text":
         tagValue =
-          '<a href="https://example.com" target="_blank">Your Text Here</a>';
+          '<Link href="https://example.com" target="_blank">Your Text Here</Link>';
         break;
       case "Paragraph":
         tagValue = "<p>Your paragraph goes here</p>";

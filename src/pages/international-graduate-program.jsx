@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const InternationalGraduateProgram = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -348,19 +349,19 @@ const handleScroll = () => {
           </p>
           <ul style={{marginLeft: "40px"}}>
             <li>
-              <a href="/federal-skilled-worker-program">
+              <Link href="/federal-skilled-worker-program">
                 Federal Skilled Worker (FSW)
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/federal-skilled-trades-program">
+              <Link href="/federal-skilled-trades-program">
                 Federal Skilled Trades (FST)
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/canadian-experience-class">
+              <Link href="/canadian-experience-class">
                 Canadian Experience Class (CEC)
-              </a>
+              </Link>
             </li>
           </ul>
         </section>

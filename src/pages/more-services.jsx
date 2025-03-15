@@ -62,8 +62,9 @@ import LmiaHover from "../assets/services-lmiaWhite.png";
 
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
-
+import Image from "next/image";
 import Footer1 from "../components/Footer1";
+import Link from "next/link";
 
 const MoreServices = () => {
   const [selectedHeading, setSelectedHeading] = useState("Permanent Residency");
@@ -181,11 +182,11 @@ const MoreServices = () => {
           ) : (
             <div className={styles.cardParent}>
               {cardsData?.map((section, index) => (
-                <div
+                <Link
                   key={index}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  onClick={() => handleHeadingClick(section.tool_link)}
+                  href={section.tool_link}
                   style={{ cursor: "pointer" }}
                 >
                      <Image height={50} width={100}
@@ -199,7 +200,7 @@ const MoreServices = () => {
                   <h2>{section.tool_name}</h2>
                   <p>{section.tool_desc}</p>
                   <h4>{pData?.read_more}</h4>
-                </div>
+                </Link>
               ))}
             </div>
           )}

@@ -233,12 +233,12 @@ const handleScroll = () => {
             <Link href="/super-visa" className={styles.button}>
               Super Visa
             </Link>
-            <a href="#tourism" className={styles.button}>
+            <Link href="#tourism" className={styles.button}>
               Tourism Visa
-            </a>
-            <a href="#emergency-visa" className={styles.button}>
+            </Link>
+            <Link href="#emergency-visa" className={styles.button}>
               Emergency Visa
-            </a>
+            </Link>
             <Link href="/reconsideration" className={styles.button}>
               Reconsideration for Refusal
             </Link>

@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const LonelyCanadian = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -373,18 +374,18 @@ const handleScroll = () => {
           >
             <li style={{ marginBottom: "10px" }}>
             {pData?.ExpLi1} {" "}
-              <a href="/study-visa" className={styles.link}>
+              <Link href="/study-visa" className={styles.link}>
                 Learn more about Study Visas
-              </a>  {" "}
+              </Link>  {" "}
             </li>
             <li style={{ marginBottom: "10px" }}>
             {pData?.ExpLi2}  {" "}
             </li>
             <li>
             {pData?.ExpLi3}  {" "}
-              <a href="/express-entry" className={styles.link}>
+              <Link href="/express-entry" className={styles.link}>
                 Learn more about Express Entry
-              </a>  {" "}
+              </Link>  {" "}
             </li>
           </ol>
         </section>

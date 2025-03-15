@@ -776,7 +776,7 @@ let HomePage = () => {
             <p>{servicesData?.description}</p>
 
             <button className={styles.knowButton}>
-              <a href="/more-services">Know More</a>
+              <Link href="/more-services">Know More</Link>
             </button>
           </div>
           <div
@@ -808,12 +808,12 @@ let HomePage = () => {
                   <div className={styles.expertiseDiv}>
                     <h4>{item.title}</h4>
                     <p>{item.desc}</p>
-                    <a
+                    <Link
                       className={styles.expertiseKnowMore}
                       href={link(item.title)}
                     >
                       Know More
-                    </a>
+                    </Link>
                   </div>
                 </SwiperSlide>
               ))}

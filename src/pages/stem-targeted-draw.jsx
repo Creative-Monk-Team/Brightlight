@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const StemTargetedDraw = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -330,14 +331,14 @@ const handleScroll = () => {
         >
           <h2 className={styles.subheading}>{pData?.StemEligTableHeading}</h2>
           {/* <p>
-            <a
+            <Link
               href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations/category-based-selection.html"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.link}
             >
               NOC Codes
-            </a>
+            </Link>
           </p> */}
 
           <table className={styles.table}>

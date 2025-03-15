@@ -8,7 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
-
+import Link from "next/link";
 const Reconsideration = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   let [metaData, setMetaData] = useState([]);
@@ -328,7 +328,7 @@ const handleScroll = () => {
               >
                 Book Appointment
               </button>
-              {/* <a  href=""></a> */}
+              {/* <Link  href=""></Link> */}
             </span>
           </section>
 

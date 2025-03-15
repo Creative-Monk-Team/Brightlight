@@ -235,12 +235,12 @@ const handleScroll = () => {
             </li>
           </ul>
 
-          <a
+          <Link
             href="/booking"
             className={styles.buttonBook}
           >
             Book Appointment
-          </a>
+          </Link>
         </section>
       </div>
 

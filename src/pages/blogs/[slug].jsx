@@ -11,6 +11,7 @@ import Head from "next/head";
 import Lp from "../../assets/blogDetailsPic.jpg";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Link from "next/link";
 let BlogDetails = () => {
     let router = useRouter()
     let { slug } = router.query;
@@ -139,22 +140,22 @@ let BlogDetails = () => {
                             </div>
                             <h4>{loveneetData.tagline}</h4>
                             <div className={styles.loveneetLinks}>
-                                <a
+                                <Link
                                     className={styles.imageSection}
                                     href={loveneetData.linkedin}
                                     target="_blank"
                                 >
                                     <Image height={50} width={100} src={Linkedin} />
-                                </a>
+                                </Link>
                                 <div>
                                     <p className={styles.haveAQuestion}>Have Questions?</p>
-                                    <a
+                                    <Link
                                         className={styles.imageSection}
                                         href="/booking"
                                         target="_blank"
                                     >
                                         <Image height={50} width={100} src={rcic} />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +189,7 @@ let BlogDetails = () => {
                         <div className={styles.recentBlogsSection}>
                             <h4>Recent Blogs</h4>
                             {recentBlogs?.map((item, index) => (
-                                <a
+                                <Link
                                     onClick={() => {
                                         localStorage.setItem("blog_heading", item.blog_heading);
                                     }}
@@ -205,16 +206,16 @@ let BlogDetails = () => {
                                     className={styles.recentBlog}
                                 >
                                     <h3>{item.blog_heading}</h3>
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     ) : null}
                     <div className={styles.freeAssesmentSection}>
                         <h4>Start You Process Today With Us!</h4>
                         <p>Book A Free Assement With Us Right Now.</p>
-                        <a href="/booking" target="_blank">
+                        <Link href="/booking" target="_blank">
                             Free Assesment
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -246,7 +247,7 @@ let BlogDetails = () => {
                     <div className={styles.recentBlogsSection}>
                         <h4>Recent Blogs</h4>
                         {recentBlogs?.map((item, index) => (
-                            <a
+                            <Link
                                 onClick={() => {
                                     localStorage.setItem("blog_heading", item.blog_heading);
                                 }}
@@ -263,16 +264,16 @@ let BlogDetails = () => {
                                 className={styles.recentBlog}
                             >
                                 <h3>{item.blog_heading}</h3>
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 ) : null}
                 <div className={styles.freeAssesmentSection}>
                     <h4>Start You Process Today With Us!</h4>
                     <p>Book A Free Assement With Us Right Now.</p>
-                    <a href="/booking" target="_blank">
+                    <Link href="/booking" target="_blank">
                         Free Assesment
-                    </a>
+                    </Link>
                 </div>
             </div>
             <Footer1 />

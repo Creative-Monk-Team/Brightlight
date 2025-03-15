@@ -9,6 +9,7 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import Image from "next/image";
+import Link from "next/link";
 const AdditionalDocument = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   let [metaData, setMetaData] = useState([]);
@@ -214,12 +215,12 @@ const handleScroll = () => {
               <li>{pData?.k3}</li>
               <li>
                 {pData?.k4}
-                <a
+                <Link
                   id="book-appointment"
                   href="/booking"
                 >
                   Click here
-                </a>
+                </Link>
               </li>
             </ul>
           </section>

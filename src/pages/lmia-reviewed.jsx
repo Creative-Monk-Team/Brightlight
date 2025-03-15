@@ -393,12 +393,12 @@ const handleScroll = () => {
             <p>
             {pData?.s2}
             </p>
-            <a
+            <Link
               href="/booking"
               className={styles.bookAppointment}
             >
               Book an Appointment
-            </a>
+            </Link>
           </section>
 
           <section

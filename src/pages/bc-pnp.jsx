@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const BcPnp = () => {
   let [metaData, setMetaData] = useState([]);
@@ -228,27 +229,27 @@ const handleScroll = () => {
           id="testing4"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <a href="/skilled-worker-stream" className={styles.button}>
+          <Link href="/skilled-worker-stream" className={styles.button}>
             BC Skilled Worker Stream
-          </a>
-          <a href="/health-authority-stream" className={styles.button}>
+          </Link>
+          <Link href="/health-authority-stream" className={styles.button}>
             BC Healthcare Professional Stream
-          </a>
-          <a href="/international-graduate-program" className={styles.button}>
+          </Link>
+          <Link href="/international-graduate-program" className={styles.button}>
             BC International Graduate Stream
-          </a>
-          <a
+          </Link>
+          <Link
             href="/international-post-graduate-program"
             className={styles.button}
           >
             BC International Post-Graduate Stream
-          </a>
-          <a href="/entry-level-semi-skilled" className={styles.button}>
+          </Link>
+          <Link href="/entry-level-semi-skilled" className={styles.button}>
             BC Entry Level and Semi-Skilled Worker Stream
-          </a>
-          <a href="/pnp" className={styles.button}>
+          </Link>
+          <Link href="/pnp" className={styles.button}>
             Priority Occupations
-          </a>
+          </Link>
         </div>
         <p>
         {pData?.fiveStreamsNote}
@@ -408,9 +409,9 @@ const handleScroll = () => {
         >
           <li className={styles.listItem}>
           {pData?.ApplyList1}
-            <a href="/contact-us" className={styles.link}>
+            <Link href="/contact-us" className={styles.link}>
               let us handle your case for you
-            </a>
+            </Link>
             .
           </li>
           <li className={styles.listItem}>

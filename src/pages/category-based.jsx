@@ -12,6 +12,7 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import Image from "next/image";
+import Link from "next/link";
 
 let CategoryBased = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -453,14 +454,14 @@ const handleScroll = () => {
 
       <div className={styles.theButtonAncorParent}>
         <div className={styles.theButtonAncor}>
-          <a href="/previous-draw-history">
+          <Link href="/previous-draw-history">
             <button style={{ cursor: "pointer" }}>
               {data?.drawHeadingBottom}{" "}
               <span className={styles.theButtonSpan}>
                    <Image height={20} width={100} src={LinkAncor} alt="err" />
               </span>
             </button>
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const PrioritiesProgram = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -239,14 +240,14 @@ const handleScroll = () => {
             {pData?.elibilityP1}
               <ul style={{ marginLeft: "40px", marginTop: "10px" }}>
                 <li>
-                  <a href="/skilled-worker" className={styles.link}>
+                  <Link href="/skilled-worker" className={styles.link}>
                     BCPNP Skilled Worker
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/international-graduate" className={styles.link}>
+                  <Link href="/international-graduate" className={styles.link}>
                     BCPNP International Graduate
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>

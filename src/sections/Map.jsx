@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Map.module.css";
+import Link from "next/link";
 
 let Map = () => {
   let [iframeHtml, setIframeHtml] = useState("");
@@ -38,7 +39,7 @@ let Map = () => {
       <div className={styles.mapSection}>
         <div dangerouslySetInnerHTML={{ __html: iframeHtml }} />
         <button className={styles.theButton} role="button">
-          <a href={globallyData}>Find Us On Maps</a>
+          <Link href={globallyData}>Find Us On Maps</Link>
         </button>
       </div>
     </div>

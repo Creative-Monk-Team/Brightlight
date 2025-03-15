@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const TradeOccupationTargetedDraw = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -294,12 +295,12 @@ const handleScroll = () => {
           </ul>
           <p>
             Here is the list of eligible NOCs:{" "}
-            <a
+            <Link
               href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations/category-based-selection.html"
               className={styles.link}
             >
               Eligible NOCs List
-            </a>
+            </Link>
           </p>
         </div>
 

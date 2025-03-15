@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const StudentVisa = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -202,30 +203,30 @@ const handleScroll = () => {
            {pData?.PathwaysHeading}
           </h2>
           <div className={styles.pathwayContainer}>
-            <a href="/outside-canada">
+            <Link href="/outside-canada">
               <div className={styles.pathway}>
                 <h3 className={styles.pathwayTitle}>{pData?.PathwaysCard1Head}</h3>
                 <p className={styles.pathwayDescription}>
                 {pData?.PathwaysCard1Para}
                 </p>
               </div>
-            </a>
-            <a href="/inside-canada">
+            </Link>
+            <Link href="/inside-canada">
               <div className={styles.pathway}>
                 <h3 className={styles.pathwayTitle}>{pData?.PathwaysCard2Head}</h3>
                 <p className={styles.pathwayDescription}>
                 {pData?.PathwaysCard2Para}
                 </p>
               </div>
-            </a>
-            <a href="/study-permit-minors">
+            </Link>
+            <Link href="/study-permit-minors">
               <div className={styles.pathway}>
                 <h3 className={styles.pathwayTitle}>{pData?.PathwaysCard3Head}</h3>
                 <p className={styles.pathwayDescription}>
                 {pData?.PathwaysCard3Para}
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
         </section>
 

@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const Pnp = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -313,9 +314,9 @@ const handleScroll = () => {
         >
           <li className={styles.listItem}>
           {pData?.ApplyList1}{" "}
-            <a href="/pnp" className={styles.link}>
+            <Link href="/pnp" className={styles.link}>
               Click here
-            </a>
+            </Link>
           </li>
           <li className={styles.listItem}>
           {pData?.ApplyList2}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/PaginationTable.module.css";
+import Link from "next/link";
 
 const parseDate = (dateString) => {
   return new Date(dateString);
@@ -227,9 +228,9 @@ const PaginationTable = () => {
           return (
             <tr className={styles.dataAll} key={index}>
               <td>
-                <a href={`https://www.canada.ca/${url}`}>
+                <Link href={`https://www.canada.ca/${url}`}>
                   {item?.drawNumber}
-                </a>
+                </Link>
               </td>
               <td>
                 <p>{item.drawDateFull}</p>

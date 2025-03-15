@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const GlobalStreamLmia = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -238,16 +239,16 @@ const handleScroll = () => {
             <ol style={{ marginLeft: "40px" }}>
               <li>
                 <strong>
-                  <a href="#CategoryA">
+                  <Link href="#CategoryA">
                   {pData?.GTSCategoryAPreviewHeading}
-                  </a>
+                  </Link>
                 </strong>
               </li>
               <li>
                 <strong>
-                  <a href="#CategoryB">
+                  <Link href="#CategoryB">
                   {pData?.GTSCategoryBPreviewHeading}
-                  </a>
+                  </Link>
                 </strong>
               </li>
             </ol>

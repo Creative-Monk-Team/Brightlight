@@ -9,6 +9,7 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import Image from "next/image";
+import Link from "next/link";
 const TemporaryResident = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   let [metaData, setMetaData] = useState([]);
@@ -205,7 +206,7 @@ const handleScroll = () => {
           {pData?.temporaryResidencyPara1}
           </p>
           <p>
-          {pData?.temporaryResidencyPara2}{" "}<a href="/pr-renewal">Pr Renewal</a>
+          {pData?.temporaryResidencyPara2}{" "}<Link href="/pr-renewal">Pr Renewal</Link>
           </p>
           <p>
           {pData?.temporaryResidencyPara3}

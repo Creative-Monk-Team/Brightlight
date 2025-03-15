@@ -7,6 +7,7 @@ import Testimonials from "../sections/Testimonials";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const PilotPrograms = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -211,9 +212,9 @@ const handleScroll = () => {
           </h2>
           <ul>
             <li>
-              <a href="/agri-food-pilot-program" className={styles.button}>
+              <Link href="/agri-food-pilot-program" className={styles.button}>
                 Agri-Food Pilot
-              </a>
+              </Link>
             </li>
             {/* You can add more pilot programs here in a similar format */}
           </ul>

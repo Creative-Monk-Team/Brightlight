@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const LowWageLmia = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -320,13 +321,13 @@ const handleScroll = () => {
           </table>
           <p>
           {pData?.ProvincialPara2}{" "}
-            <a
+            <Link
               href="https://www.canada.ca/en/employment-social-development/services/foreign-workers/median-wage.html"
               target="_blank"
               rel="noopener noreferrer"
             >
               Canada Employment and Social Development
-            </a>
+            </Link>
           </p>
         </section>
         <section

@@ -161,7 +161,7 @@ const AddNews = () => {
         break;
       case "Link_Text":
         tagValue =
-          '<a href="https://example.com" target="_blank">Your Text Here</a>';
+          '<Link href="https://example.com" target="_blank">Your Text Here</Link>';
         break;
       case "Numbered List":
         tagValue = `

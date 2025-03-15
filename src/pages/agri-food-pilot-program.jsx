@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import { Link } from "react-router-dom";
 
 const AgriFoodPilotProgram = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -633,11 +634,11 @@ const AgriFoodPilotProgram = () => {
           >
             {pData?.StillNotSurePara}
           </p>
-          <a href="/booking">
+          <Link href="/booking">
             <button className={styles.book_button} id="book-appointment">
               Book Appointment
             </button>
-          </a>
+          </Link>
         </section>
 
         <section

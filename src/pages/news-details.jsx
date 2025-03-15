@@ -7,6 +7,7 @@ import searchIcon from "../assets/search-gray.png";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 let NewsDetails = () => {
 
   let router = useRouter()
@@ -138,7 +139,7 @@ let NewsDetails = () => {
             <div className={styles.recentBlogsSection}>
               <h4>Recent News</h4>
               {recentBlogs.map((item) => (
-                <a
+                <Link
                   onClick={() => {
                     localStorage.setItem("news_heading", item.news_heading);
                   }}
@@ -155,16 +156,16 @@ let NewsDetails = () => {
                   className={styles.recentBlog}
                 >
                   <h3>{item.news_heading}</h3>
-                </a>
+                </Link>
               ))}
             </div>
           )}
           <div className={styles.freeAssesmentSection}>
             <h4>Start You Process Today With Us!</h4>
             <p>Book A Free Assement With Us Right Now.</p>
-            <a href="/booking" target="_blank">
+            <Link href="/booking" target="_blank">
               Free Assesment
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -196,7 +197,7 @@ let NewsDetails = () => {
           <div className={styles.recentBlogsSection}>
             <h4>Recent News</h4>
             {recentBlogs.map((item) => (
-              <a
+              <Link
                 onClick={() => {
                   localStorage.setItem("news_heading", item.news_heading);
                 }}
@@ -213,16 +214,16 @@ let NewsDetails = () => {
                 className={styles.recentBlog}
               >
                 <h3>{item.news_heading}</h3>
-              </a>
+              </Link>
             ))}
           </div>
         )}
         <div className={styles.freeAssesmentSection}>
           <h4>Start You Process Today With Us!</h4>
           <p>Book A Free Assement With Us Right Now.</p>
-          <a href="/booking" target="_blank">
+          <Link href="/booking" target="_blank">
             Free Assesment
-          </a>
+          </Link>
         </div>
       </div>
       <Footer1 />

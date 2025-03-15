@@ -9,6 +9,7 @@ import OurProcess from "../sections/OurProcess";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const PathwaysForCaregiver = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -241,9 +242,9 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[5] = el)}
         >
           <li>
-            <a className={styles.link} href="/in-home-caregiver-program-lp">
+            <Link className={styles.link} href="/in-home-caregiver-program-lp">
               In Home Caregiver program
-            </a>{" "}
+            </Link>{" "}
             -{pData?.temporaryl1}
           </li>
         </ul>
@@ -262,21 +263,21 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[7] = el)}
         >
           <li>
-            <a
+            <Link
               className={styles.link}
               href="/permanent-residence-pathways-caregivers-lp"
             >
               Category A – Gaining experience
-            </a>{" "}
+            </Link>{" "}
             -{pData?.permanentl1}
           </li>
           <li>
-            <a
+            <Link
               className={styles.link}
               href="/permanent-residence-pathways-caregivers-lp"
             >
               Category B – Direct to permanent residence
-            </a>{" "}
+            </Link>{" "}
             -{pData?.permanentl2}
           </li>
         </ul>

@@ -11,6 +11,7 @@ import LinkedInIcon  from "../assets/linkedin2.svg";
 import InstagramIcon  from "../assets/instagram2.svg";
 import FacebookIcon  from "../assets/facebook2.svg";
 import YouTubeIcon from "../assets/youtube2.svg";
+import Link from "next/link";
 
 let Footer = () => {
   return (
@@ -33,9 +34,9 @@ let Footer = () => {
             </div>
             <p>(604) 503-3734</p>
             <p>
-              <a href="mailto:info@brightlightimmigration.ca">
+              <Link href="mailto:info@brightlightimmigration.ca">
                 info@brightlightimmigration.ca
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -75,43 +76,43 @@ let Footer = () => {
           <div className={styles.rightFooter}>
             <p className={styles.footerHeading}>QUICK ACCESS</p>
             <div className={styles.footerAncor}>
-              <a href="/">PR</a>
+              <Link href="/">PR</Link>
               <span>.</span>
             </div>
             <div className={styles.footerAncor}>
-              <a href="/">SUPER VISA</a>
+              <Link href="/">SUPER VISA</Link>
               <span>.</span>
             </div>
             <div className={styles.footerAncor}>
-              <a href="/">VISITOR VISA</a>
+              <Link href="/">VISITOR VISA</Link>
               <span>.</span>
             </div>
             <div className={styles.footerAncor}>
-              <a href="/">STUDY VISA</a>
+              <Link href="/">STUDY VISA</Link>
               <span>.</span>
             </div>
             <div className={styles.footerAncor}>
-              <a href="/">PNP PROGRAM</a>
+              <Link href="/">PNP PROGRAM</Link>
               <span>.</span>
             </div>
             <div className={styles.footerAncor}>
-              <a href="/">FAMILY SPONSORSHIP</a>
+              <Link href="/">FAMILY SPONSORSHIP</Link>
               <span>.</span>
             </div>
             <div className={styles.footerAncor}>
-              <a href="/">SPOUSAL VISA</a>
+              <Link href="/">SPOUSAL VISA</Link>
               <span>.</span>
             </div>
             <div className={styles.footerAncor}>
-              <a href="/">OPEN WORK PERMIT</a>
+              <Link href="/">OPEN WORK PERMIT</Link>
               <span>.</span>
             </div>
             <div className={styles.footerAncor}>
-              <a href="/">PRIVACY POLICY</a>
+              <Link href="/">PRIVACY POLICY</Link>
               <span>.</span>
             </div>
             <div className={styles.footerAncor}>
-              <a href="/">TERMS & CONDITIONS</a>
+              <Link href="/">TERMS & CONDITIONS</Link>
               <span>.</span>
             </div>
           </div>

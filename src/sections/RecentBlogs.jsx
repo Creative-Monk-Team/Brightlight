@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/RecentBlogs.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const serviceNameMapping = {
   "visitor-visa": "Visitor Visa",
@@ -178,7 +179,7 @@ const RecentBlogs = () => {
         <h1>Featured Blogs</h1>
         <div className={styles.blogsGridSection}>
           {blogs.map((item, index) => (
-            <a
+            <Link
               key={index}
               onClick={() => localStorage.setItem("blog_heading", item.blog_heading)}
               href={getBlogUrl(item)}
@@ -198,7 +199,7 @@ const RecentBlogs = () => {
                 <b>{item.date && item.date.trim().split("T")[0]}</b>
               </h6>
               <p>{truncateText(item.blog_content, 100)}</p>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

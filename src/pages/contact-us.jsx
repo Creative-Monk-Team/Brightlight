@@ -6,6 +6,7 @@ import Footer1 from "../components/Footer1";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import { ToastContainer, toast, Bounce } from "react-toastify";
+import Link from "next/link";
 
 const Contact = () => {
   let onChange = () => {};
@@ -348,8 +349,8 @@ const Contact = () => {
           </form>
           <div className={styles.agreeMessageDiv}>
             <span>By clicking, you agree to our</span>{" "}
-            <a href="/terms-&-conditions">Terms & Conditions</a> ,{" "}
-            <a href="/privacy-policy">Privacy and Policy</a>
+            <Link href="/terms-&-conditions">Terms & Conditions</Link> ,{" "}
+            <Link href="/privacy-policy">Privacy and Policy</Link>
           </div>
         </div>
       </div>

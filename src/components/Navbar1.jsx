@@ -957,7 +957,7 @@ const Navbar1 = (props) => {
             <div className={styles.hamburger} onClick={toggleSidebar}>
               {/* &#9776; */}{" "}
               <Image height={50} width={100}
-                src={showBlue ? hamBurgerIconBlue : hamBurgerIconWhite}
+                src={showBlue ? "/assets/hamBurgerIconBlue.svg" : "/assets/hamBurgerIconWhite.svg"}
                 className={styles.hamburgerColoredIcon}
                 alt="wee"
               />

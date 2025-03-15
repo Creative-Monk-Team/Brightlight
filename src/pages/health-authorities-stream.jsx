@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const HealthAuthorityStream = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -471,7 +472,7 @@ const handleScroll = () => {
 
         {/* <Link href="/booking" className={styles.button}>Book Appointment</Link> */}
 
-        {/* <a href="" className={styles.button}></a> */}
+        {/* <Link href="" className={styles.button}></Link> */}
         <section
           className={`${styles.section} ${styles.section}`}
           id="why-choose-us"

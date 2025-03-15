@@ -9,6 +9,7 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FieldOfStudyTable from "../components/FieldOfStudyTable";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const Pgwp = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -307,19 +308,19 @@ const handleScroll = () => {
           >
             <li>
             {pData?.caLi }{" "}
-              <a
+              <Link
                 style={{ color: "dodgerblue" }}
                 href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html"
               >
                 general and physical location
-              </a>{" "}
+              </Link>{" "}
               {pData?.caLi1Sub1 }{" "}
-              <a
+              <Link
                 style={{ color: "dodgerblue" }}
                 href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/prepare/designated-learning-institutions-list.html"
               >
                 PGWP eligible designated learning institution
-              </a>
+              </Link>
               .
             </li>
           </ul>
@@ -424,7 +425,7 @@ const handleScroll = () => {
 
                 <li>
                   <strong>
-                    <a href="#field-study">{strongText6}</a>
+                    <Link href="#field-study">{strongText6}</Link>
                   </strong>{" "}{remainingText6}
                 </li>
               </ul>
@@ -446,7 +447,7 @@ const handleScroll = () => {
 
                 <li>
                   <strong>
-                    <a href="#field-study">{strongText7}</a>
+                    <Link href="#field-study">{strongText7}</Link>
                   </strong>{" "} {remainingText7}
                 </li>
               </ul>
@@ -467,7 +468,7 @@ const handleScroll = () => {
 
                 <li>
                 <strong>
-                    <a href="#field-study">{strongText8}</a>
+                    <Link href="#field-study">{strongText8}</Link>
                   </strong>{" "} {remainingText8}
                 </li>
               </ul>

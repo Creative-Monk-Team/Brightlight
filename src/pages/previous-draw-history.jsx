@@ -4,6 +4,7 @@ import Navbar1 from "../components/Navbar1";
 import Footer1 from "../components/Footer1";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
+import Link from "next/link";
 
 // Function to parse dates
 const parseDate = (dateString) => {
@@ -298,9 +299,9 @@ const PreviousDrawHistory = () => {
               return (
                 <tr className={styles.dataAll} key={index}>
                   <td>
-                    <a href={`https://www.canada.ca/${url}`}>
+                    <Link href={`https://www.canada.ca/${url}`}>
                       {item?.drawNumber}
-                    </a>
+                    </Link>
                   </td>
                   <td>
                     <p>{item.drawDateFull}</p>

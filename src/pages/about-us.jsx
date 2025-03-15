@@ -22,6 +22,7 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import Odometer from "../components/Odometer.jsx";
 import Image from "next/image";
+import Link from "next/link.js";
 
 let About = () => {
   let [topSectionData, setTopSectionData] = useState([]);
@@ -569,33 +570,33 @@ let About = () => {
             <p>Find Us On</p>
             <div className={styles.socialPresenceIcons}>
               {/* {socialMediaData?.tiktokLink ? ( */}
-                <a href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1">
+                <Link href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1">
                      <Image height={50} width={100} src={TiktokBlue} />
-                </a>
+                </Link>
               {/* ) : null} */}
 
               {/* {socialMediaData?.linkedinLink ? ( */}
-                <a href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198">
+                <Link href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198">
                      <Image height={50} width={100} src={LinkedinBlue} />
-                </a>
+                </Link>
               {/* ) : null} */}
 
               {socialMediaData?.instagramLink ? (
-                <a href={socialMediaData?.instagramLink}>
+                <Link href={socialMediaData?.instagramLink}>
                      <Image height={50} width={100} src={InstaBlue} />
-                </a>
+                </Link>
               ) : null}
 
               {socialMediaData?.facebookLink ? (
-                <a href={socialMediaData?.facebookLink}>
+                <Link href={socialMediaData?.facebookLink}>
                      <Image height={50} width={100} src={FacebookBlue} />
-                </a>
+                </Link>
               ) : null}
 
               {socialMediaData?.youtubeLink ? (
-                <a href={socialMediaData?.youtubeLink}>
+                <Link href={socialMediaData?.youtubeLink}>
                      <Image height={50} width={100} src={YoutubeBlue} />
-                </a>
+                </Link>
               ) : null}
             </div>
           </div>

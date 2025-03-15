@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const InsideCanada = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -244,12 +245,12 @@ const handleScroll = () => {
         >
           <h2 className={styles.subheading}>Programs to Consider</h2>
           <div className={styles.buttonContainer}>
-            <a href="/visitor-to-student" className={styles.button}>
+            <Link href="/visitor-to-student" className={styles.button}>
               Visitor to Student Status
-            </a>
-            <a href="/change-college-program" className={styles.button}>
+            </Link>
+            <Link href="/change-college-program" className={styles.button}>
               Change of College or Existing Program (DLI Change)
-            </a>
+            </Link>
           </div>
         </section>
 

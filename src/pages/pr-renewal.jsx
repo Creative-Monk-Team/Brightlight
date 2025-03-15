@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 let PrRenewal = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -204,9 +205,9 @@ const handleScroll = () => {
 
         <p style={{ textAlign: "center", marginTop: "20px" }}>
         {pData?.PrRenewalPara2}{" "}
-          <a style={{ color: "dodgerblue" }} href="/citizenship">
+          <Link style={{ color: "dodgerblue" }} href="/citizenship">
             Citizenship
-          </a>{" "}
+          </Link>{" "}
        
         </p>
       </div>

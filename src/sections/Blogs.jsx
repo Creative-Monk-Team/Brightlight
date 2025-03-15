@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Prevarrow  from "../assets/right-arrow-blue.svg";
 import  Nextarrow  from "../assets/right-arrow-blue.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 let NextArrow = () => {
   return (
@@ -89,7 +90,7 @@ let Blogs = () => {
           {Array.isArray(blogs) && blogs.length > 0 ? (
             <Slider {...settings}>
               {blogs.map((item, index) => (
-                <a
+                <Link
                   className={styles.blog}
                   key={index}
                   onClick={() => {
@@ -109,16 +110,16 @@ let Blogs = () => {
                   </h6>
                   <p>{truncateText(item.blog_content, 100)}</p>
                   <button>Read More</button>
-                </a>
+                </Link>
               ))}
             </Slider>
           ) : (
             <p></p>
           )}
         </div>
-        <a className={styles.knowMoreAnchor} href="/blogs">
+        <Link className={styles.knowMoreAnchor} href="/blogs">
           Know More
-        </a>
+        </Link>
       </div>
     </div>
   );

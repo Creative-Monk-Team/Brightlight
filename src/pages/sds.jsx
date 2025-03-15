@@ -9,6 +9,7 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FieldOfStudyTable from "../components/FieldOfStudyTable";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const Sds = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -614,7 +615,7 @@ const handleScroll = () => {
           <ul style={{ marginLeft: "40px", listStyleType: "circle" }}>
             <li> <strong>{strongText1} </strong> {remainingText1}
             </li>
-            <li><strong>{strongText2} </strong> {remainingText2}{" "}<a href="#field-study"> Field of study Requirement </a></li>
+            <li><strong>{strongText2} </strong> {remainingText2}{" "}<Link href="#field-study"> Field of study Requirement </Link></li>
             </ul>
           </ul>
 
@@ -623,7 +624,7 @@ const handleScroll = () => {
           <li><strong>{pData?.IfYouGraduatedAnotherHeading}</strong> </li>
           <ul style={{ marginLeft: "40px", listStyleType: "circle" }}>
             <li><strong>{strongText3} </strong> {remainingText3}</li>
-            <li><strong>{strongText4} </strong> {remainingText4}{" "}<a href="#field-study"> Field of study Requirement </a> </li>
+            <li><strong>{strongText4} </strong> {remainingText4}{" "}<Link href="#field-study"> Field of study Requirement </Link> </li>
             </ul>
           </ul>
 
@@ -632,7 +633,7 @@ const handleScroll = () => {
           <li> <strong>{pData?.IfYouGraduatedCollegeHeading}</strong></li>
           <ul style={{ marginLeft: "40px", listStyleType: "circle" }}>
             <li><strong>{strongText5} </strong> {remainingText5}</li>
-            <li> <strong>{strongText6} </strong> {remainingText6}{" "}<a href="#field-study"> Field of study Requirement </a> </li>
+            <li> <strong>{strongText6} </strong> {remainingText6}{" "}<Link href="#field-study"> Field of study Requirement </Link> </li>
             </ul>
           </ul>
           <button id="field-study"

@@ -8,6 +8,7 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import Link from "next/link";
 
 const Adoption = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -221,21 +222,21 @@ const handleScroll = () => {
               <p>
               {pData?.TwoMainPara1}
               </p>
-              <a href="#intra-country" className={styles.button}>
+              <Link href="#intra-country" className={styles.button}>
               {pData?.IntraCountryAncHeading}
-              </a>
+              </Link>
             </li>
             <li style={{ marginTop: "30px" }}>
               <p>
               {pData?.TwoMainPara2}
               </p>
-              <a
+              <Link
                 href="#inter-country"
                 className={styles.button}
                 id="intra-country"
               >
                {pData?.InterCountryAncHeading} 
-              </a>
+              </Link>
             </li>
           </ul>
         </section>
