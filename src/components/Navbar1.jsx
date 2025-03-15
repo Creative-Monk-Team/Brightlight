@@ -1530,7 +1530,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
                 >
-                  <InstagramIcon className={styles.socialIcon} />
+                  <Image src={"/assets/instagram.svg"} height={25} width={25} className={styles.socialIcon} />
                 </Link>
               )}
               {showBlue ? (
