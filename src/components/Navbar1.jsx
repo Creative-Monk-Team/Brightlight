@@ -244,9 +244,9 @@ const Navbar1 = (props) => {
         <div className={styles.firstNavbar}>
           <div className={styles.calculatorIcon}>
             <Image src={"/assets/gearIcon.svg"} className={styles.iconGearIcon} width={25} height={25} />
-            <p onClick={() => (window.location.href = "/immigration-tools")}>
+            <Link href = "/immigration-tools">
               Immigration Tools
-            </p>
+            </Link>
             <Image
               src={"/assets/rightArrow.svg"}
               className={styles.RightArrowIcon}

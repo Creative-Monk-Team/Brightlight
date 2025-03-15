@@ -57,7 +57,7 @@
   row-gap: 40px;
 }
 
-.cardParent div {
+.cardParent a {
   width: 100%;
   text-align: center;
   padding: 20px;
@@ -67,7 +67,7 @@
   border: 1px solid #073552;
 }
 
-.cardParent div img {
+.cardParent a img {
   width: 50px;
   margin-bottom: 20px;
 }
@@ -82,7 +82,7 @@
   color: #999595;
 }
 
-.cardParent div:hover {
+.cardParent a:hover {
   text-decoration: none;
   transform: translateY(-8px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -90,15 +90,15 @@
   color: 2px solid white;
 }
 
-.cardParent div:hover h2 {
+.cardParent a:hover h2 {
   color: #e8c47c;
 }
 
-.cardParent div:hover p {
+.cardParent a:hover p {
   color: #ffffff;
 }
 
-.cardParent div:hover {
+.cardParent a:hover {
   background-color: #073552;
 }
 
