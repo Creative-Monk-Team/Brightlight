@@ -12,7 +12,7 @@ import Lp from "../../assets/blogDetailsPic.jpg";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
-import { fetchSeoData } from "../lib/fetchSeoData";
+import { fetchSeoData } from "../../lib/fetchSeoData";
 
 export async function getServerSideProps() {
   return fetchSeoData(""); // Pass the API endpoint specific to this page
