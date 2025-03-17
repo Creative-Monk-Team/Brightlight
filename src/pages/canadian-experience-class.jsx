@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/CanadianExperienceClass.module.css";
 import Link from "next/link";
-import { fetchSeoData } from "../lib/fetchSeoData";
-
-export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
-}
 import Navbar1 from "../components/Navbar1";
 import Footer1 from "../components/Footer1";
 import Testimonials from "../sections/Testimonials";
