@@ -23,7 +23,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
 
-let HomePage = () => {
+export async function getServerSideProps() {
+  try {
+    const res = await fetch("https://brightlight-node.onrender.com/home-meta");
+    const data = await res.json();
+
+    return {
+      props: {
+        metaData: data.length > 0 ? data[0] : null,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching SEO metadata:", error);
+    return {
+      props: {
+        metaData: null,
+      },
+    };
+  }
+}
+
+let HomePage = ({metaData}) => {
   const swiperRef = useRef(null);
 
   // State Variables
@@ -58,7 +78,7 @@ let HomePage = () => {
   const simplifyingRef = useRef(null); // Ref for simplifying section
 
   // Meta & Image Data
-  const [metaData, setMetaData] = useState([]);
+  // const [metaData, setMetaData] = useState([]);
   const [loveneetAlt, setLoveneetAlt] = useState("");
   const [memberOfAlt, setMemberOfAlt] = useState("");
   const [simplifyData, setSimplifyData] = useState([]);
@@ -330,18 +350,6 @@ let HomePage = () => {
       rootMargin: "0px",
       threshold: 0.1,
     };
-    fetch("https://brightlight-node.onrender.com/home-meta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -558,6 +566,9 @@ let HomePage = () => {
           site_name: "Brightlight Immigration",
         }}
       />
+      <Head>
+        <meta name="keywords" content={metaData?.metaKeywords || "default, keywords"} />
+      </Head>
 
       <Navbar1 showBlue={true} />
       <div className={styles.bannerParent}>
