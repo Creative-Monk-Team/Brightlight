@@ -33,7 +33,6 @@ export async function getServerSideProps() {
 
 const Adoption = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData,setPData]=useState([])
 
   const toggleDropdown = () => {
