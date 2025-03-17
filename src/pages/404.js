@@ -1,9 +1,4 @@
 import Link from "next/link";
-import { fetchSeoData } from "../lib/fetchSeoData";
-
-export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
-}
 
 export default function Custom404() {
     return (
