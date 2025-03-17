@@ -269,7 +269,10 @@ const handleScroll = () => {
               <Link href="/agriculture-stream-lmia" className={styles.button}>
                 Agricultural Stream LMIA
               </Link>
-              <Link href="/pr-supporting-lmia" className={styles.button}>
+              {/* <Link href="/pr-supporting-lmia" className={styles.button}>
+                PR Supporting LMIA with/without WP
+              </Link> */}
+              <Link href="/lmia-reviewed" className={styles.button}>
                 PR Supporting LMIA with/without WP
               </Link>
               <Link href="/global-stream-lmia" className={styles.button}>

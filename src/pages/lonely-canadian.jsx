@@ -374,7 +374,7 @@ const handleScroll = () => {
           >
             <li style={{ marginBottom: "10px" }}>
             {pData?.ExpLi1} {" "}
-              <Link href="/study-visa" className={styles.link}>
+              <Link href="/student-visa" className={styles.link}>
                 Learn more about Study Visas
               </Link>  {" "}
             </li>

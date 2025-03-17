@@ -110,7 +110,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/open-work-spouse" />
+      <link rel="canonical" href="https://brightlightimmigration.ca/open-work-permit-for-spouse-inland" />
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

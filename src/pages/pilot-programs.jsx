@@ -246,7 +246,7 @@ const handleScroll = () => {
 
           <button
             className={styles.button1}
-            onClick={() => (window.location.href = "/contact")}
+            onClick={() => (window.location.href = "/contact-us")}
           >
             Contact
           </button>
@@ -271,12 +271,12 @@ const handleScroll = () => {
             <strong>{strongText94}</strong>{" "} {remainingText94}
             </li>
           </ul>
+          <Link href={"/contact-us"}>
           <button
             className={styles.button1}
-            onClick={() => (window.location.href = "/contact")}
           >
             Contact
-          </button>
+          </button></Link>
         </section>
       </div>
 

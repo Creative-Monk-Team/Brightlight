@@ -107,7 +107,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/Rnip" />
+      <link rel="canonical" href="https://brightlightimmigration.ca/rnip" />
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

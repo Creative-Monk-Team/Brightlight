@@ -240,12 +240,12 @@ const handleScroll = () => {
             {pData?.elibilityP1}
               <ul style={{ marginLeft: "40px", marginTop: "10px" }}>
                 <li>
-                  <Link href="/skilled-worker" className={styles.link}>
+                  <Link href="/skilled-worker-stream" className={styles.link}>
                     BCPNP Skilled Worker
                   </Link>
                 </li>
                 <li>
-                  <Link href="/international-graduate" className={styles.link}>
+                  <Link href="/international-graduate-program" className={styles.link}>
                     BCPNP International Graduate
                   </Link>
                 </li>

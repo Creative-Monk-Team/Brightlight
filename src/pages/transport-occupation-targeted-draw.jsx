@@ -396,13 +396,13 @@ const handleScroll = () => {
           <p>
           {pData?.s2 }
           </p>
-          {/* <Link href="/contact" className={styles.button}></Link> */}
-          <button
+          <Link href="/contact-us" className={styles.button}></Link>
+          {/* <button
             className={styles.button}
             onClick={() => (window.location.href = "/contact")}
           >
             Contact Us
-          </button>
+          </button> */}
         </div>
 
         {/* <div

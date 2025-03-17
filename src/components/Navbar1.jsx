@@ -675,7 +675,7 @@ const Navbar1 = (props) => {
                         </div>
                       </div>
 
-                      <Link href="/ParentsGrandparents">Parents / Grandparents</Link>
+                      <Link href="/parents-grandparents">Parents / Grandparents</Link>
                       <Link href="/dependent-children">Dependent Children</Link>
                       <Link href="/humanitarian-compassionate">H & C</Link>
                       <Link href="/orphan">Orphan</Link>
@@ -1412,7 +1412,7 @@ const Navbar1 = (props) => {
                 {isCalculatorsOpen && (
                   <div className={styles.subDropdownContent}>
                     {/* <Link href="/calculators">CALCULATORS</Link> */}
-                    <Link href="/Federal-Skilled">FSWP Calculator</Link>
+                    <Link href="/federal-skilled">FSWP Calculator</Link>
                     <Link href="/clb-ilets-calculator">CLB Calculator</Link>
                     <Link href="/bcpnp-calculator">BCPNP Calculator</Link>
                     <Link href="/previous-draw-history">Previous Draws History</Link>

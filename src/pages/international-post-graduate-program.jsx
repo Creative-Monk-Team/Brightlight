@@ -110,7 +110,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/ipgp" />
+      <link rel="canonical" href="https://brightlightimmigration.ca/international-post-graduate-program" />
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

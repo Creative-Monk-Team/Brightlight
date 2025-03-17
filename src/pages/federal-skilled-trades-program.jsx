@@ -315,7 +315,7 @@ const handleScroll = () => {
             </li>
             <li>
             {pData?.ha2}
-              <Link href="/Federal-Skilled" className={styles.link}>
+              <Link href="/federal-skilled" className={styles.link}>
                 Click here
               </Link>{" "}
               you can find a link to a FSWP Calculator.
