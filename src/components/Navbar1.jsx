@@ -23,6 +23,11 @@ import hamBurgerIconWhite from "../assets/hamBurgerIconWhite.svg";
 import hamBurgerIconBlue from "../assets/hamBurgerIconBlue.svg";
 import whiteLogo from "../assets/brightlight-logo-white.png";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 import Image from "next/image";
 
 const Navbar1 = (props) => {

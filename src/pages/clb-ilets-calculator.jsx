@@ -4,10 +4,13 @@ import Navbar1 from "../components/Navbar1";
 import Footer1 from "../components/Footer1";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
-const CLBILETSCalculator = () => {
+export async function getServerSideProps() {
+  return fetchSeoData("clb-meta"); // Pass the API endpoint specific to this page
+}
+const CLBILETSCalculator = ({metaData}) => {
   let [selected, setSelected] = useState(1);
-  let [metaData, setMetaData] = useState([]);
   let [data, setData] = useState([]);
   const [scores, setScores] = useState({
     listening: 4.0,
@@ -137,20 +140,6 @@ const CLBILETSCalculator = () => {
     }
   };
 
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/clb-meta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   const [selectedCLB3, setSelectedCLB3] = useState("1");
 
@@ -415,6 +404,49 @@ const CLBILETSCalculator = () => {
 
   return (
     <>
+    <Head>
+            <link rel="canonical" href="https://brightlightimmigration.ca/clb-ilets-calculator" />
+            <title>
+              {metaData?.metaTitle
+                ? metaData?.metaTitle
+                : "Brightlight Immigration"}
+            </title>
+            <meta
+              name="description"
+              content={
+                metaData?.metaDesc
+                  ? metaData?.metaDesc
+                  : "Learn about Brightlight Immigration, our mission, values, and the dedicated team behind our immigration services. We are committed to providing honest and accurate advice to guide you through your immigration journey."
+              }
+            />
+            <meta
+              name="title"
+              property="og:title"
+              content={
+                metaData?.metaOgTitle
+                  ? metaData?.metaOgTitle
+                  : " Brightlight Immigration"
+              }
+            />
+            <meta property="og:image" content={ogImage} />
+            <meta property="og:image:type" content="image/png" />
+            <meta
+              property="og:description"
+              content={
+                metaData?.metaOgDesc
+                  ? metaData?.metaOgDesc
+                  : "Discover the story behind Brightlight Immigration, our commitment to providing honest and accurate advice, and how our team can assist you with your immigration needs."
+              }
+            />
+            <meta
+              name="Keywords"
+              content={
+                metaData?.metaKeywords
+                  ? metaData?.metaKeywords
+                  : "Brightlight Immigration, Immigration Services, Mission, Team"
+              }
+            />
+          </Head>
       <Navbar1 />
       <div className={styles.calculatorBackgroundParent}>
         <div className={styles.calculatorBackground}>

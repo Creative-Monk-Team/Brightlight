@@ -9,9 +9,27 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 
-const AgricultureandAgriFoodOccu = () => {
+export async function getServerSideProps() {
+  try {
+    const res = await fetch("https://brightlight-node.onrender.com/agricultAndAgriFoodOccuMeta");
+    const data = await res.json();
+
+    return {
+      props: {
+        metaData: data.length > 0 ? data[0] : null,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching SEO metadata:", error);
+    return {
+      props: {
+        metaData: null,
+      },
+    };
+  }
+}
+const AgricultureandAgriFoodOccu = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData, setPData] = useState([]);
 
   const toggleDropdown = () => {
@@ -24,21 +42,6 @@ const AgricultureandAgriFoodOccu = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/agricultAndAgriFoodOccuMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/agricultureAgriFoodOccupation")

@@ -8,10 +8,12 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
-
-const ChangeCollegeProgram = () => {
+import { fetchSeoData } from "../lib/fetchSeoData";
+export async function getServerSideProps() {
+  return fetchSeoData("changeCollegeProgMeta"); // Pass the API endpoint specific to this page
+}
+const ChangeCollegeProgram = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData, setPData] = useState([]);
 
   const toggleDropdown = () => {
@@ -24,20 +26,6 @@ const ChangeCollegeProgram = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/changeCollegeProgMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/changeCollegeProgram")

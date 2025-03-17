@@ -9,6 +9,11 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData("bcpnp-meta"); // Pass the API endpoint specific to this page
+}
 const CommonLawPartnerPermanent = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   let [metaData, setMetaData] = useState([]);

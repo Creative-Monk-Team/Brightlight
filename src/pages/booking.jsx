@@ -23,10 +23,12 @@ const Booking = () => {
         }}
       >
         <iframe
-          src="https://api.leadconnectorhq.com/widget/booking/Tg8EPG2CVEMkQ1J0F3yj"
+          src="https://app.brightlightimmigration.ca/widget/booking/TQvSqDtKXXgthjC3aT4G"
           title="Booking Iframe"
           width="95%" // Adjust iframe width as needed
           height="100%" // Adjust iframe height as needed
+          scrolling="no"
+          id="TQvSqDtKXXgthjC3aT4G_1742213127699"
           style={{
             border: "none",
             maxWidth: "100%", // Prevents iframe from overflowing
@@ -35,7 +37,12 @@ const Booking = () => {
           loading="lazy"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        />
+        ></iframe>
+        <br />
+        <script
+          src="https://app.brightlightimmigration.ca/js/form_embed.js"
+          type="text/javascript"
+        ></script>
       </div>
       <Footer1 />
     </>

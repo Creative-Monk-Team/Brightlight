@@ -6,6 +6,11 @@ import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Image from "next/image";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 let AddBlog = () => {
   const [textareaValue, setTextareaValue] = useState(
     "Your Selection Code Here"

@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/CanadianExperienceClass.module.css";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 import Navbar1 from "../components/Navbar1";
 import Footer1 from "../components/Footer1";
 import Testimonials from "../sections/Testimonials";
@@ -10,9 +15,27 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 
-const CanadianExperienceClass = () => {
+export async function getServerSideProps() {
+  try {
+    const res = await fetch("https://brightlight-node.onrender.com/canadianExperienceClassMeta");
+    const data = await res.json();
+
+    return {
+      props: {
+        metaData: data.length > 0 ? data[0] : null,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching SEO metadata:", error);
+    return {
+      props: {
+        metaData: null,
+      },
+    };
+  }
+}
+const CanadianExperienceClass = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData,setPData]=useState([])
 
   const toggleDropdown = () => {
@@ -26,20 +49,6 @@ const CanadianExperienceClass = () => {
     }
   };
 
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/canadianExperienceClassMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
 
   useEffect(() => {

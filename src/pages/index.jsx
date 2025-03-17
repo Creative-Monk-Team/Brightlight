@@ -21,6 +21,7 @@ import Odometer from "../components/Odometer";
 import { debounce } from "lodash";
 import Image from "next/image";
 import Link from "next/link";
+
 import { NextSeo } from "next-seo";
 
 export async function getServerSideProps() {

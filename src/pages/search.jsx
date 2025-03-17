@@ -4,6 +4,11 @@ import Navbar1 from "../components/Navbar1";
 import styles from "../styles/Search.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 const stripHtmlTags = (text) => (text ? text.replace(/<[^>]*>/g, "") : "");
 
 const truncateText = (text, numChars) => {

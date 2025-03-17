@@ -12,9 +12,28 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import Image from "next/image";
 
-let Blogs = () => {
+export async function getServerSideProps() {
+  try {
+    const res = await fetch("https://brightlight-node.onrender.com/blogs-meta");
+    const data = await res.json();
+
+    return {
+      props: {
+        metaData: data.length > 0 ? data[0] : null,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching SEO metadata:", error);
+    return {
+      props: {
+        metaData: null,
+      },
+    };
+  }
+}
+
+let Blogs = ({metaData}) => {
   let [firstBlog, setFirstBlog] = useState([]);
-  let [metaData, setMetaData] = useState([]);
   let [remainingBlogs, setRemainingBlogs] = useState([]);
   let [displayedBlogs, setDisplayedBlogs] = useState([]);
   let [quickLinksBlogs, setQuickLinksBlogs] = useState([]);
@@ -135,20 +154,6 @@ let Blogs = () => {
     router.push(`/blogs/${blogSlug}`);
   };
 
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/blogs-meta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   return (
     <>

@@ -8,6 +8,11 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 let NewsDetails = () => {
 
   let router = useRouter()

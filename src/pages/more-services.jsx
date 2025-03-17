@@ -65,6 +65,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Footer1 from "../components/Footer1";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 
 const MoreServices = () => {
   const [selectedHeading, setSelectedHeading] = useState("Permanent Residency");

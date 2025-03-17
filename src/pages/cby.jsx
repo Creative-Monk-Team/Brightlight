@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/Cby.module.css";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
 import Navbar1 from "../components/Navbar1";
 import Footer1 from "../components/Footer1";
 import Testimonials from "../sections/Testimonials";
@@ -10,9 +12,11 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 
-const Cby = () => {
+export async function getServerSideProps() {
+  return fetchSeoData("cbyMeta"); // Pass the API endpoint specific to this page
+}
+const Cby = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData,setPData]=useState([])
 
   const toggleDropdown = () => {
@@ -27,21 +31,6 @@ const Cby = () => {
   };
 
 
-
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/cbyMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
 
   useEffect(() => {

@@ -13,10 +13,14 @@ import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import Image from "next/image";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
-let CategoryBased = () => {
+export async function getServerSideProps() {
+  return fetchSeoData("bp-meta"); // Pass the API endpoint specific to this page
+}
+
+let CategoryBased = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [data, setData] = useState([]);
   let [whyChooseData, setWhyChooseData] = useState([]);
 
@@ -32,18 +36,6 @@ let CategoryBased = () => {
       .then((data) => {
         if (data && data[0]) {
           setData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    fetch("https://brightlight-node.onrender.com/bp-meta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
         }
       })
       .catch((error) => {

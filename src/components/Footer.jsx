@@ -12,6 +12,11 @@ import InstagramIcon  from "../assets/instagram2.svg";
 import FacebookIcon  from "../assets/facebook2.svg";
 import YouTubeIcon from "../assets/youtube2.svg";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 
 let Footer = () => {
   return (

@@ -6,6 +6,11 @@ import Prevarrow  from "../assets/right-arrow-blue.svg";
 import  Nextarrow  from "../assets/right-arrow-blue.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 
 let NextArrow = () => {
   return (

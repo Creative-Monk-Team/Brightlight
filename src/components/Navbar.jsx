@@ -3,6 +3,11 @@ import styles from "../styles/Navbar.module.css";
 import Search from "../assets/search.svg";
 import Image from "next/image"
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 
 let Navbar = () => {
   let [showSearch, setShowSearch] = useState(false);

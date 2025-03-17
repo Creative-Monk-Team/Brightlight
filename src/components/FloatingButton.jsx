@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/FloatingButton.module.css";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData(""); // Pass the API endpoint specific to this page
+}
 
 let FloatingButton = () => {
   let [showButton, setShowButton] = useState(true);

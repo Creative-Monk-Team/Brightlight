@@ -24,10 +24,29 @@ import Odometer from "../components/Odometer.jsx";
 import Image from "next/image";
 import Link from "next/link.js";
 
-let About = () => {
-  let [topSectionData, setTopSectionData] = useState([]);
 
-  let [metaData, setMetaData] = useState([]);
+export async function getServerSideProps() {
+  try {
+    const res = await fetch("https://brightlight-node.onrender.com/about-meta");
+    const data = await res.json();
+
+    return {
+      props: {
+        metaData: data.length > 0 ? data[0] : null,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching SEO metadata:", error);
+    return {
+      props: {
+        metaData: null,
+      },
+    };
+  }
+}
+
+let About = ({metaData}) => {
+  let [topSectionData, setTopSectionData] = useState([]);
 
   let [foundationSection, setFoundationSection] = useState([]);
   let [visionSection, setVisionSection] = useState([]);
@@ -241,18 +260,6 @@ let About = () => {
       .then((data) => {
         if (data) {
           setDirectorsSection(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      fetch("https://brightlight-node.onrender.com/about-meta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
         }
       })
       .catch((error) => {

@@ -9,11 +9,15 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
-const Citizenship = () => {
+export async function getServerSideProps() {
+  return fetchSeoData("citizenshipMeta"); // Pass the API endpoint specific to this page
+}
+
+const Citizenship = ({ metaData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
-  let [pData,setPData]=useState([])
+  let [pData, setPData] = useState([])
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -26,20 +30,6 @@ const Citizenship = () => {
     }
   };
 
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/citizenshipMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/citizenship")
@@ -59,7 +49,7 @@ const Citizenship = () => {
 
   const sectionsRef = useRef([]);
 
-const handleScroll = () => {
+  const handleScroll = () => {
     sectionsRef.current.forEach((section) => {
       if (section) { // ✅ Check if section exists
         const rect = section.getBoundingClientRect();
@@ -95,15 +85,15 @@ const handleScroll = () => {
   const fetchedValue91 = pData?.wcu1;
   const strongText91 = extractStrongText(fetchedValue91);
   const remainingText91 = extractRemainingText(fetchedValue91);
-  
+
   const fetchedValue92 = pData?.wcu2;
   const strongText92 = extractStrongText(fetchedValue92);
   const remainingText92 = extractRemainingText(fetchedValue92);
-  
+
   const fetchedValue93 = pData?.wcu3;
   const strongText93 = extractStrongText(fetchedValue93);
   const remainingText93 = extractRemainingText(fetchedValue93);
-  
+
   const fetchedValue94 = pData?.wcu4;
   const strongText94 = extractStrongText(fetchedValue94);
   const remainingText94 = extractRemainingText(fetchedValue94);
@@ -111,7 +101,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/citizenship" />
+        <link rel="canonical" href="https://brightlightimmigration.ca/citizenship" />
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle
@@ -157,9 +147,8 @@ const handleScroll = () => {
       <div className={styles.bannerParent}>
         <div className={styles.banner}>
           <div
-            className={`${styles.bannerHeadingRotateParent} ${
-              isDropdownOpen ? styles.active : ""
-            }`}
+            className={`${styles.bannerHeadingRotateParent} ${isDropdownOpen ? styles.active : ""
+              }`}
           >
             <div
               className={styles.bannerHeadingRotate}
@@ -204,10 +193,10 @@ const handleScroll = () => {
             </header>
 
             <p className={styles.discription}>
-            {pData?.CongratulationsPara}
+              {pData?.CongratulationsPara}
             </p>
             <p className={styles.discription}>
-            {pData?.CongratulationsPara2}
+              {pData?.CongratulationsPara2}
             </p>
           </section>
 
@@ -220,12 +209,12 @@ const handleScroll = () => {
             <ul>
               <li>{pData?.b1}</li>
               <li>
-              {pData?.b2}
+                {pData?.b2}
               </li>
               <li>{pData?.b3}</li>
               <li>{pData?.b4}</li>
               <li>
-              {pData?.b5}
+                {pData?.b5}
               </li>
             </ul>
           </section>
@@ -237,22 +226,22 @@ const handleScroll = () => {
           >
             <h2>{pData?.EligibilityHeading}</h2>
             <p>
-            {pData?.EligibilitySubHeading}
+              {pData?.EligibilitySubHeading}
             </p>
             <ul style={{ marginTop: "20px", marginBottom: "20px" }}>
               <li>
-              {pData?.e1}
+                {pData?.e1}
               </li>
               <li>
-              {pData?.e2}
+                {pData?.e2}
               </li>
               <li>
-              {pData?.e3}
+                {pData?.e3}
               </li>
               <li>{pData?.e4}</li>
             </ul>
             <p>
-            {pData?.EligibilityNote}
+              {pData?.EligibilityNote}
             </p>
           </section>
 
@@ -264,16 +253,16 @@ const handleScroll = () => {
             <h2>{pData?.HowApplyHeading}</h2>
             <ul>
               <li>
-              {pData?.ha1}
+                {pData?.ha1}
               </li>
               <li>
-              {pData?.ha2}
+                {pData?.ha2}
               </li>
               <li>
-              {pData?.ha3}
+                {pData?.ha3}
               </li>
               <li>
-              {pData?.ha4}
+                {pData?.ha4}
                 <Link href="/booking">
                   Click here
                 </Link>
@@ -289,25 +278,25 @@ const handleScroll = () => {
             <h2>{pData?.RefusalHeading}</h2>
             <ul>
               <li>
-              {pData?.r1}
+                {pData?.r1}
               </li>
               <li>
-              {pData?.r2}
+                {pData?.r2}
               </li>
               <li>
-              {pData?.r3}
+                {pData?.r3}
               </li>
               <li>
-              {pData?.r4}
+                {pData?.r4}
               </li>
               <li>
-              {pData?.r5}
+                {pData?.r5}
               </li>
               <li>
-              {pData?.r6}
+                {pData?.r6}
               </li>
               <li>
-              {pData?.r7}
+                {pData?.r7}
               </li>
             </ul>
             <p></p>
@@ -320,15 +309,15 @@ const handleScroll = () => {
           >
             <h2>{pData?.StillNotHeading}</h2>
             <p>
-            {pData?.s1}
+              {pData?.s1}
             </p>
             <p>
-            {pData?.s2}
+              {pData?.s2}
             </p>
             <button
               onClick={() =>
-                (window.location.href =
-                  "/booking")
+              (window.location.href =
+                "/booking")
               }
             >
               Book Appointment
@@ -340,34 +329,34 @@ const handleScroll = () => {
             id="why-choose-u"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
-          <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
-            <li>
-              <strong>{strongText91}</strong>{" "} {remainingText91}
-            </li>
-            <li>
-            <strong>{strongText92}</strong>{" "} {remainingText92}
-            </li>
-            <li>
-            <strong>{strongText93}</strong>{" "} {remainingText93}
-            </li>
-            <li>
-            <strong>{strongText94}</strong>{" "} {remainingText94}
-            </li>
-          </ul>
+            <h2>  {pData?.WhyChooseUsHeading01}</h2>
+            <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
+              <li>
+                <strong>{strongText91}</strong>{" "} {remainingText91}
+              </li>
+              <li>
+                <strong>{strongText92}</strong>{" "} {remainingText92}
+              </li>
+              <li>
+                <strong>{strongText93}</strong>{" "} {remainingText93}
+              </li>
+              <li>
+                <strong>{strongText94}</strong>{" "} {remainingText94}
+              </li>
+            </ul>
           </section>
         </main>
       </div>
 
       <div id="faqs">
-      <FAQ_White_Internal data={pData} />
+        <FAQ_White_Internal data={pData} />
       </div>
 
       {pData?.show_testimonials == "Y" && (
         <div id="testimonials">
           <Testimonials />
-        </div>
-      )}
+        </div>
+      )}
       <div id="blogs">
         <RecentBlogs />
       </div>

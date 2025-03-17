@@ -7,11 +7,15 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Link from "next/link";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
-const Contact = () => {
+export async function getServerSideProps() {
+  return fetchSeoData("contact-meta"); // Pass the API endpoint specific to this page
+}
+
+const Contact = ({metaData}) => {
   let onChange = () => {};
 
-  let [metaData, setMetaData] = useState([]);
 
   const notifySuccess = () => {
     toast.success("Success", {
@@ -65,19 +69,6 @@ const Contact = () => {
       .then((data) => {
         if (data) {
           setData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/contact-meta")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
         }
       })
       .catch((error) => {
