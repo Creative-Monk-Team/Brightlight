@@ -16,7 +16,7 @@ import Link from "next/link";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData("bp-meta"); // Pass the API endpoint specific to this page
+  return fetchSeoData("category-meta"); // Pass the API endpoint specific to this page
 }
 
 let CategoryBased = ({metaData}) => {
