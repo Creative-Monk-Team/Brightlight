@@ -75,7 +75,7 @@ let ExpressMeta = () => {
     }
 
     fetch(
-      `https://brightlight-node.onrender.com/clb-meta/${metaData._id}`,
+      `https://brightlight-node.onrender.com/express-meta/${metaData._id}`,
       {
         method: "PUT",
         headers: {
@@ -105,7 +105,7 @@ let ExpressMeta = () => {
   };
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/clb-meta")
+    fetch("https://brightlight-node.onrender.com/express-meta")
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {
