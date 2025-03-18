@@ -12,7 +12,7 @@ import Link from "next/link";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData("study-meta"); // Pass the API endpoint specific to this page
+  return fetchSeoData("studentVisaMeta"); // Pass the API endpoint specific to this page
 }
 
 const StudentVisa = ({metaData}) => {
