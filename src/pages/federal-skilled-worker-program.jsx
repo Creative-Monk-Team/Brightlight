@@ -316,12 +316,12 @@ const handleScroll = () => {
             <p>
               {pData?.AssessmentPara}
             </p>
+            <Link href={"/federal-skilled"}>
             <button
               className={styles.button}
-              onClick={() => (window.location.href = "/federal-skilled")}
             >
               FSWP Calculator
-            </button>
+            </button></Link>
           </section>
         </section>
 

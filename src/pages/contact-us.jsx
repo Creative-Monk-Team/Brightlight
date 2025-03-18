@@ -118,38 +118,38 @@ const Contact = ({ metaData }) => {
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        { ref: contactTopSectionRef, animationClass: styles.slideInFromTop },
-        { ref: inputBarRef, animationClass: styles.slideInFromLeft },
-        { ref: formCategoryRef, animationClass: styles.slideInFromLeft },
-        { ref: contactMessageBoxRef, animationClass: styles.slideInFromLeft },
-        { ref: officeDetailsSectionRef, animationClass: styles.slideInFromTop },
-      ];
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const sections = [
+  //       { ref: contactTopSectionRef, animationClass: styles.slideInFromTop },
+  //       { ref: inputBarRef, animationClass: styles.slideInFromLeft },
+  //       { ref: formCategoryRef, animationClass: styles.slideInFromLeft },
+  //       { ref: contactMessageBoxRef, animationClass: styles.slideInFromLeft },
+  //       { ref: officeDetailsSectionRef, animationClass: styles.slideInFromTop },
+  //     ];
 
-      sections.forEach(({ ref, animationClass }) => {
-        const element = ref.current;
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
+  //     sections.forEach(({ ref, animationClass }) => {
+  //       const element = ref.current;
+  //       if (element) {
+  //         const rect = element.getBoundingClientRect();
+  //         const windowHeight = window.innerHeight;
 
-          if (rect.top <= windowHeight * 0.75) {
-            element.classList.add(animationClass);
-            element.classList.remove(styles.hidden);
-          } else {
-            element.classList.remove(animationClass);
-            element.classList.add(styles.hidden);
-          }
-        }
-      });
-    };
+  //         if (rect.top <= windowHeight * 0.75) {
+  //           element.classList.add(animationClass);
+  //           element.classList.remove(styles.hidden);
+  //         } else {
+  //           element.classList.remove(animationClass);
+  //           element.classList.add(styles.hidden);
+  //         }
+  //       }
+  //     });
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial checkk
+  //   window.addEventListener("scroll", handleScroll);
+  //   handleScroll(); // Initial checkk
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <>
@@ -211,7 +211,7 @@ const Contact = ({ metaData }) => {
             <div className={styles.inputBarFlexSection}>
               <div
                 ref={inputBarRef}
-                className={`${styles.inputBar} ${styles.hidden}`}
+                className={`${styles.inputBar} `}
               >
                 <input
                   type="text"
@@ -294,7 +294,7 @@ const Contact = ({ metaData }) => {
             </div>
             <div
               ref={formCategoryRef}
-              className={`${styles.formCategory} ${styles.hidden}`}
+              className={`${styles.formCategory} `}
             >
               <div
                 onClick={handleActiveDiv}
@@ -319,7 +319,7 @@ const Contact = ({ metaData }) => {
             </div>
             <div
               ref={contactMessageBoxRef}
-              className={`${styles.contactMessageBox} ${styles.hidden}`}
+              className={`${styles.contactMessageBox} `}
             >
               <textarea
                 placeholder="How can we help ?"
@@ -333,25 +333,29 @@ const Contact = ({ metaData }) => {
             <div className={styles.contactCaptchaSection}>
               <ReCAPTCHA sitekey="6LeuLG8qAAAAAMDNuH2bai-us1Li9FEXQBV_pPDV" onChange={onChange} />
             </div>
+            <div className={`text-[16px] antialiased mb-4 flex items-start justify-center gap-2`}>
+              <input className="h-5 w-5 mt-1 " type="checkbox" name="agree" id="agree" required />
+              <span>I Consent to Receive SMS Notifications, Alerts & Occasional Marketing Communication from Brightlight Immigration. You can reply STOP to unsubscribe at any time.</span>
+            </div>
 
             <button type="submit" className={styles.sendMessageButton}>
               Send Your Message
             </button>
-            <div className={`${styles.agreeMessageDiv} flex items-center justify-center gap-2`}>
-              <input className="mt-1" type="checkbox" name="agree" id="agree" required />
-              <div>
-                <span>By clicking, you agree to our</span>{" "}
-                <Link href="/terms-&-conditions">Terms & Conditions</Link> ,{" "}
-                <Link href="/privacy-policy">Privacy and Policy</Link></div>
-            </div>
-          </form>
 
+          </form>
+          <div className={`${styles.agreeMessageDiv} flex items-center justify-center gap-2`}>
+            
+            <div>
+              <span>By clicking, you agree to our</span>{" "}
+              <Link href="/terms-&-conditions">Terms & Conditions</Link> ,{" "}
+              <Link href="/privacy-policy">Privacy and Policy</Link></div>
+          </div>
         </div>
       </div>
 
       <div
         ref={officeDetailsSectionRef}
-        className={`${styles.officeDetailsSection} ${styles.hidden}`}
+        className={`${styles.officeDetailsSection} `}
       >
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2611.079363084726!2d-122.8000042230304!3d49.12312788203902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485d9bc1ae6becd%3A0xaf29d4bfe0aceaae!2sBrightlight%20Immigration!5e0!3m2!1sen!2sin!4v1724923112723!5m2!1sen!2sin"

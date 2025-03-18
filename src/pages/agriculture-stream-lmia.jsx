@@ -8,25 +8,10 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  try {
-    const res = await fetch("https://brightlight-node.onrender.com/agricultureStreamLmiaMeta");
-    const data = await res.json();
-
-    return {
-      props: {
-        metaData: data.length > 0 ? data[0] : null,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching SEO metadata:", error);
-    return {
-      props: {
-        metaData: null,
-      },
-    };
-  }
+  return fetchSeoData("agricultureStreamLmiaMeta"); // Pass the API endpoint specific to this page
 }
 
 const AgricultureStreamLmia = ({metaData}) => {
