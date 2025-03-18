@@ -17,27 +17,15 @@ import Link from "next/link";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
+  return fetchSeoData("immigrationToolsMeta"); // Pass the API endpoint specific to this page
 }
-let Immigration = () => {
+let Immigration = ({metaData}) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  let [metaData, setMetaData] = useState([]);
   let [pData, setPData] = useState([]);
   let [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/immigrationToolsMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    
 
     fetch("https://brightlight-node.onrender.com/adding-immigration-tools")
       .then((res) => {

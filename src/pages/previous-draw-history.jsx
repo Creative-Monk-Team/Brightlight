@@ -8,7 +8,7 @@ import Link from "next/link";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
+  return fetchSeoData("previousDrawHistoryMeta"); // Pass the API endpoint specific to this page
 }
 
 // Function to parse dates
@@ -16,10 +16,9 @@ const parseDate = (dateString) => {
   return new Date(dateString);
 };
 
-const PreviousDrawHistory = () => {
+const PreviousDrawHistory = ({metaData}) => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  let [metaData, setMetaData] = useState([]);
   const [sortConfig, setSortConfig] = useState({
     key: "drawDateFull",
     direction: "descending",
@@ -103,20 +102,6 @@ const PreviousDrawHistory = () => {
   };
 
   const pageNumbers = Math.ceil(filteredData.length / itemsPerPage);
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/previousDrawHistoryMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
   return (
     <>
               <Head>

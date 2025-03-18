@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/FederalSkilledTradesProgram.module.css";
 import Link from "next/link";
-import { fetchSeoData } from "../lib/fetchSeoData";
 
-export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
-}
 import Navbar1 from "../components/Navbar1";
 import Footer1 from "../components/Footer1";
 import Testimonials from "../sections/Testimonials";
@@ -14,10 +10,13 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
-const FederalSkilledTradesProgram = () => {
+export async function getServerSideProps() {
+  return fetchSeoData("federalSkillTradesProgMeta"); // Pass the API endpoint specific to this page
+}
+const FederalSkilledTradesProgram = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData,setPData]=useState([])
 
   const toggleDropdown = () => {
@@ -30,20 +29,6 @@ const FederalSkilledTradesProgram = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/federalSkillTradesProgMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/federalSkilledTradedProgam")

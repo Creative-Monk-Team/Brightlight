@@ -12,29 +12,14 @@ import Link from "next/link";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
+  return fetchSeoData("prRenewalMeta"); // Pass the API endpoint specific to this page
 }
 
-let PrRenewal = () => {
+let PrRenewal = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   const [data, setData] = useState({});
   let [pData,setPData]=useState([]);
 
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/prRenewalMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/pr-renewal")

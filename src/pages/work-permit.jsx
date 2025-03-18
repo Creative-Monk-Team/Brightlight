@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/WorkPermit.module.css";
 import Link from "next/link";
-import { fetchSeoData } from "../lib/fetchSeoData";
 
-export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
-}
 import Navbar1 from "../components/Navbar1";
 import Footer1 from "../components/Footer1";
 import Testimonials from "../sections/Testimonials";
@@ -15,10 +11,13 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import OurProcess from "../sections/OurProcess";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
-let WorkPermit = () => {
+export async function getServerSideProps() {
+  return fetchSeoData("work-meta"); // Pass the API endpoint specific to this page
+}
+let WorkPermit = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData,setPData]=useState([]);
 
   const toggleDropdown = () => {
@@ -31,21 +30,6 @@ let WorkPermit = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/work-meta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/workPermit")

@@ -12,12 +12,17 @@ import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import Link from "next/link";
 import Image from "next/image";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
-const PermanentResidency = ({ metaData, pData }) => {
+export async function getServerSideProps() {
+  return fetchSeoData("permanent-meta"); // Pass the API endpoint specific to this page
+}
+
+const PermanentResidency = ({ metaData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [visibleSections, setVisibleSections] = useState([]);
   const sectionsRef = useRef([]);
-
+  let [pData, setPData] = useState([]);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -28,6 +33,21 @@ const PermanentResidency = ({ metaData, pData }) => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    fetch("https://brightlight-node.onrender.com/permanent-residency")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        if (data) {
+          setPData(data[0]);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -229,21 +249,5 @@ const PermanentResidency = ({ metaData, pData }) => {
     </>
   );
 };
-
-export async function getServerSideProps() {
-  const [metaRes, pRes] = await Promise.all([
-    fetch("https://brightlight-node.onrender.com/permanent-meta"),
-    fetch("https://brightlight-node.onrender.com/permanent-residency"),
-  ]);
-
-  const [metaData, pData] = await Promise.all([metaRes.json(), pRes.json()]);
-
-  return {
-    props: {
-      metaData: metaData[0] || null,
-      pData: pData[0] || null,
-    },
-  };
-}
 
 export default PermanentResidency;

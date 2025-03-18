@@ -11,7 +11,13 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import Image from "next/image";
 
-let News = () => {
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData("newsPageMeta"); // Pass the API endpoint specific to this page
+}
+
+let News = ({metaData}) => {
   let [firstBlog, setFirstBlog] = useState([]);
   let [remainingBlogs, setRemainingBlogs] = useState([]);
   let [displayedBlogs, setDisplayedBlogs] = useState([]);
@@ -19,7 +25,6 @@ let News = () => {
   let [currentPage, setCurrentPage] = useState(1);
   let [sortOption, setSortOption] = useState("newest");
   let [searchQuery, setSearchQuery] = useState("");
-  let [metaData, setMetaData] = useState([]);
   let blogsPerPage = 7;
   let router = useRouter();
   let [firstBlogLink, setFirstBlogLink] = useState(null);
@@ -131,21 +136,6 @@ let News = () => {
       .replace(/\s+/g, "-");
     router.push(`/news/${newsSlug}`);
   };
-
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/newsPageMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   return (
     <>

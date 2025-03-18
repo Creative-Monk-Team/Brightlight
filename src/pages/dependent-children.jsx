@@ -9,9 +9,14 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 
-const DependentChildren = () => {
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData("dependentChildMeta"); // Pass the API endpoint specific to this page
+}
+
+const DependentChildren = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData,setPData]=useState([])
 
   const toggleDropdown = () => {
@@ -24,20 +29,6 @@ const DependentChildren = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/dependentChildMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/dependentChildren")
