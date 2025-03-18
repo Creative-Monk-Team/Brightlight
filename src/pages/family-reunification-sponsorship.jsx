@@ -11,7 +11,7 @@ import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData("family-meta"); // Pass the API endpoint specific to this page
+  return fetchSeoData("familyReunificationMeta"); // Pass the API endpoint specific to this page
 }
 
 const FamilyReunificationSponsorship = ({metaData}) => {
