@@ -15,7 +15,7 @@ export async function getServerSideProps() {
   return fetchSeoData("federalSkillWorkerProgMeta"); // Pass the API endpoint specific to this page
 }
 
-const FederalSkilledWorkerProgram = () => {
+const FederalSkilledWorkerProgram = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   let [pData, setPData] = useState([])
 
