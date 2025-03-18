@@ -15,7 +15,7 @@ export async function getServerSideProps() {
   return fetchSeoData("outsideCanadaMeta"); // Pass the API endpoint specific to this page
 }
 
-const OutsideCananda = () => {
+const OutsideCananda = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   let [pData,setPData]=useState([]);
 
