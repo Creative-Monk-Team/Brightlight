@@ -74,7 +74,7 @@ let AgricultureStreamLMIAMeta = () => {
       return;
     }
 
-    fetch(`https://brightlight-node.onrender.com/globalStreamLmiaMeta/${metaData._id}`, {
+    fetch(`https://brightlight-node.onrender.com/agricultureStreamLmiaMeta/${metaData._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +102,7 @@ let AgricultureStreamLMIAMeta = () => {
   };
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/globalStreamLmiaMeta")
+    fetch("https://brightlight-node.onrender.com/agricultureStreamLmiaMeta")
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {
