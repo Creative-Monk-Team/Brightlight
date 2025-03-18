@@ -101,12 +101,12 @@ let Blogs = () => {
                   onClick={() => {
                     localStorage.setItem("blog_heading", item.blog_heading);
                   }}
-                  href={!item.custom_url ? 
+                  href={
                     `/blogs/${item.blog_heading
                     .trim()
                     .toLowerCase()
                     .replace(/[^\w\s]/g, "")
-                    .replace(/\s+/g, "-")}` : item.custom_url}
+                    .replace(/\s+/g, "-")}`}
                 >
                      <Image height={50} width={100}       src={item.image} alt={item.blog_heading} />
                   <h2>{item.blog_heading}</h2>

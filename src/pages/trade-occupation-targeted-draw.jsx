@@ -12,12 +12,11 @@ import Link from "next/link";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
+  return fetchSeoData("temporaryResidentPermMeta"); // Pass the API endpoint specific to this page
 }
 
-const TradeOccupationTargetedDraw = () => {
+const TradeOccupationTargetedDraw = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData,setPData]=useState([]);
 
   const toggleDropdown = () => {
@@ -30,21 +29,6 @@ const TradeOccupationTargetedDraw = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/temporaryResidentPermMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/tradeOccupationTargetedDraw")

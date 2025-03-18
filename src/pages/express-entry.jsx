@@ -11,11 +11,15 @@ import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import Image from "next/image";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
-const ExpressEntry = () => {
+export async function getServerSideProps() {
+  return fetchSeoData("express-meta"); // Pass the API endpoint specific to this page
+}
+
+const ExpressEntry = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [data, setData] = useState({});
-  let [metaData, setMetaData] = useState([]);
   let [pData, setPData] = useState([]);
 
   useEffect(() => {
@@ -28,18 +32,6 @@ const ExpressEntry = () => {
       })
       .catch((error) => {
         console.error("Error fetching Express Entry data:", error);
-      });
-    fetch("https://brightlight-node.onrender.com/express-meta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
       });
   }, []);
 

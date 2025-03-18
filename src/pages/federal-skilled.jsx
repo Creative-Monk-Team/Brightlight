@@ -5,10 +5,14 @@ import Footer1 from "../components/Footer1";
 import { Sticky, StickyContainer } from "react-sticky";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
+import { fetchSeoData } from "../lib/fetchSeoData";
+
+export async function getServerSideProps() {
+  return fetchSeoData("federal-meta"); // Pass the API endpoint specific to this page
+}
 
 
-const FederalSkilled = () => {
-  let [metaData, setMetaData] = useState([]);
+const FederalSkilled = ({metaData}) => {
   const [isFooterVisible, setIsFooterVisible] = useState(false);
 
   const [languagePoints, setLanguagePoints] = useState(0);
@@ -36,18 +40,6 @@ const FederalSkilled = () => {
         console.log(error);
       });
 
-    fetch("https://brightlight-node.onrender.com/federal-meta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }, []);
 
   const [isStickyEnabled, setIsStickyEnabled] = useState(

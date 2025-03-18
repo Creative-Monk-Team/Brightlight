@@ -13,8 +13,8 @@ export async function getServerSideProps() {
   return fetchSeoData("contact-meta"); // Pass the API endpoint specific to this page
 }
 
-const Contact = ({metaData}) => {
-  let onChange = () => {};
+const Contact = ({ metaData }) => {
+  let onChange = () => { };
 
 
   const notifySuccess = () => {
@@ -155,7 +155,7 @@ const Contact = ({metaData}) => {
     <>
       <ToastContainer />
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/contact" />
+        <link rel="canonical" href="https://brightlightimmigration.ca/contact" />
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle
@@ -251,7 +251,7 @@ const Contact = ({metaData}) => {
 
               <div className={styles.inputBar}>
                 <select
-                className={styles.select}
+                  className={styles.select}
                   name="interest"
                   value={formData.interest}
                   onChange={handleInputChange}
@@ -337,12 +337,15 @@ const Contact = ({metaData}) => {
             <button type="submit" className={styles.sendMessageButton}>
               Send Your Message
             </button>
+            <div className={`${styles.agreeMessageDiv} flex items-center justify-center gap-2`}>
+              <input className="mt-1" type="checkbox" name="agree" id="agree" required />
+              <div>
+                <span>By clicking, you agree to our</span>{" "}
+                <Link href="/terms-&-conditions">Terms & Conditions</Link> ,{" "}
+                <Link href="/privacy-policy">Privacy and Policy</Link></div>
+            </div>
           </form>
-          <div className={styles.agreeMessageDiv}>
-            <span>By clicking, you agree to our</span>{" "}
-            <Link href="/terms-&-conditions">Terms & Conditions</Link> ,{" "}
-            <Link href="/privacy-policy">Privacy and Policy</Link>
-          </div>
+
         </div>
       </div>
 
@@ -352,7 +355,7 @@ const Contact = ({metaData}) => {
       >
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2611.079363084726!2d-122.8000042230304!3d49.12312788203902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485d9bc1ae6becd%3A0xaf29d4bfe0aceaae!2sBrightlight%20Immigration!5e0!3m2!1sen!2sin!4v1724923112723!5m2!1sen!2sin"
-           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           loading="lazy"
         ></iframe>
         <div className={styles.officeSection}>

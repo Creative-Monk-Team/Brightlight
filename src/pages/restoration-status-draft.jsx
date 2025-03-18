@@ -8,9 +8,13 @@ import FAQ from "../sections/FAQ";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
+import { fetchSeoData } from "../lib/fetchSeoData";
 
-const RestorationStatusDraft = () => {
-  let [metaData, setMetaData] = useState([]);
+export async function getServerSideProps() {
+  return fetchSeoData("restorationStatusDraftMeta"); // Pass the API endpoint specific to this page
+}
+
+const RestorationStatusDraft = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   let [pData,setPData]=useState([]);
 
@@ -24,20 +28,6 @@ const RestorationStatusDraft = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/restorationStatusDraftMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/restorationStatus")

@@ -13,12 +13,11 @@ import Link from "next/link";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
+  return fetchSeoData("pathwaysForCaregiverMeta"); // Pass the API endpoint specific to this page
 }
 
-const PathwaysForCaregiver = () => {
+const PathwaysForCaregiver = ({metaData}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [metaData, setMetaData] = useState([]);
   let [pData,setPData]=useState([]);
 
   const toggleDropdown = () => {
@@ -31,22 +30,6 @@ const PathwaysForCaregiver = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-
-  useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/pathwaysForCaregiverMeta")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data) {
-          setMetaData(data[0]);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/pathway-for-caregiver")
