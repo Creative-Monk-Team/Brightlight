@@ -75,7 +75,7 @@ const Loader = () => {
       }}
     >
       <div className={styles.loader}>
-           <Image height={50} width={100} src={logo} alt="Company Logo" className={styles.logo} />
+           <Image loading="lazy" height={50} width={100} src={logo} alt="Company Logo" className={styles.logo} />
       </div>
     </div>
   );

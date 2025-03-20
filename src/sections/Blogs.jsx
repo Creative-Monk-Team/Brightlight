@@ -84,7 +84,7 @@ let Blogs = () => {
     <div className={styles.blogs}>
       <div className={styles.blogsParent}>
         <div className={styles.blogsTopSection}>
-             <Image height={50} width={100}       src={brightBlogs} alt="Bright Blogs" />
+             <Image loading="lazy" height={50} width={100}       src={brightBlogs} alt="Bright Blogs" />
           <div className={styles.blogsHeading}>
             <h1>{data?.heading}</h1>
             <p>{data?.description}</p>
@@ -108,7 +108,7 @@ let Blogs = () => {
                     .replace(/[^\w\s]/g, "")
                     .replace(/\s+/g, "-")}`}
                 >
-                     <Image height={50} width={100}       src={item.image} alt={item.blog_heading} />
+                     <Image loading="lazy" height={50} width={100}       src={item.image} alt={item.blog_heading} />
                   <h2>{item.blog_heading}</h2>
                   <h6>
                     <b>{item.date && item.date.trim().split("T")[0]}</b>

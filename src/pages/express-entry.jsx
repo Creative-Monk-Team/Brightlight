@@ -190,7 +190,7 @@ const ExpressEntry = ({metaData}) => {
           <p>{data?.aboutDescription}</p>
         </div>
         <div className={styles.canadianImg}>
-             <Image height={500} width={500}      src={data?.aboutImage || ServiceImg} alt="About Program" />
+             <Image loading="lazy" height={500} width={500}      src={data?.aboutImage || ServiceImg} alt="About Program" />
         </div>
       </div>
 

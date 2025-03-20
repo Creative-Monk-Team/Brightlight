@@ -127,7 +127,7 @@ const NewsDetails = () => {
             <div className={styles.newssFlexSection}>
                 <div className={styles.newsImgSection}>
                     {news.image && (
-                        <Image
+                        <Image loading="lazy"
                             src={news.image}
                             alt={news.alt_tag_featured || "News Image"}
                             title={news.alt_tag_featured}
@@ -145,7 +145,7 @@ const NewsDetails = () => {
                             value={searchQuery}
                             onChange={handleSearchChange}
                         />
-                        <Image
+                        <Image loading="lazy"
                             src={searchIcon}
                             onClick={handleSearchClick}
                             className={styles.searchIcon}
@@ -202,7 +202,7 @@ const NewsDetails = () => {
                         value={searchQuery}
                         onChange={handleSearchChange}
                     />
-                    <Image
+                    <Image loading="lazy"
                         src={searchIcon}
                         onClick={handleSearchClick}
                         className={styles.searchIcon}

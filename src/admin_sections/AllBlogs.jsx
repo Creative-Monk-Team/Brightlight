@@ -238,17 +238,17 @@ const AllBlogs = () => {
             <div key={blog._id} className={styles.blogItem}>
               <div className={styles.blogContent}>
                 <h4>{blog.blog_heading}</h4>
-                   <Image height={50} width={100} src={blog.image} alt="Blog" className={styles.blogImage} />
+                   <Image loading="lazy" height={50} width={100} src={blog.image} alt="Blog" className={styles.blogImage} />
                 <div className={styles.singleBlogOptions}>
                   {editBlogId === blog._id ? (
                     <>
-                         <Image height={50} width={100}
+                         <Image loading="lazy" height={50} width={100}
                         src={update}
                         className={styles.updateIcon}
                         onClick={handleUpdateClick}
                         alt="Update"
                       />
-                         <Image height={50} width={100}
+                         <Image loading="lazy" height={50} width={100}
                         src={editIcon}
                         className={styles.editIcon}
                         onClick={() => setEditBlogId(null)}
@@ -257,13 +257,13 @@ const AllBlogs = () => {
                     </>
                   ) : (
                     <>
-                         <Image height={50} width={100}
+                         <Image loading="lazy" height={50} width={100}
                         src={editIcon}
                         className={styles.editIcon}
                         onClick={() => handleEditClick(blog)}
                         alt="Edit"
                       />
-                         <Image height={50} width={100}
+                         <Image loading="lazy" height={50} width={100}
                         src={deleteIcon}
                         className={styles.deleteIcon}
                         onClick={() => {
@@ -292,7 +292,7 @@ const AllBlogs = () => {
                     name="image"
                   />
                   {newBlogData.image && (
-                       <Image height={50} width={100}
+                       <Image loading="lazy" height={50} width={100}
                       src={newBlogData.image}
                       alt="New Blog"
                       className={styles.blogImage}

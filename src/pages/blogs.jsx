@@ -202,7 +202,7 @@ let Blogs = ({metaData}) => {
       </Head>
       <Navbar1 showBlue={true} />
       <div className={styles.blogsTopSection}>
-        <Image height={50} width={100} src={BrightBlogs} />
+        <Image loading="lazy" height={50} width={100} src={BrightBlogs} />
         <h3>
           We're your go-to spot for easy-to-digest blogs about Canadian
           immigration. Think of us as your helpful guide, breaking down the ins
@@ -268,7 +268,7 @@ let Blogs = ({metaData}) => {
             </button>
           </div>
           <div>
-            <Image height={50} width={100} src={firstBlog.image} />
+            <Image loading="lazy" height={50} width={100} src={firstBlog.image} />
           </div>
         </div>
       ) : null}
@@ -290,7 +290,7 @@ let Blogs = ({metaData}) => {
                   className={styles.blog}
                   onClick={() => handleBlogClick(item)}
                 >
-                  {item.image && <Image height={50} width={100} src={item.image} />}
+                  {item.image && <Image loading="lazy" height={50} width={100} src={item.image} />}
 
                   <div>
                     {item.tag_1 && <h4>{item?.tag_1}</h4>}
@@ -309,9 +309,9 @@ let Blogs = ({metaData}) => {
         )}
         <div className={styles.rightSection}>
           <div className={styles.subscribeSection}>
-            <Image height={50} width={100} className={styles.plane} src={paperPlane} />
+            <Image loading="lazy" height={50} width={100} className={styles.plane} src={paperPlane} />
             <h3>Get the latest News Delivered to your mail!</h3>
-            <Image height={50} width={100} src={subscribe} className={styles.subscribe} />
+            <Image loading="lazy" height={50} width={100} src={subscribe} className={styles.subscribe} />
           </div>
           <div className={styles.quickLinksSection}>
             <h3>Quick Links</h3>

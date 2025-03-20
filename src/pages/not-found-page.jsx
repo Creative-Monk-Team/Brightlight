@@ -10,7 +10,7 @@ let NotFoundPage = () => {
     <Navbar1 showBlue={true} />
       <div className={styles.parentNotFound}>
         <div className={styles.mainNotFound}>
-               <Image height={50} width={100} className={styles.NotFoundPageimage} src={PageNotFoundImg} alt="Page not Found" />
+               <Image loading="lazy" height={50} width={100} className={styles.NotFoundPageimage} src={PageNotFoundImg} alt="Page not Found" />
         </div>
       </div>
       <Footer1/>

@@ -14,9 +14,9 @@ export async function getServerSideProps() {
   return fetchSeoData("openWorkDependentChildMeta"); // Pass the API endpoint specific to this page
 }
 
-const OpenWorkCanadaLP = ({metaData}) => {
+const OpenWorkCanadaLP = ({ metaData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [pData,setPData]=useState([]);
+  let [pData, setPData] = useState([]);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -46,7 +46,7 @@ const OpenWorkCanadaLP = ({metaData}) => {
 
   const sectionsRef = useRef([]);
 
-const handleScroll = () => {
+  const handleScroll = () => {
     sectionsRef.current.forEach((section) => {
       if (section) { // ✅ Check if section exists
         const rect = section.getBoundingClientRect();
@@ -82,23 +82,23 @@ const handleScroll = () => {
   const fetchedValue91 = pData?.wcu1;
   const strongText91 = extractStrongText(fetchedValue91);
   const remainingText91 = extractRemainingText(fetchedValue91);
-  
+
   const fetchedValue92 = pData?.wcu2;
   const strongText92 = extractStrongText(fetchedValue92);
   const remainingText92 = extractRemainingText(fetchedValue92);
-  
+
   const fetchedValue93 = pData?.wcu3;
   const strongText93 = extractStrongText(fetchedValue93);
   const remainingText93 = extractRemainingText(fetchedValue93);
-  
+
   const fetchedValue94 = pData?.wcu4;
   const strongText94 = extractStrongText(fetchedValue94);
   const remainingText94 = extractRemainingText(fetchedValue94);
 
   return (
     <>
-          <Head>
-          <link rel="canonical" href="https://brightlightimmigration.ca/openWork-dependent-children" />
+      <Head>
+        <link rel="canonical" href="https://brightlightimmigration.ca/openWork-dependent-children" />
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle
@@ -144,9 +144,8 @@ const handleScroll = () => {
       <div className={styles.bannerParent}>
         <div className={styles.banner}>
           <div
-            className={`${styles.bannerHeadingRotateParent} ${
-              isDropdownOpen ? styles.active : ""
-            }`}
+            className={`${styles.bannerHeadingRotateParent} ${isDropdownOpen ? styles.active : ""
+              }`}
           >
             <div
               className={styles.bannerHeadingRotate}
@@ -189,10 +188,10 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[0] = el)}
         >
           <h1>
-          {pData?.openWorkDepHeading}
+            {pData?.openWorkDepHeading}
           </h1>
           <p>
-          {pData?.openWorkDepPara}
+            {pData?.openWorkDepPara}
           </p>
         </header>
 
@@ -202,24 +201,24 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[1] = el)}
         >
           <h2>{pData?.BenifitsHeading}</h2>
-          <ul className={styles.BenifitsList} style={{marginLeft: "40px"}}>
+          <ul className={styles.BenifitsList} style={{ marginLeft: "40px" }}>
             <li>
-            {pData?.BenifitsList1}
+              {pData?.BenifitsList1}
             </li>
             <li>
-            {pData?.BenifitsList2}
+              {pData?.BenifitsList2}
             </li>
             <li>
-            {pData?.BenifitsList3}
+              {pData?.BenifitsList3}
             </li>
             <li>
-            {pData?.BenifitsList4}
+              {pData?.BenifitsList4}
             </li>
             <li>
-            {pData?.BenifitsList5}
+              {pData?.BenifitsList5}
             </li>
             <li>
-            {pData?.BenifitsList6}
+              {pData?.BenifitsList6}
             </li>
           </ul>
         </section>
@@ -230,13 +229,13 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[2] = el)}
         >
           <h2>
-          {pData?.EligibilityHeading}
+            {pData?.EligibilityHeading}
           </h2>
           <p>
-          {pData?.EligibilitySubHead}{" "}
+            {pData?.EligibilitySubHead}{" "}
           </p>
           <h3>
-          {pData?.EligMainSubHead1}
+            {pData?.EligMainSubHead1}
           </h3>
           <ul
             style={{
@@ -246,39 +245,39 @@ const handleScroll = () => {
             }}
           >
             <li>
-            {pData?.EligMain1List1}
+              {pData?.EligMain1List1}
               <ul className={styles.subList}>
                 <li>{pData?.EligMainSub1List1}.</li>
                 <li>
-                {pData?.EligMainSub1List2}
+                  {pData?.EligMainSub1List2}
                 </li>
                 <li>{pData?.EligMainSub1List3}</li>
               </ul>
             </li>
             <li>
-            {pData?.EligMain2List}
+              {pData?.EligMain2List}
             </li>
             <li>
-            {pData?.EligMain3List}
+              {pData?.EligMain3List}
             </li>
             <li>
-            {pData?.EligMain4List}
+              {pData?.EligMain4List}
             </li>
             <li>
               <strong>{pData?.EligMain5List}</strong>
               <ul className={styles.subList}>
                 <li>
-                {pData?.EligMainSub5List1}
+                  {pData?.EligMainSub5List1}
                 </li>
                 <li>{pData?.EligMainSub5List2}</li>
                 <li>
-                {pData?.EligMainSub5List3}
+                  {pData?.EligMainSub5List3}
                 </li>
                 <li>
-                {pData?.EligMainSub5List4}
+                  {pData?.EligMainSub5List4}
                 </li>
                 <li>
-                {pData?.EligMainSub5List5}
+                  {pData?.EligMainSub5List5}
                 </li>
                 <li>{pData?.EligMainSub5List6}.</li>
               </ul>
@@ -287,7 +286,7 @@ const handleScroll = () => {
 
           <h3>{pData?.EligMainSubHead2}</h3>
           <h4>
-          {pData?.EligMainSubHead2Para}
+            {pData?.EligMainSubHead2Para}
           </h4>
           <ul
             style={{
@@ -297,62 +296,62 @@ const handleScroll = () => {
             }}
           >
             <li>
-            {pData?.EligMain6List}
+              {pData?.EligMain6List}
               <ul className={styles.subList}>
                 <li>{pData?.EligMainSub6List1}</li>
                 <li>
-                {pData?.EligMainSub6List2}
+                  {pData?.EligMainSub6List2}
                 </li>
                 <li>{pData?.EligMainSub6List3}</li>
               </ul>
             </li>
             <li>
-            {pData?.EligMain7List}
+              {pData?.EligMain7List}
             </li>
             <li>
-            {pData?.EligMain8List}
+              {pData?.EligMain8List}
             </li>
             <li>
-            {pData?.EligMain9List}
+              {pData?.EligMain9List}
             </li>
             <li>
               {pData?.EligMain10List}
             </li>
             <li>
-            {pData?.YouMustHoldlabour}
+              {pData?.YouMustHoldlabour}
             </li>
             <li>
               <strong>{pData?.EligMain11List}</strong>
               <ul className={styles.subList}>
                 <li>
-                {pData?.EligMainSub11List1}
+                  {pData?.EligMainSub11List1}
                 </li>
                 <li>
-                {pData?.EligMainSub11List2}
+                  {pData?.EligMainSub11List2}
                 </li>
                 <li>
-                {pData?.EligMainSub11List3}
+                  {pData?.EligMainSub11List3}
                 </li>
                 <li>
-                {pData?.EligMainSub11List4}
+                  {pData?.EligMainSub11List4}
                 </li>
                 <li>{pData?.EligMainSub11List5}</li>
                 <li>{pData?.EligMainSub11List6}</li>
                 <li>
-                {pData?.EligMainSub11List7}
+                  {pData?.EligMainSub11List7}
                 </li>
                 <li>
-                {pData?.EligMainSub11List8}
+                  {pData?.EligMainSub11List8}
                 </li>
               </ul>
             </li>
           </ul>
 
           <h3>
-          {pData?.EligMainSubHead3}
+            {pData?.EligMainSubHead3}
           </h3>
           <h4>
-          {pData?.EligMainSubHead3Para}
+            {pData?.EligMainSubHead3Para}
           </h4>
           <ul
             style={{
@@ -362,38 +361,38 @@ const handleScroll = () => {
             }}
           >
             <li>
-            {pData?.EligMain12List}
+              {pData?.EligMain12List}
               <ul className={styles.subList}>
                 <li>{pData?.EligMainSub12List1}</li>
                 <li>
-                {pData?.EligMainSub12List2}
+                  {pData?.EligMainSub12List2}
                 </li>
               </ul>
             </li>
             <li>
-            {pData?.EligMain13List}
+              {pData?.EligMain13List}
             </li>
             <li>
-            {pData?.EligMain14List}
+              {pData?.EligMain14List}
             </li>
             <li>
-            {pData?.EligMain15List}
+              {pData?.EligMain15List}
             </li>
           </ul>
 
           <h3>{pData?.ReqHeading}</h3>
-          <ul style={{marginLeft: "40px"}}>
+          <ul style={{ marginLeft: "40px" }}>
             <li>
-            {pData?.Reqlist1}
+              {pData?.Reqlist1}
             </li>
             <li>
-            {pData?.Reqlist2}
+              {pData?.Reqlist2}
             </li>
             <li>
-            {pData?.Reqlist3}
+              {pData?.Reqlist3}
             </li>
             <li>
-            {pData?.Reqlist4}
+              {pData?.Reqlist4}
             </li>
           </ul>
         </section>
@@ -488,9 +487,9 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[4] = el)}
         >
           <h2>{pData?.HowApplyHeading}</h2>
-          <ol style={{marginLeft: "40px"}}>
+          <ol style={{ marginLeft: "40px" }}>
             <li>
-            {pData?.HowAppList1}
+              {pData?.HowAppList1}
             </li>
             <li>{pData?.HowAppList2}</li>
             <li>{pData?.HowAppList3}</li>
@@ -507,18 +506,18 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[5] = el)}
         >
           <h2>{pData?.RefusalHeading}</h2>
-          <ul style={{marginLeft: "40px"}}>
+          <ul style={{ marginLeft: "40px" }}>
             <li>
-            {pData?.RefusalList1}
+              {pData?.RefusalList1}
             </li>
             <li>
-            {pData?.RefusalList2}
+              {pData?.RefusalList2}
             </li>
             <li>
-            {pData?.RefusalList3}
+              {pData?.RefusalList3}
             </li>
             <li>
-            {pData?.RefusalList4}
+              {pData?.RefusalList4}
             </li>
           </ul>
         </section>
@@ -530,12 +529,12 @@ const handleScroll = () => {
         >
           <h2>{pData?.StillNotSureHeading}</h2>
           <p>
-          {pData?.StillNotSurePara}
+            {pData?.StillNotSurePara}
           </p>
           <button
             onClick={() =>
-              (window.location.href =
-                "/booking")
+            (window.location.href =
+              "/booking")
             }
           >
             Book Appointment
@@ -547,32 +546,32 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
-          <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
+          <h2>  {pData?.WhyChooseUsHeading01}</h2>
+          <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}
             </li>
             <li>
-            <strong>{strongText92}</strong>{" "} {remainingText92}
+              <strong>{strongText92}</strong>{" "} {remainingText92}
             </li>
             <li>
-            <strong>{strongText93}</strong>{" "} {remainingText93}
+              <strong>{strongText93}</strong>{" "} {remainingText93}
             </li>
             <li>
-            <strong>{strongText94}</strong>{" "} {remainingText94}
+              <strong>{strongText94}</strong>{" "} {remainingText94}
             </li>
           </ul>
         </section>
       </div>
 
       <div id="faqs">
-      <FAQ_White_Internal data={pData} />
+        <FAQ_White_Internal data={pData} />
       </div>
       {pData?.show_testimonials == "Y" && (
         <div id="testimonials">
           <Testimonials />
-        </div>
-      )}
+        </div>
+      )}
       <div id="blogs">
         <RecentBlogs />
       </div>

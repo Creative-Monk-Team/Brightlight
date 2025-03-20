@@ -114,7 +114,7 @@ const Testimonials = () => {
       <div className={styles.testimonialsContentSection}>
         <h1>{data?.heading}</h1>
         <div className={styles.googleImageSection}>
-          <Image
+          <Image loading="lazy"
             src={google}
             alt="Google"
             title="Google"
@@ -130,7 +130,7 @@ const Testimonials = () => {
             }`}
           >
             <div className={styles.clientImageSection}>
-              <Image
+              <Image loading="lazy"
                 src={reviewData[currentReview]?.image}
                 alt={reviewData[currentReview]?.person_name}
                 width={100}

@@ -181,7 +181,7 @@ const MoreServices = ({metaData}) => {
                   href={section.tool_link}
                   style={{ cursor: "pointer" }}
                 >
-                     <Image height={50} width={100}
+                     <Image loading="lazy" height={50} width={100}
                     src={
                       hoveredIndex === index
                         ? section.white_stroke_img

@@ -69,7 +69,7 @@ let BlogDetails = () => {
             .then((data) => {
                 if (data) {
                     setLoveneetData(data[0]);
-                    setLoading(false)
+                    
                 }
             })
             .catch((error) => console.log(error));
@@ -82,6 +82,7 @@ let BlogDetails = () => {
                 );
                 if (recentBlogsFilteredData) {
                     setRecentBlogs(recentBlogsFilteredData.slice(0, 3));
+                    setLoading(false)
                 }
                 
             })
@@ -140,7 +141,7 @@ let BlogDetails = () => {
                     <div className={styles.blogsTopContentSection}>
                         <h1>{blog.blog_heading}</h1>
                         <div className={styles.loveneetSection}>
-                            <Image height={50} width={100} src={Lp} className={styles.loveneetImage} />
+                            <Image loading="lazy" height={50} width={100} src={Lp} className={styles.loveneetImage} />
                             <div className={styles.loveneetContent}>
                                 <div className={styles.loveneetDataFlex}>
                                     <h3>By {loveneetData.name}</h3>
@@ -154,7 +155,7 @@ let BlogDetails = () => {
                                         href={loveneetData.linkedin}
                                         target="_blank"
                                     >
-                                        <Image height={50} width={100} src={Linkedin} />
+                                        <Image loading="lazy" height={50} width={100} src={Linkedin} />
                                     </Link>
                                     <div>
                                         <p className={styles.haveAQuestion}>Have Questions?</p>
@@ -163,7 +164,7 @@ let BlogDetails = () => {
                                             href="/booking"
                                             target="_blank"
                                         >
-                                            <Image height={50} width={100} src={rcic} />
+                                            <Image loading="lazy" height={50} width={100} src={rcic} />
                                         </Link>
                                     </div>
                                 </div>
@@ -173,7 +174,7 @@ let BlogDetails = () => {
                 </div>
                 <div className={styles.blogsFlexSection}>
                     <div className={styles.blogImgSection}>
-                        <Image height={50} width={100} src={blog.image} alt={blog.alt_tag} title={blog.alt_tag} />
+                        <Image loading="lazy" height={50} width={100} src={blog.image} alt={blog.alt_tag} title={blog.alt_tag} />
                     </div>
                     <div className={styles.blogSearchSection1}>
                         <div className={styles.searchDiv}>
@@ -182,7 +183,7 @@ let BlogDetails = () => {
                                 value={searchQuery}
                                 onChange={handleSearchChange}
                             />
-                            <Image height={50} width={100}
+                            <Image loading="lazy" height={50} width={100}
                                 src={searchIcon}
                                 onClick={handleSearchClick}
                                 className={styles.searchIcon}
@@ -240,7 +241,7 @@ let BlogDetails = () => {
                             value={searchQuery}
                             onChange={handleSearchChange}
                         />
-                        <Image height={50} width={100}
+                        <Image loading="lazy" height={50} width={100}
                             src={searchIcon}
                             onClick={handleSearchClick}
                             className={styles.searchIcon}

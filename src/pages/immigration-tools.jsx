@@ -130,7 +130,7 @@ let Immigration = ({metaData}) => {
                   href={tool.tool_link}
                   style={{ cursor: "pointer" }}
                 >
-                     <Image height={50} width={100}
+                     <Image loading="lazy" height={50} width={100}
                     src={
                       hoveredIndex === index
                         ? tool.white_stroke_img

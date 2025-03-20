@@ -249,7 +249,7 @@ let AddImmigrationToolsCard = () => {
         </option>
         <option value="orphan">Orphan</option>
         <option value="outside-canada">Outside Canada</option>
-        <option value="parentsgrandparents">Parents Grandparents</option>
+        <option value="parents-grandparents">Parents Grandparents</option>
         <option value="pathways-for-caregiver">Pathways for Caregiver</option>
         <option value="permanent-residence-pathways-caregivers-lp">
           Permanent Residence Pathways Caregivers LP
@@ -313,7 +313,7 @@ let AddImmigrationToolsCard = () => {
         onChange={handleInputChange}
       />
       {sectionDataSingle.blue_stroke_img && (
-           <Image height={50} width={100}
+           <Image loading="lazy" height={50} width={100}
           className={styles.existingImageSmall2}
           src={sectionDataSingle.blue_stroke_img}
           alt="Preview"
@@ -321,7 +321,7 @@ let AddImmigrationToolsCard = () => {
       )}
 
       {sectionDataSingle.white_stroke_img && (
-           <Image height={50} width={100}
+           <Image loading="lazy" height={50} width={100}
           className={`${styles.existingImageSmall2} ${styles.blueImage}`}
           src={sectionDataSingle.white_stroke_img}
           alt="Preview"
@@ -329,14 +329,14 @@ let AddImmigrationToolsCard = () => {
       )}
       <div className={styles.editIcons}>
         {editMode ? (
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             src={update}
             className={styles.updateIcon}
             onClick={handleAddClick}
             alt="Add"
           />
         ) : (
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             src={editIcon}
             className={styles.editIcon}
             onClick={handleEditClick}

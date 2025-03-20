@@ -88,7 +88,7 @@ const Search = () => {
     "Visitor Student": "/visitor-to-student",
     "Change College Program": "/change-college-program",
     "Inside Canada": "/inside-canada",
-    "Parents Grandparents": "/ParentsGrandparents",
+    "Parents Grandparents": "/parents-grandparents",
     "/orphan": "Orphan",
     "Lonely Canadian": "/lonely-canadian",
     "Humanitarian Compassionate": "/humanitarian-compassionate",
@@ -263,7 +263,7 @@ const Search = () => {
                         .replace(/[^\w\s]/g, "")
                         .replace(/\s+/g, "-")}`}
                     >
-                      {item.image &&    <Image height={50} width={100} src={item.image} alt="Blog" />}
+                      {item.image &&    <Image loading="lazy" height={50} width={100} src={item.image} alt="Blog" />}
                       {item.blog_heading && <h3>{item.blog_heading}</h3>}
                       {item.blog_content && (
                         <p>{truncateText(item.blog_content, 100)}</p>
@@ -290,7 +290,7 @@ const Search = () => {
                         .replace(/[^\w\s]/g, "")
                         .replace(/\s+/g, "-")}`}
                     >
-                      {item.image &&    <Image height={50} width={100} src={item.image} alt="News" />}
+                      {item.image &&    <Image loading="lazy" height={50} width={100} src={item.image} alt="News" />}
                       {item.news_heading && <h3>{item.news_heading}</h3>}
                       {item.news_content && (
                         <p>{truncateText(item.news_content, 100)}</p>

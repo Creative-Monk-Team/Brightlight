@@ -120,13 +120,13 @@
 //       <div className={styles.testimonialsContentSection}>
 //         <h1>{videosData?.heading}</h1>
 //         <div className={styles.googleImageSection}>
-//              <Image height={50} width={100}      src={google} alt="Google Ratings" />
+//              <Image loading="lazy" height={50} width={100}      src={google} alt="Google Ratings" />
 //           <p>{videosData?.googleRatings}/5</p>
 //         </div>
 
 //         <div className={`${styles.clientTestimonialsSection} ${isAnimating ? styles.animating : ""}`}>
 //           <div className={styles.clientImageSection}>
-//                <Image height={50} width={100}       src={reviewData[currentReview]?.image} alt={reviewData[currentReview]?.person_name} />
+//                <Image loading="lazy" height={50} width={100}       src={reviewData[currentReview]?.image} alt={reviewData[currentReview]?.person_name} />
 //           </div>
 //           <div className={styles.reviewDetails}>
 //             <h3>{reviewData[currentReview]?.review}</h3>
@@ -310,7 +310,7 @@ const Testimonials_White = () => {
       <div className={styles.testimonialsContentSection}>
         <h1>{data?.heading}</h1>
         <div className={styles.googleImageSection}>
-             <Image height={50} width={100}    // Arbitrary number, Next.js auto-adjusts it
+             <Image loading="lazy" height={50} width={100}    // Arbitrary number, Next.js auto-adjusts it
      src={google}  alt="Google" title="Google" />
           <p>{data?.googleRatings}/5</p>
         </div>
@@ -321,7 +321,7 @@ const Testimonials_White = () => {
             }`}
           >
             <div className={styles.clientImageSection}>
-                 <Image height={50} width={100}    // Arbitrary number, Next.js auto-adjusts it
+                 <Image loading="lazy" height={50} width={100}    // Arbitrary number, Next.js auto-adjusts it
     
                 src={reviewData[currentReview]?.image}
                 alt={reviewData[currentReview]?.person_name}

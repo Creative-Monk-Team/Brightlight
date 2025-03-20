@@ -115,7 +115,7 @@ let NewsDetails = () => {
       </div>
       <div className={styles.blogsFlexSection}>
         <div className={styles.blogImgSection}>
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             src={blog.image}
             alt={blog.alt_tag_featured}
             title={blog.alt_tag_featured}
@@ -128,7 +128,7 @@ let NewsDetails = () => {
               value={searchQuery}
               onChange={handleSearchChange}
             />
-               <Image height={50} width={100}
+               <Image loading="lazy" height={50} width={100}
               src={searchIcon}
               onClick={handleSearchClick}
               className={styles.searchIcon}
@@ -186,7 +186,7 @@ let NewsDetails = () => {
             value={searchQuery}
             onChange={handleSearchChange}
           />
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             src={searchIcon}
             onClick={handleSearchClick}
             className={styles.searchIcon}

@@ -159,7 +159,7 @@ let Services = () => {
             onChange={handleInputChange}
             disabled={!editMode}
           />
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             className={styles.existingImageSmall}
             src={sectionDataSingle[`service${service}svg`]}
           />
@@ -182,13 +182,13 @@ let Services = () => {
 
       <div className={styles.editIcons}>
         {editMode ? (
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             src={update}
             className={styles.updateIcon}
             onClick={handleUpdateClick}
           />
         ) : (
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             src={editIcon}
             className={styles.editIcon}
             onClick={handleEditClick}

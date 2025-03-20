@@ -635,7 +635,7 @@ let HomePage = ({metaData}) => {
                         }}
                         timeout={0}
                       >
-                        <Image height={50} width={100}
+                        <Image loading="lazy" height={50} width={100}
                           src={card.img}
                           className={`${styles.icon} ${styles.fadeIn}`}
                           loading="lazy"
@@ -667,7 +667,7 @@ let HomePage = ({metaData}) => {
       <div className={styles.bannerParent2}>
         {/* Check if loveneetBgImage exists before using it */}
         {loveneetBgImage?.image && (
-          <Image height={50} width={100}
+          <Image loading="lazy" height={50} width={100}
             src={loveneetBgImage.image}
             alt={loveneetAlt.alt}
             title={loveneetAlt.alt}
@@ -683,7 +683,7 @@ let HomePage = ({metaData}) => {
           {linkedinLink && (
             <Link href={linkedinLink} target="_blank" rel="noopener noreferrer">
               <button className={styles.linkedInButton}>
-                <Image height={50} width={100} src={LinkedinLogo} alt="LinkedIn" loading="lazy"    // Arbitrary number, Next.js auto-adjusts it
+                <Image loading="lazy" height={50} width={100} src={LinkedinLogo} alt="LinkedIn" loading="lazy"    // Arbitrary number, Next.js auto-adjusts it
                 />
               </button>
             </Link>
@@ -724,7 +724,7 @@ let HomePage = ({metaData}) => {
                 >
                   <p>{member?.heading}</p>
                   <div className={styles.memberCardImg}>
-                    <Image height={50} width={100}
+                    <Image loading="lazy" height={50} width={100}
                       src={member?.img}
                       alt={altData[index]}
                       title={altData[index]}
@@ -758,7 +758,7 @@ let HomePage = ({metaData}) => {
                       }`}
                   >
                     <div className={styles.simplifyingImg}>
-                      <Image height={50} width={100}
+                      <Image loading="lazy" height={50} width={100}
                         src={featuresData[`feature${num}SVG`]}
                         alt={simplifyData[`alt${num}`]}
                         title={simplifyData[`alt${num}`]}
@@ -858,7 +858,7 @@ let HomePage = ({metaData}) => {
               className={`${styles.aspectsCard} ${styles.fadeFromLeft}`}
               ref={(el) => (aspectsCardRefs.current[0] = el)}
             >
-              <Image height={50} width={100}
+              <Image loading="lazy" height={50} width={100}
                 src={achiementsData?.achievement1SVG}
                 loading="lazy"
                 alt={achiementsData?.achievement1Alt}
@@ -875,7 +875,7 @@ let HomePage = ({metaData}) => {
               className={`${styles.aspectsCard} ${styles.fadeFromBottom}`}
               ref={(el) => (aspectsCardRefs.current[1] = el)}
             >
-              <Image height={50} width={100}
+              <Image loading="lazy" height={50} width={100}
                 src={achiementsData?.achievement2SVG}
                 loading="lazy"
                 alt={achiementsData?.achievement2Alt}
@@ -892,7 +892,7 @@ let HomePage = ({metaData}) => {
               className={`${styles.aspectsCard} ${styles.fadeFromRight}`}
               ref={(el) => (aspectsCardRefs.current[2] = el)}
             >
-              <Image height={50} width={100}
+              <Image loading="lazy" height={50} width={100}
                 src={achiementsData?.achievement3SVG}
                 loading="lazy"
                 alt={achiementsData?.achievement3Alt}
@@ -914,7 +914,7 @@ let HomePage = ({metaData}) => {
         <div className={styles.sourceMain}>
           <div className={styles.sourceHeadingParent}>
             <div className={styles.sourceHeadingParentFirstDiv}>
-              <Image height={50} width={100} src={WhiteLogo} loading="lazy" alt="whitelogo"    // Arbitrary number, Next.js auto-adjusts it
+              <Image loading="lazy" height={50} width={100} src={WhiteLogo} loading="lazy" alt="whitelogo"    // Arbitrary number, Next.js auto-adjusts it
               />
             </div>
             <div>

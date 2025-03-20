@@ -241,7 +241,7 @@ const handleScroll = () => {
             </li>
             <li>
               <button
-                onClick={() => (window.location.href = "/ParentsGrandparents")}
+                onClick={() => (window.location.href = "/parents-grandparents")}
               >
                 Parents and Grandparents
               </button>

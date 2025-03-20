@@ -17,7 +17,7 @@ const Footer1 = () => {
   return (
     <footer id="footer">
       <div className={styles.upperFooter}>
-        <Image height={50} width={100}
+        <Image loading="lazy" height={50} width={100}
           // Arbitrary number, Next.js auto-adjusts it
 
           src={UpperFooterImage}
@@ -47,7 +47,7 @@ const Footer1 = () => {
           <div className={`${styles.leftFooter} ${styles.desktopLeftFooter}`}>
             <div className={styles.leftDiv}>
               <div className={styles.iconHeading}>
-                <Image height={50} width={100}
+                <Image loading="lazy" height={50} width={100}
                   // Arbitrary number, Next.js auto-adjusts it
 
                   src={HoursIcon}
@@ -64,7 +64,7 @@ const Footer1 = () => {
 
             <div className={styles.leftDiv}>
               <div className={styles.iconHeading}>
-                <Image height={50} width={100}
+                <Image loading="lazy" height={50} width={100}
                   // Arbitrary number, Next.js auto-adjusts it
 
                   src={Address}
@@ -107,7 +107,7 @@ const Footer1 = () => {
 
           <div className={styles.centerFooter}>
             <div className={styles.footerLogo}>
-              <Image height={50} width={100}
+              <Image loading="lazy" height={50} width={100}
                 // Arbitrary number, Next.js auto-adjusts it
 
                 src={FooterLogo}
@@ -117,7 +117,7 @@ const Footer1 = () => {
                 className={styles.footerLogo1}
               />
               <div className={styles.footerLogo2Para}>
-                <Image height={50} width={100}
+                <Image loading="lazy" height={50} width={100}
                   // Arbitrary number, Next.js auto-adjusts it
 
                   onClick={() =>
@@ -135,7 +135,7 @@ const Footer1 = () => {
                 <p>RCIC License # R522969</p>
               </div>
             </div>
-            {/*    <Image height={50} width={100}
+            {/*    <Image loading="lazy" height={50} width={100}
                // Arbitrary number, Next.js auto-adjusts it
      src={FooterLogo} />  // this  */}
             <div className={styles.socialMediaFooter}>
@@ -161,7 +161,7 @@ const Footer1 = () => {
                 alt="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198"
                 title="Linkedin"
               />
-              <Image
+              <Image loading="lazy"
                 src={"/assets/instagram.svg"}
                 height={25}
                 width={25}
@@ -247,7 +247,7 @@ const Footer1 = () => {
             <div className={styles.leftFooter}>
               <div className={styles.leftDiv}>
                 <div className={styles.iconHeading}>
-                  <Image height={50} width={100}
+                  <Image loading="lazy" height={50} width={100}
                     // Arbitrary number, Next.js auto-adjusts it
 
                     loading="lazy"
@@ -265,7 +265,7 @@ const Footer1 = () => {
 
               <div className={styles.leftDiv}>
                 <div className={styles.iconHeading}>
-                  <Image height={50} width={100}
+                  <Image loading="lazy" height={50} width={100}
                     // Arbitrary number, Next.js auto-adjusts it
 
                     loading="lazy"

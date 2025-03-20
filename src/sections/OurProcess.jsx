@@ -75,7 +75,7 @@ const OurProcess = () => {
                 onMouseEnter={() => handlePlanePosition(index)}
               >
                 <div className="relative flex items-center justify-center">
-                  <Image
+                  <Image loading="lazy"
                     src={step.pointer}
                     alt={`Step ${step.id}`}
                     loading="lazy"
@@ -97,8 +97,8 @@ const OurProcess = () => {
             ))}
           </div>
           <div className="relative hidden lg:block">
-            <Image src={Runway} alt="Runway" className="h-full w-full" priority />
-            <Image
+            <Image loading="lazy" src={Runway} alt="Runway" className="h-full w-full" priority />
+            <Image loading="lazy"
               src={Plane}
               alt="Plane"
               className="absolute h-12 w-40 top-10 transition-all duration-500"

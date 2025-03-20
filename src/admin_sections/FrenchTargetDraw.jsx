@@ -617,14 +617,14 @@ const FrenchTargetedDrawContent = () => {
 
       <div className={styles.editIcons}>
         {editMode ? (
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             src={update}
             className={styles.updateIcon}
             onClick={handleUpdateClick}
             alt="Update"
           />
         ) : (
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             src={editIcon}
             className={styles.editIcon}
             onClick={handleEditClick}

@@ -219,12 +219,15 @@ import WhyUsAlt from "../admin_sections/WhyUsAlt";
 import Redirects from "../admin_sections/Redirects";
 import PrivateRoute from "../components/PrivateRoute";
 import Image from "next/image";
+import AdditionalDocumentFaq from "../admin_sections/AdditionalDocumentFaq";
+import AdoptionFaq from "../admin_sections/AdoptionFaq";
+import AgricultureAndAgriFoodFaq from "../admin_sections/AgricultureAndAgriFoodFaq";
 
 let AdminDashboard = () => {
   const pages = [
     { id: "home", label: "Homepage" },
     { id: "about", label: "About Us" },
-    { id: "contact", label: "Contact Us" },
+    { id: "contact-us", label: "Contact Us" },
     { id: "privacy-policy", label: "Privacy Policy" },
     { id: "terms-and-conditions", label: "Terms & Conditions" },
     { id: "transport", label: "Testimonials" },
@@ -507,7 +510,14 @@ let AdminDashboard = () => {
     <>
       <div className={styles.grayBg}>
         <div className={styles.topBar}>
-             <Image height={50} width={100} src={blueLogo} className={styles.logo} alt="Logo" />
+          <Image
+            loading="lazy"
+            height={50}
+            width={100}
+            src={blueLogo}
+            className={styles.logo}
+            alt="Logo"
+          />
 
           <form className={styles.topBarSearch} onSubmit={handleSearch}>
             <input
@@ -518,7 +528,7 @@ let AdminDashboard = () => {
             />
             <span>
               <button className={styles.searchBtn} type="submit">
-                   <Image height={50} width={100} src={magnify} />
+                <Image loading="lazy" height={50} width={100} src={magnify} />
               </button>
 
               <button
@@ -531,11 +541,17 @@ let AdminDashboard = () => {
           </form>
 
           <div className={styles.userDiv}>
-               <Image height={50} width={100} src={user} onClick={handleDropdownClick} alt="User" />
+            <Image
+              loading="lazy"
+              height={50}
+              width={100}
+              src={user}
+              onClick={handleDropdownClick}
+              alt="User"
+            />
             <div
-              className={`${styles.userDropdown} ${
-                showDropdown ? styles.active : ""
-              }`}
+              className={`${styles.userDropdown} ${showDropdown ? styles.active : ""
+                }`}
             >
               <p onClick={handleLogout}>Log Out</p>
             </div>
@@ -548,9 +564,8 @@ let AdminDashboard = () => {
                 filteredPages.slice(0, 15).map((page) => (
                   <div
                     key={page.id}
-                    className={`${styles.page} ${
-                      activePage === page.id ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === page.id ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick(page.id)}
                   >
                     <p>{page.label}</p>
@@ -579,22 +594,20 @@ let AdminDashboard = () => {
                 {activePage === "express" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "express-content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "express-content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("express-content")}
                     >
                       Express Entry Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "express-meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "express-meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("express-meta")}
                     >
                       Page Meta
@@ -605,22 +618,20 @@ let AdminDashboard = () => {
                 {activePage === "bcpnp_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "bcpnp_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "bcpnp_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("bcpnp_page_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "bcpnp_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "bcpnp_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("bcpnp_page_meta")}
                     >
                       Page Meta
@@ -630,11 +641,10 @@ let AdminDashboard = () => {
                 {activePage === "additional_documents" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "additional_documents_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "additional_documents_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("additional_documents_content")
                       }
@@ -643,16 +653,27 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "additional_documents_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "additional_documents_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("additional_documents_meta")
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "additional_documents_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("additional_documents_faq")
+                      }
+                    >
+                      Page FAQ
                     </div>
                   </div>
                 )}
@@ -660,12 +681,11 @@ let AdminDashboard = () => {
                 {activePage === "bridging_open_work_permit_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "bridging_open_work_permit_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "bridging_open_work_permit_page_content"
@@ -676,11 +696,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "bridging_open_work_permit_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "bridging_open_work_permit_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "bridging_open_work_permit_page_meta"
@@ -694,11 +713,10 @@ let AdminDashboard = () => {
                 {activePage === "adoption_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "adoption_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "adoption_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("adoption_page_content")
                       }
@@ -707,26 +725,34 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "adoption_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "adoption_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("adoption_page_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "adoption_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("adoption_page_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
                 {activePage === "agriculture_and_agri_food_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "agriculture_and_agri_food_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "agriculture_and_agri_food_page_content"
@@ -737,11 +763,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agriculture_and_agri_food_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agriculture_and_agri_food_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "agriculture_and_agri_food_page_meta"
@@ -750,17 +775,30 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "agriculture_and_agri_food_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "agriculture_and_agri_food_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
                 {activePage === "agriculture_stream_lmia_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agriculture_stream_lmia_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agriculture_stream_lmia_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "agriculture_stream_lmia_page_content"
@@ -771,11 +809,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agriculture_stream_lmia_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agriculture_stream_lmia_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("agriculture_stream_lmia_page_meta")
                       }
@@ -788,11 +825,10 @@ let AdminDashboard = () => {
                 {activePage === "agri_food_pilot_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agri_food_pilot_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agri_food_pilot_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("agri_food_pilot_page_content")
                       }
@@ -801,11 +837,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agri_food_pilot_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agri_food_pilot_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("agri_food_pilot_page_meta")
                       }
@@ -818,11 +853,10 @@ let AdminDashboard = () => {
                 {activePage === "business_visitor_visa_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "business_visitor_visa_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "business_visitor_visa_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("business_visitor_visa_page_content")
                       }
@@ -831,11 +865,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "business_visitor_visa_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "business_visitor_visa_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("business_visitor_visa_page_meta")
                       }
@@ -848,12 +881,11 @@ let AdminDashboard = () => {
                 {activePage === "canadian_experience_class_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "canadian_experience_class_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "canadian_experience_class_page_content"
@@ -864,11 +896,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "canadian_experience_class_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "canadian_experience_class_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "canadian_experience_class_page_meta"
@@ -883,22 +914,20 @@ let AdminDashboard = () => {
                 {activePage === "cby_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "cby_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "cby_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("cby_page_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "cby_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "cby_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("cby_page_meta")}
                     >
                       Page Meta
@@ -909,11 +938,10 @@ let AdminDashboard = () => {
                 {activePage === "change_college_program_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "change_college_program_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "change_college_program_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "change_college_program_page_content"
@@ -924,11 +952,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "change_college_program_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "change_college_program_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("change_college_program_page_meta")
                       }
@@ -941,11 +968,10 @@ let AdminDashboard = () => {
                 {activePage === "category_based_express_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "category_based_express_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "category_based_express_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "category_based_express_page_content"
@@ -956,11 +982,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "category_based_express_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "category_based_express_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("category_based_express_page_meta")
                       }
@@ -973,11 +998,10 @@ let AdminDashboard = () => {
                 {activePage === "citizenship_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "citizenship_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "citizenship_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("citizenship_page_content")
                       }
@@ -986,11 +1010,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "citizenship_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "citizenship_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("citizenship_page_meta")
                       }
@@ -1003,12 +1026,11 @@ let AdminDashboard = () => {
                 {activePage === "common_law_partner_temporary_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_temporary_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_temporary_page_content"
@@ -1019,12 +1041,11 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_temporary_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_temporary_page_meta"
@@ -1039,12 +1060,11 @@ let AdminDashboard = () => {
                 {activePage === "common_law_partner_permanent_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_permanent_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_permanent_page_content"
@@ -1055,12 +1075,11 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_permanent_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_permanent_page_meta"
@@ -1075,11 +1094,10 @@ let AdminDashboard = () => {
                 {activePage === "dependent_children_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "dependent_children_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "dependent_children_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("dependent_children_page_content")
                       }
@@ -1088,11 +1106,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "dependent_children_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "dependent_children_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("dependent_children_page_meta")
                       }
@@ -1105,11 +1122,10 @@ let AdminDashboard = () => {
                 {activePage === "dual_intent_visa_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "dual_intent_visa_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "dual_intent_visa_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("dual_intent_visa_page_content")
                       }
@@ -1118,11 +1134,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "dual_intent_visa_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "dual_intent_visa_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("dual_intent_visa_page_meta")
                       }
@@ -1135,12 +1150,11 @@ let AdminDashboard = () => {
                 {activePage === "entry_level_semi_skilled_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "entry_level_semi_skilled_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "entry_level_semi_skilled_page_content"
@@ -1151,11 +1165,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "entry_level_semi_skilled_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "entry_level_semi_skilled_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("entry_level_semi_skilled_page_meta")
                       }
@@ -1168,11 +1181,10 @@ let AdminDashboard = () => {
                 {activePage === "extensions_draft_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "extensions_draft_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "extensions_draft_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("extensions_draft_page_content")
                       }
@@ -1181,11 +1193,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "extensions_draft_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "extensions_draft_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("extensions_draft_page_meta")
                       }
@@ -1198,12 +1209,11 @@ let AdminDashboard = () => {
                 {activePage === "common_law_partner_international_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_international_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_international_page_content"
@@ -1214,12 +1224,11 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_international_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_international_page_meta"
@@ -1234,11 +1243,10 @@ let AdminDashboard = () => {
                 {activePage === "family_reunification" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "family_reunification_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "family_reunification_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("family_reunification_content")
                       }
@@ -1247,11 +1255,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "family_reunification_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "family_reunification_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("family_reunification_meta")
                       }
@@ -1264,12 +1271,11 @@ let AdminDashboard = () => {
                 {activePage === "federal_skilled_trade_program" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "federal_skilled_trade_program_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "federal_skilled_trade_program_content"
@@ -1280,11 +1286,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "federal_skilled_trade_program_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "federal_skilled_trade_program_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("federal_skilled_trade_program_meta")
                       }
@@ -1297,12 +1302,11 @@ let AdminDashboard = () => {
                 {activePage === "federal_skilled_worker_program" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "federal_skilled_worker_program_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "federal_skilled_worker_program_content"
@@ -1313,11 +1317,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "federal_skilled_worker_program_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "federal_skilled_worker_program_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "federal_skilled_worker_program_meta"
@@ -1332,22 +1335,20 @@ let AdminDashboard = () => {
                 {activePage === "flag_poling" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "flag_poling_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "flag_poling_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("flag_poling_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "flag_poling_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "flag_poling_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("flag_poling_meta")}
                     >
                       Page Meta
@@ -1358,22 +1359,20 @@ let AdminDashboard = () => {
                 {activePage === "francophone" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "francophone_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "francophone_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("francophone_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "francophone_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "francophone_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("francophone_meta")}
                     >
                       Page Meta
@@ -1384,11 +1383,10 @@ let AdminDashboard = () => {
                 {activePage === "french_tageted_draw" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "french_tageted_draw_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "french_tageted_draw_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("french_tageted_draw_content")
                       }
@@ -1397,11 +1395,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "french_tageted_draw_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "french_tageted_draw_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("french_tageted_draw_meta")
                       }
@@ -1414,11 +1411,10 @@ let AdminDashboard = () => {
                 {activePage === "permanent_residency" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "permanent_residency_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "permanent_residency_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("permanent_residency_content")
                       }
@@ -1427,11 +1423,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "permanent_residency_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "permanent_residency_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("permanent_residency_meta")
                       }
@@ -1444,11 +1439,10 @@ let AdminDashboard = () => {
                 {activePage === "global_stream_lmia" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "global_stream_lmia_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "global_stream_lmia_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("global_stream_lmia_content")
                       }
@@ -1457,11 +1451,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "global_stream_lmia_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "global_stream_lmia_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("global_stream_lmia_meta")
                       }
@@ -1474,11 +1467,10 @@ let AdminDashboard = () => {
                 {activePage === "health_authorities_stream" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "health_authorities_stream_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "health_authorities_stream_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("health_authorities_stream_content")
                       }
@@ -1487,11 +1479,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "health_authorities_stream_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "health_authorities_stream_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("health_authorities_stream_meta")
                       }
@@ -1504,11 +1495,10 @@ let AdminDashboard = () => {
                 {activePage === "healthcare_targated_draw" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "healthcare_targated_draw_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "healthcare_targated_draw_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("healthcare_targated_draw_content")
                       }
@@ -1517,11 +1507,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "healthcare_targated_draw_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "healthcare_targated_draw_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("healthcare_targated_draw_meta")
                       }
@@ -1534,11 +1523,10 @@ let AdminDashboard = () => {
                 {activePage === "humanitarian_compassionate" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "humanitarian_compassionate_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "humanitarian_compassionate_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("humanitarian_compassionate_content")
                       }
@@ -1547,11 +1535,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "humanitarian_compassionate_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "humanitarian_compassionate_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("humanitarian_compassionate_meta")
                       }
@@ -1564,11 +1551,10 @@ let AdminDashboard = () => {
                 {activePage === "in_home_caregiver" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "in_home_caregiver_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "in_home_caregiver_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("in_home_caregiver_content")
                       }
@@ -1577,11 +1563,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "in_home_caregiver_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "in_home_caregiver_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("in_home_caregiver_meta")
                       }
@@ -1594,11 +1579,10 @@ let AdminDashboard = () => {
                 {activePage === "inside_canada_caregiver" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "inside_canada_caregiver_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "inside_canada_caregiver_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("inside_canada_caregiver_content")
                       }
@@ -1607,11 +1591,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "inside_canada_caregiver_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "inside_canada_caregiver_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("inside_canada_caregiver_meta")
                       }
@@ -1624,11 +1607,10 @@ let AdminDashboard = () => {
                 {activePage === "international_graduate" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "international_graduate_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "international_graduate_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("international_graduate_content")
                       }
@@ -1637,11 +1619,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "international_graduate_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "international_graduate_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("international_graduate_meta")
                       }
@@ -1654,11 +1635,10 @@ let AdminDashboard = () => {
                 {activePage === "international_post_graduate" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "international_post_graduate_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "international_post_graduate_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "international_post_graduate_content"
@@ -1669,11 +1649,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "international_post_graduate_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "international_post_graduate_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("international_post_graduate_meta")
                       }
@@ -1686,11 +1665,10 @@ let AdminDashboard = () => {
                 {activePage === "lmia_reviewed" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "lmia_reviewed_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "lmia_reviewed_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("lmia_reviewed_content")
                       }
@@ -1699,11 +1677,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "lmia_reviewed_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "lmia_reviewed_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("lmia_reviewed_meta")}
                     >
                       Page Meta
@@ -1714,11 +1691,10 @@ let AdminDashboard = () => {
                 {activePage === "lonely_canadian" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "lonely_canadian_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "lonely_canadian_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("lonely_canadian_content")
                       }
@@ -1727,11 +1703,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "lonely_canadian_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "lonely_canadian_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("lonely_canadian_meta")}
                     >
                       Page Meta
@@ -1742,11 +1717,10 @@ let AdminDashboard = () => {
                 {activePage === "low_wage_lmia" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "low_wage_lmia_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "low_wage_lmia_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("low_wage_lmia_content")
                       }
@@ -1755,11 +1729,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "low_wage_lmia_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "low_wage_lmia_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("low_wage_lmia_meta")}
                     >
                       Page Meta
@@ -1770,22 +1743,20 @@ let AdminDashboard = () => {
                 {activePage === "non_sds" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "non_sds_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "non_sds_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("non_sds_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "non_sds_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "non_sds_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("non_sds_meta")}
                     >
                       Page Meta
@@ -1796,11 +1767,10 @@ let AdminDashboard = () => {
                 {activePage === "open_work_dependent" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_dependent_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_dependent_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_dependent_content")
                       }
@@ -1809,11 +1779,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_dependent_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_dependent_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_dependent_meta")
                       }
@@ -1826,11 +1795,10 @@ let AdminDashboard = () => {
                 {activePage === "open_work_permit" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_permit_content")
                       }
@@ -1839,11 +1807,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_permit_meta")
                       }
@@ -1856,11 +1823,10 @@ let AdminDashboard = () => {
                 {activePage === "open_work_permit_for_spousal" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_for_spousal_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_for_spousal_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "open_work_permit_for_spousal_content"
@@ -1871,11 +1837,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_for_spousal_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_for_spousal_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_permit_for_spousal_meta")
                       }
@@ -1888,11 +1853,10 @@ let AdminDashboard = () => {
                 {activePage === "open_work_permit_vulnerable" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_vulnerable_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_vulnerable_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "open_work_permit_vulnerable_content"
@@ -1903,11 +1867,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_vulnerable_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_vulnerable_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_permit_vulnerable_meta")
                       }
@@ -1920,22 +1883,20 @@ let AdminDashboard = () => {
                 {activePage === "orphan" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "orphan_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "orphan_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("orphan_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "orphan_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "orphan_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("orphan_meta")}
                     >
                       Page Meta
@@ -1946,11 +1907,10 @@ let AdminDashboard = () => {
                 {activePage === "outside_canada" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "outside_canada_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "outside_canada_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("outside_canada_content")
                       }
@@ -1959,11 +1919,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "outside_canada_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "outside_canada_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("outside_canada_meta")}
                     >
                       Page Meta
@@ -1974,11 +1933,10 @@ let AdminDashboard = () => {
                 {activePage === "parents_grandparents" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "parents_grandparents_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "parents_grandparents_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("parents_grandparents_content")
                       }
@@ -1987,11 +1945,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "parents_grandparents_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "parents_grandparents_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("parents_grandparents_meta")
                       }
@@ -2004,11 +1961,10 @@ let AdminDashboard = () => {
                 {activePage === "pathways_for_caregiver" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pathways_for_caregiver_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pathways_for_caregiver_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pathways_for_caregiver_content")
                       }
@@ -2017,11 +1973,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pathways_for_caregiver_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pathways_for_caregiver_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pathways_for_caregiver_meta")
                       }
@@ -2034,11 +1989,10 @@ let AdminDashboard = () => {
                 {activePage === "pr_pathways_for_caregiver" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pr_pathways_for_caregiver_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pr_pathways_for_caregiver_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pr_pathways_for_caregiver_content")
                       }
@@ -2047,11 +2001,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pr_pathways_for_caregiver_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pr_pathways_for_caregiver_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pr_pathways_for_caregiver_meta")
                       }
@@ -2064,22 +2017,20 @@ let AdminDashboard = () => {
                 {activePage === "pgwp" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pgwp_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pgwp_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pgwp_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pgwp_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pgwp_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pgwp_meta")}
                     >
                       Page Meta
@@ -2090,11 +2041,10 @@ let AdminDashboard = () => {
                 {activePage === "pilot_programs" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pilot_programs_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pilot_programs_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pilot_programs_content")
                       }
@@ -2103,11 +2053,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pilot_programs_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pilot_programs_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pilot_programs_meta")}
                     >
                       Page Meta
@@ -2118,22 +2067,20 @@ let AdminDashboard = () => {
                 {activePage === "pnp_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pnp_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pnp_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pnp_page_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pnp_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pnp_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pnp_page_meta")}
                     >
                       Page Meta
@@ -2144,11 +2091,10 @@ let AdminDashboard = () => {
                 {activePage === "previous_draw_history" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "previous_draw_history_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "previous_draw_history_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("previous_draw_history_meta")
                       }
@@ -2161,11 +2107,10 @@ let AdminDashboard = () => {
                 {activePage === "priorities_program" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "priorities_program_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "priorities_program_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("priorities_program_content")
                       }
@@ -2174,11 +2119,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "priorities_program_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "priorities_program_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("priorities_program_meta")
                       }
@@ -2191,22 +2135,20 @@ let AdminDashboard = () => {
                 {activePage === "pr_renewal" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pr_renewal_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pr_renewal_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pr_renewal_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pr_renewal_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pr_renewal_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pr_renewal_meta")}
                     >
                       Page Meta
@@ -2217,11 +2159,10 @@ let AdminDashboard = () => {
                 {activePage === "restoration_status" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "restoration_status_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "restoration_status_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("restoration_status_content")
                       }
@@ -2230,11 +2171,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "restoration_status_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "restoration_status_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("restoration_status_meta")
                       }
@@ -2247,11 +2187,10 @@ let AdminDashboard = () => {
                 {activePage === "reconsideration" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "reconsideration_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "reconsideration_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("reconsideration_content")
                       }
@@ -2260,11 +2199,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "reconsideration_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "reconsideration_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("reconsideration_meta")}
                     >
                       Page Meta
@@ -2275,22 +2213,20 @@ let AdminDashboard = () => {
                 {activePage === "reply_to_pfl" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "reply_to_pfl_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "reply_to_pfl_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("reply_to_pfl_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "reply_to_pfl_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "reply_to_pfl_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("reply_to_pfl_meta")}
                     >
                       Page Meta
@@ -2301,22 +2237,20 @@ let AdminDashboard = () => {
                 {activePage === "rnip" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "rnip_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "rnip_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("rnip_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "rnip_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "rnip_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("rnip_meta")}
                     >
                       Page Meta
@@ -2327,22 +2261,20 @@ let AdminDashboard = () => {
                 {activePage === "same_sex" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "same_sex_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "same_sex_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("same_sex_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "same_sex_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "same_sex_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("same_sex_meta")}
                     >
                       Page Meta
@@ -2353,20 +2285,18 @@ let AdminDashboard = () => {
                 {activePage === "sds" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "sds_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "sds_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("sds_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "sds_meta" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "sds_meta" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("sds_meta")}
                     >
                       Page Meta
@@ -2377,11 +2307,10 @@ let AdminDashboard = () => {
                 {activePage === "skilled_worker_stream" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "skilled_worker_stream_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "skilled_worker_stream_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("skilled_worker_stream_content")
                       }
@@ -2390,11 +2319,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "skilled_worker_stream_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "skilled_worker_stream_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("skilled_worker_stream_meta")
                       }
@@ -2407,11 +2335,10 @@ let AdminDashboard = () => {
                 {activePage === "spousal_open_work_permit" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_open_work_permit_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_open_work_permit_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spousal_open_work_permit_content")
                       }
@@ -2420,11 +2347,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_open_work_permit_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_open_work_permit_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spousal_open_work_permit_meta")
                       }
@@ -2437,11 +2363,10 @@ let AdminDashboard = () => {
                 {activePage === "spose_common_law_spon" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spose_common_law_spon_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spose_common_law_spon_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spose_common_law_spon_content")
                       }
@@ -2450,11 +2375,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spose_common_law_spon_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spose_common_law_spon_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spose_common_law_spon_meta")
                       }
@@ -2467,11 +2391,10 @@ let AdminDashboard = () => {
                 {activePage === "spousal_inland" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_inland_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_inland_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spousal_inland_content")
                       }
@@ -2480,11 +2403,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_inland_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_inland_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("spousal_inland_meta")}
                     >
                       Page Meta
@@ -2495,11 +2417,10 @@ let AdminDashboard = () => {
                 {activePage === "spousal_outland" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_outland_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_outland_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spousal_outland_content")
                       }
@@ -2508,11 +2429,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_outland_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_outland_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("spousal_outland_meta")}
                     >
                       Page Meta
@@ -2523,22 +2443,20 @@ let AdminDashboard = () => {
                 {activePage === "stem_target" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "stem_target_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "stem_target_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("stem_target_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "stem_target_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "stem_target_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("stem_target_meta")}
                     >
                       Page Meta
@@ -2549,22 +2467,20 @@ let AdminDashboard = () => {
                 {activePage === "student_visa" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "student_visa_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "student_visa_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("student_visa_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "student_visa_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "student_visa_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("student_visa_meta")}
                     >
                       Page Meta
@@ -2575,11 +2491,10 @@ let AdminDashboard = () => {
                 {activePage === "study_permit_minors" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "study_permit_minors_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "study_permit_minors_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("study_permit_minors_content")
                       }
@@ -2588,11 +2503,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "study_permit_minors_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "study_permit_minors_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("study_permit_minors_meta")
                       }
@@ -2605,22 +2519,20 @@ let AdminDashboard = () => {
                 {activePage === "super_visa" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "super_visa_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "super_visa_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("super_visa_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "super_visa_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "super_visa_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("super_visa_meta")}
                     >
                       Page Meta
@@ -2631,22 +2543,20 @@ let AdminDashboard = () => {
                 {activePage === "temp" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "temp_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "temp_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("temp_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "temp_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "temp_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("temp_meta")}
                     >
                       Page Meta
@@ -2657,22 +2567,20 @@ let AdminDashboard = () => {
                 {activePage === "temp_per" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "temp_per_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "temp_per_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("temp_per_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "temp_per_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "temp_per_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("temp_per_meta")}
                     >
                       Page Meta
@@ -2683,22 +2591,20 @@ let AdminDashboard = () => {
                 {activePage === "trade_occu" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "trade_occu_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "trade_occu_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("trade_occu_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "trade_occu_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "trade_occu_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("trade_occu_meta")}
                     >
                       Page Meta
@@ -2709,22 +2615,20 @@ let AdminDashboard = () => {
                 {activePage === "trans_occu" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "trans_occu_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "trans_occu_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("trans_occu_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "trans_occu_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "trans_occu_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("trans_occu_meta")}
                     >
                       Page Meta
@@ -2735,22 +2639,20 @@ let AdminDashboard = () => {
                 {activePage === "visi_stu" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "visi_stu_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "visi_stu_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("visi_stu_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "visi_stu_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "visi_stu_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("visi_stu_meta")}
                     >
                       Page Meta
@@ -2761,22 +2663,20 @@ let AdminDashboard = () => {
                 {activePage === "visi_visa" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "visi_visa_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "visi_visa_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("visi_visa_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "visi_visa_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "visi_visa_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("visi_visa_meta")}
                     >
                       Page Meta
@@ -2787,22 +2687,20 @@ let AdminDashboard = () => {
                 {activePage === "work_per" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "work_per_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "work_per_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("work_per_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "work_per_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "work_per_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("work_per_meta")}
                     >
                       Page Meta
@@ -2845,20 +2743,26 @@ let AdminDashboard = () => {
                     activeSection === "adoption_page_content" && <Adoption />}
                   {activePage === "adoption_page" &&
                     activeSection === "adoption_page_meta" && <AdoptionMeta />}
+                  {activePage === "adoption_page" &&
+                    activeSection === "adoption_page_faq" && <AdoptionFaq />}
 
                   {activePage === "agriculture_and_agri_food_page" &&
                     activeSection ===
-                      "agriculture_and_agri_food_page_content" && (
+                    "agriculture_and_agri_food_page_content" && (
                       <AgricultureAndAgriFoodPageContent />
                     )}
                   {activePage === "agriculture_and_agri_food_page" &&
                     activeSection === "agriculture_and_agri_food_page_meta" && (
                       <AgricultureAndAgriFoodMeta />
                     )}
+                  {activePage === "agriculture_and_agri_food_page" &&
+                    activeSection === "agriculture_and_agri_food_page_faq" && (
+                      <AgricultureAndAgriFoodFaq />
+                    )}
 
                   {activePage === "agriculture_stream_lmia_page" &&
                     activeSection ===
-                      "agriculture_stream_lmia_page_content" && (
+                    "agriculture_stream_lmia_page_content" && (
                       <AgricultureStreamLMIAContent />
                     )}
                   {activePage === "agriculture_stream_lmia_page" &&
@@ -2877,7 +2781,7 @@ let AdminDashboard = () => {
 
                   {activePage === "bridging_open_work_permit_page" &&
                     activeSection ===
-                      "bridging_open_work_permit_page_content" && (
+                    "bridging_open_work_permit_page_content" && (
                       <BridgingOpenWorkPermitLPContent />
                     )}
                   {activePage === "bridging_open_work_permit_page" &&
@@ -2896,7 +2800,7 @@ let AdminDashboard = () => {
 
                   {activePage === "canadian_experience_class_page" &&
                     activeSection ===
-                      "canadian_experience_class_page_content" && (
+                    "canadian_experience_class_page_content" && (
                       <CanadianExperienceClassContent />
                     )}
                   {activePage === "canadian_experience_class_page" &&
@@ -2938,23 +2842,23 @@ let AdminDashboard = () => {
 
                   {activePage === "common_law_partner_temporary_page" &&
                     activeSection ===
-                      "common_law_partner_temporary_page_content" && (
+                    "common_law_partner_temporary_page_content" && (
                       <CommonLawPartnerTemporaryContent />
                     )}
                   {activePage === "common_law_partner_temporary_page" &&
                     activeSection ===
-                      "common_law_partner_temporary_page_meta" && (
+                    "common_law_partner_temporary_page_meta" && (
                       <CommonLawPartnerTemporaryContentMeta />
                     )}
 
                   {activePage === "common_law_partner_permanent_page" &&
                     activeSection ===
-                      "common_law_partner_permanent_page_content" && (
+                    "common_law_partner_permanent_page_content" && (
                       <CommonLawPartnerPermanentContent />
                     )}
                   {activePage === "common_law_partner_permanent_page" &&
                     activeSection ===
-                      "common_law_partner_permanent_page_meta" && (
+                    "common_law_partner_permanent_page_meta" && (
                       <CommonLawPartnerPermanentContentMeta />
                     )}
 
@@ -2978,7 +2882,7 @@ let AdminDashboard = () => {
 
                   {activePage === "entry_level_semi_skilled_page" &&
                     activeSection ===
-                      "entry_level_semi_skilled_page_content" && (
+                    "entry_level_semi_skilled_page_content" && (
                       <EntryLevelSemiSkilledContent />
                     )}
                   {activePage === "entry_level_semi_skilled_page" &&
@@ -2997,12 +2901,12 @@ let AdminDashboard = () => {
 
                   {activePage === "common_law_partner_international_page" &&
                     activeSection ===
-                      "common_law_partner_international_page_content" && (
+                    "common_law_partner_international_page_content" && (
                       <CommonLawPartnerInternationalContent />
                     )}
                   {activePage === "common_law_partner_international_page" &&
                     activeSection ===
-                      "common_law_partner_international_page_meta" && (
+                    "common_law_partner_international_page_meta" && (
                       <CommonLawPartnerInternationalMeta />
                     )}
 
@@ -3017,7 +2921,7 @@ let AdminDashboard = () => {
 
                   {activePage === "federal_skilled_trade_program" &&
                     activeSection ===
-                      "federal_skilled_trade_program_content" && (
+                    "federal_skilled_trade_program_content" && (
                       <FederalSkilledTradeProgramContent />
                     )}
                   {activePage === "federal_skilled_trade_program" &&
@@ -3027,7 +2931,7 @@ let AdminDashboard = () => {
 
                   {activePage === "federal_skilled_worker_program" &&
                     activeSection ===
-                      "federal_skilled_worker_program_content" && (
+                    "federal_skilled_worker_program_content" && (
                       <FederalSkilledWorkerProgramContent />
                     )}
                   {activePage === "federal_skilled_worker_program" &&
@@ -3182,7 +3086,7 @@ let AdminDashboard = () => {
 
                   {activePage === "open_work_permit_for_spousal" &&
                     activeSection ===
-                      "open_work_permit_for_spousal_content" && (
+                    "open_work_permit_for_spousal_content" && (
                       <OpenWorkForSpousalInlandContent />
                     )}
                   {activePage === "open_work_permit_for_spousal" &&
@@ -3476,122 +3380,109 @@ let AdminDashboard = () => {
                 {activePage === "home" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "home-top" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "home-top" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("home-top")}
                     >
                       Top Heading Section
                     </div>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section2" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section2" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("section2")}
                     >
                       Banner Section
                     </div>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section14"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section14"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("section14")}
                     >
                       Banner Section Image Alt
                     </div>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section3" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section3" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("section3")}
                     >
                       Member Of Section
                     </div>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section15"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section15"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("section15")}
                     >
                       Member Of Section Image Alt
                     </div>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section4" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section4" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("section4")}
                     >
                       Why US?
                     </div>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section16"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section16"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("section16")}
                     >
                       Why US Image Alt
                     </div>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section5" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section5" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("section5")}
                     >
                       Our Process
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section6" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section6" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("section6")}
                     >
                       Services
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section7" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section7" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("section7")}
                     >
                       Achievements
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section10"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section10"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("section10")}
                     >
                       FAQ's
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section11"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section11"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("section11")}
                     >
                       Blogs Section
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section12"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section12"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("section12")}
                     >
                       Page Meta
@@ -3653,160 +3544,144 @@ let AdminDashboard = () => {
                 {activePage === "about" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "about-top"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "about-top"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("about-top")}
                     >
                       Top Heading Section
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "our-foundation"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "our-foundation"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("our-foundation")}
                     >
                       Our Foundation Section
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "vision" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "vision" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("vision")}
                     >
                       Our Vision Section
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pillar" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pillar" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("pillar")}
                     >
                       Our Pillars Section
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "directors"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "directors"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("directors")}
                     >
                       Directors Section
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "we-are" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "we-are" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("we-are")}
                     >
                       We Are Section
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "we-are-small"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "we-are-small"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("we-are-small")}
                     >
                       We Are Small Screen
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "aboutAchievement"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "aboutAchievement"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("aboutAchievement")}
                     >
                       Achievements
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "aboutBest"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "aboutBest"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("aboutBest")}
                     >
                       Best Choice
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "aboutSocial"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "aboutSocial"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("aboutSocial")}
                     >
                       Social Media
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "globally" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "globally" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("globally")}
                     >
                       Serving Globally
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "map" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "map" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("map")}
                     >
                       Map Iframe
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "fimage" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "fimage" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("fimage")}
                     >
                       Our Foundation Image
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "vimage" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "vimage" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("vimage")}
                     >
                       Our Vision Image
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pillarimage"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pillarimage"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pillarimage")}
                     >
                       Pillar Image
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pageMeta" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pageMeta" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("pageMeta")}
                     >
                       Page Meta
@@ -3872,25 +3747,23 @@ let AdminDashboard = () => {
                   <AboutMeta />
                 )}
 
-                {activePage === "contact" && (
+                {activePage === "contact-us" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "contact-top"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "contact-top"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("contact-top")}
                     >
                       Top Heading Section
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "page-meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "page-meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("page-meta")}
                     >
                       Page Meta
@@ -3901,20 +3774,18 @@ let AdminDashboard = () => {
                 {activePage === "bcpnp" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "content" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "content" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("content")}
                     >
                       BCPNP Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "bcpnp-meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "bcpnp-meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("bcpnp-meta")}
                     >
                       Page Meta
@@ -3925,11 +3796,10 @@ let AdminDashboard = () => {
                 {activePage === "immigration_tools" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "immigration_tools_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "immigration_tools_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("immigration_tools_content")
                       }
@@ -3938,11 +3808,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "immigration_tools_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "immigration_tools_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("immigration_tools_meta")
                       }
@@ -3951,11 +3820,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "immigration_tools_all_tools"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "immigration_tools_all_tools"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("immigration_tools_all_tools")
                       }
@@ -3964,11 +3832,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "immigration_tools_add_tool"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "immigration_tools_add_tool"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("immigration_tools_add_tool")
                       }
@@ -3981,31 +3848,28 @@ let AdminDashboard = () => {
                 {activePage === "blogs" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "all-blogs"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "all-blogs"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("all-blogs")}
                     >
                       All Blogs
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "add-blog" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "add-blog" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("add-blog")}
                     >
                       Add Blog
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "blogs-meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "blogs-meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("blogs-meta")}
                     >
                       Page Meta
@@ -4016,20 +3880,18 @@ let AdminDashboard = () => {
                 {activePage === "clb" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "clb-content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "clb-content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("clb-content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "clb-meta" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "clb-meta" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("clb-meta")}
                     >
                       Page Meta
@@ -4040,29 +3902,26 @@ let AdminDashboard = () => {
                 {activePage === "news" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "all-news" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "all-news" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("all-news")}
                     >
                       All News
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "add-news" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "add-news" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("add-news")}
                     >
                       Add News
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "news-meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "news-meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("news-meta")}
                     >
                       Page Meta
@@ -4073,21 +3932,19 @@ let AdminDashboard = () => {
                 {activePage === "federal" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "Page-Content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "Page-Content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("Page-Content")}
                     >
                       Page Content
                     </div>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "federal-meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "federal-meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("federal-meta")}
                     >
                       Federal Skilled Meta
@@ -4098,18 +3955,16 @@ let AdminDashboard = () => {
                 {activePage === "transport" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section8" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section8" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("section8")}
                     >
                       Testimonials
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "section9" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "section9" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("section9")}
                     >
                       Testimonials Videos
@@ -4120,21 +3975,19 @@ let AdminDashboard = () => {
                 {activePage === "category" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "category-content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "category-content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("category-content")}
                     >
                       Page Content
                     </div>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "category-meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "category-meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("category-meta")}
                     >
                       Category Based Draws Meta
@@ -4142,7 +3995,7 @@ let AdminDashboard = () => {
                   </div>
                 )}
 
-                {activePage === "contact" &&
+                {activePage === "contact-us" &&
                   activeSection === "contact-top" && <ContactTop />}
 
                 {activePage === "federal" &&
@@ -4173,9 +4026,8 @@ let AdminDashboard = () => {
                   <TestimonialsVideo />
                 )}
 
-                {activePage === "contact" && activeSection === "page-meta" && (
-                  <ContactMeta />
-                )}
+                {activePage === "contact-us" &&
+                  activeSection === "page-meta" && <ContactMeta />}
 
                 {activePage === "blogs" && activeSection === "all-blogs" && (
                   <AllBlogs />
@@ -4237,11 +4089,10 @@ let AdminDashboard = () => {
                 {activePage === "more_services" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "more_services_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "more_services_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("more_services_content")
                       }
@@ -4250,22 +4101,20 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "more_services_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "more_services_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("more_services_meta")}
                     >
                       Page Meta
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "more_services_all_services"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "more_services_all_services"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("more_services_all_services")
                       }
@@ -4274,11 +4123,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "more_services_add_services"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "more_services_add_services"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("more_services_add_services")
                       }
@@ -4326,30 +4174,27 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "additional_documents"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "additional_documents"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("additional_documents")}
                   >
                     <p>Additional Documents Page</p>
                   </div>
                   <div
-                    className={`${styles.page} ${
-                      activePage === "adoption_page" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "adoption_page" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("adoption_page")}
                   >
                     <p>Adoption Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "agriculture_and_agri_food_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "agriculture_and_agri_food_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("agriculture_and_agri_food_page")
                     }
@@ -4358,11 +4203,10 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "agriculture_stream_lmia_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "agriculture_stream_lmia_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("agriculture_stream_lmia_page")
                     }
@@ -4371,31 +4215,28 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "agri_food_pilot_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "agri_food_pilot_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("agri_food_pilot_page")}
                   >
                     <p>Agri Food Pilot Program Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "bcpnp_page" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "bcpnp_page" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("bcpnp_page")}
                   >
                     <p>BCPNP Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "bridging_open_work_permit_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "bridging_open_work_permit_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("bridging_open_work_permit_page")
                     }
@@ -4404,11 +4245,10 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "business_visitor_visa_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "business_visitor_visa_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("business_visitor_visa_page")
                     }
@@ -4417,11 +4257,10 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "canadian_experience_class_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "canadian_experience_class_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("canadian_experience_class_page")
                     }
@@ -4430,20 +4269,18 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "cby_page" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "cby_page" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("cby_page")}
                   >
                     <p>Cby Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "change_college_program_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "change_college_program_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("change_college_program_page")
                     }
@@ -4452,11 +4289,10 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "category_based_express_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "category_based_express_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("category_based_express_page")
                     }
@@ -4465,20 +4301,18 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "citizenship_page" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "citizenship_page" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("citizenship_page")}
                   >
                     <p>Citizenship Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "common_law_partner_temporary_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "common_law_partner_temporary_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("common_law_partner_temporary_page")
                     }
@@ -4487,11 +4321,10 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "common_law_partner_permanent_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "common_law_partner_permanent_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("common_law_partner_permanent_page")
                     }
@@ -4500,11 +4333,10 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "common_law_partner_international_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "common_law_partner_international_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("common_law_partner_international_page")
                     }
@@ -4513,42 +4345,38 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "dependent_children_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "dependent_children_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("dependent_children_page")}
                   >
                     <p>Dependent Children Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "dual_intent_visa_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "dual_intent_visa_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("dual_intent_visa_page")}
                   >
                     <p>Dual Intent Visa Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "express" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "express" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("express")}
                   >
                     <p>Express Entry</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "entry_level_semi_skilled_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "entry_level_semi_skilled_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("entry_level_semi_skilled_page")
                     }
@@ -4557,11 +4385,10 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "extensions_draft_page"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "extensions_draft_page"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("extensions_draft_page")}
                   >
                     <p>Extensions Draft Page</p>
@@ -4569,33 +4396,29 @@ let AdminDashboard = () => {
 
                   <div className={styles.paginationButtons}>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "1" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "1" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("1")}
                     >
                       1
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "2" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "2" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("2")}
                     >
                       2
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "3" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "3" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("3")}
                     >
                       3
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "4" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "4" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("4")}
                     >
                       4
@@ -4607,22 +4430,20 @@ let AdminDashboard = () => {
               {paginationValue == "2" && (
                 <div className={styles.leftPanel}>
                   <div
-                    className={`${styles.page} ${
-                      activePage === "family_reunification"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "family_reunification"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("family_reunification")}
                   >
                     <p>Family Reunification Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "federal_skilled_trade_program"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "federal_skilled_trade_program"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("federal_skilled_trade_program")
                     }
@@ -4631,11 +4452,10 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "federal_skilled_worker_program"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "federal_skilled_worker_program"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("federal_skilled_worker_program")
                     }
@@ -4644,73 +4464,66 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "flag_poling" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "flag_poling" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("flag_poling")}
                   >
                     <p>Flag Poling Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "francophone" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "francophone" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("francophone")}
                   >
                     <p>Framcophone Mobility Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "french_tageted_draw"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "french_tageted_draw"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("french_tageted_draw")}
                   >
                     <p>French Targeted Draw Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "global_stream_lmia"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "global_stream_lmia"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("global_stream_lmia")}
                   >
                     <p>Global Stream LMIA Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "health_authorities_stream"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "health_authorities_stream"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("health_authorities_stream")}
                   >
                     <p>Health Authorities Stream Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "healthcare_targated_draw"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "healthcare_targated_draw"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("healthcare_targated_draw")}
                   >
                     <p>Healthcare Tageted Draws Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "humanitarian_compassionate"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "humanitarian_compassionate"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("humanitarian_compassionate")
                     }
@@ -4719,44 +4532,40 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "in_home_caregiver"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "in_home_caregiver"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("in_home_caregiver")}
                   >
                     <p>In Home Caregiver Program Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "inside_canada_caregiver"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "inside_canada_caregiver"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("inside_canada_caregiver")}
                   >
                     <p>Inside Canada Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "international_graduate"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "international_graduate"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("international_graduate")}
                   >
                     <p>International Graduate Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "international_post_graduate"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "international_post_graduate"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("international_post_graduate")
                     }
@@ -4765,67 +4574,60 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "lmia_reviewed" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "lmia_reviewed" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("lmia_reviewed")}
                   >
                     <p>LMIA Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "lonely_canadian" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "lonely_canadian" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("lonely_canadian")}
                   >
                     <p>Lonely Canadian Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "low_wage_lmia" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "low_wage_lmia" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("low_wage_lmia")}
                   >
                     <p>Low Wage LMIA Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "non_sds" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "non_sds" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("non_sds")}
                   >
                     <p>Non Sds Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "open_work_dependent"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "open_work_dependent"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("open_work_dependent")}
                   >
                     <p>Open Work Dependent Children Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "open_work_permit" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "open_work_permit" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("open_work_permit")}
                   >
                     <p>Open Work Permit Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "open_work_permit_for_spousal"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "open_work_permit_for_spousal"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("open_work_permit_for_spousal")
                     }
@@ -4835,33 +4637,29 @@ let AdminDashboard = () => {
 
                   <div className={styles.paginationButtons}>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "1" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "1" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("1")}
                     >
                       1
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "2" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "2" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("2")}
                     >
                       2
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "3" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "3" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("3")}
                     >
                       3
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "4" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "4" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("4")}
                     >
                       4
@@ -4873,11 +4671,10 @@ let AdminDashboard = () => {
               {paginationValue == "3" && (
                 <div className={styles.leftPanel}>
                   <div
-                    className={`${styles.page} ${
-                      activePage === "open_work_permit_vulnerable"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "open_work_permit_vulnerable"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() =>
                       handlePageClick("open_work_permit_vulnerable")
                     }
@@ -4886,198 +4683,178 @@ let AdminDashboard = () => {
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "orphan" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "orphan" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("orphan")}
                   >
                     <p>Orphan Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "outside_canada" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "outside_canada" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("outside_canada")}
                   >
                     <p>Outside Canada Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "parents_grandparents"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "parents_grandparents"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("parents_grandparents")}
                   >
                     <p>Parents Grandparents Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "pathways_for_caregiver"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "pathways_for_caregiver"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("pathways_for_caregiver")}
                   >
                     <p>Pathways For Caregiver Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "pr_pathways_for_caregiver"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "pr_pathways_for_caregiver"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("pr_pathways_for_caregiver")}
                   >
                     <p>PR Pathways For Caregiver Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "pgwp" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "pgwp" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("pgwp")}
                   >
                     <p>PGWP Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "pilot_programs" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "pilot_programs" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("pilot_programs")}
                   >
                     <p>Pilot Programs Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "pnp_page" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "pnp_page" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("pnp_page")}
                   >
                     <p>PNP Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "previous_draw_history"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "previous_draw_history"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("previous_draw_history")}
                   >
                     <p>Previous Draw History Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "priorities_program"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "priorities_program"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("priorities_program")}
                   >
                     <p>Priorities Program Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "pr_renewal" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "pr_renewal" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("pr_renewal")}
                   >
                     <p>Pr Renewal Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "permanent_residency"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "permanent_residency"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("permanent_residency")}
                   >
                     <p>Permanent Residency Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "restoration_status"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "restoration_status"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("restoration_status")}
                   >
                     <p>Restoration Status Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "reconsideration" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "reconsideration" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("reconsideration")}
                   >
                     <p>Reconsideration Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "reply_to_pfl" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "reply_to_pfl" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("reply_to_pfl")}
                   >
                     <p>Reply To PFL Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "rnip" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "rnip" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("rnip")}
                   >
                     <p>RNIP Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "same_sex" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "same_sex" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("same_sex")}
                   >
                     <p>Same Sex Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "sds" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "sds" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("sds")}
                   >
                     <p>Sds Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "skilled_worker_stream"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "skilled_worker_stream"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("skilled_worker_stream")}
                   >
                     <p>Skilled Worker Stream Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "spousal_open_work_permit"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "spousal_open_work_permit"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("spousal_open_work_permit")}
                   >
                     <p>Spousal Open Work Permit Page</p>
@@ -5085,33 +4862,29 @@ let AdminDashboard = () => {
 
                   <div className={styles.paginationButtons}>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "1" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "1" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("1")}
                     >
                       1
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "2" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "2" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("2")}
                     >
                       2
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "3" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "3" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("3")}
                     >
                       3
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "4" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "4" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("4")}
                     >
                       4
@@ -5123,130 +4896,116 @@ let AdminDashboard = () => {
               {paginationValue == "4" && (
                 <div className={styles.leftPanel}>
                   <div
-                    className={`${styles.page} ${
-                      activePage === "spose_common_law_spon"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "spose_common_law_spon"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("spose_common_law_spon")}
                   >
                     <p>Spouse Common Law Sponsorship Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "spousal_inland" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "spousal_inland" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("spousal_inland")}
                   >
                     <p>Spousal Inland Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "spousal_outland" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "spousal_outland" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("spousal_outland")}
                   >
                     <p>Spousal Outland Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "stem_target" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "stem_target" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("stem_target")}
                   >
                     <p>Stem Targeted Draw Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "student_visa" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "student_visa" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("student_visa")}
                   >
                     <p>Student Visa Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "study_permit_minors"
-                        ? styles.activePage
-                        : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "study_permit_minors"
+                      ? styles.activePage
+                      : ""
+                      }`}
                     onClick={() => handlePageClick("study_permit_minors")}
                   >
                     <p>Study Permit Minors Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "super_visa" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "super_visa" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("super_visa")}
                   >
                     <p>Super Visa Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "temp" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "temp" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("temp")}
                   >
                     <p>Temporary Residency Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "temp_per" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "temp_per" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("temp_per")}
                   >
                     <p>Temporary Residenct Permit Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "trade_occu" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "trade_occu" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("trade_occu")}
                   >
                     <p>Trade Occupation Targeted Draw Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "trans_occu" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "trans_occu" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("trans_occu")}
                   >
                     <p>Transport Occupation Targeted Draw Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "visi_stu" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "visi_stu" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("visi_stu")}
                   >
                     <p>Visitor To Student Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "visi_visa" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "visi_visa" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("visi_visa")}
                   >
                     <p>Visitor Visa Page</p>
                   </div>
 
                   <div
-                    className={`${styles.page} ${
-                      activePage === "work_per" ? styles.activePage : ""
-                    }`}
+                    className={`${styles.page} ${activePage === "work_per" ? styles.activePage : ""
+                      }`}
                     onClick={() => handlePageClick("work_per")}
                   >
                     <p>Work Permit Page</p>
@@ -5254,33 +5013,29 @@ let AdminDashboard = () => {
 
                   <div className={styles.paginationButtons}>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "1" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "1" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("1")}
                     >
                       1
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "2" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "2" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("2")}
                     >
                       2
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "3" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "3" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("3")}
                     >
                       3
                     </button>
                     <button
-                      className={`${styles.paginationButton} ${
-                        paginationValue == "4" ? styles.activePageButton : ""
-                      }`}
+                      className={`${styles.paginationButton} ${paginationValue == "4" ? styles.activePageButton : ""
+                        }`}
                       onClick={() => setPaginationValue("4")}
                     >
                       4
@@ -5295,22 +5050,20 @@ let AdminDashboard = () => {
                 {activePage === "express" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "express-content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "express-content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("express-content")}
                     >
                       Express Entry Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "express-meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "express-meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("express-meta")}
                     >
                       Page Meta
@@ -5321,22 +5074,20 @@ let AdminDashboard = () => {
                 {activePage === "bcpnp_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "bcpnp_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "bcpnp_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("bcpnp_page_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "bcpnp_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "bcpnp_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("bcpnp_page_meta")}
                     >
                       Page Meta
@@ -5346,11 +5097,10 @@ let AdminDashboard = () => {
                 {activePage === "additional_documents" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "additional_documents_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "additional_documents_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("additional_documents_content")
                       }
@@ -5359,16 +5109,27 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "additional_documents_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "additional_documents_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("additional_documents_meta")
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "additional_documents_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("additional_documents_faq")
+                      }
+                    >
+                      Page FAQ
                     </div>
                   </div>
                 )}
@@ -5376,12 +5137,11 @@ let AdminDashboard = () => {
                 {activePage === "bridging_open_work_permit_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "bridging_open_work_permit_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "bridging_open_work_permit_page_content"
@@ -5392,11 +5152,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "bridging_open_work_permit_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "bridging_open_work_permit_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "bridging_open_work_permit_page_meta"
@@ -5410,11 +5169,10 @@ let AdminDashboard = () => {
                 {activePage === "adoption_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "adoption_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "adoption_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("adoption_page_content")
                       }
@@ -5423,11 +5181,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "adoption_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "adoption_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("adoption_page_meta")}
                     >
                       Page Meta
@@ -5437,12 +5194,11 @@ let AdminDashboard = () => {
                 {activePage === "agriculture_and_agri_food_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "agriculture_and_agri_food_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "agriculture_and_agri_food_page_content"
@@ -5453,11 +5209,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agriculture_and_agri_food_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agriculture_and_agri_food_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "agriculture_and_agri_food_page_meta"
@@ -5472,11 +5227,10 @@ let AdminDashboard = () => {
                 {activePage === "agriculture_stream_lmia_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agriculture_stream_lmia_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agriculture_stream_lmia_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "agriculture_stream_lmia_page_content"
@@ -5487,11 +5241,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agriculture_stream_lmia_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agriculture_stream_lmia_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("agriculture_stream_lmia_page_meta")
                       }
@@ -5504,11 +5257,10 @@ let AdminDashboard = () => {
                 {activePage === "agri_food_pilot_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agri_food_pilot_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agri_food_pilot_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("agri_food_pilot_page_content")
                       }
@@ -5517,11 +5269,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "agri_food_pilot_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "agri_food_pilot_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("agri_food_pilot_page_meta")
                       }
@@ -5534,11 +5285,10 @@ let AdminDashboard = () => {
                 {activePage === "business_visitor_visa_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "business_visitor_visa_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "business_visitor_visa_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("business_visitor_visa_page_content")
                       }
@@ -5547,11 +5297,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "business_visitor_visa_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "business_visitor_visa_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("business_visitor_visa_page_meta")
                       }
@@ -5564,12 +5313,11 @@ let AdminDashboard = () => {
                 {activePage === "canadian_experience_class_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "canadian_experience_class_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "canadian_experience_class_page_content"
@@ -5580,11 +5328,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "canadian_experience_class_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "canadian_experience_class_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "canadian_experience_class_page_meta"
@@ -5599,22 +5346,20 @@ let AdminDashboard = () => {
                 {activePage === "cby_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "cby_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "cby_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("cby_page_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "cby_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "cby_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("cby_page_meta")}
                     >
                       Page Meta
@@ -5625,11 +5370,10 @@ let AdminDashboard = () => {
                 {activePage === "change_college_program_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "change_college_program_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "change_college_program_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "change_college_program_page_content"
@@ -5640,11 +5384,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "change_college_program_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "change_college_program_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("change_college_program_page_meta")
                       }
@@ -5657,11 +5400,10 @@ let AdminDashboard = () => {
                 {activePage === "category_based_express_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "category_based_express_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "category_based_express_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "category_based_express_page_content"
@@ -5672,11 +5414,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "category_based_express_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "category_based_express_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("category_based_express_page_meta")
                       }
@@ -5689,11 +5430,10 @@ let AdminDashboard = () => {
                 {activePage === "citizenship_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "citizenship_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "citizenship_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("citizenship_page_content")
                       }
@@ -5702,11 +5442,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "citizenship_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "citizenship_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("citizenship_page_meta")
                       }
@@ -5719,12 +5458,11 @@ let AdminDashboard = () => {
                 {activePage === "common_law_partner_temporary_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_temporary_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_temporary_page_content"
@@ -5735,12 +5473,11 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_temporary_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_temporary_page_meta"
@@ -5755,12 +5492,11 @@ let AdminDashboard = () => {
                 {activePage === "common_law_partner_permanent_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_permanent_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_permanent_page_content"
@@ -5771,12 +5507,11 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_permanent_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_permanent_page_meta"
@@ -5791,11 +5526,10 @@ let AdminDashboard = () => {
                 {activePage === "dependent_children_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "dependent_children_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "dependent_children_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("dependent_children_page_content")
                       }
@@ -5804,11 +5538,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "dependent_children_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "dependent_children_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("dependent_children_page_meta")
                       }
@@ -5821,11 +5554,10 @@ let AdminDashboard = () => {
                 {activePage === "dual_intent_visa_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "dual_intent_visa_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "dual_intent_visa_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("dual_intent_visa_page_content")
                       }
@@ -5834,11 +5566,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "dual_intent_visa_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "dual_intent_visa_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("dual_intent_visa_page_meta")
                       }
@@ -5851,12 +5582,11 @@ let AdminDashboard = () => {
                 {activePage === "entry_level_semi_skilled_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "entry_level_semi_skilled_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "entry_level_semi_skilled_page_content"
@@ -5867,11 +5597,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "entry_level_semi_skilled_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "entry_level_semi_skilled_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("entry_level_semi_skilled_page_meta")
                       }
@@ -5884,11 +5613,10 @@ let AdminDashboard = () => {
                 {activePage === "extensions_draft_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "extensions_draft_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "extensions_draft_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("extensions_draft_page_content")
                       }
@@ -5897,11 +5625,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "extensions_draft_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "extensions_draft_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("extensions_draft_page_meta")
                       }
@@ -5914,12 +5641,11 @@ let AdminDashboard = () => {
                 {activePage === "common_law_partner_international_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_international_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_international_page_content"
@@ -5930,12 +5656,11 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "common_law_partner_international_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "common_law_partner_international_page_meta"
@@ -5950,11 +5675,10 @@ let AdminDashboard = () => {
                 {activePage === "family_reunification" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "family_reunification_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "family_reunification_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("family_reunification_content")
                       }
@@ -5963,11 +5687,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "family_reunification_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "family_reunification_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("family_reunification_meta")
                       }
@@ -5980,12 +5703,11 @@ let AdminDashboard = () => {
                 {activePage === "federal_skilled_trade_program" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "federal_skilled_trade_program_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "federal_skilled_trade_program_content"
@@ -5996,11 +5718,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "federal_skilled_trade_program_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "federal_skilled_trade_program_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("federal_skilled_trade_program_meta")
                       }
@@ -6013,12 +5734,11 @@ let AdminDashboard = () => {
                 {activePage === "federal_skilled_worker_program" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection ===
+                      className={`${styles.section} ${activeSection ===
                         "federal_skilled_worker_program_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "federal_skilled_worker_program_content"
@@ -6029,11 +5749,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "federal_skilled_worker_program_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "federal_skilled_worker_program_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "federal_skilled_worker_program_meta"
@@ -6048,22 +5767,20 @@ let AdminDashboard = () => {
                 {activePage === "flag_poling" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "flag_poling_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "flag_poling_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("flag_poling_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "flag_poling_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "flag_poling_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("flag_poling_meta")}
                     >
                       Page Meta
@@ -6074,22 +5791,20 @@ let AdminDashboard = () => {
                 {activePage === "francophone" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "francophone_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "francophone_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("francophone_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "francophone_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "francophone_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("francophone_meta")}
                     >
                       Page Meta
@@ -6100,11 +5815,10 @@ let AdminDashboard = () => {
                 {activePage === "french_tageted_draw" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "french_tageted_draw_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "french_tageted_draw_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("french_tageted_draw_content")
                       }
@@ -6113,11 +5827,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "french_tageted_draw_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "french_tageted_draw_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("french_tageted_draw_meta")
                       }
@@ -6130,11 +5843,10 @@ let AdminDashboard = () => {
                 {activePage === "permanent_residency" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "permanent_residency_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "permanent_residency_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("permanent_residency_content")
                       }
@@ -6143,11 +5855,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "permanent_residency_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "permanent_residency_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("permanent_residency_meta")
                       }
@@ -6160,11 +5871,10 @@ let AdminDashboard = () => {
                 {activePage === "global_stream_lmia" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "global_stream_lmia_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "global_stream_lmia_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("global_stream_lmia_content")
                       }
@@ -6173,11 +5883,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "global_stream_lmia_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "global_stream_lmia_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("global_stream_lmia_meta")
                       }
@@ -6190,11 +5899,10 @@ let AdminDashboard = () => {
                 {activePage === "health_authorities_stream" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "health_authorities_stream_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "health_authorities_stream_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("health_authorities_stream_content")
                       }
@@ -6203,11 +5911,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "health_authorities_stream_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "health_authorities_stream_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("health_authorities_stream_meta")
                       }
@@ -6220,11 +5927,10 @@ let AdminDashboard = () => {
                 {activePage === "healthcare_targated_draw" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "healthcare_targated_draw_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "healthcare_targated_draw_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("healthcare_targated_draw_content")
                       }
@@ -6233,11 +5939,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "healthcare_targated_draw_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "healthcare_targated_draw_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("healthcare_targated_draw_meta")
                       }
@@ -6250,11 +5955,10 @@ let AdminDashboard = () => {
                 {activePage === "humanitarian_compassionate" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "humanitarian_compassionate_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "humanitarian_compassionate_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("humanitarian_compassionate_content")
                       }
@@ -6263,11 +5967,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "humanitarian_compassionate_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "humanitarian_compassionate_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("humanitarian_compassionate_meta")
                       }
@@ -6280,11 +5983,10 @@ let AdminDashboard = () => {
                 {activePage === "in_home_caregiver" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "in_home_caregiver_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "in_home_caregiver_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("in_home_caregiver_content")
                       }
@@ -6293,11 +5995,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "in_home_caregiver_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "in_home_caregiver_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("in_home_caregiver_meta")
                       }
@@ -6310,11 +6011,10 @@ let AdminDashboard = () => {
                 {activePage === "inside_canada_caregiver" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "inside_canada_caregiver_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "inside_canada_caregiver_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("inside_canada_caregiver_content")
                       }
@@ -6323,11 +6023,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "inside_canada_caregiver_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "inside_canada_caregiver_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("inside_canada_caregiver_meta")
                       }
@@ -6340,11 +6039,10 @@ let AdminDashboard = () => {
                 {activePage === "international_graduate" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "international_graduate_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "international_graduate_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("international_graduate_content")
                       }
@@ -6353,11 +6051,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "international_graduate_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "international_graduate_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("international_graduate_meta")
                       }
@@ -6370,11 +6067,10 @@ let AdminDashboard = () => {
                 {activePage === "international_post_graduate" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "international_post_graduate_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "international_post_graduate_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "international_post_graduate_content"
@@ -6385,11 +6081,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "international_post_graduate_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "international_post_graduate_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("international_post_graduate_meta")
                       }
@@ -6402,11 +6097,10 @@ let AdminDashboard = () => {
                 {activePage === "lmia_reviewed" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "lmia_reviewed_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "lmia_reviewed_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("lmia_reviewed_content")
                       }
@@ -6415,11 +6109,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "lmia_reviewed_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "lmia_reviewed_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("lmia_reviewed_meta")}
                     >
                       Page Meta
@@ -6430,11 +6123,10 @@ let AdminDashboard = () => {
                 {activePage === "lonely_canadian" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "lonely_canadian_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "lonely_canadian_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("lonely_canadian_content")
                       }
@@ -6443,11 +6135,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "lonely_canadian_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "lonely_canadian_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("lonely_canadian_meta")}
                     >
                       Page Meta
@@ -6458,11 +6149,10 @@ let AdminDashboard = () => {
                 {activePage === "low_wage_lmia" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "low_wage_lmia_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "low_wage_lmia_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("low_wage_lmia_content")
                       }
@@ -6471,11 +6161,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "low_wage_lmia_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "low_wage_lmia_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("low_wage_lmia_meta")}
                     >
                       Page Meta
@@ -6486,22 +6175,20 @@ let AdminDashboard = () => {
                 {activePage === "non_sds" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "non_sds_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "non_sds_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("non_sds_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "non_sds_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "non_sds_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("non_sds_meta")}
                     >
                       Page Meta
@@ -6512,11 +6199,10 @@ let AdminDashboard = () => {
                 {activePage === "open_work_dependent" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_dependent_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_dependent_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_dependent_content")
                       }
@@ -6525,11 +6211,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_dependent_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_dependent_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_dependent_meta")
                       }
@@ -6542,11 +6227,10 @@ let AdminDashboard = () => {
                 {activePage === "open_work_permit" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_permit_content")
                       }
@@ -6555,11 +6239,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_permit_meta")
                       }
@@ -6572,11 +6255,10 @@ let AdminDashboard = () => {
                 {activePage === "open_work_permit_for_spousal" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_for_spousal_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_for_spousal_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "open_work_permit_for_spousal_content"
@@ -6587,11 +6269,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_for_spousal_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_for_spousal_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_permit_for_spousal_meta")
                       }
@@ -6604,11 +6285,10 @@ let AdminDashboard = () => {
                 {activePage === "open_work_permit_vulnerable" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_vulnerable_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_vulnerable_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick(
                           "open_work_permit_vulnerable_content"
@@ -6619,11 +6299,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "open_work_permit_vulnerable_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "open_work_permit_vulnerable_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("open_work_permit_vulnerable_meta")
                       }
@@ -6636,22 +6315,20 @@ let AdminDashboard = () => {
                 {activePage === "orphan" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "orphan_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "orphan_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("orphan_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "orphan_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "orphan_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("orphan_meta")}
                     >
                       Page Meta
@@ -6662,11 +6339,10 @@ let AdminDashboard = () => {
                 {activePage === "outside_canada" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "outside_canada_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "outside_canada_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("outside_canada_content")
                       }
@@ -6675,11 +6351,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "outside_canada_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "outside_canada_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("outside_canada_meta")}
                     >
                       Page Meta
@@ -6690,11 +6365,10 @@ let AdminDashboard = () => {
                 {activePage === "parents_grandparents" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "parents_grandparents_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "parents_grandparents_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("parents_grandparents_content")
                       }
@@ -6703,11 +6377,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "parents_grandparents_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "parents_grandparents_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("parents_grandparents_meta")
                       }
@@ -6720,11 +6393,10 @@ let AdminDashboard = () => {
                 {activePage === "pathways_for_caregiver" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pathways_for_caregiver_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pathways_for_caregiver_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pathways_for_caregiver_content")
                       }
@@ -6733,11 +6405,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pathways_for_caregiver_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pathways_for_caregiver_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pathways_for_caregiver_meta")
                       }
@@ -6750,11 +6421,10 @@ let AdminDashboard = () => {
                 {activePage === "pr_pathways_for_caregiver" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pr_pathways_for_caregiver_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pr_pathways_for_caregiver_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pr_pathways_for_caregiver_content")
                       }
@@ -6763,11 +6433,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pr_pathways_for_caregiver_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pr_pathways_for_caregiver_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pr_pathways_for_caregiver_meta")
                       }
@@ -6780,22 +6449,20 @@ let AdminDashboard = () => {
                 {activePage === "pgwp" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pgwp_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pgwp_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pgwp_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pgwp_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pgwp_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pgwp_meta")}
                     >
                       Page Meta
@@ -6806,11 +6473,10 @@ let AdminDashboard = () => {
                 {activePage === "pilot_programs" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pilot_programs_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pilot_programs_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("pilot_programs_content")
                       }
@@ -6819,11 +6485,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pilot_programs_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pilot_programs_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pilot_programs_meta")}
                     >
                       Page Meta
@@ -6834,22 +6499,20 @@ let AdminDashboard = () => {
                 {activePage === "pnp_page" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pnp_page_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pnp_page_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pnp_page_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pnp_page_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pnp_page_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pnp_page_meta")}
                     >
                       Page Meta
@@ -6860,11 +6523,10 @@ let AdminDashboard = () => {
                 {activePage === "previous_draw_history" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "previous_draw_history_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "previous_draw_history_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("previous_draw_history_meta")
                       }
@@ -6877,11 +6539,10 @@ let AdminDashboard = () => {
                 {activePage === "priorities_program" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "priorities_program_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "priorities_program_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("priorities_program_content")
                       }
@@ -6890,11 +6551,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "priorities_program_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "priorities_program_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("priorities_program_meta")
                       }
@@ -6907,22 +6567,20 @@ let AdminDashboard = () => {
                 {activePage === "pr_renewal" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pr_renewal_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pr_renewal_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pr_renewal_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "pr_renewal_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "pr_renewal_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("pr_renewal_meta")}
                     >
                       Page Meta
@@ -6933,11 +6591,10 @@ let AdminDashboard = () => {
                 {activePage === "restoration_status" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "restoration_status_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "restoration_status_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("restoration_status_content")
                       }
@@ -6946,11 +6603,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "restoration_status_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "restoration_status_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("restoration_status_meta")
                       }
@@ -6963,11 +6619,10 @@ let AdminDashboard = () => {
                 {activePage === "reconsideration" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "reconsideration_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "reconsideration_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("reconsideration_content")
                       }
@@ -6976,11 +6631,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "reconsideration_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "reconsideration_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("reconsideration_meta")}
                     >
                       Page Meta
@@ -6991,22 +6645,20 @@ let AdminDashboard = () => {
                 {activePage === "reply_to_pfl" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "reply_to_pfl_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "reply_to_pfl_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("reply_to_pfl_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "reply_to_pfl_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "reply_to_pfl_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("reply_to_pfl_meta")}
                     >
                       Page Meta
@@ -7017,22 +6669,20 @@ let AdminDashboard = () => {
                 {activePage === "rnip" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "rnip_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "rnip_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("rnip_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "rnip_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "rnip_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("rnip_meta")}
                     >
                       Page Meta
@@ -7043,22 +6693,20 @@ let AdminDashboard = () => {
                 {activePage === "same_sex" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "same_sex_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "same_sex_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("same_sex_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "same_sex_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "same_sex_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("same_sex_meta")}
                     >
                       Page Meta
@@ -7069,20 +6717,18 @@ let AdminDashboard = () => {
                 {activePage === "sds" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "sds_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "sds_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("sds_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "sds_meta" ? styles.activeSection : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "sds_meta" ? styles.activeSection : ""
+                        }`}
                       onClick={() => handleSectionClick("sds_meta")}
                     >
                       Page Meta
@@ -7093,11 +6739,10 @@ let AdminDashboard = () => {
                 {activePage === "skilled_worker_stream" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "skilled_worker_stream_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "skilled_worker_stream_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("skilled_worker_stream_content")
                       }
@@ -7106,11 +6751,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "skilled_worker_stream_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "skilled_worker_stream_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("skilled_worker_stream_meta")
                       }
@@ -7123,11 +6767,10 @@ let AdminDashboard = () => {
                 {activePage === "spousal_open_work_permit" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_open_work_permit_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_open_work_permit_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spousal_open_work_permit_content")
                       }
@@ -7136,11 +6779,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_open_work_permit_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_open_work_permit_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spousal_open_work_permit_meta")
                       }
@@ -7153,11 +6795,10 @@ let AdminDashboard = () => {
                 {activePage === "spose_common_law_spon" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spose_common_law_spon_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spose_common_law_spon_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spose_common_law_spon_content")
                       }
@@ -7166,11 +6807,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spose_common_law_spon_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spose_common_law_spon_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spose_common_law_spon_meta")
                       }
@@ -7183,11 +6823,10 @@ let AdminDashboard = () => {
                 {activePage === "spousal_inland" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_inland_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_inland_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spousal_inland_content")
                       }
@@ -7196,11 +6835,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_inland_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_inland_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("spousal_inland_meta")}
                     >
                       Page Meta
@@ -7211,11 +6849,10 @@ let AdminDashboard = () => {
                 {activePage === "spousal_outland" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_outland_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_outland_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("spousal_outland_content")
                       }
@@ -7224,11 +6861,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "spousal_outland_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "spousal_outland_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("spousal_outland_meta")}
                     >
                       Page Meta
@@ -7239,22 +6875,20 @@ let AdminDashboard = () => {
                 {activePage === "stem_target" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "stem_target_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "stem_target_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("stem_target_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "stem_target_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "stem_target_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("stem_target_meta")}
                     >
                       Page Meta
@@ -7265,22 +6899,20 @@ let AdminDashboard = () => {
                 {activePage === "student_visa" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "student_visa_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "student_visa_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("student_visa_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "student_visa_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "student_visa_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("student_visa_meta")}
                     >
                       Page Meta
@@ -7291,11 +6923,10 @@ let AdminDashboard = () => {
                 {activePage === "study_permit_minors" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "study_permit_minors_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "study_permit_minors_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("study_permit_minors_content")
                       }
@@ -7304,11 +6935,10 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "study_permit_minors_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "study_permit_minors_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() =>
                         handleSectionClick("study_permit_minors_meta")
                       }
@@ -7321,22 +6951,20 @@ let AdminDashboard = () => {
                 {activePage === "super_visa" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "super_visa_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "super_visa_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("super_visa_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "super_visa_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "super_visa_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("super_visa_meta")}
                     >
                       Page Meta
@@ -7347,22 +6975,20 @@ let AdminDashboard = () => {
                 {activePage === "temp" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "temp_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "temp_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("temp_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "temp_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "temp_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("temp_meta")}
                     >
                       Page Meta
@@ -7373,22 +6999,20 @@ let AdminDashboard = () => {
                 {activePage === "temp_per" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "temp_per_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "temp_per_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("temp_per_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "temp_per_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "temp_per_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("temp_per_meta")}
                     >
                       Page Meta
@@ -7399,22 +7023,20 @@ let AdminDashboard = () => {
                 {activePage === "trade_occu" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "trade_occu_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "trade_occu_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("trade_occu_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "trade_occu_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "trade_occu_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("trade_occu_meta")}
                     >
                       Page Meta
@@ -7425,22 +7047,20 @@ let AdminDashboard = () => {
                 {activePage === "trans_occu" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "trans_occu_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "trans_occu_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("trans_occu_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "trans_occu_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "trans_occu_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("trans_occu_meta")}
                     >
                       Page Meta
@@ -7451,22 +7071,20 @@ let AdminDashboard = () => {
                 {activePage === "visi_stu" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "visi_stu_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "visi_stu_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("visi_stu_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "visi_stu_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "visi_stu_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("visi_stu_meta")}
                     >
                       Page Meta
@@ -7477,22 +7095,20 @@ let AdminDashboard = () => {
                 {activePage === "visi_visa" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "visi_visa_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "visi_visa_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("visi_visa_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "visi_visa_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "visi_visa_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("visi_visa_meta")}
                     >
                       Page Meta
@@ -7503,22 +7119,20 @@ let AdminDashboard = () => {
                 {activePage === "work_per" && (
                   <div className={styles.sections}>
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "work_per_content"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "work_per_content"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("work_per_content")}
                     >
                       Page Content
                     </div>
 
                     <div
-                      className={`${styles.section} ${
-                        activeSection === "work_per_meta"
-                          ? styles.activeSection
-                          : ""
-                      }`}
+                      className={`${styles.section} ${activeSection === "work_per_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
                       onClick={() => handleSectionClick("work_per_meta")}
                     >
                       Page Meta
@@ -7557,6 +7171,11 @@ let AdminDashboard = () => {
                     activeSection === "additional_documents_meta" && (
                       <AdditionalDocumentMeta />
                     )}
+
+                  {activePage === "additional_documents" &&
+                    activeSection === "additional_documents_faq" && (
+                      <AdditionalDocumentFaq />
+                    )}
                   {activePage === "adoption_page" &&
                     activeSection === "adoption_page_content" && <Adoption />}
                   {activePage === "adoption_page" &&
@@ -7564,7 +7183,7 @@ let AdminDashboard = () => {
 
                   {activePage === "agriculture_and_agri_food_page" &&
                     activeSection ===
-                      "agriculture_and_agri_food_page_content" && (
+                    "agriculture_and_agri_food_page_content" && (
                       <AgricultureAndAgriFoodPageContent />
                     )}
                   {activePage === "agriculture_and_agri_food_page" &&
@@ -7574,7 +7193,7 @@ let AdminDashboard = () => {
 
                   {activePage === "agriculture_stream_lmia_page" &&
                     activeSection ===
-                      "agriculture_stream_lmia_page_content" && (
+                    "agriculture_stream_lmia_page_content" && (
                       <AgricultureStreamLMIAContent />
                     )}
                   {activePage === "agriculture_stream_lmia_page" &&
@@ -7593,7 +7212,7 @@ let AdminDashboard = () => {
 
                   {activePage === "bridging_open_work_permit_page" &&
                     activeSection ===
-                      "bridging_open_work_permit_page_content" && (
+                    "bridging_open_work_permit_page_content" && (
                       <BridgingOpenWorkPermitLPContent />
                     )}
                   {activePage === "bridging_open_work_permit_page" &&
@@ -7612,7 +7231,7 @@ let AdminDashboard = () => {
 
                   {activePage === "canadian_experience_class_page" &&
                     activeSection ===
-                      "canadian_experience_class_page_content" && (
+                    "canadian_experience_class_page_content" && (
                       <CanadianExperienceClassContent />
                     )}
                   {activePage === "canadian_experience_class_page" &&
@@ -7654,23 +7273,23 @@ let AdminDashboard = () => {
 
                   {activePage === "common_law_partner_temporary_page" &&
                     activeSection ===
-                      "common_law_partner_temporary_page_content" && (
+                    "common_law_partner_temporary_page_content" && (
                       <CommonLawPartnerTemporaryContent />
                     )}
                   {activePage === "common_law_partner_temporary_page" &&
                     activeSection ===
-                      "common_law_partner_temporary_page_meta" && (
+                    "common_law_partner_temporary_page_meta" && (
                       <CommonLawPartnerTemporaryContentMeta />
                     )}
 
                   {activePage === "common_law_partner_permanent_page" &&
                     activeSection ===
-                      "common_law_partner_permanent_page_content" && (
+                    "common_law_partner_permanent_page_content" && (
                       <CommonLawPartnerPermanentContent />
                     )}
                   {activePage === "common_law_partner_permanent_page" &&
                     activeSection ===
-                      "common_law_partner_permanent_page_meta" && (
+                    "common_law_partner_permanent_page_meta" && (
                       <CommonLawPartnerPermanentContentMeta />
                     )}
 
@@ -7694,7 +7313,7 @@ let AdminDashboard = () => {
 
                   {activePage === "entry_level_semi_skilled_page" &&
                     activeSection ===
-                      "entry_level_semi_skilled_page_content" && (
+                    "entry_level_semi_skilled_page_content" && (
                       <EntryLevelSemiSkilledContent />
                     )}
                   {activePage === "entry_level_semi_skilled_page" &&
@@ -7713,12 +7332,12 @@ let AdminDashboard = () => {
 
                   {activePage === "common_law_partner_international_page" &&
                     activeSection ===
-                      "common_law_partner_international_page_content" && (
+                    "common_law_partner_international_page_content" && (
                       <CommonLawPartnerInternationalContent />
                     )}
                   {activePage === "common_law_partner_international_page" &&
                     activeSection ===
-                      "common_law_partner_international_page_meta" && (
+                    "common_law_partner_international_page_meta" && (
                       <CommonLawPartnerInternationalMeta />
                     )}
 
@@ -7733,7 +7352,7 @@ let AdminDashboard = () => {
 
                   {activePage === "federal_skilled_trade_program" &&
                     activeSection ===
-                      "federal_skilled_trade_program_content" && (
+                    "federal_skilled_trade_program_content" && (
                       <FederalSkilledTradeProgramContent />
                     )}
                   {activePage === "federal_skilled_trade_program" &&
@@ -7743,7 +7362,7 @@ let AdminDashboard = () => {
 
                   {activePage === "federal_skilled_worker_program" &&
                     activeSection ===
-                      "federal_skilled_worker_program_content" && (
+                    "federal_skilled_worker_program_content" && (
                       <FederalSkilledWorkerProgramContent />
                     )}
                   {activePage === "federal_skilled_worker_program" &&
@@ -7898,7 +7517,7 @@ let AdminDashboard = () => {
 
                   {activePage === "open_work_permit_for_spousal" &&
                     activeSection ===
-                      "open_work_permit_for_spousal_content" && (
+                    "open_work_permit_for_spousal_content" && (
                       <OpenWorkForSpousalInlandContent />
                     )}
                   {activePage === "open_work_permit_for_spousal" &&
@@ -8199,4 +7818,4 @@ const Admin = () => {
   return <PrivateRoute Component={AdminDashboard} />;
 };
 
-export default Admin; 
+export default Admin;

@@ -79,7 +79,7 @@ const serviceNameMapping = {
   "outside-canada": "Outside Canada",
   "inside-canada": "Inside Canada",
   "student-visa": "Student Visa",
-  "ParentsGrandparents": "Parents Grandparents",
+  "parents-grandparents": "Parents Grandparents",
   "orphan": "Orphan",
   "lonely-canadian": "Lonely Canadian",
   "humanitarian-compassionate": "Humanitarian Compassionate",
@@ -191,7 +191,7 @@ const RecentBlogs = () => {
               className={styles.blogs}
             >
               <div className={styles.imageContainer}>
-                <Image
+                <Image loading="lazy"
                   src={item.image}
                   alt={item.blog_heading}
                   width={300}

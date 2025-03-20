@@ -93,7 +93,7 @@ const BestChoice = () => {
         <div className={styles.bestChoiceHeading}>
           <h2>{bestChoiceHeading?.heading}</h2>
         </div>
-        <Image
+        <Image loading="lazy"
           src={plane?.image}
           alt="Plane"
           className={styles.plane}
@@ -101,7 +101,7 @@ const BestChoice = () => {
           width={100} // Set appropriate width
           height={500} // Set appropriate height
         />
-        <Image
+        <Image loading="lazy"
           src="/assets/best-choice-update.png"
           ref={trackImageRef}
           alt="Track"

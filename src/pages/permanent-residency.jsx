@@ -150,7 +150,7 @@ const PermanentResidency = ({ metaData }) => {
           <p>{pData?.aboutDescription2}</p>
         </div>
         <div className={styles.canadianImg}>
-          <Image
+          <Image loading="lazy"
             src={ServiceImg}
             alt="Permanent Residency"
             height={500}
@@ -173,7 +173,7 @@ const PermanentResidency = ({ metaData }) => {
             <div className={styles.pathwayCards}>
               <Link href="/express-entry">
                 <div className={"flex items-center justify-center"}>
-                  <Image
+                  <Image loading="lazy"
                     src={studyVisaImg}
                     alt="Express Entry"
                     height={500}
@@ -186,7 +186,7 @@ const PermanentResidency = ({ metaData }) => {
             <div className={styles.pathwayCards}>
               <Link href="/pilot-programs">
                 <div className={"flex items-center justify-center"}>
-                  <Image
+                  <Image loading="lazy"
                     src={studyVisaImg}
                     alt="Pilot Programs"
                     height={500}
@@ -199,7 +199,7 @@ const PermanentResidency = ({ metaData }) => {
             <div className={styles.pathwayCards}>
               <Link href="/pnp">
                 <div className={"flex items-center justify-center"}>
-                  <Image
+                  <Image loading="lazy"
                     src={studyVisaImg}
                     alt="PNP"
                     height={500}
@@ -212,7 +212,7 @@ const PermanentResidency = ({ metaData }) => {
             <div className={styles.pathwayCards}>
               <Link href="/rnip">
                 <div className={"flex items-center justify-center"}>
-                  <Image
+                  <Image loading="lazy"
                     src={studyVisaImg}
                     alt="RNIP"
                     height={500}

@@ -47,12 +47,12 @@ let Footer = () => {
 
           <div className={styles.centerFooter}>
             <div className={styles.footerLogo}>
-                 <Image height={50} width={100}
+                 <Image loading="lazy" height={50} width={100}
                 src={FooterLogo}
                 alt="FooterLogo"
                 className={styles.footerLogo1}
               />
-                 <Image height={50} width={100}
+                 <Image loading="lazy" height={50} width={100}
                 src={FooterLogo2}
                 alt="FooterLogo"
                 className={styles.footerLogo2}

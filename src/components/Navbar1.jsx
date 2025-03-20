@@ -248,11 +248,11 @@ const Navbar1 = (props) => {
       <div className={styles.navbar}>
         <div className={styles.firstNavbar}>
           <div className={styles.calculatorIcon}>
-            <Image src={"/assets/gearIcon.svg"} className={styles.iconGearIcon} width={25} height={25} />
+            <Image loading="lazy" src={"/assets/gearIcon.svg"} className={styles.iconGearIcon} width={25} height={25} />
             <Link href = "/immigration-tools">
               Immigration Tools
             </Link>
-            <Image
+            <Image loading="lazy"
               src={"/assets/rightArrow.svg"}
               className={styles.RightArrowIcon}
               width={10}
@@ -295,16 +295,16 @@ const Navbar1 = (props) => {
         >
           <div className={styles.secondNavbar}>
             <Link href="/" className={`${styles.logo} ${styles.logoDesktop}`}>
-              <Image height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
+              <Image loading="lazy" height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
             </Link>
 
             {showBlue ? (
               <Link href="/" className={`${styles.logo} ${styles.logoMobile}`}>
-                <Image height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
+                <Image loading="lazy" height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
               </Link>
             ) : (
               <Link href="/" className={`${styles.logo} ${styles.logoMobile}`}>
-                <Image height={50} width={100} src={whiteLogo} alt="Brightlight Blue Logo" />
+                <Image loading="lazy" height={50} width={100} src={whiteLogo} alt="Brightlight Blue Logo" />
               </Link>
             )}
 
@@ -961,7 +961,7 @@ const Navbar1 = (props) => {
             {/* Hamburger Icon */}
             <div className={styles.hamburger} onClick={toggleSidebar}>
               {/* &#9776; */}{" "}
-              <Image height={50} width={100}
+              <Image loading="lazy" height={50} width={100}
                 src={showBlue ? "/assets/hamBurgerIconBlue.svg" : "/assets/hamBurgerIconWhite.svg"}
                 className={styles.hamburgerColoredIcon}
                 alt="wee"
@@ -1448,13 +1448,13 @@ const Navbar1 = (props) => {
             <div className={styles.contactInfo}>
               <div className={styles.location}>
                 {showBlue ? (
-                  <Image height={50} width={100}
+                  <Image loading="lazy" height={50} width={100}
                     src={LocationBlue}
                     alt="Location Blue"
                     className={styles.icon}
                   />
                 ) : (
-                  <Image height={50} width={100}
+                  <Image loading="lazy" height={50} width={100}
                     src={LocationIcon}
                     alt="Location"
                     className={styles.icon}
@@ -1475,13 +1475,13 @@ const Navbar1 = (props) => {
               </div>
               <div className={styles.email}>
                 {showBlue ? (
-                  <Image height={50} width={100}
+                  <Image loading="lazy" height={50} width={100}
                     src={EmailBlue}
                     alt="Email blue"
                     className={styles.icon} target="_blank"
                   />
                 ) : (
-                  <Image height={50} width={100} src={EmailIcon} alt="Email" className={styles.icon} />
+                  <Image loading="lazy" height={50} width={100} src={EmailIcon} alt="Email" className={styles.icon} />
                 )}
 
                 <span
@@ -1498,7 +1498,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1"
                 >
-                  <Image height={50} width={100} src={Tiktokblue} />
+                  <Image loading="lazy" height={50} width={100} src={Tiktokblue} />
                 </Link>
               ) : (
                 <Link
@@ -1513,7 +1513,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198"
                 >
-                  <Image height={50} width={100} src={Linkedinblue} />
+                  <Image loading="lazy" height={50} width={100} src={Linkedinblue} />
                 </Link>
               ) : (
                 <Link
@@ -1528,14 +1528,14 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
                 >
-                  <Image height={50} width={100} src={Instagramblue} />
+                  <Image loading="lazy" height={50} width={100} src={Instagramblue} />
                 </Link>
               ) : (
                 <Link
                   target="_blank"
                   href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
                 >
-                  <Image src={"/assets/instagram.svg"} height={25} width={25} className={styles.socialIcon} />
+                  <Image loading="lazy" src={"/assets/instagram.svg"} height={25} width={25} className={styles.socialIcon} />
                 </Link>
               )}
               {showBlue ? (
@@ -1543,7 +1543,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.facebook.com/brightlightimmigration"
                 >
-                  <Image height={50} width={100} src={Facebookblue} />
+                  <Image loading="lazy" height={50} width={100} src={Facebookblue} />
                 </Link>
               ) : (
                 <Link
@@ -1558,7 +1558,7 @@ const Navbar1 = (props) => {
                   target="_blank"
                   href="https://www.youtube.com/channel/UC2NJoKhIOconAE_IFCxX7uA"
                 >
-                  <Image height={50} width={100} src={Youtubeblue} />
+                  <Image loading="lazy" height={50} width={100} src={Youtubeblue} />
                 </Link>
               ) : (
                 <Link

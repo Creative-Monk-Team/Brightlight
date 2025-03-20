@@ -1086,14 +1086,14 @@ const FederalSkilled = () => {
 
       <div className={styles.editIcons}>
         {editMode ? (
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             onClick={handleUpdateClick}
             src={update}
             alt="Update"
             className={styles.updateImage}
           />
         ) : (
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             onClick={handleEditClick}
             src={editIcon}
             alt="Edit"

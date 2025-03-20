@@ -363,11 +363,11 @@ let About = ({metaData}) => {
           </div>
           <div className={styles.aboutUsFeaturesSection}>
             <div className={styles.aboutUsFeature}>
-                 <Image height={50} width={100} src={Twelve} />
+                 <Image loading="lazy" height={50} width={100} src={Twelve} />
               <p>{topSectionData?.feature1Heading}</p>
             </div>
             <div className={styles.aboutUsFeature}>
-                 <Image height={50} width={100} src={Comprehensive} />
+                 <Image loading="lazy" height={50} width={100} src={Comprehensive} />
 
               <p>{topSectionData?.feature2Heading}</p>
             </div>
@@ -381,7 +381,7 @@ let About = ({metaData}) => {
       <div className={styles.foundationMainSection}>
       <div ref={foundationRef} className={`${styles.foundation} ${styles.hidden}`}>
           <div className={`${styles.foundationInside} ${styles.foundation1}`}>
-               <Image height={50} width={100} src={foundationImage?.image} />
+               <Image loading="lazy" height={50} width={100} src={foundationImage?.image} />
             <div className={`${styles.designContent} ${styles.designContent1}`}>
               <h1>{foundationSection?.heading}</h1>
               <h3 className={styles.borderBottomFoundation}>
@@ -404,7 +404,7 @@ let About = ({metaData}) => {
           </div>
           <div className={styles.visionInside}>
             <div className={styles.visionInsideImg}>
-                 <Image height={50} width={100} src={visionImage?.image} />
+                 <Image loading="lazy" height={50} width={100} src={visionImage?.image} />
             </div>
             <div className={styles.designContent}>
               <h1>{visionSection?.heading}</h1>
@@ -419,7 +419,7 @@ let About = ({metaData}) => {
       <div className={styles.pillarParent}>
       <div ref={pillarsRef} className={`${styles.pillarSection} ${styles.hidden}`}>
           <div className={styles.pillarLogo}>
-               <Image height={50} width={100} src={pillarsImage?.image} />
+               <Image loading="lazy" height={50} width={100} src={pillarsImage?.image} />
             <div className={styles.pillarLogoContent}>
               <h2>{pillarsSection?.heading}</h2>
               <p>{pillarsSection?.description1}</p>
@@ -428,19 +428,19 @@ let About = ({metaData}) => {
 
           <div className={styles.pillarFeatureSection}>
             <div className={styles.pillarFeatureSvg}>
-                 <Image height={50} width={100} src={INTEGRITY} />
+                 <Image loading="lazy" height={50} width={100} src={INTEGRITY} />
               <h4>{pillarsSection?.pillar1Heading}</h4>
               <p>{pillarsSection?.pillar1Description}</p>
             </div>
 
             <div className={styles.pillarFeatureSvg}>
-                 <Image height={50} width={100} src={RESPONSIBILITY} />
+                 <Image loading="lazy" height={50} width={100} src={RESPONSIBILITY} />
               <h4>{pillarsSection?.pillar2Heading}</h4>
               <p>{pillarsSection?.pillar2Description}</p>
             </div>
 
             <div className={styles.pillarFeatureSvg}>
-                 <Image height={50} width={100} src={Reliability} />
+                 <Image loading="lazy" height={50} width={100} src={Reliability} />
               <h4>{pillarsSection?.pillar3Heading}</h4>
               <p>{pillarsSection?.pillar3Description}</p>
             </div>
@@ -461,7 +461,7 @@ let About = ({metaData}) => {
             </div>
 
             <div className={styles.meetDirectorImg}>
-                 <Image height={50} width={100} src={directorsSection?.d1image} />
+                 <Image loading="lazy" height={50} width={100} src={directorsSection?.d1image} />
             </div>
           </div>
         ) : null}
@@ -469,7 +469,7 @@ let About = ({metaData}) => {
         {directorsSection?.d2name && directorsSection?.d2image ? (
           <div className={styles.thedirectors}>
             <div className={styles.meetDirectorImg}>
-                 <Image height={50} width={100} src={directorsSection?.d2image} />
+                 <Image loading="lazy" height={50} width={100} src={directorsSection?.d2image} />
             </div>
             <div className={styles.meetDirectorimgContent}>
               <h1>{directorsSection?.d2name}</h1>
@@ -488,7 +488,7 @@ let About = ({metaData}) => {
             </div>
 
             <div className={styles.meetDirectorImg}>
-                 <Image height={50} width={100} src={directorsSection?.d3image} />
+                 <Image loading="lazy" height={50} width={100} src={directorsSection?.d3image} />
             </div>
           </div>
         ) : null}
@@ -496,7 +496,7 @@ let About = ({metaData}) => {
         {directorsSection?.d4name && directorsSection?.d4image ? (
           <div className={styles.thedirectors}>
             <div className={styles.meetDirectorImg}>
-                 <Image height={50} width={100} src={directorsSection?.d4image} />
+                 <Image loading="lazy" height={50} width={100} src={directorsSection?.d4image} />
             </div>
             <div className={styles.meetDirectorimgContent}>
               <h1>{directorsSection?.d4name}</h1>
@@ -515,7 +515,7 @@ let About = ({metaData}) => {
             </div>
 
             <div className={styles.meetDirectorImg}>
-                 <Image height={50} width={100} src={directorsSection?.d5image} />
+                 <Image loading="lazy" height={50} width={100} src={directorsSection?.d5image} />
             </div>
           </div>
         ) : null}
@@ -523,8 +523,8 @@ let About = ({metaData}) => {
 
       <div ref={weAreRef} className={styles.weAreParent}>
         <div className={styles.weAreParentImg}>
-             <Image height={50} width={100} src={weAre?.img} className={styles.weAreBig} />
-             <Image height={50} width={100} src={weAreSmall?.image} className={styles.weAreSmall} />
+             <Image loading="lazy" height={50} width={100} src={weAre?.img} className={styles.weAreBig} />
+             <Image loading="lazy" height={50} width={100} src={weAreSmall?.image} className={styles.weAreSmall} />
         </div>
       </div>
 
@@ -537,19 +537,19 @@ let About = ({metaData}) => {
 
           <div className={styles.ourAchivementCardParent}>
             <div className={styles.ourAchivementCard}>
-                 <Image height={50} width={100} src={VisaImg} />
+                 <Image loading="lazy" height={50} width={100} src={VisaImg} />
               <h2><Odometer value={achievements?.achievement1Numbers}/><span className={styles.ourAchivementCardPlus}>+</span></h2>
               <p>{achievements?.achievement1Heading}</p>
             </div>
 
             <div className={styles.ourAchivementCard}>
-                 <Image height={50} width={100} src={TickBlue} />
+                 <Image loading="lazy" height={50} width={100} src={TickBlue} />
               <h2><Odometer value={achievements?.achievement2Numbers}/><span className={styles.ourAchivementCardPlus}>+</span></h2>
               <p>{achievements?.achievement2Heading}</p>
             </div>
 
             <div className={styles.ourAchivementCard}>
-                 <Image height={50} width={100} src={SmileBlue} />
+                 <Image loading="lazy" height={50} width={100} src={SmileBlue} />
               <h2><Odometer value={achievements?.achievement3Numbers}/><span className={styles.ourAchivementCardPlus}>+</span></h2>
               <p>{achievements?.achievement3Heading}</p>
             </div>
@@ -568,7 +568,7 @@ let About = ({metaData}) => {
 
           <div className={`w-full flex items-center justify-center`}>
             <div className={`relative w-[18vw] my-5  h-[82vh] ${styles.socialMoblileImgDiv}`}>
-              <Image fill src={socialMedia?.image} />
+              <Image loading="lazy" fill src={socialMedia?.image} />
             </div>
                
           </div>
@@ -578,31 +578,31 @@ let About = ({metaData}) => {
             <div className={styles.socialPresenceIcons}>
               {/* {socialMediaData?.tiktokLink ? ( */}
                 <Link href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1">
-                     <Image height={50} width={100} src={TiktokBlue} />
+                     <Image loading="lazy" height={50} width={100} src={TiktokBlue} />
                 </Link>
               {/* ) : null} */}
 
               {/* {socialMediaData?.linkedinLink ? ( */}
                 <Link href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198">
-                     <Image height={50} width={100} src={LinkedinBlue} />
+                     <Image loading="lazy" height={50} width={100} src={LinkedinBlue} />
                 </Link>
               {/* ) : null} */}
 
               {socialMediaData?.instagramLink ? (
                 <Link href={socialMediaData?.instagramLink}>
-                     <Image height={50} width={100} src={InstaBlue} />
+                     <Image loading="lazy" height={50} width={100} src={InstaBlue} />
                 </Link>
               ) : null}
 
               {socialMediaData?.facebookLink ? (
                 <Link href={socialMediaData?.facebookLink}>
-                     <Image height={50} width={100} src={FacebookBlue} />
+                     <Image loading="lazy" height={50} width={100} src={FacebookBlue} />
                 </Link>
               ) : null}
 
               {socialMediaData?.youtubeLink ? (
                 <Link href={socialMediaData?.youtubeLink}>
-                     <Image height={50} width={100} src={YoutubeBlue} />
+                     <Image loading="lazy" height={50} width={100} src={YoutubeBlue} />
                 </Link>
               ) : null}
             </div>

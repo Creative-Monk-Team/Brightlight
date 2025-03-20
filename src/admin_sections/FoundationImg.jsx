@@ -76,12 +76,12 @@ let FoundationImg = () => {
   return (
     <div className={styles.singleSectionData}>
       <ToastContainer/>
-         <Image height={50} width={100} className={styles.existingImage} src={sectionDataSingle.image} />
+         <Image loading="lazy" height={50} width={100} className={styles.existingImage} src={sectionDataSingle.image} />
       {editMode ? (
         <>
           <input name="image" type="file" onChange={handleInputChange} />
           <div className={styles.editIcons}>
-               <Image height={50} width={100}
+               <Image loading="lazy" height={50} width={100}
               src={update}
               className={styles.updateIcon}
               onClick={handleUpdateClick}
@@ -91,7 +91,7 @@ let FoundationImg = () => {
         </>
       ) : (
         <div className={styles.editIcons}>
-             <Image height={50} width={100}
+             <Image loading="lazy" height={50} width={100}
             src={editIcon}
             className={styles.editIcon}
             onClick={handleEditClick}
