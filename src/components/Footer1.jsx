@@ -113,7 +113,6 @@ const Footer1 = () => {
                 src={FooterLogo}
                 alt="Brightlight Immigration"
                 title="Brightlight Immigration"
-                loading="lazy"
                 className={styles.footerLogo1}
               />
               <div className={styles.footerLogo2Para}>
@@ -129,7 +128,6 @@ const Footer1 = () => {
                   src={FooterLogo2}
                   alt="https://register.college-ic.ca/Public-Register-EN/RCIC_Search.aspx"
                   title="CICC"
-                  loading="lazy"
                   className={styles.footerLogo2}
                 />
                 <p>RCIC License # R522969</p>
@@ -248,9 +246,6 @@ const Footer1 = () => {
               <div className={styles.leftDiv}>
                 <div className={styles.iconHeading}>
                   <Image loading="lazy" height={50} width={100}
-                    // Arbitrary number, Next.js auto-adjusts it
-
-                    loading="lazy"
                     src={HoursIcon}
                     alt="Our Working Hours"
                     className={styles.socialIcon}
@@ -266,9 +261,6 @@ const Footer1 = () => {
               <div className={styles.leftDiv}>
                 <div className={styles.iconHeading}>
                   <Image loading="lazy" height={50} width={100}
-                    // Arbitrary number, Next.js auto-adjusts it
-
-                    loading="lazy"
                     src={Address}
                     alt="Our Address"
                     title="Our Address"

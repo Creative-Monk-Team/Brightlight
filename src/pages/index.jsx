@@ -638,7 +638,6 @@ let HomePage = ({metaData}) => {
                         <Image loading="lazy" height={50} width={100}
                           src={card.img}
                           className={`${styles.icon} ${styles.fadeIn}`}
-                          loading="lazy"
                           alt={card.alt}
                           title={card.alt}
                         // Arbitrary number, Next.js auto-adjusts it
@@ -671,7 +670,6 @@ let HomePage = ({metaData}) => {
             src={loveneetBgImage.image}
             alt={loveneetAlt.alt}
             title={loveneetAlt.alt}
-            loading="lazy"
             className={styles.backgroundImage}
           // Arbitrary number, Next.js auto-adjusts it
 
@@ -683,7 +681,7 @@ let HomePage = ({metaData}) => {
           {linkedinLink && (
             <Link href={linkedinLink} target="_blank" rel="noopener noreferrer">
               <button className={styles.linkedInButton}>
-                <Image loading="lazy" height={50} width={100} src={LinkedinLogo} alt="LinkedIn" loading="lazy"    // Arbitrary number, Next.js auto-adjusts it
+                <Image loading="lazy" height={50} width={100} src={LinkedinLogo} alt="LinkedIn"    // Arbitrary number, Next.js auto-adjusts it
                 />
               </button>
             </Link>
@@ -728,7 +726,6 @@ let HomePage = ({metaData}) => {
                       src={member?.img}
                       alt={altData[index]}
                       title={altData[index]}
-                      loading="lazy"
                     // Arbitrary number, Next.js auto-adjusts it
 
                     />
@@ -762,7 +759,6 @@ let HomePage = ({metaData}) => {
                         src={featuresData[`feature${num}SVG`]}
                         alt={simplifyData[`alt${num}`]}
                         title={simplifyData[`alt${num}`]}
-                        loading="lazy"
                       // Arbitrary number, Next.js auto-adjusts it
                       />
                     </div>
@@ -860,7 +856,6 @@ let HomePage = ({metaData}) => {
             >
               <Image loading="lazy" height={50} width={100}
                 src={achiementsData?.achievement1SVG}
-                loading="lazy"
                 alt={achiementsData?.achievement1Alt}
                 title={achiementsData?.achievement1Alt}
               // Arbitrary number, Next.js auto-adjusts it
@@ -877,7 +872,6 @@ let HomePage = ({metaData}) => {
             >
               <Image loading="lazy" height={50} width={100}
                 src={achiementsData?.achievement2SVG}
-                loading="lazy"
                 alt={achiementsData?.achievement2Alt}
                 title={achiementsData?.achievement2Alt}
               // Arbitrary number, Next.js auto-adjusts it
@@ -894,7 +888,6 @@ let HomePage = ({metaData}) => {
             >
               <Image loading="lazy" height={50} width={100}
                 src={achiementsData?.achievement3SVG}
-                loading="lazy"
                 alt={achiementsData?.achievement3Alt}
                 title={achiementsData?.achievement3Alt}
               // Arbitrary number, Next.js auto-adjusts it
@@ -914,7 +907,7 @@ let HomePage = ({metaData}) => {
         <div className={styles.sourceMain}>
           <div className={styles.sourceHeadingParent}>
             <div className={styles.sourceHeadingParentFirstDiv}>
-              <Image loading="lazy" height={50} width={100} src={WhiteLogo} loading="lazy" alt="whitelogo"    // Arbitrary number, Next.js auto-adjusts it
+              <Image loading="lazy" height={50} width={100} src={WhiteLogo} alt="whitelogo"    // Arbitrary number, Next.js auto-adjusts it
               />
             </div>
             <div>
