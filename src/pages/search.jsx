@@ -47,7 +47,7 @@ const Search = () => {
     "Clb Ilets Calculator": "/clb-ilets-calculator",
     "Previous-Draw History": "/previous-draw-history",
     "Privacy Policy": "/privacy-policy",
-    "Terms Conditions": "/terms-&-conditions",
+    "Terms Conditions": "/terms-and-conditions",
     "Skilled Worker Stream": "/skilled-worker-stream",
     "Priorities Program": "/priorities-program",
     "International Post Graduate Program":

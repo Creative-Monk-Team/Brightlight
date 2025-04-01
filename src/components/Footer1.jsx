@@ -198,7 +198,7 @@ const Footer1 = () => {
             </div>
             <div className={styles.privacyDiv}>
               <Link href="/privacy-policy">PRIVACY POLICY</Link> |{" "}
-              <Link href="/terms-&-conditions">TERMS & CONDITION</Link>
+              <Link href="/terms-and-conditions">TERMS & CONDITION</Link>
             </div>
           </div>
 

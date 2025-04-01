@@ -123,7 +123,7 @@ let AllRoutes = () => {
     //   />
     //   <Route path="/more-services" element={<MoreServices />} />
     //   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-    //   <Route path="/terms-&-conditions" element={<TermsAndConditions />} />
+    //   <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
     //   <Route path="*" element={<NotFoundPage />} />
     //   <Route path="/skilled-worker-stream" element={<SkilledWorkerStream />} />
     //   <Route path="/priorities-program" element={<PrioritiesProgram />} />

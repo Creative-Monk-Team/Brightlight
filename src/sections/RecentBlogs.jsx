@@ -53,7 +53,7 @@ const serviceNameMapping = {
   "dash/panel/overwrite": "Admin Panel",
   "more-services": "More Services",
   "privacy-policy": "Privacy Policy",
-  "terms-&-conditions": "Terms and Conditions",
+  "terms-and-conditions": "Terms and Conditions",
   "*": "404 Not Found",
   "healthcare-targeted-draw": "Healthcare Targeted Draw",
   "entry-level-semi-skilled": "Entry Level Semi Skilled",

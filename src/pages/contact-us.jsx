@@ -347,7 +347,7 @@ const Contact = ({ metaData }) => {
             
             <div>
               <span>By clicking, you agree to our</span>{" "}
-              <Link href="/terms-&-conditions">Terms & Conditions</Link> ,{" "}
+              <Link href="/terms-and-conditions">Terms & Conditions</Link> ,{" "}
               <Link href="/privacy-policy">Privacy and Policy</Link></div>
           </div>
         </div>
