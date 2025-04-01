@@ -5,7 +5,7 @@ import deleteIcon from "../assets/delete.png";
 import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Image from "next/image";
-let CommonLawParenerInternationalFaq = () => {
+const CommonLawParenerInternationalFaq = () => {
   let notifySuccess = () => {
     toast.success("Success", {
       position: "top-center",

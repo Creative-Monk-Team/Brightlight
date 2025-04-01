@@ -96,8 +96,8 @@ const OurProcess = () => {
             ))}
           </div>
           <div className="relative hidden lg:block">
-            <Image loading="lazy" src={Runway} alt="Runway" className="h-full w-full" priority />
-            <Image loading="lazy"
+            <Image  src={Runway} alt="Runway" className="h-full w-full" priority />
+            <Image 
               src={Plane}
               alt="Plane"
               className="absolute h-12 w-40 top-10 transition-all duration-500"

@@ -121,7 +121,7 @@ const ExtensionsDraftContent = () => {
     }
 
     fetch(
-      `https://brightlight-node.onrender.com/extensionsDraft/${sectionDataSingle._id}`,
+      `https://brightlight-node.onrender.com/extensionFaq/${sectionDataSingle._id}`,
       {
         method: "PUT",
         headers: {
@@ -151,7 +151,7 @@ const ExtensionsDraftContent = () => {
   };
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/extensionsDraft")
+    fetch("https://brightlight-node.onrender.com/extensionFaq")
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {

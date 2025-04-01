@@ -1,7 +1,111 @@
+// Styles
 import styles from "../styles/Admin.module.css";
+
+// Assets
 import blueLogo from "../assets/brlightlight-icon.webp";
 import user from "../assets/user.png";
+import magnify from "../assets/search-gray.png";
+
+// React Hooks and Utilities
 import { useState, useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
+
+// Components
+import Image from "next/image";
+import PrivateRoute from "../components/PrivateRoute";
+
+// Meta Sections
+import HomeMeta from "../admin_sections/HomeMeta";
+import AboutMeta from "../admin_sections/AboutMeta";
+import ContactMeta from "../admin_sections/ContactMeta";
+import NewsMeta from "../admin_sections/NewsMeta";
+import BlogsMeta from "../admin_sections/BlogsMeta";
+import FederalMeta from "../admin_sections/FederalMeta";
+import TransportMeta from "../admin_sections/TransportMeta";
+import CategoryMeta from "../admin_sections/CategoryMeta";
+import CLBMeta from "../admin_sections/CLBMeta";
+import BCPNPMeta from "../admin_sections/BCPNPMeta";
+import ExpressMeta from "../admin_sections/ExpressMeta";
+import AdditionalDocumentMeta from "../admin_sections/AdditionalDocumentMeta";
+import AdoptionMeta from "../admin_sections/AdoptionMeta";
+import BcpnpPageMeta from "../admin_sections/BcpnpPageMeta";
+import AgricultureAndAgriFoodMeta from "../admin_sections/AgricultureAndAgriFoodMeta";
+import AgricultureStreamLMIAMeta from "../admin_sections/AgricultureStreamLMIAMeta";
+import AgriFoodPilotProgramMeta from "../admin_sections/AgriFoodPilotProgramMeta";
+import BridgingOpenWorkPermitLPMeta from "../admin_sections/BridgingOpenWorkPermitLPMeta";
+import BusinessVisitorVisaMeta from "../admin_sections/BusinessVisitorVisaMeta";
+import CanadianExperienceClassMeta from "../admin_sections/CanadianExperienceClassMeta";
+import CbyMeta from "../admin_sections/CbyMeta";
+import ChangeCollegeProgramMeta from "../admin_sections/ChangeCollegeProgramMeta";
+import CategoryBasedExpressMeta from "../admin_sections/CategoryBasedExpressMeta";
+import CitizenshipMeta from "../admin_sections/CitizenshipMeta";
+import CommonLawPartnerTemporaryContentMeta from "../admin_sections/CommonLawPartnerTemporaryMeta";
+import CommonLawPartnerPermanentContentMeta from "../admin_sections/CommonLawPartnerPermanentMeta";
+import DependentChildrenMeta from "../admin_sections/DependentChildrenMeta";
+import DualIntentVisaMeta from "../admin_sections/DualIntentVisaMeta";
+import EntryLevelSemiSkilledMeta from "../admin_sections/EntryLevelSemiSkilledMeta";
+import ExtensionsDraftMeta from "../admin_sections/ExtensionsDraftMeta";
+import CommonLawPartnerInternationalMeta from "../admin_sections/CommonLawParenerInternationalMeta";
+import FamilyReunificationMeta from "../admin_sections/FamilyReunificationMeta";
+import FederalSkilledTradeProgramMeta from "../admin_sections/FederalSkilledTradeProgramMeta";
+import FederalSkilledWorkerProgramMeta from "../admin_sections/FederalSkilledWorkerProgramMeta";
+import FlagPolingMeta from "../admin_sections/FlagPolingMeta";
+import FrancophoneMeta from "../admin_sections/FrancophoneMeta";
+import FrenchTargetedDrawMeta from "../admin_sections/FrenchTargetDrawMeta";
+import HealthAuthoritiesStreamMeta from "../admin_sections/HealthAuthoritiesStreamMeta";
+import GlobalStreamLMIAMeta from "../admin_sections/GlobalStreamLMIAMeta";
+import HealthcareTargetedDrawMeta from "../admin_sections/HealthcareTargetedDrawMeta";
+import HumanContent from "../admin_sections/HumanitarianCompassionateMeta";
+import InCaregiverMeta from "../admin_sections/InCaregiverMeta";
+import InsideCanadaMeta from "../admin_sections/InsideCanadaMeta";
+import InternationalGraduateMeta from "../admin_sections/InternationalGraduateMeta";
+import InternationalPostGraduateMeta from "../admin_sections/InternationalPostGraduateMeta";
+import LMIAReviewedMeta from "../admin_sections/LMIAReviewedMeta";
+import LonelyCanadianMeta from "../admin_sections/LonelyCanadianMeta";
+import LowWageLMIAMeta from "../admin_sections/LowWageLMIAMeta";
+import NonSdsMeta from "../admin_sections/NonSdsMeta";
+import OpenWorkCanadaMeta from "../admin_sections/OpenWorkCanadaMeta";
+import OpenWorkPermitMeta from "../admin_sections/OpenWorkPermitMeta";
+import OpenWorkForSpousalInlandMeta from "../admin_sections/OpenWorkForSpousalInlandMeta";
+import OpenWorkVulnerableMeta from "../admin_sections/OpenWorkVulnerableMeta";
+import OrphanMeta from "../admin_sections/OrphanMeta";
+import OutsideCanadaMeta from "../admin_sections/OutsideCanadaMeta";
+import ParentsGrandparentsMeta from "../admin_sections/ParentsGrandparentsMeta";
+import PathwaysForCaregiverMeta from "../admin_sections/PathwaysForCaregiverMeta";
+import PRPathwayCaregiverMeta from "../admin_sections/PermanentResidencyPathwayCaregiverMeta";
+import PGWPMeta from "../admin_sections/PGWPMeta";
+import PilotProgramMeta from "../admin_sections/PilotProgramsMeta";
+import PnpMeta from "../admin_sections/PnpMeta";
+import PreviousDrawHistoryMeta from "../admin_sections/PreviousDrawHistory";
+import PrioritiesProgramMeta from "../admin_sections/PrioritiesProgramMeta";
+import PrRenewalMeta from "../admin_sections/PrRenewalMeta";
+import RestorationMeta from "../admin_sections/RestorationStatusMeta";
+import ReconsiderationMeta from "../admin_sections/ReconsiderationMeta";
+import ReplyToPFLMeta from "../admin_sections/ReplyToPFLMeta";
+import RnipMeta from "../admin_sections/RnipMeta";
+import SamesexMeta from "../admin_sections/SamesexMeta";
+import SdsMeta from "../admin_sections/SdsMeta";
+import SkilledWorkerStreamMeta from "../admin_sections/SkilledWorkerStreamMeta";
+import SpousalOpenWorkPermitMeta from "../admin_sections/SpousalOpenWorkPermitMeta";
+import SpousalCommonLawSponMeta from "../admin_sections/SpousalCommonLawSponMeta";
+import SpouseInlandMeta from "../admin_sections/SpouseInlandMeta";
+import SpouseOutlandMeta from "../admin_sections/SpouseOutlandMeta";
+import StemTargetedDrawMeta from "../admin_sections/StemTargetedDrawMeta";
+import StudentVisaMeta from "../admin_sections/StudentVisaMeta";
+import StudyPermitMinorsMeta from "../admin_sections/StudyPermitMinorsMeta";
+import SuperVisaMeta from "../admin_sections/SuperVisaMeta";
+import TemporaryResidencyMeta from "../admin_sections/TemporartResidencyMeta";
+import TemporaryResidencyPermitMeta from "../admin_sections/TemporaryResidentPermitMeta";
+import TradeOccupationMeta from "../admin_sections/TradeOccupationTargetedMeta";
+import TransportOccupationTarMeta from "../admin_sections/TransportOccupationTargetedDrawMeta";
+import VisitorToStudentMeta from "../admin_sections/VisitoToStudentMeta";
+import VisitorVisaMeta from "../admin_sections/VisitorVisaMeta";
+import WorkPermitMeta from "../admin_sections/WorkpermitMeta";
+import PermanentResidencyMeta from "../admin_sections/PermanentResidencyMeta";
+import ImmigrationToolsMeta from "../admin_sections/ImmigrationToolsMeta";
+import MoreServicesMeta from "../admin_sections/MoreServicesMeta";
+
+// Content Sections
 import HomeTop from "../admin_sections/HomeTop";
 import LoveneetBanner from "../admin_sections/LoveneetBanner";
 import MemberOf from "../admin_sections/MemberOf";
@@ -34,194 +138,191 @@ import AllBlogs from "../admin_sections/AllBlogs";
 import AddBlog from "../admin_sections/AddBlog";
 import AllNews from "../admin_sections/AllNews";
 import AddNews from "../admin_sections/AddNews";
-import { useAuth } from "../context/AuthContext";
-import HomeMeta from "../admin_sections/HomeMeta";
-import AboutMeta from "../admin_sections/AboutMeta";
-import ContactMeta from "../admin_sections/ContactMeta";
-import NewsMeta from "../admin_sections/NewsMeta";
-import BlogsMeta from "../admin_sections/BlogsMeta";
 import FederalSkilled from "../admin_sections/Federal";
-import FederalMeta from "../admin_sections/FederalMeta";
 import TransportOccupation from "../admin_sections/Transport";
-import TransportMeta from "../admin_sections/TransportMeta";
-import CategoryMeta from "../admin_sections/CategoryMeta";
 import CategoryBased from "../admin_sections/Category";
 import CLB from "../admin_sections/CLB";
-import CLBMeta from "../admin_sections/CLBMeta";
 import BCPNP from "../admin_sections/BCPNP";
-import BCPNPMeta from "../admin_sections/BCPNPMeta";
 import ExpressEntry from "../admin_sections/Express";
-import ExpressMeta from "../admin_sections/ExpressMeta";
 import AboutAchievement from "../admin_sections/AboutAchievements";
 import AdditionalDocument from "../admin_sections/AdditionalDocument";
-import AdditionalDocumentMeta from "../admin_sections/AdditionalDocumentMeta";
 import Adoption from "../admin_sections/Adoption";
-import AdoptionMeta from "../admin_sections/AdoptionMeta";
 import BcpnpPageContent from "../admin_sections/BcpnpPage";
-import BcpnpPageMeta from "../admin_sections/BcpnpPageMeta";
 import AgricultureAndAgriFoodPageContent from "../admin_sections/AgricultureAndAgriFood";
-import AgricultureAndAgriFoodMeta from "../admin_sections/AgricultureAndAgriFoodMeta";
 import AgricultureStreamLMIAContent from "../admin_sections/AgricultureStreamLMIA";
-import AgricultureStreamLMIAMeta from "../admin_sections/AgricultureStreamLMIAMeta";
 import AgriFoodPilotProgramContent from "../admin_sections/AgriFoodPilotProgramContent";
-import AgriFoodPilotProgramMeta from "../admin_sections/AgriFoodPilotProgramMeta";
 import BridgingOpenWorkPermitLPContent from "../admin_sections/BridgingOpenWorkPermitLP";
-import BridgingOpenWorkPermitLPMeta from "../admin_sections/BridgingOpenWorkPermitLPMeta";
 import BusinessVisitorVisaContent from "../admin_sections/BusinessVisitorVisa";
-import BusinessVisitorVisaMeta from "../admin_sections/BusinessVisitorVisaMeta";
 import CanadianExperienceClassContent from "../admin_sections/CanadianExperienceClass";
-import CanadianExperienceClassMeta from "../admin_sections/CanadianExperienceClassMeta";
 import CbyContent from "../admin_sections/Cby";
-import CbyMeta from "../admin_sections/CbyMeta";
 import ChangeCollegeProgramContent from "../admin_sections/ChangeCollegeProgram";
-import ChangeCollegeProgramMeta from "../admin_sections/ChangeCollegeProgramMeta";
 import CategoryBasedExpressContent from "../admin_sections/CategoryBasedExpress";
-import CategoryBasedExpressMeta from "../admin_sections/CategoryBasedExpressMeta";
 import CitizenshipContent from "../admin_sections/Citizenship";
-import CitizenshipMeta from "../admin_sections/CitizenshipMeta";
 import CommonLawPartnerTemporaryContent from "../admin_sections/CommonLawPartnerTemporary";
-import CommonLawPartnerTemporaryContentMeta from "../admin_sections/CommonLawPartnerTemporaryMeta";
 import CommonLawPartnerPermanentContent from "../admin_sections/CommonLawPartnerPermanent";
-import CommonLawPartnerPermanentContentMeta from "../admin_sections/CommonLawPartnerPermanentMeta";
 import DependentChildrenContent from "../admin_sections/DependentChildren";
-import DependentChildrenMeta from "../admin_sections/DependentChildrenMeta";
-import DualIntentVisaMeta from "../admin_sections/DualIntentVisaMeta";
 import DualIntentVisaPageContent from "../admin_sections/DualIntentVisa";
 import EntryLevelSemiSkilledContent from "../admin_sections/EntryLevelSemiSkilled";
-import EntryLevelSemiSkilledMeta from "../admin_sections/EntryLevelSemiSkilledMeta";
 import ExtensionsDraftContent from "../admin_sections/ExtensionsDraft";
-import ExtensionsDraftMeta from "../admin_sections/ExtensionsDraftMeta";
+import ExpressFaq from "../admin_sections/ExpressFaq";
 import CommonLawPartnerInternationalContent from "../admin_sections/CommonLawParenerInternational";
-import CommonLawPartnerInternationalMeta from "../admin_sections/CommonLawParenerInternationalMeta";
 import FamilyReunificationContent from "../admin_sections/FamilyReunification";
-import FamilyReunificationMeta from "../admin_sections/FamilyReunificationMeta";
 import FederalSkilledTradeProgramContent from "../admin_sections/FederalSkilledTradeProgram";
-import FederalSkilledTradeProgramMeta from "../admin_sections/FederalSkilledTradeProgramMeta";
 import FederalSkilledWorkerProgramContent from "../admin_sections/FederalSkilledWorkerProgram";
-import FederalSkilledWorkerProgramMeta from "../admin_sections/FederalSkilledWorkerProgramMeta";
 import FlagPolingContent from "../admin_sections/FlagPoling";
-import FlagPolingMeta from "../admin_sections/FlagPolingMeta";
 import FrancophoneContent from "../admin_sections/Francophone";
-import FrancophoneMeta from "../admin_sections/FrancophoneMeta";
 import FrenchTargetedDrawContent from "../admin_sections/FrenchTargetDraw";
-import FrenchTargetedDrawMeta from "../admin_sections/FrenchTargetDrawMeta";
 import HealthAuthoritiesStreamContent from "../admin_sections/HealthAuthoritiesStream";
-import HealthAuthoritiesStreamMeta from "../admin_sections/HealthAuthoritiesStreamMeta";
 import GlobalStreamLMIAContent from "../admin_sections/GlobalStreamLMIA";
-import GlobalStreamLMIAMeta from "../admin_sections/GlobalStreamLMIAMeta";
 import HealthcareTargetedDrawContent from "../admin_sections/HealthcareTargetedDraw";
-import HealthcareTargetedDrawMeta from "../admin_sections/HealthcareTargetedDrawMeta";
-import HumanContent from "../admin_sections/HumanitarianCompassionateMeta";
 import HumanPageContent from "../admin_sections/HumanitarianCompassionate";
 import InCaregiverContent from "../admin_sections/InCaregiver";
-import InCaregiverMeta from "../admin_sections/InCaregiverMeta";
 import InsideCanadaContent from "../admin_sections/InsideCanada";
-import InsideCanadaMeta from "../admin_sections/InsideCanadaMeta";
 import InternationalGraduateContent from "../admin_sections/InternationalGraduate";
-import InternationalGraduateMeta from "../admin_sections/InternationalGraduateMeta";
 import InternationalPostGraduateContent from "../admin_sections/InternationalPostGraduate";
-import InternationalPostGraduateMeta from "../admin_sections/InternationalPostGraduateMeta";
 import LMIAReviewedContent from "../admin_sections/LMIAReviewed";
-import LMIAReviewedMeta from "../admin_sections/LMIAReviewedMeta";
 import LonelyCanadianContent from "../admin_sections/LonelyCanadian";
-import LonelyCanadianMeta from "../admin_sections/LonelyCanadianMeta";
 import LowWageLMIAContent from "../admin_sections/LowWageLMIA";
-import LowWageLMIAMeta from "../admin_sections/LowWageLMIAMeta";
 import NonSdsContent from "../admin_sections/NonSds";
-import NonSdsMeta from "../admin_sections/NonSdsMeta";
-import OpenWorkCanadaMeta from "../admin_sections/OpenWorkCanadaMeta";
 import OpenWorkCanadaContent from "../admin_sections/OpenWorkCanada";
 import OpenWorkPermitContent from "../admin_sections/OpenWorkPermit";
-import OpenWorkPermitMeta from "../admin_sections/OpenWorkPermitMeta";
 import OpenWorkForSpousalInlandContent from "../admin_sections/OpenWorkForSpousalInland";
-import OpenWorkForSpousalInlandMeta from "../admin_sections/OpenWorkForSpousalInlandMeta";
 import OpenWorkVulnerableContent from "../admin_sections/OpenWorkVulnerable";
-import OpenWorkVulnerableMeta from "../admin_sections/OpenWorkVulnerableMeta";
 import OrphanContent from "../admin_sections/Orphan";
-import OrphanMeta from "../admin_sections/OrphanMeta";
-import OutsideCanadaMeta from "../admin_sections/OutsideCanadaMeta";
 import OutsideCanadaContent from "../admin_sections/OutsideCanada";
 import ParentsGrandparentsContent from "../admin_sections/ParentsGrandparents";
-import ParentsGrandparentsMeta from "../admin_sections/ParentsGrandparentsMeta";
 import PathwaysForCaregiverContent from "../admin_sections/PathwaysForCaregiver";
-import PathwaysForCaregiverMeta from "../admin_sections/PathwaysForCaregiverMeta";
 import PRPathwayCaregiverContent from "../admin_sections/PermanentResidencyPathwayCaregiver";
-import PRPathwayCaregiverMeta from "../admin_sections/PermanentResidencyPathwayCaregiverMeta";
 import PGWP from "../admin_sections/PGWP";
-import PGWPMeta from "../admin_sections/PGWPMeta";
 import PilotProgramContent from "../admin_sections/PilotPrograms";
-import PilotProgramMeta from "../admin_sections/PilotProgramsMeta";
 import PnpContent from "../admin_sections/Pnp";
-import PnpMeta from "../admin_sections/PnpMeta";
-import PreviousDrawHistoryMeta from "../admin_sections/PreviousDrawHistory";
 import PrioritiesProgramContent from "../admin_sections/PrioritiesProgram";
-import PrioritiesProgramMeta from "../admin_sections/PrioritiesProgramMeta";
-import PrRenewalMeta from "../admin_sections/PrRenewalMeta";
 import PrRenewalContent from "../admin_sections/PrRenewal";
 import RestorationContent from "../admin_sections/RestorationStatus";
-import RestorationMeta from "../admin_sections/RestorationStatusMeta";
 import ReconsiderationContent from "../admin_sections/Reconsideration";
-import ReconsiderationMeta from "../admin_sections/ReconsiderationMeta";
 import ReplyToPFLContent from "../admin_sections/ReplyToPFL";
-import ReplyToPFLMeta from "../admin_sections/ReplyToPFLMeta";
 import RnipContent from "../admin_sections/Rnip";
-import RnipMeta from "../admin_sections/RnipMeta";
 import SamesexContent from "../admin_sections/Samesex";
-import SamesexMeta from "../admin_sections/SamesexMeta";
 import SdsContent from "../admin_sections/Sds";
-import SdsMeta from "../admin_sections/SdsMeta";
 import SkilledWorkerStreamContent from "../admin_sections/SkilledWorkerStream";
-import SkilledWorkerStreamMeta from "../admin_sections/SkilledWorkerStreamMeta";
 import SpousalOpenWorkPermitContent from "../admin_sections/SpousalOpenWorkPermit";
-import SpousalOpenWorkPermitMeta from "../admin_sections/SpousalOpenWorkPermitMeta";
 import SpousalCommonLawSponContent from "../admin_sections/SpousalCommonLawSpon";
-import SpousalCommonLawSponMeta from "../admin_sections/SpousalCommonLawSponMeta";
 import SpouseInlandContent from "../admin_sections/SpouseInland";
-import SpouseInlandMeta from "../admin_sections/SpouseInlandMeta";
 import SpouseOutlandContent from "../admin_sections/SpouseOutland";
-import SpouseOutlandMeta from "../admin_sections/SpouseOutlandMeta";
 import StemTargetedDrawContent from "../admin_sections/StemTargetedDraw";
-import StemTargetedDrawMeta from "../admin_sections/StemTargetedDrawMeta";
 import StudentVisaContent from "../admin_sections/StudentVisa";
-import StudentVisaMeta from "../admin_sections/StudentVisaMeta";
 import StudyPermitMinorsContent from "../admin_sections/StudyPermitMinors";
-import StudyPermitMinorsMeta from "../admin_sections/StudyPermitMinorsMeta";
 import SuperVisaContent from "../admin_sections/SuperVisa";
-import SuperVisaMeta from "../admin_sections/SuperVisaMeta";
 import TemporaryResidencyContent from "../admin_sections/TemporartResidency";
-import TemporaryResidencyMeta from "../admin_sections/TemporartResidencyMeta";
 import TemporaryResidencyPermitContent from "../admin_sections/TemporaryResidentPermit";
-import TemporaryResidencyPermitMeta from "../admin_sections/TemporaryResidentPermitMeta";
 import TradeOccupationContent from "../admin_sections/TradeOccupationTargeted";
-import TradeOccupationMeta from "../admin_sections/TradeOccupationTargetedMeta";
 import TransportOccupationTarContent from "../admin_sections/TransportOccupationTargetedDraw";
-import TransportOccupationTarMeta from "../admin_sections/TransportOccupationTargetedDrawMeta";
 import VisitorToStudentContent from "../admin_sections/VisitoToStudent";
-import VisitorToStudentMeta from "../admin_sections/VisitoToStudentMeta";
 import VisitorVisaContent from "../admin_sections/VisitorVisa";
-import VisitorVisaMeta from "../admin_sections/VisitorVisaMeta";
 import WorkPermitContent from "../admin_sections/Workpermit";
-import WorkPermitMeta from "../admin_sections/WorkpermitMeta";
 import PermanentResidencyContent from "../admin_sections/PermanentResidency";
-import PermanentResidencyMeta from "../admin_sections/PermanentResidencyMeta";
 import ImmigrationToolsContent from "../admin_sections/ImmigrationTools";
-import ImmigrationToolsMeta from "../admin_sections/ImmigrationToolsMeta";
 import MoreServicesContent from "../admin_sections/MoreServices";
-import MoreServicesMeta from "../admin_sections/MoreServicesMeta";
 import AddImmigrationToolsCard from "../admin_sections/AddingImmigrationCard";
 import AllImmigrationToolsCard from "../admin_sections/AllImmigrationCard";
 import AllMoreServicesCard from "../admin_sections/AllMoreServicesCard";
 import AddMoreServicesCard from "../admin_sections/AddMoreServicesCard";
-import magnify from "../assets/search-gray.png";
 import BannerSectionAlt from "../admin_sections/BannerSectionAlt";
 import MemberSectionAlt from "../admin_sections/MemberOfAlt";
 import WhyUsAlt from "../admin_sections/WhyUsAlt";
 import Redirects from "../admin_sections/Redirects";
-import PrivateRoute from "../components/PrivateRoute";
-import Image from "next/image";
+
+// Faq Sections
+import HomeFaq from "../admin_sections/HomeFaq";
+import AboutFaq from "../admin_sections/AboutFaq";
+import ContactFaq from "../admin_sections/ContactFaq";
+import NewsFaq from "../admin_sections/NewsFaq";
+import BlogsFaq from "../admin_sections/BlogsFaq";
+import FederalFaq from "../admin_sections/FederalFaq";
+import TransportFaq from "../admin_sections/TransportFaq";
+import CategoryFaq from "../admin_sections/CategoryFaq";
+import CLBFaq from "../admin_sections/CLBFaq";
+import BCPNPFaq from "../admin_sections/BCPNPFaq";
+import ExpressFaq from "../admin_sections/ExpressFaq";
 import AdditionalDocumentFaq from "../admin_sections/AdditionalDocumentFaq";
 import AdoptionFaq from "../admin_sections/AdoptionFaq";
+import BcpnpPageFaq from "../admin_sections/BcpnpPageFaq";
 import AgricultureAndAgriFoodFaq from "../admin_sections/AgricultureAndAgriFoodFaq";
+import AgricultureStreamLMIAFaq from "../admin_sections/AgricultureStreamLMIAFaq";
+import AgriFoodPilotProgramFaq from "../admin_sections/AgriFoodPilotProgramFaq";
+import BridgingOpenWorkPermitLPFaq from "../admin_sections/BridgingOpenWorkPermitLPFaq";
+import BusinessVisitorVisaFaq from "../admin_sections/BusinessVisitorVisaFaq";
+import CanadianExperienceClassFaq from "../admin_sections/CanadianExperienceClassFaq";
+import CbyFaq from "../admin_sections/CbyFaq";
+import ChangeCollegeProgramFaq from "../admin_sections/ChangeCollegeProgramFaq";
+import CategoryBasedExpressFaq from "../admin_sections/CategoryBasedExpressFaq";
+import CitizenshipFaq from "../admin_sections/CitizenshipFaq";
+import CommonLawPartnerTemporaryContentFaq from "../admin_sections/CommonLawPartnerTemporaryFaq";
+import CommonLawPartnerPermanentContentFaq from "../admin_sections/CommonLawPartnerPermanentFaq";
+import DependentChildrenFaq from "../admin_sections/DependentChildrenFaq";
+import DualIntentVisaFaq from "../admin_sections/DualIntentVisaFaq";
+import EntryLevelSemiSkilledFaq from "../admin_sections/EntryLevelSemiSkilledFaq";
+import ExtensionsDraftFaq from "../admin_sections/ExtensionsDraftFaq";
+import CommonLawPartnerInternationalFaq from "../admin_sections/CommonLawParenerInternationalFaq";
+import FamilyReunificationFaq from "../admin_sections/FamilyReunificationFaq";
+import FederalSkilledTradeProgramFaq from "../admin_sections/FederalSkilledTradeProgramFaq";
+import FederalSkilledWorkerProgramFaq from "../admin_sections/FederalSkilledWorkerProgramFaq";
+import FlagPolingFaq from "../admin_sections/FlagPolingFaq";
+import FrancophoneFaq from "../admin_sections/FrancophoneFaq";
+import FrenchTargetedDrawFaq from "../admin_sections/FrenchTargetDrawFaq";
+import HealthAuthoritiesStreamFaq from "../admin_sections/HealthAuthoritiesStreamFaq";
+import GlobalStreamLMIAFaq from "../admin_sections/GlobalStreamLMIAFaq";
+import HealthcareTargetedDrawFaq from "../admin_sections/HealthcareTargetedDrawFaq";
+import HumanContent from "../admin_sections/HumanitarianCompassionateFaq";
+import InCaregiverFaq from "../admin_sections/InCaregiverFaq";
+import InsideCanadaFaq from "../admin_sections/InsideCanadaFaq";
+import InternationalGraduateFaq from "../admin_sections/InternationalGraduateFaq";
+import InternationalPostGraduateFaq from "../admin_sections/InternationalPostGraduateFaq";
+import LMIAReviewedFaq from "../admin_sections/LMIAReviewedFaq";
+import LonelyCanadianFaq from "../admin_sections/LonelyCanadianFaq";
+import LowWageLMIAFaq from "../admin_sections/LowWageLMIAFaq";
+import NonSdsFaq from "../admin_sections/NonSdsFaq";
+import OpenWorkCanadaFaq from "../admin_sections/OpenWorkCanadaFaq";
+import OpenWorkPermitFaq from "../admin_sections/OpenWorkPermitFaq";
+import OpenWorkForSpousalInlandFaq from "../admin_sections/OpenWorkForSpousalInlandFaq";
+import OpenWorkVulnerableFaq from "../admin_sections/OpenWorkVulnerableFaq";
+import OrphanFaq from "../admin_sections/OrphanFaq";
+import OutsideCanadaFaq from "../admin_sections/OutsideCanadaFaq";
+import ParentsGrandparentsFaq from "../admin_sections/ParentsGrandparentsFaq";
+import PathwaysForCaregiverFaq from "../admin_sections/PathwaysForCaregiverFaq";
+import PRPathwayCaregiverFaq from "../admin_sections/PermanentResidencyPathwayCaregiverFaq";
+import PGWPFaq from "../admin_sections/PGWPFaq";
+import PilotProgramFaq from "../admin_sections/PilotProgramsFaq";
+import PnpFaq from "../admin_sections/PnpFaq";
+import PreviousDrawHistoryFaq from "../admin_sections/PreviousDrawHistory";
+import PrioritiesProgramFaq from "../admin_sections/PrioritiesProgramFaq";
+import PrRenewalFaq from "../admin_sections/PrRenewalFaq";
+import RestorationFaq from "../admin_sections/RestorationStatusFaq";
+import ReconsiderationFaq from "../admin_sections/ReconsiderationFaq";
+import ReplyToPFLFaq from "../admin_sections/ReplyToPFLFaq";
+import RnipFaq from "../admin_sections/RnipFaq";
+import SamesexFaq from "../admin_sections/SamesexFaq";
+import SdsFaq from "../admin_sections/SdsFaq";
+import SkilledWorkerStreamFaq from "../admin_sections/SkilledWorkerStreamFaq";
+import SpousalOpenWorkPermitFaq from "../admin_sections/SpousalOpenWorkPermitFaq";
+import SpousalCommonLawSponFaq from "../admin_sections/SpousalCommonLawSponFaq";
+import SpouseInlandFaq from "../admin_sections/SpouseInlandFaq";
+import SpouseOutlandFaq from "../admin_sections/SpouseOutlandFaq";
+import StemTargetedDrawFaq from "../admin_sections/StemTargetedDrawFaq";
+import StudentVisaFaq from "../admin_sections/StudentVisaFaq";
+import StudyPermitMinorsFaq from "../admin_sections/StudyPermitMinorsFaq";
+import SuperVisaFaq from "../admin_sections/SuperVisaFaq";
+import TemporaryResidencyFaq from "../admin_sections/TemporartResidencyFaq";
+import TemporaryResidencyPermitFaq from "../admin_sections/TemporaryResidentPermitFaq";
+import TradeOccupationFaq from "../admin_sections/TradeOccupationTargetedFaq";
+import TransportOccupationTarFaq from "../admin_sections/TransportOccupationTargetedDrawFaq";
+import VisitorToStudentFaq from "../admin_sections/VisitoToStudentFaq";
+import VisitorVisaFaq from "../admin_sections/VisitorVisaFaq";
+import WorkPermitFaq from "../admin_sections/WorkpermitFaq";
+import PermanentResidencyFaq from "../admin_sections/PermanentResidencyFaq";
+import ImmigrationToolsFaq from "../admin_sections/ImmigrationToolsFaq";
+import MoreServicesFaq from "../admin_sections/MoreServicesFaq";
+
 
 let AdminDashboard = () => {
   const pages = [
@@ -612,6 +713,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "express-faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("express-faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -635,6 +746,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("bcpnp_page_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "bcpnp_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("bcpnp_page_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -707,6 +828,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "bridging_open_work_permit_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("bridging_open_work_permit_page_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -782,9 +915,7 @@ let AdminDashboard = () => {
                         : ""
                         }`}
                       onClick={() =>
-                        handleSectionClick(
-                          "agriculture_and_agri_food_page_faq"
-                        )
+                        handleSectionClick("agriculture_and_agri_food_page_faq")
                       }
                     >
                       Page Faq
@@ -819,6 +950,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "agriculture_stream_lmia_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("agriculture_stream_lmia_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -847,6 +990,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "agri_food_pilot_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("agri_food_pilot_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -874,6 +1029,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "business_visitor_visa_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("business_visitor_visa_page_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -908,6 +1075,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "canadian_experience_class_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("canadian_experience_class_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -931,6 +1110,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("cby_page_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "cby_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("cby_page_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -962,6 +1151,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "change_college_program_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("change_college_program_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -992,6 +1192,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "category_based_express_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("category_based_express_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1019,6 +1231,16 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "citizenship_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("citizenship_page_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1054,6 +1276,21 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection ===
+                        "common_law_partner_temporary_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "common_law_partner_temporary_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1088,6 +1325,21 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection ===
+                        "common_law_partner_permanent_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "common_law_partner_permanent_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1116,6 +1368,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "dependent_children_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("dependent_children_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1143,6 +1407,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "dual_intent_visa_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("dual_intent_visa_page_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1175,6 +1451,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "entry_level_semi_skilled_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("entry_level_semi_skilled_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1202,6 +1490,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "extensions_draft_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("extensions_draft_page_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1237,6 +1537,21 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection ===
+                        "common_law_partner_international_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "common_law_partner_international_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1264,6 +1579,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "family_reunification_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("family_reunification_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1295,6 +1622,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "federal_skilled_trade_program_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("federal_skilled_trade_program_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1329,6 +1668,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "federal_skilled_worker_program_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("federal_skilled_worker_program_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1353,6 +1704,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "flag_poling_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("flag_poling_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1376,6 +1737,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("francophone_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "francophone_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("francophone_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1405,6 +1775,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "french_tageted_draw_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("french_tageted_draw_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1432,6 +1813,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "permanent_residency_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("permanent_residency_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1461,6 +1854,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "global_stream_lmia_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("global_stream_lmia_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1488,6 +1893,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "health_authorities_stream_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("health_authorities_stream_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1517,6 +1934,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "healthcare_targated_draw_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("healthcare_targated_draw_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1544,6 +1973,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "humanitarian_compassionate_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("humanitarian_compassionate_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1573,6 +2014,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "in_home_caregiver_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("in_home_caregiver_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1601,6 +2054,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "inside_canada_caregiver_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("inside_canada_caregiver_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1628,6 +2093,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "international_graduate_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("international_graduate_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1659,6 +2136,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "international_post_graduate_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("international_post_graduate_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1684,6 +2173,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("lmia_reviewed_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "lmia_reviewed_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("lmia_reviewed_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1711,6 +2210,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "lonely_canadian_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("lonely_canadian_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1737,6 +2246,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "low_wage_lmia_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("low_wage_lmia_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1760,6 +2279,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("non_sds_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "non_sds_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("non_sds_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1789,6 +2318,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "open_work_dependent_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("open_work_dependent_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1816,6 +2357,16 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "open_work_permit_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("open_work_permit_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1847,6 +2398,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "open_work_permit_for_spousal_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("open_work_permit_for_spousal_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1877,6 +2440,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "open_work_permit_vulnerable_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("open_work_permit_vulnerable_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1900,6 +2475,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("orphan_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "orphan_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("orphan_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1926,6 +2511,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("outside_canada_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "outside_canada_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("outside_canada_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -1955,6 +2550,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "parents_grandparents_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("parents_grandparents_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -1982,6 +2589,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "pathways_for_caregiver_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("pathways_for_caregiver_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2011,6 +2630,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "pr_pathways_for_caregiver_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("pr_pathways_for_caregiver_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2034,6 +2664,14 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("pgwp_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "pgwp_faq" ? styles.activeSection : ""
+                        }`}
+                      onClick={() => handleSectionClick("pgwp_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2061,6 +2699,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "pilot_programs_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("pilot_programs_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2085,6 +2733,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "pnp_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("pnp_page_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2100,6 +2758,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "previous_draw_history_Faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("previous_draw_history_Faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2129,6 +2798,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "priorities_program_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("priorities_program_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2152,6 +2833,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("pr_renewal_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "pr_renewal_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("pr_renewal_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2181,6 +2872,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "restoration_status_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("restoration_status_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2207,6 +2910,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "reconsideration_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("reconsideration_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2230,6 +2943,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("reply_to_pfl_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "reply_to_pfl_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("reply_to_pfl_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2255,6 +2977,13 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "rnip_faq" ? styles.activeSection : ""
+                        }`}
+                      onClick={() => handleSectionClick("rnip_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2279,6 +3008,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "same_sex_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("same_sex_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2300,6 +3039,14 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("sds_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "sds_faq" ? styles.activeSection : ""
+                        }`}
+                      onClick={() => handleSectionClick("sds_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2329,6 +3076,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "skilled_worker_stream_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("skilled_worker_stream_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2356,6 +3115,18 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "spousal_open_work_permit_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("spousal_open_work_permit_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2385,6 +3156,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "spose_common_law_spon_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("spose_common_law_spon_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2410,6 +3193,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("spousal_inland_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "spousal_inland_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("spousal_inland_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2437,6 +3230,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "spousal_outland_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("spousal_outland_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2461,6 +3264,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "stem_target_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("stem_target_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2484,6 +3297,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("student_visa_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "student_visa_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("student_visa_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2513,6 +3336,18 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "study_permit_minors_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("study_permit_minors_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2536,6 +3371,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("super_visa_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "super_visa_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("super_visa_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2561,6 +3406,14 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "temp_faq" ? styles.activeSection : ""
+                        }`}
+                      onClick={() => handleSectionClick("temp_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2584,6 +3437,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("temp_per_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "temp_per_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("temp_per_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2609,6 +3472,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "trade_occu_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("trade_occu_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2632,6 +3505,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("trans_occu_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "trans_occu_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("trans_occu_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2657,6 +3540,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "visi_stu_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("visi_stu_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2680,6 +3573,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("visi_visa_meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "visi_visa_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("visi_visa_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -2705,6 +3608,16 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "work_per_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("work_per_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -2724,12 +3637,18 @@ let AdminDashboard = () => {
                   {activePage === "express" &&
                     activeSection === "express-meta" && <ExpressMeta />}
 
+                  {activePage === "express" &&
+                    activeSection === "express-faq" && <ExpressFaq />}
+
                   {activePage === "bcpnp_page" &&
                     activeSection === "bcpnp_page_content" && (
                       <BcpnpPageContent />
                     )}
                   {activePage === "bcpnp_page" &&
                     activeSection === "bcpnp_page_meta" && <BcpnpPageMeta />}
+
+                  {activePage === "bcpnp_page" &&
+                    activeSection === "bcpnp_page_meta" && <BcpnpPageFaq />}
                   {activePage === "additional_documents" &&
                     activeSection === "additional_documents_content" && (
                       <AdditionalDocument />
@@ -2739,6 +3658,11 @@ let AdminDashboard = () => {
                     activeSection === "additional_documents_meta" && (
                       <AdditionalDocumentMeta />
                     )}
+                  {activePage === "additional_documents" &&
+                    activeSection === "additional_documents_faq" && (
+                      <AdditionalDocumentFaq />
+                    )}
+
                   {activePage === "adoption_page" &&
                     activeSection === "adoption_page_content" && <Adoption />}
                   {activePage === "adoption_page" &&
@@ -2769,6 +3693,10 @@ let AdminDashboard = () => {
                     activeSection === "agriculture_stream_lmia_page_meta" && (
                       <AgricultureStreamLMIAMeta />
                     )}
+                  {activePage === "agriculture_stream_lmia_page" &&
+                    activeSection === "agriculture_stream_lmia_page_faq" && (
+                      <AgricultureAndAgriFoodFaq />
+                    )}
 
                   {activePage === "agri_food_pilot_page" &&
                     activeSection === "agri_food_pilot_page_content" && (
@@ -2777,6 +3705,10 @@ let AdminDashboard = () => {
                   {activePage === "agri_food_pilot_page" &&
                     activeSection === "agri_food_pilot_page_meta" && (
                       <AgriFoodPilotProgramMeta />
+                    )}
+                  {activePage === "agri_food_pilot_page" &&
+                    activeSection === "agri_food_pilot_page_faq" && (
+                      <AgriFoodPilotProgramFaq />
                     )}
 
                   {activePage === "bridging_open_work_permit_page" &&
@@ -2788,6 +3720,10 @@ let AdminDashboard = () => {
                     activeSection === "bridging_open_work_permit_page_meta" && (
                       <BridgingOpenWorkPermitLPMeta />
                     )}
+                  {activePage === "bridging_open_work_permit_page" &&
+                    activeSection === "bridging_open_work_permit_page_faq" && (
+                      <BridgingOpenWorkPermitLPFaq />
+                    )}
 
                   {activePage === "business_visitor_visa_page" &&
                     activeSection === "business_visitor_visa_page_content" && (
@@ -2796,6 +3732,11 @@ let AdminDashboard = () => {
                   {activePage === "business_visitor_visa_page" &&
                     activeSection === "business_visitor_visa_page_meta" && (
                       <BusinessVisitorVisaMeta />
+                    )}
+
+                  {activePage === "business_visitor_visa_page" &&
+                    activeSection === "business_visitor_visa_page_faq" && (
+                      <BusinessVisitorVisaFaq />
                     )}
 
                   {activePage === "canadian_experience_class_page" &&
@@ -2807,11 +3748,18 @@ let AdminDashboard = () => {
                     activeSection === "canadian_experience_class_page_meta" && (
                       <CanadianExperienceClassMeta />
                     )}
+                  {activePage === "canadian_experience_class_page" &&
+                    activeSection === "canadian_experience_class_page_faq" && (
+                      <CanadianExperienceClassFaq />
+                    )}
 
                   {activePage === "cby_page" &&
                     activeSection === "cby_page_content" && <CbyContent />}
                   {activePage === "cby_page" &&
                     activeSection === "cby_page_meta" && <CbyMeta />}
+
+                  {activePage === "cby_page" &&
+                    activeSection === "cby_page_faq" && <CbyFaq />}
 
                   {activePage === "change_college_program_page" &&
                     activeSection === "change_college_program_page_content" && (
@@ -2820,6 +3768,10 @@ let AdminDashboard = () => {
                   {activePage === "change_college_program_page" &&
                     activeSection === "change_college_program_page_meta" && (
                       <ChangeCollegeProgramMeta />
+                    )}
+                  {activePage === "change_college_program_page" &&
+                    activeSection === "change_college_program_page_faq" && (
+                      <ChangeCollegeProgramFaq />
                     )}
 
                   {activePage === "category_based_express_page" &&
@@ -2831,6 +3783,11 @@ let AdminDashboard = () => {
                       <CategoryBasedExpressMeta />
                     )}
 
+                  {activePage === "category_based_express_page" &&
+                    activeSection === "category_based_express_page_faq" && (
+                      <CategoryBasedExpressFaq />
+                    )}
+
                   {activePage === "citizenship_page" &&
                     activeSection === "citizenship_page_content" && (
                       <CitizenshipContent />
@@ -2838,6 +3795,10 @@ let AdminDashboard = () => {
                   {activePage === "citizenship_page" &&
                     activeSection === "citizenship_page_meta" && (
                       <CitizenshipMeta />
+                    )}
+                  {activePage === "citizenship_page" &&
+                    activeSection === "citizenship_page_faq" && (
+                      <CitizenshipFaq />
                     )}
 
                   {activePage === "common_law_partner_temporary_page" &&
@@ -2850,6 +3811,11 @@ let AdminDashboard = () => {
                     "common_law_partner_temporary_page_meta" && (
                       <CommonLawPartnerTemporaryContentMeta />
                     )}
+                  {activePage === "common_law_partner_temporary_page" &&
+                    activeSection ===
+                    "common_law_partner_temporary_page_faq" && (
+                      <CommonLawPartnerTemporaryContentFaq />
+                    )}
 
                   {activePage === "common_law_partner_permanent_page" &&
                     activeSection ===
@@ -2861,6 +3827,11 @@ let AdminDashboard = () => {
                     "common_law_partner_permanent_page_meta" && (
                       <CommonLawPartnerPermanentContentMeta />
                     )}
+                  {activePage === "common_law_partner_permanent_page" &&
+                    activeSection ===
+                    "common_law_partner_permanent_page_faq" && (
+                      <CommonLawPartnerPermanentContentFaq />
+                    )}
 
                   {activePage === "dependent_children_page" &&
                     activeSection === "dependent_children_page_content" && (
@@ -2869,6 +3840,10 @@ let AdminDashboard = () => {
                   {activePage === "dependent_children_page" &&
                     activeSection === "dependent_children_page_meta" && (
                       <DependentChildrenMeta />
+                    )}
+                  {activePage === "dependent_children_page" &&
+                    activeSection === "dependent_children_page_faq" && (
+                      <DependentChildrenFaq />
                     )}
 
                   {activePage === "dual_intent_visa_page" &&
@@ -2879,7 +3854,10 @@ let AdminDashboard = () => {
                     activeSection === "dual_intent_visa_page_meta" && (
                       <DualIntentVisaMeta />
                     )}
-
+                  {activePage === "dual_intent_visa_page" &&
+                    activeSection === "dual_intent_visa_page_faq" && (
+                      <DualIntentVisaFaq />
+                    )}
                   {activePage === "entry_level_semi_skilled_page" &&
                     activeSection ===
                     "entry_level_semi_skilled_page_content" && (
@@ -2889,6 +3867,10 @@ let AdminDashboard = () => {
                     activeSection === "entry_level_semi_skilled_page_meta" && (
                       <EntryLevelSemiSkilledMeta />
                     )}
+                  {activePage === "entry_level_semi_skilled_page" &&
+                    activeSection === "entry_level_semi_skilled_page_faq" && (
+                      <EntryLevelSemiSkilledFaq />
+                    )}
 
                   {activePage === "extensions_draft_page" &&
                     activeSection === "extensions_draft_page_content" && (
@@ -2897,6 +3879,10 @@ let AdminDashboard = () => {
                   {activePage === "extensions_draft_page" &&
                     activeSection === "extensions_draft_page_meta" && (
                       <ExtensionsDraftMeta />
+                    )}
+                  {activePage === "extensions_draft_page" &&
+                    activeSection === "extensions_draft_page_faq" && (
+                      <ExtensionsDraftFaq />
                     )}
 
                   {activePage === "common_law_partner_international_page" &&
@@ -2909,6 +3895,11 @@ let AdminDashboard = () => {
                     "common_law_partner_international_page_meta" && (
                       <CommonLawPartnerInternationalMeta />
                     )}
+                  {activePage === "common_law_partner_international_page" &&
+                    activeSection ===
+                    "common_law_partner_international_page_faq" && (
+                      <CommonLawPartnerInternationalFaq />
+                    )}
 
                   {activePage === "family_reunification" &&
                     activeSection === "family_reunification_content" && (
@@ -2918,15 +3909,24 @@ let AdminDashboard = () => {
                     activeSection === "family_reunification_meta" && (
                       <FamilyReunificationMeta />
                     )}
+                  {activePage === "family_reunification" &&
+                    activeSection === "family_reunification_faq" && (
+                      <FamilyReunificationFaq />
+                    )}
 
                   {activePage === "federal_skilled_trade_program" &&
                     activeSection ===
                     "federal_skilled_trade_program_content" && (
                       <FederalSkilledTradeProgramContent />
                     )}
+
                   {activePage === "federal_skilled_trade_program" &&
                     activeSection === "federal_skilled_trade_program_meta" && (
                       <FederalSkilledTradeProgramMeta />
+                    )}
+                  {activePage === "federal_skilled_trade_program" &&
+                    activeSection === "federal_skilled_trade_program_faq" && (
+                      <FederalSkilledTradeProgramFaq />
                     )}
 
                   {activePage === "federal_skilled_worker_program" &&
@@ -2938,6 +3938,10 @@ let AdminDashboard = () => {
                     activeSection === "federal_skilled_worker_program_meta" && (
                       <FederalSkilledWorkerProgramMeta />
                     )}
+                  {activePage === "federal_skilled_worker_program" &&
+                    activeSection === "federal_skilled_worker_program_faq" && (
+                      <FederalSkilledWorkerProgramFaq />
+                    )}
 
                   {activePage === "flag_poling" &&
                     activeSection === "flag_poling_content" && (
@@ -2946,12 +3950,16 @@ let AdminDashboard = () => {
                   {activePage === "flag_poling" &&
                     activeSection === "flag_poling_meta" && <FlagPolingMeta />}
 
+                  {activePage === "flag_poling" &&
+                    activeSection === "flag_poling_faq" && <FlagPolingFaq />}
                   {activePage === "francophone" &&
                     activeSection === "francophone_content" && (
                       <FrancophoneContent />
                     )}
                   {activePage === "francophone" &&
                     activeSection === "francophone_meta" && <FrancophoneMeta />}
+                  {activePage === "francophone" &&
+                    activeSection === "francophone_faq" && <FrancophoneFaq />}
 
                   {activePage === "french_tageted_draw" &&
                     activeSection === "french_tageted_draw_content" && (
@@ -2960,6 +3968,10 @@ let AdminDashboard = () => {
                   {activePage === "french_tageted_draw" &&
                     activeSection === "french_tageted_draw_meta" && (
                       <FrenchTargetedDrawMeta />
+                    )}
+                  {activePage === "french_tageted_draw" &&
+                    activeSection === "french_tageted_draw_faq" && (
+                      <FrenchTargetedDrawFaq />
                     )}
 
                   {activePage === "global_stream_lmia" &&
@@ -2970,6 +3982,10 @@ let AdminDashboard = () => {
                     activeSection === "global_stream_lmia_meta" && (
                       <GlobalStreamLMIAMeta />
                     )}
+                  {activePage === "global_stream_lmia" &&
+                    activeSection === "global_stream_lmia_faq" && (
+                      <GlobalStreamLMIAFaq />
+                    )}
 
                   {activePage === "health_authorities_stream" &&
                     activeSection === "health_authorities_stream_content" && (
@@ -2979,6 +3995,10 @@ let AdminDashboard = () => {
                     activeSection === "health_authorities_stream_meta" && (
                       <HealthAuthoritiesStreamMeta />
                     )}
+                  {activePage === "health_authorities_stream" &&
+                    activeSection === "health_authorities_stream_faq" && (
+                      <HealthAuthoritiesStreamFaq />
+                    )}
 
                   {activePage === "healthcare_targated_draw" &&
                     activeSection === "healthcare_targated_draw_content" && (
@@ -2987,6 +4007,10 @@ let AdminDashboard = () => {
                   {activePage === "healthcare_targated_draw" &&
                     activeSection === "healthcare_targated_draw_meta" && (
                       <HealthcareTargetedDrawMeta />
+                    )}
+                  {activePage === "healthcare_targated_draw" &&
+                    activeSection === "healthcare_targated_draw_faq" && (
+                      <HealthcareTargetedDrawFaq />
                     )}
 
                   {activePage === "humanitarian_compassionate" &&
@@ -3006,7 +4030,10 @@ let AdminDashboard = () => {
                     activeSection === "in_home_caregiver_meta" && (
                       <InCaregiverMeta />
                     )}
-
+                  {activePage === "in_home_caregiver" &&
+                    activeSection === "in_home_caregiver_faq" && (
+                      <InCaregiverFaq />
+                    )}
                   {activePage === "inside_canada_caregiver" &&
                     activeSection === "inside_canada_caregiver_content" && (
                       <InsideCanadaContent />
@@ -3015,7 +4042,10 @@ let AdminDashboard = () => {
                     activeSection === "inside_canada_caregiver_meta" && (
                       <InsideCanadaMeta />
                     )}
-
+                  {activePage === "inside_canada_caregiver" &&
+                    activeSection === "inside_canada_caregiver_faq" && (
+                      <InsideCanadaFaq />
+                    )}
                   {activePage === "international_graduate" &&
                     activeSection === "international_graduate_content" && (
                       <InternationalGraduateContent />
@@ -3024,7 +4054,10 @@ let AdminDashboard = () => {
                     activeSection === "international_graduate_meta" && (
                       <InternationalGraduateMeta />
                     )}
-
+                  {activePage === "international_graduate" &&
+                    activeSection === "international_graduate_faq" && (
+                      <InternationalGraduateFaq />
+                    )}
                   {activePage === "international_post_graduate" &&
                     activeSection === "international_post_graduate_content" && (
                       <InternationalPostGraduateContent />
@@ -3033,7 +4066,10 @@ let AdminDashboard = () => {
                     activeSection === "international_post_graduate_meta" && (
                       <InternationalPostGraduateMeta />
                     )}
-
+                  {activePage === "international_post_graduate" &&
+                    activeSection === "international_post_graduate_faq" && (
+                      <InternationalPostGraduateFaq />
+                    )}
                   {activePage === "lmia_reviewed" &&
                     activeSection === "lmia_reviewed_content" && (
                       <LMIAReviewedContent />
@@ -3042,7 +4078,10 @@ let AdminDashboard = () => {
                     activeSection === "lmia_reviewed_meta" && (
                       <LMIAReviewedMeta />
                     )}
-
+                  {activePage === "lmia_reviewed" &&
+                    activeSection === "lmia_reviewed_faq" && (
+                      <LMIAReviewedFaq />
+                    )}
                   {activePage === "lonely_canadian" &&
                     activeSection === "lonely_canadian_content" && (
                       <LonelyCanadianContent />
@@ -3051,7 +4090,10 @@ let AdminDashboard = () => {
                     activeSection === "lonely_canadian_meta" && (
                       <LonelyCanadianMeta />
                     )}
-
+                  {activePage === "lonely_canadian" &&
+                    activeSection === "lonely_canadian_faq" && (
+                      <LonelyCanadianFaq />
+                    )}
                   {activePage === "low_wage_lmia" &&
                     activeSection === "low_wage_lmia_content" && (
                       <LowWageLMIAContent />
@@ -3060,12 +4102,16 @@ let AdminDashboard = () => {
                     activeSection === "low_wage_lmia_meta" && (
                       <LowWageLMIAMeta />
                     )}
-
+                  {activePage === "low_wage_lmia" &&
+                    activeSection === "low_wage_lmia_faq" && (
+                      <LowWageLMIAFaq />
+                    )}
                   {activePage === "non_sds" &&
                     activeSection === "non_sds_content" && <NonSdsContent />}
                   {activePage === "non_sds" &&
                     activeSection === "non_sds_meta" && <NonSdsMeta />}
-
+                  {activePage === "non_sds" &&
+                    activeSection === "non_sds_faq" && <NonSdsFaq />}
                   {activePage === "open_work_dependent" &&
                     activeSection === "open_work_dependent_content" && (
                       <OpenWorkCanadaContent />
@@ -3074,7 +4120,10 @@ let AdminDashboard = () => {
                     activeSection === "open_work_dependent_meta" && (
                       <OpenWorkCanadaMeta />
                     )}
-
+                  {activePage === "open_work_dependent" &&
+                    activeSection === "open_work_dependent_faq" && (
+                      <OpenWorkCanadaFaq />
+                    )}
                   {activePage === "open_work_permit" &&
                     activeSection === "open_work_permit_content" && (
                       <OpenWorkPermitContent />
@@ -3083,7 +4132,10 @@ let AdminDashboard = () => {
                     activeSection === "open_work_permit_meta" && (
                       <OpenWorkPermitMeta />
                     )}
-
+                  {activePage === "open_work_permit" &&
+                    activeSection === "open_work_permit_faq" && (
+                      <OpenWorkPermitFaq />
+                    )}
                   {activePage === "open_work_permit_for_spousal" &&
                     activeSection ===
                     "open_work_permit_for_spousal_content" && (
@@ -3093,7 +4145,10 @@ let AdminDashboard = () => {
                     activeSection === "open_work_permit_for_spousal_meta" && (
                       <OpenWorkForSpousalInlandMeta />
                     )}
-
+                  {activePage === "open_work_permit_for_spousal" &&
+                    activeSection === "open_work_permit_for_spousal_faq" && (
+                      <OpenWorkForSpousalInlandFaq />
+                    )}
                   {activePage === "open_work_permit_vulnerable" &&
                     activeSection === "open_work_permit_vulnerable_content" && (
                       <OpenWorkVulnerableContent />
@@ -3102,12 +4157,16 @@ let AdminDashboard = () => {
                     activeSection === "open_work_permit_vulnerable_meta" && (
                       <OpenWorkVulnerableMeta />
                     )}
-
+                  {activePage === "open_work_permit_vulnerable" &&
+                    activeSection === "open_work_permit_vulnerable_faq" && (
+                      <OpenWorkVulnerableFaq />
+                    )}
                   {activePage === "orphan" &&
                     activeSection === "orphan_content" && <OrphanContent />}
                   {activePage === "orphan" &&
                     activeSection === "orphan_meta" && <OrphanMeta />}
-
+                  {activePage === "orphan" &&
+                    activeSection === "orphan_faq" && <OrphanFaq />}
                   {activePage === "outside_canada" &&
                     activeSection === "outside_canada_content" && (
                       <OutsideCanadaContent />
@@ -3116,7 +4175,10 @@ let AdminDashboard = () => {
                     activeSection === "outside_canada_meta" && (
                       <OutsideCanadaMeta />
                     )}
-
+                  {activePage === "outside_canada" &&
+                    activeSection === "outside_canada_faq" && (
+                      <OutsideCanadaFaq />
+                    )}
                   {activePage === "parents_grandparents" &&
                     activeSection === "parents_grandparents_content" && (
                       <ParentsGrandparentsContent />
@@ -3125,7 +4187,10 @@ let AdminDashboard = () => {
                     activeSection === "parents_grandparents_meta" && (
                       <ParentsGrandparentsMeta />
                     )}
-
+                  {activePage === "parents_grandparents" &&
+                    activeSection === "parents_grandparents_faq" && (
+                      <ParentsGrandparentsFaq />
+                    )}
                   {activePage === "pathways_for_caregiver" &&
                     activeSection === "pathways_for_caregiver_content" && (
                       <PathwaysForCaregiverContent />
@@ -3133,6 +4198,10 @@ let AdminDashboard = () => {
                   {activePage === "pathways_for_caregiver" &&
                     activeSection === "pathways_for_caregiver_meta" && (
                       <PathwaysForCaregiverMeta />
+                    )}
+                  {activePage === "pathways_for_caregiver" &&
+                    activeSection === "pathways_for_caregiver_faq" && (
+                      <PathwaysForCaregiverFaq />
                     )}
 
                   {activePage === "pr_pathways_for_caregiver" &&
@@ -3142,6 +4211,10 @@ let AdminDashboard = () => {
                   {activePage === "pr_pathways_for_caregiver" &&
                     activeSection === "pr_pathways_for_caregiver_meta" && (
                       <PRPathwayCaregiverMeta />
+                    )}
+                  {activePage === "pr_pathways_for_caregiver" &&
+                    activeSection === "pr_pathways_for_caregiver_faq" && (
+                      <PRPathwayCaregiverFaq />
                     )}
 
                   {activePage === "pgwp" &&
@@ -3158,6 +4231,10 @@ let AdminDashboard = () => {
                     activeSection === "pilot_programs_meta" && (
                       <PilotProgramMeta />
                     )}
+                  {activePage === "pilot_programs" &&
+                    activeSection === "pilot_programs_faq" && (
+                      <PilotProgramFaq />
+                    )}
 
                   {activePage === "pnp_page" &&
                     activeSection === "pnp_page_content" && <PnpContent />}
@@ -3168,6 +4245,10 @@ let AdminDashboard = () => {
                     activeSection === "previous_draw_history_meta" && (
                       <PreviousDrawHistoryMeta />
                     )}
+                  {activePage === "previous_draw_history" &&
+                    activeSection === "previous_draw_history_faq" && (
+                      <PreviousDrawHistoryFaq />
+                    )}
 
                   {activePage === "priorities_program" &&
                     activeSection === "priorities_program_content" && (
@@ -3177,14 +4258,18 @@ let AdminDashboard = () => {
                     activeSection === "priorities_program_meta" && (
                       <PrioritiesProgramMeta />
                     )}
-
+                  {activePage === "priorities_program" &&
+                    activeSection === "priorities_program_faq" && (
+                      <PrioritiesProgramFaq />
+                    )}
                   {activePage === "pr_renewal" &&
                     activeSection === "pr_renewal_content" && (
                       <PrRenewalContent />
                     )}
                   {activePage === "pr_renewal" &&
                     activeSection === "pr_renewal_meta" && <PrRenewalMeta />}
-
+                  {activePage === "pr_renewal" &&
+                    activeSection === "pr_renewal_faq" && <PrRenewalFaq />}
                   {activePage === "restoration_status" &&
                     activeSection === "restoration_status_content" && (
                       <RestorationContent />
@@ -3193,7 +4278,10 @@ let AdminDashboard = () => {
                     activeSection === "restoration_status_meta" && (
                       <RestorationMeta />
                     )}
-
+                  {activePage === "restoration_status" &&
+                    activeSection === "restoration_status_faq" && (
+                      <RestorationFaq />
+                    )}
                   {activePage === "reconsideration" &&
                     activeSection === "reconsideration_content" && (
                       <ReconsiderationContent />
@@ -3202,7 +4290,10 @@ let AdminDashboard = () => {
                     activeSection === "reconsideration_meta" && (
                       <ReconsiderationMeta />
                     )}
-
+                  {activePage === "reconsideration" &&
+                    activeSection === "reconsideration_faq" && (
+                      <ReconsiderationFaq />
+                    )}
                   {activePage === "reply_to_pfl" &&
                     activeSection === "reply_to_pfl_content" && (
                       <ReplyToPFLContent />
@@ -3215,19 +4306,24 @@ let AdminDashboard = () => {
                   {activePage === "rnip" && activeSection === "rnip_meta" && (
                     <RnipMeta />
                   )}
-
+                  {activePage === "rnip" && activeSection === "rnip_faq" && (
+                    <RnipFaq />
+                  )}
                   {activePage === "same_sex" &&
                     activeSection === "same_sex_content" && <SamesexContent />}
                   {activePage === "same_sex" &&
                     activeSection === "same_sex_meta" && <SamesexMeta />}
-
+                  {activePage === "same_sex" &&
+                    activeSection === "same_sex_faq" && <SamesexFaq />}
                   {activePage === "sds" && activeSection === "sds_content" && (
                     <SdsContent />
                   )}
                   {activePage === "sds" && activeSection === "sds_meta" && (
                     <SdsMeta />
                   )}
-
+                  {activePage === "sds" && activeSection === "sds_faq" && (
+                    <SdsFaq />
+                  )}
                   {activePage === "skilled_worker_stream" &&
                     activeSection === "skilled_worker_stream_content" && (
                       <SkilledWorkerStreamContent />
@@ -3236,7 +4332,10 @@ let AdminDashboard = () => {
                     activeSection === "skilled_worker_stream_meta" && (
                       <SkilledWorkerStreamMeta />
                     )}
-
+                  {activePage === "skilled_worker_stream" &&
+                    activeSection === "skilled_worker_stream_faq" && (
+                      <SkilledWorkerStreamFaq />
+                    )}
                   {activePage === "spousal_open_work_permit" &&
                     activeSection === "spousal_open_work_permit_content" && (
                       <SpousalOpenWorkPermitContent />
@@ -3245,7 +4344,10 @@ let AdminDashboard = () => {
                     activeSection === "spousal_open_work_permit_meta" && (
                       <SpousalOpenWorkPermitMeta />
                     )}
-
+                  {activePage === "spousal_open_work_permit" &&
+                    activeSection === "spousal_open_work_permit_faq" && (
+                      <SpousalOpenWorkPermitFaq />
+                    )}
                   {activePage === "spose_common_law_spon" &&
                     activeSection === "spose_common_law_spon_content" && (
                       <SpousalCommonLawSponContent />
@@ -3254,7 +4356,10 @@ let AdminDashboard = () => {
                     activeSection === "spose_common_law_spon_meta" && (
                       <SpousalCommonLawSponMeta />
                     )}
-
+                  {activePage === "spose_common_law_spon" &&
+                    activeSection === "spose_common_law_spon_faq" && (
+                      <SpousalCommonLawSponFaq />
+                    )}
                   {activePage === "spousal_inland" &&
                     activeSection === "spousal_inland_content" && (
                       <SpouseInlandContent />
@@ -3263,7 +4368,10 @@ let AdminDashboard = () => {
                     activeSection === "spousal_inland_meta" && (
                       <SpouseInlandMeta />
                     )}
-
+                  {activePage === "spousal_inland" &&
+                    activeSection === "spousal_inland_faq" && (
+                      <SpouseInlandFaq />
+                    )}
                   {activePage === "spousal_outland" &&
                     activeSection === "spousal_outland_content" && (
                       <SpouseOutlandContent />
@@ -3272,7 +4380,10 @@ let AdminDashboard = () => {
                     activeSection === "spousal_outland_meta" && (
                       <SpouseOutlandMeta />
                     )}
-
+                  {activePage === "spousal_outland" &&
+                    activeSection === "spousal_outland_faq" && (
+                      <SpouseOutlandFaq />
+                    )}
                   {activePage === "stem_target" &&
                     activeSection === "stem_target_content" && (
                       <StemTargetedDrawContent />
@@ -3281,7 +4392,10 @@ let AdminDashboard = () => {
                     activeSection === "stem_target_meta" && (
                       <StemTargetedDrawMeta />
                     )}
-
+                  {activePage === "stem_target" &&
+                    activeSection === "stem_target_faq" && (
+                      <StemTargetedDrawFaq />
+                    )}
                   {activePage === "student_visa" &&
                     activeSection === "student_visa_content" && (
                       <StudentVisaContent />
@@ -3290,7 +4404,10 @@ let AdminDashboard = () => {
                     activeSection === "student_visa_meta" && (
                       <StudentVisaMeta />
                     )}
-
+                  {activePage === "student_visa" &&
+                    activeSection === "student_visa_faq" && (
+                      <StudentVisaFaq />
+                    )}
                   {activePage === "study_permit_minors" &&
                     activeSection === "study_permit_minors_content" && (
                       <StudyPermitMinorsContent />
@@ -3299,14 +4416,18 @@ let AdminDashboard = () => {
                     activeSection === "study_permit_minors_meta" && (
                       <StudyPermitMinorsMeta />
                     )}
-
+                  {activePage === "study_permit_minors" &&
+                    activeSection === "study_permit_minors_faq" && (
+                      <StudyPermitMinorsFaq />
+                    )}
                   {activePage === "super_visa" &&
                     activeSection === "super_visa_content" && (
                       <SuperVisaContent />
                     )}
                   {activePage === "super_visa" &&
                     activeSection === "super_visa_meta" && <SuperVisaMeta />}
-
+                  {activePage === "super_visa" &&
+                    activeSection === "super_visa_faq" && <SuperVisaFaq />}
                   {activePage === "temp" &&
                     activeSection === "temp_content" && (
                       <TemporaryResidencyContent />
@@ -3314,7 +4435,9 @@ let AdminDashboard = () => {
                   {activePage === "temp" && activeSection === "temp_meta" && (
                     <TemporaryResidencyMeta />
                   )}
-
+                  {activePage === "temp" && activeSection === "temp_faq" && (
+                    <TemporaryResidencyFaq />
+                  )}
                   {activePage === "temp_per" &&
                     activeSection === "temp_per_content" && (
                       <TemporaryResidencyPermitContent />
@@ -3323,7 +4446,10 @@ let AdminDashboard = () => {
                     activeSection === "temp_per_meta" && (
                       <TemporaryResidencyPermitMeta />
                     )}
-
+                  {activePage === "temp_per" &&
+                    activeSection === "temp_per_faq" && (
+                      <TemporaryResidencyPermitFaq />
+                    )}
                   {activePage === "trade_occu" &&
                     activeSection === "trade_occu_content" && (
                       <TradeOccupationContent />
@@ -3332,7 +4458,10 @@ let AdminDashboard = () => {
                     activeSection === "trade_occu_meta" && (
                       <TradeOccupationMeta />
                     )}
-
+                  {activePage === "trade_occu" &&
+                    activeSection === "trade_occu_faq" && (
+                      <TradeOccupationFaq />
+                    )}
                   {activePage === "trans_occu" &&
                     activeSection === "trans_occu_content" && (
                       <TransportOccupationTarContent />
@@ -3341,7 +4470,10 @@ let AdminDashboard = () => {
                     activeSection === "trans_occu_meta" && (
                       <TransportOccupationTarMeta />
                     )}
-
+                  {activePage === "trans_occu" &&
+                    activeSection === "trans_occu_faq" && (
+                      <TransportOccupationTarFaq />
+                    )}
                   {activePage === "visi_stu" &&
                     activeSection === "visi_stu_content" && (
                       <VisitorToStudentContent />
@@ -3350,21 +4482,26 @@ let AdminDashboard = () => {
                     activeSection === "visi_stu_meta" && (
                       <VisitorToStudentMeta />
                     )}
-
+                  {activePage === "visi_stu" &&
+                    activeSection === "visi_stu_faq" && (
+                      <VisitorToStudentFaq />
+                    )}
                   {activePage === "visi_visa" &&
                     activeSection === "visi_visa_content" && (
                       <VisitorVisaContent />
                     )}
                   {activePage === "visi_visa" &&
                     activeSection === "visi_visa_meta" && <VisitorVisaMeta />}
-
+                  {activePage === "visi_visa" &&
+                    activeSection === "visi_visa_faq" && <VisitorVisaFaq />}
                   {activePage === "work_per" &&
                     activeSection === "work_per_content" && (
                       <WorkPermitContent />
                     )}
                   {activePage === "work_per" &&
                     activeSection === "work_per_meta" && <WorkPermitMeta />}
-
+                  {activePage === "work_per" &&
+                    activeSection === "work_per_faq" && <WorkPermitFaq />}
                   {activePage === "permanent_residency" &&
                     activeSection === "permanent_residency_content" && (
                       <PermanentResidencyContent />
@@ -3372,6 +4509,10 @@ let AdminDashboard = () => {
                   {activePage === "permanent_residency" &&
                     activeSection === "permanent_residency_meta" && (
                       <PermanentResidencyMeta />
+                    )}
+                  {activePage === "permanent_residency" &&
+                    activeSection === "permanent_residency_faq" && (
+                      <PermanentResidencyFaq />
                     )}
                 </div>
               </div>
@@ -3768,6 +4909,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "page-faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("page-faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -3789,6 +4939,16 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("bcpnp-meta")}
                     >
                       Page Meta
+                    </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "bcpnp-faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("bcpnp-faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -3817,6 +4977,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "immigration_tools_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("immigration_tools_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
 
                     <div
@@ -3874,6 +5045,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "blogs-faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("blogs-faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -3895,6 +5075,13 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("clb-meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "clb-faq" ? styles.activeSection : ""
+                        }`}
+                      onClick={() => handleSectionClick("clb-faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -3926,6 +5113,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "news-faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("news-faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -3948,6 +5144,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("federal-meta")}
                     >
                       Federal Skilled Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "federal-faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("federal-faq")}
+                    >
+                      Federal Skilled Faq
                     </div>
                   </div>
                 )}
@@ -3992,6 +5197,15 @@ let AdminDashboard = () => {
                     >
                       Category Based Draws Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "category-faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("category-faq")}
+                    >
+                      Category Based Draws Faq
+                    </div>
                   </div>
                 )}
 
@@ -4003,7 +5217,8 @@ let AdminDashboard = () => {
 
                 {activePage === "federal" &&
                   activeSection === "federal-meta" && <FederalMeta />}
-
+{activePage === "federal" &&
+                  activeSection === "federal-faq" && <FederalFaq />}
                 {activePage === "bcpnp" && activeSection === "content" && (
                   <BCPNP />
                 )}
@@ -4011,13 +5226,16 @@ let AdminDashboard = () => {
                 {activePage === "bcpnp" && activeSection === "bcpnp-meta" && (
                   <BCPNPMeta />
                 )}
-
+{activePage === "bcpnp" && activeSection === "bcpnp-faq" && (
+                  <BCPNPFaq />
+                )}
                 {activePage === "category" &&
                   activeSection === "category-content" && <CategoryBased />}
 
                 {activePage === "category" &&
                   activeSection === "category-meta" && <CategoryMeta />}
-
+{activePage === "category" &&
+                  activeSection === "category-faq" && <CategoryFaq />}
                 {activePage === "transport" && activeSection === "section8" && (
                   <Testimonials />
                 )}
@@ -4028,6 +5246,8 @@ let AdminDashboard = () => {
 
                 {activePage === "contact-us" &&
                   activeSection === "page-meta" && <ContactMeta />}
+                {activePage === "contact-us" &&
+                  activeSection === "page-faq" && <ContactFaq />}
 
                 {activePage === "blogs" && activeSection === "all-blogs" && (
                   <AllBlogs />
@@ -4041,6 +5261,10 @@ let AdminDashboard = () => {
                   <BlogsMeta />
                 )}
 
+{activePage === "blogs" && activeSection === "blogs-faq" && (
+                  <BlogsFaq />
+                )}
+
                 {activePage === "news" && activeSection === "all-news" && (
                   <AllNews />
                 )}
@@ -4052,6 +5276,9 @@ let AdminDashboard = () => {
                 {activePage === "news" && activeSection === "news-meta" && (
                   <NewsMeta />
                 )}
+                {activePage === "news" && activeSection === "news-faq" && (
+                  <NewsFaq />
+                )}
 
                 {activePage === "clb" && activeSection === "clb-content" && (
                   <CLB />
@@ -4059,6 +5286,9 @@ let AdminDashboard = () => {
 
                 {activePage === "clb" && activeSection === "clb-meta" && (
                   <CLBMeta />
+                )}
+                {activePage === "clb" && activeSection === "clb-faq" && (
+                  <CLBFaq />
                 )}
 
                 {activePage === "privacy-policy" && <Privacy />}
@@ -4072,6 +5302,10 @@ let AdminDashboard = () => {
                 {activePage === "immigration_tools" &&
                   activeSection === "immigration_tools_meta" && (
                     <ImmigrationToolsMeta />
+                  )}
+                {activePage === "immigration_tools" &&
+                  activeSection === "immigration_tools_faq" && (
+                    <ImmigrationToolsFaq />
                   )}
 
                 {activePage === "immigration_tools" &&
@@ -4109,6 +5343,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "more_services_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("more_services_faq")}
+                    >
+                      Page Faq
+                    </div>
 
                     <div
                       className={`${styles.section} ${activeSection === "more_services_all_services"
@@ -4143,6 +5386,10 @@ let AdminDashboard = () => {
                 {activePage === "more_services" &&
                   activeSection === "more_services_meta" && (
                     <MoreServicesMeta />
+                  )}
+                {activePage === "more_services" &&
+                  activeSection === "more_services_faq" && (
+                    <MoreServicesFaq />
                   )}
 
                 {activePage === "more_services" &&
@@ -5164,6 +6411,20 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+
+                    <div
+                      className={`${styles.section} ${activeSection === "bridging_open_work_permit_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "bridging_open_work_permit_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
                 {activePage === "adoption_page" && (
@@ -5188,6 +6449,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("adoption_page_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "adoption_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("adoption_page_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5221,6 +6491,19 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "agriculture_and_agri_food_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "agriculture_and_agri_food_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5251,6 +6534,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "agriculture_stream_lmia_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("agriculture_stream_lmia_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5279,6 +6573,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "agri_food_pilot_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("agri_food_pilot_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5306,6 +6611,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "business_visitor_visa_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("business_visitor_visa_page_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5340,6 +6656,19 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "canadian_experience_class_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "canadian_experience_class_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5363,6 +6692,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("cby_page_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "cby_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("cby_page_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5394,6 +6732,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "change_college_program_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("change_college_program_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5414,15 +6763,15 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${activeSection === "category_based_express_page_meta"
+                      className={`${styles.section} ${activeSection === "category_based_express_page_faq"
                         ? styles.activeSection
                         : ""
                         }`}
                       onClick={() =>
-                        handleSectionClick("category_based_express_page_meta")
+                        handleSectionClick("category_based_express_page_faq")
                       }
                     >
-                      Page Meta
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5451,6 +6800,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "citizenship_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("citizenship_page_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5486,6 +6846,20 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection ===
+                        "common_law_partner_temporary_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "common_law_partner_temporary_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5520,6 +6894,20 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection ===
+                        "common_law_partner_permanent_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "common_law_partner_permanent_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5548,6 +6936,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "dependent_children_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("dependent_children_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5575,6 +6974,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "dual_intent_visa_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("dual_intent_visa_page_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5607,6 +7017,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "entry_level_semi_skilled_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("entry_level_semi_skilled_page_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5634,6 +7055,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "extensions_draft_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("extensions_draft_page_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5669,6 +7101,20 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection ===
+                        "common_law_partner_international_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "common_law_partner_international_page_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5696,6 +7142,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "family_reunification_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("family_reunification_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5727,6 +7184,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "federal_skilled_trade_program_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("federal_skilled_trade_program_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5761,6 +7229,19 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "federal_skilled_worker_program_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick(
+                          "federal_skilled_worker_program_faq"
+                        )
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5785,6 +7266,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "flag_poling_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("flag_poling_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5808,6 +7298,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("francophone_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "francophone_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("francophone_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5837,6 +7336,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "french_tageted_draw_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("french_tageted_draw_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5864,6 +7374,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "permanent_residency_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("permanent_residency_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5893,6 +7414,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "global_stream_lmia_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("global_stream_lmia_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -5920,6 +7452,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "health_authorities_stream_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("health_authorities_stream_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -5949,6 +7492,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "healthcare_targated_draw_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("healthcare_targated_draw_faq")
+                      }
+                    >
+                      Page faq
+                    </div>
                   </div>
                 )}
 
@@ -5976,6 +7530,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "humanitarian_compassionate_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("humanitarian_compassionate_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6005,6 +7570,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "in_home_caregiver_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("in_home_caregiver_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6033,6 +7609,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "inside_canada_caregiver_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("inside_canada_caregiver_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6060,6 +7647,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "international_graduate_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("international_graduate_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6091,6 +7689,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "international_post_graduate_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("international_post_graduate_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6116,6 +7725,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("lmia_reviewed_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "lmia_reviewed_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("lmia_reviewed_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6143,6 +7761,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "lonely_canadian_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("lonely_canadian_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6169,6 +7796,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "low_wage_lmia_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("low_wage_lmia_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6192,6 +7828,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("non_sds_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "non_sds_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("non_sds_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6221,6 +7866,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "open_work_dependent_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("open_work_dependent_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6248,6 +7904,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "open_work_permit_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("open_work_permit_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6279,6 +7946,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "open_work_permit_for_spousal_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("open_work_permit_for_spousal_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6309,6 +7987,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "open_work_permit_vulnerable_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("open_work_permit_vulnerable_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6332,6 +8021,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("orphan_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "orphan_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("orphan_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6358,6 +8056,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("outside_canada_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "outside_canada_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("outside_canada_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6387,6 +8094,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "parents_grandparents_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("parents_grandparents_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6414,6 +8132,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "pathways_for_caregiver_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("pathways_for_caregiver_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6443,6 +8172,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "pr_pathways_for_caregiver_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("pr_pathways_for_caregiver_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6466,6 +8206,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("pgwp_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "pgwp_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("pgwp_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6493,6 +8242,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "pilot_programs_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("pilot_programs_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6517,6 +8275,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "pnp_page_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("pnp_page_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6532,6 +8299,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "previous_draw_history_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("previous_draw_history_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6561,6 +8339,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "priorities_program_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("priorities_program_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6584,6 +8373,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("pr_renewal_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "pr_renewal_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("pr_renewal_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6613,6 +8411,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "restoration_status_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("restoration_status_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6639,6 +8448,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "reconsideration_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("reconsideration_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6662,6 +8480,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("reply_to_pfl_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "reply_to_pfl_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("reply_to_pfl_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6687,6 +8514,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "rnip_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("rnip_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6711,6 +8547,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "same_sex_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("same_sex_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6732,6 +8577,13 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("sds_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "sds_faq" ? styles.activeSection : ""
+                        }`}
+                      onClick={() => handleSectionClick("sds_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6761,6 +8613,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "skilled_worker_stream_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("skilled_worker_stream_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6788,6 +8651,17 @@ let AdminDashboard = () => {
                       }
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "spousal_open_work_permit_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("spousal_open_work_permit_faq")
+                      }
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6817,6 +8691,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "spose_common_law_spon_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("spose_common_law_spon_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6842,6 +8727,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("spousal_inland_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "spousal_inland_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("spousal_inland_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6869,6 +8763,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "spousal_outland_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("spousal_outland_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6893,6 +8796,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "stem_target_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("stem_target_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6916,6 +8828,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("student_visa_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "student_visa_meta"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("student_visa_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6945,6 +8866,17 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "study_permit_minors_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() =>
+                        handleSectionClick("study_permit_minors_faq")
+                      }
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -6968,6 +8900,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("super_visa_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "super_visa_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("super_visa_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -6993,6 +8934,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "temp_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("temp_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -7017,6 +8967,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "temp_per_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("temp_per_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -7033,13 +8992,13 @@ let AdminDashboard = () => {
                     </div>
 
                     <div
-                      className={`${styles.section} ${activeSection === "trade_occu_meta"
+                      className={`${styles.section} ${activeSection === "trade_occu_faq"
                         ? styles.activeSection
                         : ""
                         }`}
-                      onClick={() => handleSectionClick("trade_occu_meta")}
+                      onClick={() => handleSectionClick("trade_occu_faq")}
                     >
-                      Page Meta
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -7065,6 +9024,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "trans_occu_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("trans_occu_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -7088,6 +9056,15 @@ let AdminDashboard = () => {
                       onClick={() => handleSectionClick("visi_stu_meta")}
                     >
                       Page Meta
+                    </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "visi_stu_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("visi_stu_faq")}
+                    >
+                      Page Faq
                     </div>
                   </div>
                 )}
@@ -7113,6 +9090,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "visi_visa_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("visi_visa_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -7137,6 +9123,15 @@ let AdminDashboard = () => {
                     >
                       Page Meta
                     </div>
+                    <div
+                      className={`${styles.section} ${activeSection === "work_per_faq"
+                        ? styles.activeSection
+                        : ""
+                        }`}
+                      onClick={() => handleSectionClick("work_per_faq")}
+                    >
+                      Page Faq
+                    </div>
                   </div>
                 )}
 
@@ -7155,6 +9150,8 @@ let AdminDashboard = () => {
 
                   {activePage === "express" &&
                     activeSection === "express-meta" && <ExpressMeta />}
+                    {activePage === "express" &&
+                    activeSection === "express-faq" && <ExpressFaq />}
 
                   {activePage === "bcpnp_page" &&
                     activeSection === "bcpnp_page_content" && (
@@ -7180,7 +9177,8 @@ let AdminDashboard = () => {
                     activeSection === "adoption_page_content" && <Adoption />}
                   {activePage === "adoption_page" &&
                     activeSection === "adoption_page_meta" && <AdoptionMeta />}
-
+{activePage === "adoption_page" &&
+                    activeSection === "adoption_page_faq" && <AdoptionFaq />}
                   {activePage === "agriculture_and_agri_food_page" &&
                     activeSection ===
                     "agriculture_and_agri_food_page_content" && (
@@ -7190,7 +9188,10 @@ let AdminDashboard = () => {
                     activeSection === "agriculture_and_agri_food_page_meta" && (
                       <AgricultureAndAgriFoodMeta />
                     )}
-
+{activePage === "agriculture_and_agri_food_page" &&
+                    activeSection === "agriculture_and_agri_food_page_faq" && (
+                      <AgricultureAndAgriFoodFaq />
+                    )}
                   {activePage === "agriculture_stream_lmia_page" &&
                     activeSection ===
                     "agriculture_stream_lmia_page_content" && (
@@ -7200,7 +9201,10 @@ let AdminDashboard = () => {
                     activeSection === "agriculture_stream_lmia_page_meta" && (
                       <AgricultureStreamLMIAMeta />
                     )}
-
+{activePage === "agriculture_stream_lmia_page" &&
+                    activeSection === "agriculture_stream_lmia_page_faq" && (
+                      <AgricultureStreamLMIAFaq />
+                    )}
                   {activePage === "agri_food_pilot_page" &&
                     activeSection === "agri_food_pilot_page_content" && (
                       <AgriFoodPilotProgramContent />
@@ -7209,7 +9213,10 @@ let AdminDashboard = () => {
                     activeSection === "agri_food_pilot_page_meta" && (
                       <AgriFoodPilotProgramMeta />
                     )}
-
+{activePage === "agri_food_pilot_page" &&
+                    activeSection === "agri_food_pilot_page_faq" && (
+                      <AgriFoodPilotProgramFaq />
+                    )}
                   {activePage === "bridging_open_work_permit_page" &&
                     activeSection ===
                     "bridging_open_work_permit_page_content" && (
@@ -7219,7 +9226,10 @@ let AdminDashboard = () => {
                     activeSection === "bridging_open_work_permit_page_meta" && (
                       <BridgingOpenWorkPermitLPMeta />
                     )}
-
+{activePage === "bridging_open_work_permit_page" &&
+                    activeSection === "bridging_open_work_permit_page_faq" && (
+                      <BridgingOpenWorkPermitLPFaq />
+                    )}
                   {activePage === "business_visitor_visa_page" &&
                     activeSection === "business_visitor_visa_page_content" && (
                       <BusinessVisitorVisaContent />
@@ -7228,7 +9238,10 @@ let AdminDashboard = () => {
                     activeSection === "business_visitor_visa_page_meta" && (
                       <BusinessVisitorVisaMeta />
                     )}
-
+{activePage === "business_visitor_visa_page" &&
+                    activeSection === "business_visitor_visa_page_faq" && (
+                      <BusinessVisitorVisaFaq />
+                    )}
                   {activePage === "canadian_experience_class_page" &&
                     activeSection ===
                     "canadian_experience_class_page_content" && (
@@ -7238,12 +9251,16 @@ let AdminDashboard = () => {
                     activeSection === "canadian_experience_class_page_meta" && (
                       <CanadianExperienceClassMeta />
                     )}
-
+{activePage === "canadian_experience_class_page" &&
+                    activeSection === "canadian_experience_class_page_faq" && (
+                      <CanadianExperienceClassFaq />
+                    )}
                   {activePage === "cby_page" &&
                     activeSection === "cby_page_content" && <CbyContent />}
                   {activePage === "cby_page" &&
                     activeSection === "cby_page_meta" && <CbyMeta />}
-
+{activePage === "cby_page" &&
+                    activeSection === "cby_page_faq" && <CbyFaq />}
                   {activePage === "change_college_program_page" &&
                     activeSection === "change_college_program_page_content" && (
                       <ChangeCollegeProgramContent />
@@ -7252,7 +9269,10 @@ let AdminDashboard = () => {
                     activeSection === "change_college_program_page_meta" && (
                       <ChangeCollegeProgramMeta />
                     )}
-
+ {activePage === "change_college_program_page" &&
+                    activeSection === "change_college_program_page_faq" && (
+                      <ChangeCollegeProgramFaq />
+                    )}
                   {activePage === "category_based_express_page" &&
                     activeSection === "category_based_express_page_content" && (
                       <CategoryBasedExpressContent />
@@ -7261,7 +9281,10 @@ let AdminDashboard = () => {
                     activeSection === "category_based_express_page_meta" && (
                       <CategoryBasedExpressMeta />
                     )}
-
+{activePage === "category_based_express_page" &&
+                    activeSection === "category_based_express_page_faq" && (
+                      <CategoryBasedExpressFaq />
+                    )}
                   {activePage === "citizenship_page" &&
                     activeSection === "citizenship_page_content" && (
                       <CitizenshipContent />
@@ -7270,7 +9293,10 @@ let AdminDashboard = () => {
                     activeSection === "citizenship_page_meta" && (
                       <CitizenshipMeta />
                     )}
-
+                  {activePage === "citizenship_page" &&
+                    activeSection === "citizenship_page_faq" && (
+                      <CitizenshipFaq />
+                    )}
                   {activePage === "common_law_partner_temporary_page" &&
                     activeSection ===
                     "common_law_partner_temporary_page_content" && (
@@ -7281,7 +9307,11 @@ let AdminDashboard = () => {
                     "common_law_partner_temporary_page_meta" && (
                       <CommonLawPartnerTemporaryContentMeta />
                     )}
-
+{activePage === "common_law_partner_temporary_page" &&
+                    activeSection ===
+                    "common_law_partner_temporary_page_faq" && (
+                      <CommonLawPartnerTemporaryContentFaq />
+                    )}
                   {activePage === "common_law_partner_permanent_page" &&
                     activeSection ===
                     "common_law_partner_permanent_page_content" && (
@@ -7292,14 +9322,19 @@ let AdminDashboard = () => {
                     "common_law_partner_permanent_page_meta" && (
                       <CommonLawPartnerPermanentContentMeta />
                     )}
+                    {activePage === "common_law_partner_permanent_page" &&
+                    activeSection ===
+                    "common_law_partner_permanent_page_faq" && (
+                      <CommonLawPartnerPermanentContentFaq />
+                    )}
 
                   {activePage === "dependent_children_page" &&
                     activeSection === "dependent_children_page_content" && (
                       <DependentChildrenContent />
                     )}
                   {activePage === "dependent_children_page" &&
-                    activeSection === "dependent_children_page_meta" && (
-                      <DependentChildrenMeta />
+                    activeSection === "dependent_children_page_faq" && (
+                      <DependentChildrenFaq />
                     )}
 
                   {activePage === "dual_intent_visa_page" &&
@@ -7310,7 +9345,10 @@ let AdminDashboard = () => {
                     activeSection === "dual_intent_visa_page_meta" && (
                       <DualIntentVisaMeta />
                     )}
-
+ {activePage === "dual_intent_visa_page" &&
+                    activeSection === "dual_intent_visa_page_faq" && (
+                      <DualIntentVisaFaq />
+                    )}
                   {activePage === "entry_level_semi_skilled_page" &&
                     activeSection ===
                     "entry_level_semi_skilled_page_content" && (
@@ -7319,6 +9357,10 @@ let AdminDashboard = () => {
                   {activePage === "entry_level_semi_skilled_page" &&
                     activeSection === "entry_level_semi_skilled_page_meta" && (
                       <EntryLevelSemiSkilledMeta />
+                    )}
+                    {activePage === "entry_level_semi_skilled_page" &&
+                    activeSection === "entry_level_semi_skilled_page_faq" && (
+                      <EntryLevelSemiSkilledFaq />
                     )}
 
                   {activePage === "extensions_draft_page" &&
@@ -7329,7 +9371,10 @@ let AdminDashboard = () => {
                     activeSection === "extensions_draft_page_meta" && (
                       <ExtensionsDraftMeta />
                     )}
-
+{activePage === "extensions_draft_page" &&
+                    activeSection === "extensions_draft_page_faq" && (
+                      <ExtensionsDraftFaq />
+                    )}
                   {activePage === "common_law_partner_international_page" &&
                     activeSection ===
                     "common_law_partner_international_page_content" && (
@@ -7340,7 +9385,11 @@ let AdminDashboard = () => {
                     "common_law_partner_international_page_meta" && (
                       <CommonLawPartnerInternationalMeta />
                     )}
-
+ {activePage === "common_law_partner_international_page" &&
+                    activeSection ===
+                    "common_law_partner_international_page_faq" && (
+                      <CommonLawPartnerInternationalFaq />
+                    )}
                   {activePage === "family_reunification" &&
                     activeSection === "family_reunification_content" && (
                       <FamilyReunificationContent />
@@ -7349,7 +9398,10 @@ let AdminDashboard = () => {
                     activeSection === "family_reunification_meta" && (
                       <FamilyReunificationMeta />
                     )}
-
+{activePage === "family_reunification" &&
+                    activeSection === "family_reunification_faq" && (
+                      <FamilyReunificationFaq />
+                    )}
                   {activePage === "federal_skilled_trade_program" &&
                     activeSection ===
                     "federal_skilled_trade_program_content" && (
@@ -7359,7 +9411,10 @@ let AdminDashboard = () => {
                     activeSection === "federal_skilled_trade_program_meta" && (
                       <FederalSkilledTradeProgramMeta />
                     )}
-
+{activePage === "federal_skilled_trade_program" &&
+                    activeSection === "federal_skilled_trade_program_faq" && (
+                      <FederalSkilledTradeProgramFaq />
+                    )}
                   {activePage === "federal_skilled_worker_program" &&
                     activeSection ===
                     "federal_skilled_worker_program_content" && (
@@ -7369,21 +9424,26 @@ let AdminDashboard = () => {
                     activeSection === "federal_skilled_worker_program_meta" && (
                       <FederalSkilledWorkerProgramMeta />
                     )}
-
+{activePage === "federal_skilled_worker_program" &&
+                    activeSection === "federal_skilled_worker_program_faq" && (
+                      <FederalSkilledWorkerProgramFaq />
+                    )}
                   {activePage === "flag_poling" &&
                     activeSection === "flag_poling_content" && (
                       <FlagPolingContent />
                     )}
                   {activePage === "flag_poling" &&
                     activeSection === "flag_poling_meta" && <FlagPolingMeta />}
-
+{activePage === "flag_poling" &&
+                    activeSection === "flag_poling_faq" && <FlagPolingFaq/>}
                   {activePage === "francophone" &&
                     activeSection === "francophone_content" && (
                       <FrancophoneContent />
                     )}
                   {activePage === "francophone" &&
                     activeSection === "francophone_meta" && <FrancophoneMeta />}
-
+{activePage === "francophone" &&
+                    activeSection === "francophone_faq" && <FrancophoneFaq />}
                   {activePage === "french_tageted_draw" &&
                     activeSection === "french_tageted_draw_content" && (
                       <FrenchTargetedDrawContent />
@@ -7392,7 +9452,10 @@ let AdminDashboard = () => {
                     activeSection === "french_tageted_draw_meta" && (
                       <FrenchTargetedDrawMeta />
                     )}
-
+{activePage === "french_tageted_draw" &&
+                    activeSection === "french_tageted_draw_faq" && (
+                      <FrenchTargetedDrawFaq />
+                    )}
                   {activePage === "global_stream_lmia" &&
                     activeSection === "global_stream_lmia_content" && (
                       <GlobalStreamLMIAContent />
@@ -7400,6 +9463,10 @@ let AdminDashboard = () => {
                   {activePage === "global_stream_lmia" &&
                     activeSection === "global_stream_lmia_meta" && (
                       <GlobalStreamLMIAMeta />
+                    )}
+{activePage === "global_stream_lmia" &&
+                    activeSection === "global_stream_lmia_faq" && (
+                      <GlobalStreamLMIAFaq />
                     )}
 
                   {activePage === "health_authorities_stream" &&
@@ -7410,7 +9477,10 @@ let AdminDashboard = () => {
                     activeSection === "health_authorities_stream_meta" && (
                       <HealthAuthoritiesStreamMeta />
                     )}
-
+ {activePage === "health_authorities_stream" &&
+                    activeSection === "health_authorities_stream_faq" && (
+                      <HealthAuthoritiesStreamFaq />
+                    )}
                   {activePage === "healthcare_targated_draw" &&
                     activeSection === "healthcare_targated_draw_content" && (
                       <HealthcareTargetedDrawContent />
@@ -7419,7 +9489,10 @@ let AdminDashboard = () => {
                     activeSection === "healthcare_targated_draw_meta" && (
                       <HealthcareTargetedDrawMeta />
                     )}
-
+{activePage === "healthcare_targated_draw" &&
+                    activeSection === "healthcare_targated_draw_faq" && (
+                      <HealthcareTargetedDrawFaq />
+                    )}
                   {activePage === "humanitarian_compassionate" &&
                     activeSection === "humanitarian_compassionate_content" && (
                       <HumanPageContent />
@@ -7437,7 +9510,10 @@ let AdminDashboard = () => {
                     activeSection === "in_home_caregiver_meta" && (
                       <InCaregiverMeta />
                     )}
-
+{activePage === "in_home_caregiver" &&
+                    activeSection === "in_home_caregiver_faq" && (
+                      <InCaregiverFaq />
+                    )}
                   {activePage === "inside_canada_caregiver" &&
                     activeSection === "inside_canada_caregiver_content" && (
                       <InsideCanadaContent />
@@ -7446,7 +9522,10 @@ let AdminDashboard = () => {
                     activeSection === "inside_canada_caregiver_meta" && (
                       <InsideCanadaMeta />
                     )}
-
+{activePage === "inside_canada_caregiver" &&
+                    activeSection === "inside_canada_caregiver_faq" && (
+                      <InsideCanadaFaq />
+                    )}
                   {activePage === "international_graduate" &&
                     activeSection === "international_graduate_content" && (
                       <InternationalGraduateContent />
@@ -7455,7 +9534,10 @@ let AdminDashboard = () => {
                     activeSection === "international_graduate_meta" && (
                       <InternationalGraduateMeta />
                     )}
-
+{activePage === "international_graduate" &&
+                    activeSection === "international_graduate_faq" && (
+                      <InternationalGraduateFaq />
+                    )}
                   {activePage === "international_post_graduate" &&
                     activeSection === "international_post_graduate_content" && (
                       <InternationalPostGraduateContent />
@@ -7464,7 +9546,10 @@ let AdminDashboard = () => {
                     activeSection === "international_post_graduate_meta" && (
                       <InternationalPostGraduateMeta />
                     )}
-
+{activePage === "international_post_graduate" &&
+                    activeSection === "international_post_graduate_faq" && (
+                      <InternationalPostGraduateFaq />
+                    )}
                   {activePage === "lmia_reviewed" &&
                     activeSection === "lmia_reviewed_content" && (
                       <LMIAReviewedContent />
@@ -7473,7 +9558,10 @@ let AdminDashboard = () => {
                     activeSection === "lmia_reviewed_meta" && (
                       <LMIAReviewedMeta />
                     )}
-
+{activePage === "lmia_reviewed" &&
+                    activeSection === "lmia_reviewed_faq" && (
+                      <LMIAReviewedFaq />
+                    )}
                   {activePage === "lonely_canadian" &&
                     activeSection === "lonely_canadian_content" && (
                       <LonelyCanadianContent />
@@ -7482,7 +9570,10 @@ let AdminDashboard = () => {
                     activeSection === "lonely_canadian_meta" && (
                       <LonelyCanadianMeta />
                     )}
-
+{activePage === "lonely_canadian" &&
+                    activeSection === "lonely_canadian_faq" && (
+                      <LonelyCanadianFaq />
+                    )}
                   {activePage === "low_wage_lmia" &&
                     activeSection === "low_wage_lmia_content" && (
                       <LowWageLMIAContent />
@@ -7491,12 +9582,16 @@ let AdminDashboard = () => {
                     activeSection === "low_wage_lmia_meta" && (
                       <LowWageLMIAMeta />
                     )}
-
+{activePage === "low_wage_lmia" &&
+                    activeSection === "low_wage_lmia_faq" && (
+                      <LowWageLMIAFaq />
+                    )}
                   {activePage === "non_sds" &&
                     activeSection === "non_sds_content" && <NonSdsContent />}
                   {activePage === "non_sds" &&
                     activeSection === "non_sds_meta" && <NonSdsMeta />}
-
+{activePage === "non_sds" &&
+                    activeSection === "non_sds_faq" && <NonSdsFaq />}
                   {activePage === "open_work_dependent" &&
                     activeSection === "open_work_dependent_content" && (
                       <OpenWorkCanadaContent />
@@ -7505,7 +9600,10 @@ let AdminDashboard = () => {
                     activeSection === "open_work_dependent_meta" && (
                       <OpenWorkCanadaMeta />
                     )}
-
+{activePage === "open_work_dependent" &&
+                    activeSection === "open_work_dependent_faq" && (
+                      <OpenWorkCanadaFaq />
+                    )}
                   {activePage === "open_work_permit" &&
                     activeSection === "open_work_permit_content" && (
                       <OpenWorkPermitContent />
@@ -7514,7 +9612,10 @@ let AdminDashboard = () => {
                     activeSection === "open_work_permit_meta" && (
                       <OpenWorkPermitMeta />
                     )}
-
+{activePage === "open_work_permit" &&
+                    activeSection === "open_work_permit_faq" && (
+                      <OpenWorkPermitFaq />
+                    )}
                   {activePage === "open_work_permit_for_spousal" &&
                     activeSection ===
                     "open_work_permit_for_spousal_content" && (
@@ -7524,7 +9625,10 @@ let AdminDashboard = () => {
                     activeSection === "open_work_permit_for_spousal_meta" && (
                       <OpenWorkForSpousalInlandMeta />
                     )}
-
+{activePage === "open_work_permit_for_spousal" &&
+                    activeSection === "open_work_permit_for_spousal_faq" && (
+                      <OpenWorkForSpousalInlandFaq />
+                    )}
                   {activePage === "open_work_permit_vulnerable" &&
                     activeSection === "open_work_permit_vulnerable_content" && (
                       <OpenWorkVulnerableContent />
@@ -7533,12 +9637,16 @@ let AdminDashboard = () => {
                     activeSection === "open_work_permit_vulnerable_meta" && (
                       <OpenWorkVulnerableMeta />
                     )}
-
+{activePage === "open_work_permit_vulnerable" &&
+                    activeSection === "open_work_permit_vulnerable_faq" && (
+                      <OpenWorkVulnerableFaq />
+                    )}
                   {activePage === "orphan" &&
                     activeSection === "orphan_content" && <OrphanContent />}
                   {activePage === "orphan" &&
                     activeSection === "orphan_meta" && <OrphanMeta />}
-
+                  {activePage === "orphan" &&
+                    activeSection === "orphan_faq" && <OrphanFaq />}
                   {activePage === "outside_canada" &&
                     activeSection === "outside_canada_content" && (
                       <OutsideCanadaContent />
@@ -7547,7 +9655,10 @@ let AdminDashboard = () => {
                     activeSection === "outside_canada_meta" && (
                       <OutsideCanadaMeta />
                     )}
-
+{activePage === "outside_canada" &&
+                    activeSection === "outside_canada_faq" && (
+                      <OutsideCanadaFaq />
+                    )}
                   {activePage === "parents_grandparents" &&
                     activeSection === "parents_grandparents_content" && (
                       <ParentsGrandparentsContent />
@@ -7556,7 +9667,10 @@ let AdminDashboard = () => {
                     activeSection === "parents_grandparents_meta" && (
                       <ParentsGrandparentsMeta />
                     )}
-
+{activePage === "parents_grandparents" &&
+                    activeSection === "parents_grandparents_faq" && (
+                      <ParentsGrandparentsFaq />
+                    )}
                   {activePage === "pathways_for_caregiver" &&
                     activeSection === "pathways_for_caregiver_content" && (
                       <PathwaysForCaregiverContent />
@@ -7564,6 +9678,10 @@ let AdminDashboard = () => {
                   {activePage === "pathways_for_caregiver" &&
                     activeSection === "pathways_for_caregiver_meta" && (
                       <PathwaysForCaregiverMeta />
+                    )}
+{activePage === "pathways_for_caregiver" &&
+                    activeSection === "pathways_for_caregiver_faq" && (
+                      <PathwaysForCaregiverFaq />
                     )}
 
                   {activePage === "pr_pathways_for_caregiver" &&
@@ -7574,13 +9692,18 @@ let AdminDashboard = () => {
                     activeSection === "pr_pathways_for_caregiver_meta" && (
                       <PRPathwayCaregiverMeta />
                     )}
-
+{activePage === "pr_pathways_for_caregiver" &&
+                    activeSection === "pr_pathways_for_caregiver_faq" && (
+                      <PRPathwayCaregiverFaq />
+                    )}
                   {activePage === "pgwp" &&
                     activeSection === "pgwp_content" && <PGWP />}
                   {activePage === "pgwp" && activeSection === "pgwp_meta" && (
                     <PGWPMeta />
                   )}
-
+{activePage === "pgwp" && activeSection === "pgwp_faq" && (
+                    <PGWPFaq />
+                  )}
                   {activePage === "pilot_programs" &&
                     activeSection === "pilot_programs_content" && (
                       <PilotProgramContent />
@@ -7589,17 +9712,24 @@ let AdminDashboard = () => {
                     activeSection === "pilot_programs_meta" && (
                       <PilotProgramMeta />
                     )}
-
+{activePage === "pilot_programs" &&
+                    activeSection === "pilot_programs_faq" && (
+                      <PilotProgramFaq />
+                    )}
                   {activePage === "pnp_page" &&
                     activeSection === "pnp_page_content" && <PnpContent />}
                   {activePage === "pnp_page" &&
                     activeSection === "pnp_page_meta" && <PnpMeta />}
-
+{activePage === "pnp_page" &&
+                    activeSection === "pnp_page_faq" && <PnpFaq />}
                   {activePage === "previous_draw_history" &&
                     activeSection === "previous_draw_history_meta" && (
                       <PreviousDrawHistoryMeta />
                     )}
-
+{activePage === "previous_draw_history" &&
+                    activeSection === "previous_draw_history_faq" && (
+                      <PreviousDrawHistoryFaq />
+                    )}
                   {activePage === "priorities_program" &&
                     activeSection === "priorities_program_content" && (
                       <PrioritiesProgramContent />
@@ -7608,14 +9738,18 @@ let AdminDashboard = () => {
                     activeSection === "priorities_program_meta" && (
                       <PrioritiesProgramMeta />
                     )}
-
+ {activePage === "priorities_program" &&
+                    activeSection === "priorities_program_faq" && (
+                      <PrioritiesProgramFaq />
+                    )}
                   {activePage === "pr_renewal" &&
                     activeSection === "pr_renewal_content" && (
                       <PrRenewalContent />
                     )}
                   {activePage === "pr_renewal" &&
                     activeSection === "pr_renewal_meta" && <PrRenewalMeta />}
-
+{activePage === "pr_renewal" &&
+                    activeSection === "pr_renewal_faq" && <PrRenewalFaq />}
                   {activePage === "restoration_status" &&
                     activeSection === "restoration_status_content" && (
                       <RestorationContent />
@@ -7624,7 +9758,10 @@ let AdminDashboard = () => {
                     activeSection === "restoration_status_meta" && (
                       <RestorationMeta />
                     )}
-
+{activePage === "restoration_status" &&
+                    activeSection === "restoration_status_faq" && (
+                      <RestorationFaq />
+                    )}
                   {activePage === "reconsideration" &&
                     activeSection === "reconsideration_content" && (
                       <ReconsiderationContent />
@@ -7633,6 +9770,10 @@ let AdminDashboard = () => {
                     activeSection === "reconsideration_meta" && (
                       <ReconsiderationMeta />
                     )}
+{activePage === "reconsideration" &&
+                    activeSection === "reconsideration_faq" && (
+                      <ReconsiderationFaq />
+                    )}
 
                   {activePage === "reply_to_pfl" &&
                     activeSection === "reply_to_pfl_content" && (
@@ -7640,25 +9781,31 @@ let AdminDashboard = () => {
                     )}
                   {activePage === "reply_to_pfl" &&
                     activeSection === "reply_to_pfl_meta" && <ReplyToPFLMeta />}
-
+{activePage === "reply_to_pfl" &&
+                    activeSection === "reply_to_pfl_faq" && <ReplyToPFLFaq />}
                   {activePage === "rnip" &&
                     activeSection === "rnip_content" && <RnipContent />}
                   {activePage === "rnip" && activeSection === "rnip_meta" && (
                     <RnipMeta />
                   )}
-
+{activePage === "rnip" && activeSection === "rnip_faq" && (
+                    <RnipFaq />
+                  )}
                   {activePage === "same_sex" &&
                     activeSection === "same_sex_content" && <SamesexContent />}
                   {activePage === "same_sex" &&
                     activeSection === "same_sex_meta" && <SamesexMeta />}
-
+{activePage === "same_sex" &&
+                    activeSection === "same_sex_faq" && <SamesexFaq />}
                   {activePage === "sds" && activeSection === "sds_content" && (
                     <SdsContent />
                   )}
                   {activePage === "sds" && activeSection === "sds_meta" && (
                     <SdsMeta />
                   )}
-
+{activePage === "sds" && activeSection === "sds_faq" && (
+                    <SdsFaq />
+                  )}
                   {activePage === "skilled_worker_stream" &&
                     activeSection === "skilled_worker_stream_content" && (
                       <SkilledWorkerStreamContent />
@@ -7667,7 +9814,10 @@ let AdminDashboard = () => {
                     activeSection === "skilled_worker_stream_meta" && (
                       <SkilledWorkerStreamMeta />
                     )}
-
+{activePage === "skilled_worker_stream" &&
+                    activeSection === "skilled_worker_stream_faq" && (
+                      <SkilledWorkerStreamFaq />
+                    )}
                   {activePage === "spousal_open_work_permit" &&
                     activeSection === "spousal_open_work_permit_content" && (
                       <SpousalOpenWorkPermitContent />
@@ -7676,7 +9826,10 @@ let AdminDashboard = () => {
                     activeSection === "spousal_open_work_permit_meta" && (
                       <SpousalOpenWorkPermitMeta />
                     )}
-
+{activePage === "spousal_open_work_permit" &&
+                    activeSection === "spousal_open_work_permit_faq" && (
+                      <SpousalOpenWorkPermitFaq />
+                    )}
                   {activePage === "spose_common_law_spon" &&
                     activeSection === "spose_common_law_spon_content" && (
                       <SpousalCommonLawSponContent />
@@ -7685,7 +9838,10 @@ let AdminDashboard = () => {
                     activeSection === "spose_common_law_spon_meta" && (
                       <SpousalCommonLawSponMeta />
                     )}
-
+{activePage === "spose_common_law_spon" &&
+                    activeSection === "spose_common_law_spon_faq" && (
+                      <SpousalCommonLawSponFaq />
+                    )}
                   {activePage === "spousal_inland" &&
                     activeSection === "spousal_inland_content" && (
                       <SpouseInlandContent />
@@ -7693,6 +9849,10 @@ let AdminDashboard = () => {
                   {activePage === "spousal_inland" &&
                     activeSection === "spousal_inland_meta" && (
                       <SpouseInlandMeta />
+                    )}
+{activePage === "spousal_inland" &&
+                    activeSection === "spousal_inland_faq" && (
+                      <SpouseInlandFaq />
                     )}
 
                   {activePage === "spousal_outland" &&
@@ -7703,7 +9863,10 @@ let AdminDashboard = () => {
                     activeSection === "spousal_outland_meta" && (
                       <SpouseOutlandMeta />
                     )}
-
+{activePage === "spousal_outland" &&
+                    activeSection === "spousal_outland_faq" && (
+                      <SpouseOutlandFaq />
+                    )}
                   {activePage === "stem_target" &&
                     activeSection === "stem_target_content" && (
                       <StemTargetedDrawContent />
@@ -7712,7 +9875,10 @@ let AdminDashboard = () => {
                     activeSection === "stem_target_meta" && (
                       <StemTargetedDrawMeta />
                     )}
-
+{activePage === "stem_target" &&
+                    activeSection === "stem_target_faq" && (
+                      <StemTargetedDrawFaq />
+                    )}
                   {activePage === "student_visa" &&
                     activeSection === "student_visa_content" && (
                       <StudentVisaContent />
@@ -7720,6 +9886,10 @@ let AdminDashboard = () => {
                   {activePage === "student_visa" &&
                     activeSection === "student_visa_meta" && (
                       <StudentVisaMeta />
+                    )}
+{activePage === "student_visa" &&
+                    activeSection === "student_visa_faq" && (
+                      <StudentVisaFaq />
                     )}
 
                   {activePage === "study_permit_minors" &&
@@ -7730,14 +9900,18 @@ let AdminDashboard = () => {
                     activeSection === "study_permit_minors_meta" && (
                       <StudyPermitMinorsMeta />
                     )}
-
+{activePage === "study_permit_minors" &&
+                    activeSection === "study_permit_minors_faq" && (
+                      <StudyPermitMinorsFaq />
+                    )}
                   {activePage === "super_visa" &&
                     activeSection === "super_visa_content" && (
                       <SuperVisaContent />
                     )}
                   {activePage === "super_visa" &&
                     activeSection === "super_visa_meta" && <SuperVisaMeta />}
-
+{activePage === "super_visa" &&
+                    activeSection === "super_visa_faq" && <SuperVisaFaq />}
                   {activePage === "temp" &&
                     activeSection === "temp_content" && (
                       <TemporaryResidencyContent />
@@ -7745,7 +9919,9 @@ let AdminDashboard = () => {
                   {activePage === "temp" && activeSection === "temp_meta" && (
                     <TemporaryResidencyMeta />
                   )}
-
+{activePage === "temp" && activeSection === "temp_faq" && (
+                    <TemporaryResidencyFaq />
+                  )}
                   {activePage === "temp_per" &&
                     activeSection === "temp_per_content" && (
                       <TemporaryResidencyPermitContent />
@@ -7754,7 +9930,10 @@ let AdminDashboard = () => {
                     activeSection === "temp_per_meta" && (
                       <TemporaryResidencyPermitMeta />
                     )}
-
+{activePage === "temp_per" &&
+                    activeSection === "temp_per_faq" && (
+                      <TemporaryResidencyPermitFaq />
+                    )}
                   {activePage === "trade_occu" &&
                     activeSection === "trade_occu_content" && (
                       <TradeOccupationContent />
@@ -7763,7 +9942,10 @@ let AdminDashboard = () => {
                     activeSection === "trade_occu_meta" && (
                       <TradeOccupationMeta />
                     )}
-
+{activePage === "trade_occu" &&
+                    activeSection === "trade_occu_faq" && (
+                      <TradeOccupationFaq />
+                    )}
                   {activePage === "trans_occu" &&
                     activeSection === "trans_occu_content" && (
                       <TransportOccupationTarContent />
@@ -7772,7 +9954,10 @@ let AdminDashboard = () => {
                     activeSection === "trans_occu_meta" && (
                       <TransportOccupationTarMeta />
                     )}
-
+{activePage === "trans_occu" &&
+                    activeSection === "trans_occu_faq" && (
+                      <TransportOccupationTarFaq />
+                    )}
                   {activePage === "visi_stu" &&
                     activeSection === "visi_stu_content" && (
                       <VisitorToStudentContent />
@@ -7781,21 +9966,26 @@ let AdminDashboard = () => {
                     activeSection === "visi_stu_meta" && (
                       <VisitorToStudentMeta />
                     )}
-
+{activePage === "visi_stu" &&
+                    activeSection === "visi_stu_faq" && (
+                      <VisitorToStudentFaq />
+                    )}
                   {activePage === "visi_visa" &&
                     activeSection === "visi_visa_content" && (
                       <VisitorVisaContent />
                     )}
                   {activePage === "visi_visa" &&
                     activeSection === "visi_visa_meta" && <VisitorVisaMeta />}
-
+{activePage === "visi_visa" &&
+                    activeSection === "visi_visa_faq" && <VisitorVisaFaq />}
                   {activePage === "work_per" &&
                     activeSection === "work_per_content" && (
                       <WorkPermitContent />
                     )}
                   {activePage === "work_per" &&
                     activeSection === "work_per_meta" && <WorkPermitMeta />}
-
+{activePage === "work_per" &&
+                    activeSection === "work_per_faq" && <WorkPermitFaq />}
                   {activePage === "permanent_residency" &&
                     activeSection === "permanent_residency_content" && (
                       <PermanentResidencyContent />
@@ -7803,6 +9993,10 @@ let AdminDashboard = () => {
                   {activePage === "permanent_residency" &&
                     activeSection === "permanent_residency_meta" && (
                       <PermanentResidencyMeta />
+                    )}
+                    {activePage === "permanent_residency" &&
+                    activeSection === "permanent_residency_faq" && (
+                      <PermanentResidencyFaq />
                     )}
                 </div>
               </div>

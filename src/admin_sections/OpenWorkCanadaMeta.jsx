@@ -74,7 +74,7 @@ let OpenWorkCanadaMeta = () => {
       return;
     }
 
-    fetch(`https://brightlight-node.onrender.com/openWorkDependentChildMeta/${metaData._id}`, {
+    fetch(`https://brightlight-node.onrender.com/openWorkDependentChildFaq/${metaData._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +102,7 @@ let OpenWorkCanadaMeta = () => {
   };
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/openWorkDependentChildMeta")
+    fetch("https://brightlight-node.onrender.com/openWorkDependentChildFaq")
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {

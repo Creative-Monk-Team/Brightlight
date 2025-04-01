@@ -5,7 +5,9 @@ import deleteIcon from "../assets/delete.png";
 import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Image from "next/image";
-const ContactFaq = () => {
+
+
+let TradeOccupationFaq = () => {
   let notifySuccess = () => {
     toast.success("Success", {
       position: "top-center",
@@ -86,7 +88,7 @@ const ContactFaq = () => {
       return;
     }
 
-    fetch(`https://brightlight-node.onrender.com/contact-faq/${FaqData._id}`, {
+    fetch(`https://brightlight-node.onrender.com/tradeOccupationTargDrawFaq/${FaqData._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -114,7 +116,7 @@ const ContactFaq = () => {
   };
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/contact-faq")
+    fetch("https://brightlight-node.onrender.com/tradeOccupationTargDrawFaq")
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {
@@ -183,4 +185,4 @@ const ContactFaq = () => {
   );
 };
 
-export default ContactFaq;
+export default TradeOccupationFaq;
