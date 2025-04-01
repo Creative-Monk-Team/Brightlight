@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "../context/AuthContext";
 import Loader from "../components/Loader";
 import FloatingButton from "../components/FloatingButton";
+import Head from "next/head";
+import Script from "next/script"; // Import Next.js Script component
 
 function MyApp({ Component, pageProps }) {
   const [redirectsData, setRedirectsData] = useState([]);
@@ -14,7 +16,9 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     async function fetchRedirects() {
       try {
-        const response = await fetch("https://brightlight-node.onrender.com/redirects");
+        const response = await fetch(
+          "https://brightlight-node.onrender.com/redirects"
+        );
         if (!response.ok) throw new Error("API Response Not OK");
 
         const data = await response.json();
@@ -55,9 +59,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const updateBackgroundColor = () => {
       document.body.style.backgroundColor =
-        window.location.pathname === "/admin"
-          ? "rgb(241, 241, 241)"
-          : "white";
+        window.location.pathname === "/admin" ? "rgb(241, 241, 241)" : "white";
     };
 
     updateBackgroundColor();
@@ -72,14 +74,35 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <HelmetProvider>
-      <ToastContainer />
-      <Loader />
-      <AuthProvider>
-        <Component {...pageProps} />
-      </AuthProvider>
-      <FloatingButton />
-    </HelmetProvider>
+    <>
+
+      {/* Google Analytics Script */}
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-LMQ3S0MVPW"
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LMQ3S0MVPW');
+          `,
+        }}
+      />
+
+      <HelmetProvider>
+        <ToastContainer />
+        <Loader />
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
+        <FloatingButton />
+      </HelmetProvider>
+    </>
   );
 }
 
