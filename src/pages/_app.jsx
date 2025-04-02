@@ -18,25 +18,19 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     async function fetchRedirects() {
       try {
-        const response = await fetch(
-          "https://brightlight-node.onrender.com/redirects"
-        );
+        const response = await fetch("https://brightlight-node.onrender.com/redirects");
         if (!response.ok) throw new Error("API Response Not OK");
 
         const data = await response.json();
         if (!data || !Array.isArray(data) || data.length === 0) return;
 
-        let mappedData = [];
-        for (let i = 1; i <= 99; i++) {
-          let redirectFromKey = `redirectFrom${i}`;
-          let redirectToKey = `redirectTo${i}`;
-          if (data[0]?.[redirectFromKey] && data[0]?.[redirectToKey]) {
-            mappedData.push({
-              from: data[0][redirectFromKey],
-              to: data[0][redirectToKey],
-            });
-          }
-        }
+        const mappedData = Object.keys(data[0])
+          .filter((key) => key.startsWith("redirectFrom"))
+          .map((key) => ({
+            from: data[0][key],
+            to: data[0][key.replace("redirectFrom", "redirectTo")],
+          }))
+          .filter((redirect) => redirect.from && redirect.to);
 
         if (mappedData.length > 0) setRedirectsData(mappedData);
       } catch (error) {
@@ -48,14 +42,19 @@ function MyApp({ Component, pageProps }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+
   // Apply Redirects Without Infinite Loops
   useEffect(() => {
     redirectsData.forEach((redirect) => {
-      if (window.location.pathname === redirect.from) {
+      if (
+        window.location.pathname === redirect.from &&
+        window.location.pathname !== `/${redirect.to}`
+      ) {
         window.history.replaceState(null, "", `/${redirect.to}`);
       }
     });
   }, [redirectsData]);
+
 
   // Handle Background Color Change
   useEffect(() => {
@@ -95,12 +94,11 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       />
-
+      <DefaultSeo {...SEO} />
       <HelmetProvider>
         <ToastContainer />
         <Loader />
         <AuthProvider>
-          <DefaultSeo {...SEO} />
           <Component {...pageProps} />
         </AuthProvider>
         <FloatingButton />
