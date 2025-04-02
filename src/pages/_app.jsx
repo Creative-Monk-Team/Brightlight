@@ -8,6 +8,8 @@ import Loader from "../components/Loader";
 import FloatingButton from "../components/FloatingButton";
 import Head from "next/head";
 import Script from "next/script"; // Import Next.js Script component
+import { DefaultSeo } from 'next-seo';
+import SEO from "../../seo-config";
 
 function MyApp({ Component, pageProps }) {
   const [redirectsData, setRedirectsData] = useState([]);
@@ -98,6 +100,7 @@ function MyApp({ Component, pageProps }) {
         <ToastContainer />
         <Loader />
         <AuthProvider>
+          <DefaultSeo {...SEO} />
           <Component {...pageProps} />
         </AuthProvider>
         <FloatingButton />
