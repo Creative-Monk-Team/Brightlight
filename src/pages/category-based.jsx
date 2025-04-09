@@ -211,7 +211,7 @@ const handleScroll = () => {
       </div>
 
       <div className={styles.eligibleParent} id="categories">
-        <h1>{data?.drawsHeading}</h1>
+        <h2>{data?.drawsHeading}</h2>
         <div className={styles.container}>
           <div className={styles.column}>
             <ul>
@@ -272,7 +272,7 @@ const handleScroll = () => {
 
       <div className={styles.categoryBasedParent}>
         <div className={styles.categoryBasedMain}>
-          <h1>{data?.workHeading}</h1>
+          <h2>{data?.workHeading}</h2>
           <div className={styles.categoryBasedContentParent}>
             <div className={styles.categoryBasedContent}>
               <p>{data?.workDescription}</p>
@@ -286,7 +286,7 @@ const handleScroll = () => {
 
       <div className={styles.eligibilityParent} id="eligibility">
         <div className={styles.eligibilityMain}>
-          <h1>{data?.eligibilityHeading}</h1>
+          <h2>{data?.eligibilityHeading}</h2>
           <h3>{data?.eligibilitySubHeading}</h3>
 
           <p className={styles.eligibilityPara}>

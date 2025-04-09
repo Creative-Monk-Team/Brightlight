@@ -845,8 +845,8 @@ let HomePage = ({metaData}) => {
       <div className={styles.aspectsParent}>
         <div className={styles.aspectsMain}>
           <div className={styles.aspectsHeading}>
-            <h1>{achiementsData?.heading}</h1>
-            <h2>{achiementsData?.description}</h2>
+            <h2>{achiementsData?.heading}</h2>
+            <p>{achiementsData?.description}</p>
           </div>
 
           <div className={styles.aspectsCardParent} ref={aspectsCardParentRef}>
@@ -861,9 +861,9 @@ let HomePage = ({metaData}) => {
               // Arbitrary number, Next.js auto-adjusts it
 
               />
-              <h1>
+              <h2>
                 <Odometer value={achiementsData?.achievement1Numbers} />+
-              </h1>
+              </h2>
               <p>{achiementsData?.achievement1Heading}</p>
             </div>
             <div
@@ -877,9 +877,9 @@ let HomePage = ({metaData}) => {
               // Arbitrary number, Next.js auto-adjusts it
 
               />
-              <h1>
+              <h2>
                 <Odometer value={achiementsData?.achievement2Numbers} />+
-              </h1>
+              </h2>
               <p>{achiementsData?.achievement2Heading}</p>
             </div>
             <div
@@ -893,9 +893,9 @@ let HomePage = ({metaData}) => {
               // Arbitrary number, Next.js auto-adjusts it
 
               />
-              <h1>
+              <h2>
                 <Odometer value={achiementsData?.achievement3Numbers} />+
-              </h1>
+              </h2>
               <p>{achiementsData?.achievement3Heading}</p>
             </div>
           </div>

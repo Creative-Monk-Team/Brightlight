@@ -195,7 +195,7 @@ const ExpressEntry = ({metaData}) => {
       </div>
 
       <div className={styles.benefits}>
-        <h1>{pData?.BenifitsHeading}</h1>
+        <h2>{pData?.BenifitsHeading}</h2>
         <ul style={{ marginLeft: "40px" }}>
           <li>{pData?.b1}</li>
           <li> {pData?.b2}</li>
@@ -205,7 +205,7 @@ const ExpressEntry = ({metaData}) => {
       </div>
 
       <div id="eligibility" className={styles.eligibleParent}>
-        <h1>{data?.eligibilityHeading}</h1>
+        <h2>{data?.eligibilityHeading}</h2>
         <p>{data?.eligibilityDescription}</p>
 
         <div className={styles.eligibleCardParent}>
@@ -254,7 +254,7 @@ const ExpressEntry = ({metaData}) => {
 
       <div id="draw-history" className={styles.additionGrandParent}>
         <div className={styles.additionParent}>
-          <h1>{data?.drawHeading}</h1>
+          <h2>{data?.drawHeading}</h2>
           <div className={styles.additionCardParent}>
             {data?.draw1 && (
               <div
@@ -299,7 +299,7 @@ const ExpressEntry = ({metaData}) => {
       <div id="advantages" className={styles.advantagesParent}>
         <div className={styles.advantages}>
           <div className={styles.advantagesHeading}>
-            <h1>{data?.advantageHeading}</h1>
+            <h2>{data?.advantageHeading}</h2>
           </div>
           <div className={styles.advantagesPara}>
             <p>{data?.advantageDescription}</p>
@@ -323,7 +323,7 @@ const ExpressEntry = ({metaData}) => {
       <div id="refusal-reason" className={styles.forgetParent}>
         <div className={styles.forgetMain}>
           <div className={styles.forgetHeading}>
-            <h1>{data?.refusalHeading}</h1>
+            <h2>{data?.refusalHeading}</h2>
           </div>
           <div className={styles.forgetListParent}>
             <ul

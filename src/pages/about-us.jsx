@@ -359,7 +359,7 @@ let About = ({metaData}) => {
                <img src={"/assets/brightlight-main-logo.webp"} />
           </div>
           <div className={styles.aboutHeading}>
-            <h1>{topSectionData?.heading}</h1>
+            <h2>{topSectionData?.heading}</h2>
           </div>
           <div className={styles.aboutUsFeaturesSection}>
             <div className={styles.aboutUsFeature}>
@@ -383,7 +383,7 @@ let About = ({metaData}) => {
           <div className={`${styles.foundationInside} ${styles.foundation1}`}>
                <Image loading="lazy" height={50} width={100} src={foundationImage?.image} />
             <div className={`${styles.designContent} ${styles.designContent1}`}>
-              <h1>{foundationSection?.heading}</h1>
+              <h2>{foundationSection?.heading}</h2>
               <h3 className={styles.borderBottomFoundation}>
                 {foundationSection?.headline1}
               </h3>
@@ -407,7 +407,7 @@ let About = ({metaData}) => {
                  <Image loading="lazy" height={50} width={100} src={visionImage?.image} />
             </div>
             <div className={styles.designContent}>
-              <h1>{visionSection?.heading}</h1>
+              <h2>{visionSection?.heading}</h2>
               <h3>{visionSection?.headline1}</h3>
               <hr />
               <h3>{visionSection?.headline2}</h3>
@@ -450,12 +450,12 @@ let About = ({metaData}) => {
 
       <div ref={directorsRef} className={`${styles.meetDirectorsParent} ${styles.hidden}`}>
       <div className={styles.meetDirectorMain}>
-          <h1>{directorsSection?.heading}</h1>
+          <h2>{directorsSection?.heading}</h2>
         </div>
         {directorsSection?.d1name && directorsSection?.d1image ? (
           <div className={styles.thedirectors}>
             <div className={styles.meetDirectorimgContent}>
-              <h1>{directorsSection?.d1name}</h1>
+              <h2>{directorsSection?.d1name}</h2>
               <h3>{directorsSection?.d1designation}</h3>
               <p>{directorsSection?.d1description}</p>
             </div>
@@ -472,7 +472,7 @@ let About = ({metaData}) => {
                  <Image loading="lazy" height={50} width={100} src={directorsSection?.d2image} />
             </div>
             <div className={styles.meetDirectorimgContent}>
-              <h1>{directorsSection?.d2name}</h1>
+              <h2>{directorsSection?.d2name}</h2>
               <h3>{directorsSection?.d2designation}</h3>
               <p>{directorsSection?.d2description}</p>
             </div>
@@ -482,7 +482,7 @@ let About = ({metaData}) => {
         {directorsSection?.d3name && directorsSection?.d3image ? (
           <div className={styles.thedirectors}>
             <div className={styles.meetDirectorimgContent}>
-              <h1>{directorsSection?.d3name}</h1>
+              <h2>{directorsSection?.d3name}</h2>
               <h3>{directorsSection?.d3designation}</h3>
               <p>{directorsSection?.d3description}</p>
             </div>
@@ -499,7 +499,7 @@ let About = ({metaData}) => {
                  <Image loading="lazy" height={50} width={100} src={directorsSection?.d4image} />
             </div>
             <div className={styles.meetDirectorimgContent}>
-              <h1>{directorsSection?.d4name}</h1>
+              <h2>{directorsSection?.d4name}</h2>
               <h3>{directorsSection?.d4designation}</h3>
               <p>{directorsSection?.d4description}</p>
             </div>
@@ -509,7 +509,7 @@ let About = ({metaData}) => {
         {directorsSection?.d5name && directorsSection?.d5image ? (
           <div className={styles.thedirectors}>
             <div className={styles.meetDirectorimgContent}>
-              <h1>{directorsSection?.d5name}</h1>
+              <h2>{directorsSection?.d5name}</h2>
               <h3>{directorsSection?.d5designation}</h3>
               <p>{directorsSection?.d5description}</p>
             </div>
@@ -532,7 +532,7 @@ let About = ({metaData}) => {
         <p className={styles.andSymbol}>&</p>
         <div className={styles.ourAchivementSection}>
           <div className={styles.ourAchivementHeading}>
-            <h1>{achievements?.heading}</h1>
+            <h2>{achievements?.heading}</h2>
           </div>
 
           <div className={styles.ourAchivementCardParent}>
@@ -561,7 +561,7 @@ let About = ({metaData}) => {
 
       <div className={styles.socialPresenceParent}>
       <div className={styles.socialPresence}>
-          <h1>{socialMediaData?.heading}</h1>
+          <h2>{socialMediaData?.heading}</h2>
           <p>{socialMediaData?.description1}</p>
 
           <p>{socialMediaData?.description2}</p>
@@ -615,7 +615,7 @@ let About = ({metaData}) => {
         style={{ backgroundImage: `url(${globallyImg?.image})` }}
       >
        <div ref={globallyRef} className={`${styles.vancouver} ${styles.hidden}`}>
-          <h1>{globallyData?.heading}</h1>
+          <h2>{globallyData?.heading}</h2>
         </div>
       </div>
 
