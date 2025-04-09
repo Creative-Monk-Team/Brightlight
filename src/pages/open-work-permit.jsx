@@ -184,7 +184,7 @@ const handleScroll = () => {
             ref={(el) => (sectionsRef.current[0] = el)}
           >
             <header className={styles.header}>
-              <h1>{pData?.openWorkPermitHeading}</h1>
+              <h2>{pData?.openWorkPermitHeading}</h2>
               <p>
               {pData?.WhatIsPara}
               </p>

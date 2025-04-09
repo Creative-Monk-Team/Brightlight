@@ -112,7 +112,7 @@ const Testimonials = () => {
   return (
     <div className={styles.testimonialsSection}>
       <div className={styles.testimonialsContentSection}>
-        <h1>{data?.heading}</h1>
+        <h2>{data?.heading}</h2>
         <div className={styles.googleImageSection}>
           <Image loading="lazy"
             src={google}

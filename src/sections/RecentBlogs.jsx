@@ -181,7 +181,7 @@ const RecentBlogs = () => {
   return (
     <div className={styles.recentBlogs}>
       <div className={styles.recentBlogMainSection}>
-        <h1>Featured Blogs</h1>
+        <h2>Featured Blogs</h2>
         <div className={styles.blogsGridSection}>
           {blogs.map((item, index) => (
             <Link

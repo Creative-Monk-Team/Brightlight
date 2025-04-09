@@ -59,7 +59,7 @@ let FAQ = () => {
             <p>?</p>
           </div>
           <div className={styles.faqQuestionsParentSection}>
-            <h1>{faqHeading ? faqHeading : null}</h1>
+            <h2>{faqHeading ? faqHeading : null}</h2>
             <div className={styles.questions}>
               {faqData?.map((item, index) => {
                 return (

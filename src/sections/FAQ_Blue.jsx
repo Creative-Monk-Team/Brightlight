@@ -56,7 +56,7 @@ const FAQ_Blue = () => {
         <div className={styles.faqQuestionSection}>
           <div className={styles.questionMarkSection}></div>
           <div className={styles.faqQuestionsParentSection}>
-            <h1>{faqHeading ? faqHeading : null}</h1>
+            <h2>{faqHeading ? faqHeading : null}</h2>
             <div className={styles.questions}>
               {faqData?.map((item, index) => {
                 return (
@@ -84,7 +84,7 @@ const FAQ_Blue = () => {
         <div className={styles.faqQuestionSection}>
           <div className={styles.questionMarkSection}></div>
           <div className={styles.faqQuestionsParentSection}>
-            <h1>{faqHeading}</h1>
+            <h2>{faqHeading}</h2>
             <div className={styles.questions}>
               {faqData.map((item, index) => (
                 <div key={index}>

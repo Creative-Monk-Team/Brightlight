@@ -308,7 +308,7 @@ const Testimonials_White = () => {
   return (
     <div className={styles.testimonialsSection}>
       <div className={styles.testimonialsContentSection}>
-        <h1>{data?.heading}</h1>
+        <h2>{data?.heading}</h2>
         <div className={styles.googleImageSection}>
              <Image loading="lazy" height={50} width={100}    // Arbitrary number, Next.js auto-adjusts it
      src={google}  alt="Google" title="Google" />

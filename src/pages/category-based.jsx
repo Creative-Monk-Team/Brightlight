@@ -322,7 +322,7 @@ const handleScroll = () => {
 
       <div className={styles.benifitParent} id="benefits">
         <div className={styles.benifitMain}>
-          {data?.benefitsHeading ? <h1>{data?.benefitsHeading}</h1> : null}
+          {data?.benefitsHeading ? <h2>{data?.benefitsHeading}</h2> : null}
 
           <div className={styles.benifitlistParent}>
             <ul style={{ marginLeft: "40px", fontSize: "22px" }}>
@@ -336,7 +336,7 @@ const handleScroll = () => {
 
       <div className={styles.howApplyParent} id="HowItWorks">
         <div className={styles.howApplyMain}>
-          {data?.applyHeading ? <h1>{data?.applyHeading}</h1> : null}
+          {data?.applyHeading ? <h2>{data?.applyHeading}</h2> : null}
           {data?.applyDescription ? <h4>{data?.applyDescription}</h4> : null}
 
           <div className={styles.stepsGrid}>
@@ -426,7 +426,7 @@ const handleScroll = () => {
 
       <div className={styles.refusalParent} id="refusal-reasons">
         <div className={styles.refusalMain}>
-          {data?.refusalHeading ? <h1>{data?.refusalHeading}</h1> : null}
+          {data?.refusalHeading ? <h2>{data?.refusalHeading}</h2> : null}
           {data?.refusalDescription ? (
             <h3>{data?.refusalDescription}</h3>
           ) : null}
@@ -477,7 +477,7 @@ const handleScroll = () => {
 
       <div className={styles.appointementParent}>
         <div className={styles.appointementMain} id="book-Appointment">
-          {data?.bookHeading ? <h1>{data?.bookHeading}</h1> : null}
+          {data?.bookHeading ? <h2>{data?.bookHeading}</h2> : null}
 
           {data?.bookSubHeading ? <h5>{data?.bookSubHeading}</h5> : null}
           {data?.bookDescription ? <p>{data?.bookDescription}</p> : null}

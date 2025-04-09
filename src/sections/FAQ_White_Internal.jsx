@@ -43,7 +43,7 @@ let FAQ_White_Internal = ({ data }) => {
                 <p>?</p>
               </div>
               <div className={styles.faqQuestionsParentSection}>
-                <h1>{faqHeading}</h1>
+                <h2>{faqHeading}</h2>
                 <div className={styles.questions}>
                   {faqData.map((item, index) => (
                     <div
@@ -72,7 +72,7 @@ let FAQ_White_Internal = ({ data }) => {
                 <p>?</p>
               </div>
               <div className={styles.faqQuestionsParentSection}>
-                <h1>{faqHeading}</h1>
+                <h2>{faqHeading}</h2>
                 <div className={styles.questions}>
                   {faqData.map((item, index) => (
                     <>

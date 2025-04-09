@@ -86,7 +86,7 @@ let Blogs = () => {
         <div className={styles.blogsTopSection}>
              <Image loading="lazy" height={50} width={100}       src={brightBlogs} alt="Bright Blogs" />
           <div className={styles.blogsHeading}>
-            <h1>{data?.heading}</h1>
+            <h2>{data?.heading}</h2>
             <p>{data?.description}</p>
           </div>
         </div>

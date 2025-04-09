@@ -367,7 +367,7 @@ const ExpressEntry = ({metaData}) => {
       <div id="appointment" className={styles.incaseParent}>
         <div className={styles.incaseMain}>
           <div className={styles.incaseContent}>
-            <h1>{data?.appointmentHeading}</h1>
+            <h2>{data?.appointmentHeading}</h2>
             <p>{data?.appointmentDescription}</p>
             <button
               className={styles.button}

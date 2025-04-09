@@ -911,7 +911,7 @@ let HomePage = ({metaData}) => {
               />
             </div>
             <div>
-              {newsSectionData && <h1>{newsSectionData.heading}</h1>}
+              {newsSectionData && <h2>{newsSectionData.heading}</h2>}
               {newsSectionData && <p>{newsSectionData.description}</p>}
             </div>
           </div>
@@ -967,7 +967,7 @@ let HomePage = ({metaData}) => {
                     <div className={styles.sourceContentDate}>
                       <p>{item.tag_1}</p>
                       <h2>{monthName(item.date)}</h2>
-                      <h1>{date}</h1>
+                      <h2>{date}</h2>
                     </div>
                     <div className={styles.sourceContentData}>
                       <h3>{item.news_heading}</h3>
