@@ -8,7 +8,7 @@ import Loader from "../components/Loader";
 import FloatingButton from "../components/FloatingButton";
 import Head from "next/head";
 import Script from "next/script"; // Import Next.js Script component
-import { DefaultSeo } from 'next-seo';
+import { DefaultSeo, LogoJsonLd } from 'next-seo';
 import SEO from "../../seo-config";
 import { useRouter } from "next/router";
 
@@ -137,7 +137,26 @@ function MyApp({ Component, pageProps }) {
         />
       </noscript>
 
-      <DefaultSeo {...SEO} />
+      <DefaultSeo
+        titleTemplate="%s | Brightlight"
+        defaultTitle="Brightlight"
+        openGraph={{
+          type: 'website',
+          locale: 'en_IE',
+          url: 'https://www.brightlightimmigration.ca/',
+          siteName: 'Brightlight Immigration',
+        }}
+        twitter={{
+          handle: '@handle',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+      />
+
+      <LogoJsonLd
+        logo="https://www.brightlightimmigration.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbrlightlight-icon.a58008c2.webp&w=256&q=75"
+        url="https://www.brightlightimmigration.ca/"
+      />
       <HelmetProvider>
         <ToastContainer />
         <Loader />
