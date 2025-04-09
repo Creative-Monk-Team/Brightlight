@@ -157,6 +157,33 @@ function MyApp({ Component, pageProps }) {
         logo="https://www.brightlightimmigration.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbrlightlight-icon.a58008c2.webp&w=256&q=75"
         url="https://www.brightlightimmigration.ca/"
       />
+
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Brightlight Immigration",
+            "image": "https://www.brightlightimmigration.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbrlightlight-icon.a58008c2.webp&w=256&q=75",
+            "url": "https://www.brightlightimmigration.ca/",
+            "telephone": "+1(604)5033734",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "15315 66 Ave unit 327",
+              "addressLocality": "Surrey",
+              "addressRegion": "BC",
+              "postalCode": "V3S 2A1",
+              "addressCountry": "CA"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "priceRange": "$$"
+          })
+        }}
+      />
+
       <HelmetProvider>
         <ToastContainer />
         <Loader />
