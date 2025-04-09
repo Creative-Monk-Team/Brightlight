@@ -171,12 +171,14 @@ let Achievements = () => {
              <Image loading="lazy" height={50} width={100}
             className={styles.existingImageSmall}
             src={sectionDataSingle[`achievement${num}SVG`]}
+            alt="achievement"
           />
           <input
             name={`achievement${num}SVG`}
             type="file"
             onChange={handleInputChange}
             disabled={!editMode}
+            
           />
         </div>
       ))}
@@ -188,6 +190,7 @@ let Achievements = () => {
               src={update}
               className={styles.updateIcon}
               onClick={handleUpdateClick}
+              alt="achievement"
             />
           </>
         ) : (
@@ -195,6 +198,7 @@ let Achievements = () => {
             src={editIcon}
             className={styles.editIcon}
             onClick={handleEditClick}
+            alt="achievement"
           />
         )}
       </div>

@@ -232,7 +232,7 @@ const AllNews = () => {
             <div key={blog._id} className={styles.blogItem}>
               <div className={styles.blogContent}>
                 <h4>{blog.news_heading}</h4>
-                   <Image loading="lazy" height={50} width={100} src={blog.image} alt="Blog" className={styles.blogImage} />
+                   <Image loading="lazy" height={50} width={100} src={blog.image} alt="Blog" className={styles.blogImage}/>
                 <div className={styles.singleBlogOptions}>
                   {editBlogId === blog._id ? (
                     <>

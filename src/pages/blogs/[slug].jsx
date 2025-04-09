@@ -141,7 +141,7 @@ let BlogDetails = () => {
                     <div className={styles.blogsTopContentSection}>
                         <h1>{blog.blog_heading}</h1>
                         <div className={styles.loveneetSection}>
-                            <Image loading="lazy" height={50} width={100} src={Lp} className={styles.loveneetImage} />
+                            <Image loading="lazy" height={50} width={100} src={Lp} className={styles.loveneetImage} alt="loveneet image"/>
                             <div className={styles.loveneetContent}>
                                 <div className={styles.loveneetDataFlex}>
                                     <h3>By {loveneetData.name}</h3>
@@ -155,7 +155,7 @@ let BlogDetails = () => {
                                         href={loveneetData.linkedin}
                                         target="_blank"
                                     >
-                                        <Image loading="lazy" height={50} width={100} src={Linkedin} />
+                                        <Image loading="lazy" height={50} width={100} src={Linkedin} alt="linked in"/>
                                     </Link>
                                     <div>
                                         <p className={styles.haveAQuestion}>Have Questions?</p>
@@ -164,7 +164,7 @@ let BlogDetails = () => {
                                             href="/booking"
                                             target="_blank"
                                         >
-                                            <Image loading="lazy" height={50} width={100} src={rcic} />
+                                            <Image loading="lazy" height={50} width={100} src={rcic} alt="rcic"/>
                                         </Link>
                                     </div>
                                 </div>

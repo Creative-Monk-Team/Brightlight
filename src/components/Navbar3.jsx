@@ -1524,7 +1524,7 @@ const Navbar3 = (props) => {
                   target="_blank"
                   href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1"
                 >
-                     <Image loading="lazy" height={50} width={100} src={Tiktokblue} />
+                     <Image loading="lazy" height={50} width={100} src={Tiktokblue} alt="tiktok" />
                 </Link>
               ) : (
                 <Link
@@ -1539,7 +1539,7 @@ const Navbar3 = (props) => {
                   target="_blank"
                   href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198"
                 >
-                     <Image loading="lazy" height={50} width={100} src={Linkedinblue} />
+                     <Image loading="lazy" height={50} width={100} src={Linkedinblue} alt="linkedin"/>
                 </Link>
               ) : (
                 <Link
@@ -1554,14 +1554,14 @@ const Navbar3 = (props) => {
                   target="_blank"
                   href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
                 >
-                     <Image loading="lazy" height={50} width={100} src={Instagramblue} />
+                     <Image loading="lazy" height={50} width={100} src={Instagramblue} alt="insta" />
                 </Link>
               ) : (
                 <Link
                   target="_blank"
                   href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
                 >
-                  <Image loading="lazy" src={"/assets/instagram.svg"} height={25} width={25} className={styles.socialIcon} />
+                  <Image loading="lazy" src={"/assets/instagram.svg"} height={25} width={25} className={styles.socialIcon} alt="insta" />
                 </Link>
               )}
               {showBlue ? (
@@ -1569,7 +1569,7 @@ const Navbar3 = (props) => {
                   target="_blank"
                   href="https://www.facebook.com/brightlightimmigration"
                 >
-                     <Image loading="lazy" height={50} width={100} src={Facebookblue} />
+                     <Image loading="lazy" height={50} width={100} src={Facebookblue} alt="facebook"/>
                 </Link>
               ) : (
                 <Link
@@ -1584,7 +1584,7 @@ const Navbar3 = (props) => {
                   target="_blank"
                   href="https://www.youtube.com/channel/UC2NJoKhIOconAE_IFCxX7uA"
                 >
-                     <Image loading="lazy" height={50} width={100} src={Youtubeblue} />
+                     <Image loading="lazy" height={50} width={100} src={Youtubeblue} alt="youtube"/>
                 </Link>
               ) : (
                 <Link

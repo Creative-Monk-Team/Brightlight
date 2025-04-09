@@ -184,7 +184,7 @@ let News = ({metaData}) => {
       </Head>
       <Navbar1 showBlue={true} />
       <div className={styles.blogsTopSection}>
-        <Image loading="lazy" height={50} width={100} src={brightSource} />
+        <Image loading="lazy" height={50} width={100} src={brightSource} alt="bright source image"/>
         <h3>
           Find the newest Canadian immigration news on our website. We give you
           the latest updates, changes in rules, and important stories. Stay
@@ -251,7 +251,7 @@ let News = ({metaData}) => {
             </button>
           </div>
           <div>
-            {firstBlog.image && <Image loading="lazy" height={50} width={100} src={firstBlog.image} />}
+            {firstBlog.image && <Image loading="lazy" height={50} width={100} src={firstBlog.image} alt="first blog image"/>}
           </div>
         </div>
       ) : null}
@@ -273,7 +273,7 @@ let News = ({metaData}) => {
                   className={styles.blog}
                   onClick={() => handleNewsClick(item)}
                 >
-                  {item.image && <Image loading="lazy" height={50} width={100} src={item.image} />}
+                  {item.image && <Image loading="lazy" height={50} width={100} src={item.image} alt="news"/>}
 
                   <div>
                     {item?.tag_1 && <h4>{item?.tag_1}</h4>}
@@ -290,9 +290,9 @@ let News = ({metaData}) => {
         )}
         <div className={styles.rightSection}>
           <div className={styles.subscribeSection}>
-            <Image loading="lazy" height={50} width={100} className={styles.plane} src={paperPlane} />
+            <Image loading="lazy" height={50} width={100} className={styles.plane} src={paperPlane} alt="paper plane"/>
             <h3>Get the latest News Delivered to your mail!</h3>
-            <Image loading="lazy" height={50} width={100} src={subscribe} className={styles.subscribe} />
+            <Image loading="lazy" height={50} width={100} src={subscribe} className={styles.subscribe} alt="subscribe"/>
           </div>
           <div className={styles.quickLinksSection}>
             <h3>Quick Links</h3>

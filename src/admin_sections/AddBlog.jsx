@@ -184,7 +184,7 @@ let AddBlog = () => {
   };
 
   let getImageShortcode = () => {
-    return imageBase64 ? `   <Image loading="lazy" height={50} width={100} src="${imageBase64}" />` : "";
+    return imageBase64 ? `   <Image loading="lazy" height={50} width={100} src="${imageBase64}" src='blog' />` : "";
   };
   let handleCopyClick = () => {
     let shortcode = getImageShortcode();

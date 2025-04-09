@@ -627,7 +627,7 @@ let AdminDashboard = () => {
             />
             <span>
               <button className={styles.searchBtn} type="submit">
-                <Image loading="lazy" height={50} width={100} src={magnify} />
+                <Image loading="lazy" height={50} width={100} src={magnify} alt="maginify"/>
               </button>
 
               <button
