@@ -110,7 +110,7 @@ let Immigration = ({metaData}) => {
         <div className={styles.bannerMain}>
           <div className={styles.bannerHeading}>
             <h3> {pData?.subHeading}</h3>
-            <h1> {pData?.heading}</h1>
+            <h2> {pData?.heading}</h2>
             <p> {pData?.description}</p>
           </div>
         </div>
@@ -138,7 +138,7 @@ let Immigration = ({metaData}) => {
                     }
                     alt={tool.tool_name}
                   />
-                  <h2>{tool.tool_name}</h2>
+                  <h3>{tool.tool_name}</h3>
                   <p>{tool.tool_desc}</p>
                 </Link>
               ))}

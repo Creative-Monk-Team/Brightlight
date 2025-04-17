@@ -187,7 +187,7 @@ const handleScroll = () => {
             ref={(el) => (sectionsRef.current[0] = el)}
           >
             <header className={styles.header}>
-              <h1>{pData?.heading}</h1>
+              <h3>{pData?.heading}</h3>
             </header>
 
             <p className={styles.discription}>
@@ -203,7 +203,7 @@ const handleScroll = () => {
             id="benefits"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>{pData?.BenifitHeading}</h2>
+            <h3>{pData?.BenifitHeading}</h3>
             <h4>
             {pData?.BenifitSubHead}
             </h4>
@@ -225,9 +225,9 @@ const handleScroll = () => {
             id="testing"
             ref={(el) => (sectionsRef.current[33] = el)}
           >
-            <h2>
+            <h3>
             {pData?.SixCategoriesCategoryBasedHeading}
-            </h2>
+            </h3>
             <div className={styles.button2Parent}>
               <button
                 className={styles.button2}
@@ -279,7 +279,7 @@ const handleScroll = () => {
             id="testing"
             ref={(el) => (sectionsRef.current[35] = el)}
           >
-            <h2>{pData?.HowCategoryBasedDrawsWorkHeading}</h2>
+            <h3>{pData?.HowCategoryBasedDrawsWorkHeading}</h3>
             <p>
             {pData?.HowCategoryBasedDrawsWorkPara}
             </p>
@@ -290,7 +290,7 @@ const handleScroll = () => {
             id="eligibility"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.eligibleCriteriaHeading}</h2>
+            <h3>{pData?.eligibleCriteriaHeading}</h3>
             <p>
             {pData?.eligibileSubHead}
             </p>
@@ -311,7 +311,7 @@ const handleScroll = () => {
             id="testing"
             ref={(el) => (sectionsRef.current[31] = el)}
           >
-            <h2>{pData?.ExpressEntryHeading}</h2>
+            <h3>{pData?.ExpressEntryHeading}</h3>
             <button
               className={styles.button1}
               onClick={() => (window.location.href = "/previous-draw-history")}
@@ -325,7 +325,7 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[3] = el)}
           >
-            <h2>{pData?.howToApplyHeading}</h2>
+            <h3>{pData?.howToApplyHeading}</h3>
             <ul style={{marginLeft: "40px"}}>
               <li>
               {pData?.ha1}
@@ -356,7 +356,7 @@ const handleScroll = () => {
             id="refusal-reasons"
             ref={(el) => (sectionsRef.current[4] = el)}
           >
-            <h2> {pData?.RefusalHeading}</h2>
+            <h3> {pData?.RefusalHeading}</h3>
             <ul style={{marginLeft: "40px"}}>
               <li>
               {pData?.r1}
@@ -383,7 +383,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[5] = el)}
           >
-            <h2> {pData?.StillNotSureHeading}</h2>
+            <h3> {pData?.StillNotSureHeading}</h3>
             <p>
             {pData?.StillNotSurePara1}
             </p>
@@ -400,7 +400,7 @@ const handleScroll = () => {
             </button>
           </section>
 
-          <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+          <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

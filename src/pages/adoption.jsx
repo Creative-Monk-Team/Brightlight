@@ -205,7 +205,7 @@ const handleScroll = () => {
           id="about-program"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-          <h1>{pData?.adoptionHeading}</h1>
+          <h3>{pData?.adoptionHeading}</h3>
           <p style={{ marginTop: "-20px" }}>
           {pData?.adoptionPara1}
           </p>
@@ -219,9 +219,9 @@ const handleScroll = () => {
           id="types-of-adoption"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>
+          <h3>
           {pData?.TwoMainHeading}
-          </h2>
+          </h3>
           <ul>
             <li>
               <p>
@@ -251,7 +251,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2> {pData?.EligibilityHeading}</h2>
+          <h3> {pData?.EligibilityHeading}</h3>
           <ul style={{marginLeft: "40px"}}>
             <li>{pData?.e1}</li>
             <li>{pData?.e2}</li>
@@ -270,7 +270,7 @@ const handleScroll = () => {
           id="inter-country"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2> {pData?.howApplySponsoringChildAdopHeading}</h2>
+          <h3> {pData?.howApplySponsoringChildAdopHeading}</h3>
 
           <h4 className={styles.marginTop}>
           {pData?.ForIntraCountryAdopHead}
@@ -324,7 +324,7 @@ const handleScroll = () => {
           id="refusal-reasons"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>{pData?.RefusalHeading}</h2>
+          <h3>{pData?.RefusalHeading}</h3>
           <h4>
           {pData?.RefusalSubHead}
           </h4>
@@ -347,7 +347,7 @@ const handleScroll = () => {
           className={`${styles.consultation} ${styles.section}`}
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2>{pData?.StillNotHeading}</h2>
+          <h3>{pData?.StillNotHeading}</h3>
           <p>{pData?.s1} </p>
           <p>
           {pData?.s2}</p>
@@ -368,7 +368,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>{pData?.WhyChooseUsHeading01 }</h2>
+         <h3>{pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

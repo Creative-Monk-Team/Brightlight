@@ -161,7 +161,7 @@ const MoreServices = ({metaData}) => {
       <div className={styles.bannerParent}>
         <div className={styles.bannerMain}>
           <div className={styles.bannerHeading}>
-            <h1> {pData?.heading}</h1>
+            <h3> {pData?.heading}</h3>
             <p>{pData?.description}</p>
           </div>
         </div>
@@ -189,7 +189,7 @@ const MoreServices = ({metaData}) => {
                     }
                     alt={section.tool_name}
                   />
-                  <h2>{section.tool_name}</h2>
+                  <h3>{section.tool_name}</h3>
                   <p>{section.tool_desc}</p>
                   <h4>{pData?.read_more}</h4>
                 </Link>

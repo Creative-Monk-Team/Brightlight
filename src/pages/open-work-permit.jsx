@@ -145,7 +145,7 @@ const handleScroll = () => {
       <div className={styles.bannerParent}>
         <div className={styles.banner}>
           <header className={styles.header}>
-            <h1>Open Work Permit</h1>
+            <h3>Open Work Permit</h3>
           </header>
           <div
             className={`${styles.bannerHeadingRotateParent} ${
@@ -184,7 +184,7 @@ const handleScroll = () => {
             ref={(el) => (sectionsRef.current[0] = el)}
           >
             <header className={styles.header}>
-              <h2>{pData?.openWorkPermitHeading}</h2>
+              <h3>{pData?.openWorkPermitHeading}</h3>
               <p>
               {pData?.WhatIsPara}
               </p>
@@ -196,7 +196,7 @@ const handleScroll = () => {
             id="categories"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>{pData?.CategoriesHeading}</h2>
+            <h3>{pData?.CategoriesHeading}</h3>
             <div className={styles.categories}>
               <Link href="/pgwp" className={styles.button}>
                 Post-Graduate Work Permit (PGWP)
@@ -229,7 +229,7 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.HowWeHelpHeading}</h2>
+            <h3>{pData?.HowWeHelpHeading}</h3>
             <p>
             {pData?.HowWeHelpSubHeading}
             </p>
@@ -238,7 +238,7 @@ const handleScroll = () => {
               {pData?.hh1}
               </li>
               <li>
-              {pData?.hh2}
+              {pData?.hh3}
               </li>
               <li>
               {pData?.hh3}
@@ -265,7 +265,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

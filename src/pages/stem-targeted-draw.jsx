@@ -203,9 +203,9 @@ const handleScroll = () => {
           id="eligiblity"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.EligibilityFirstHeading}
-          </h2>
+          </h3>
           <p>
           {pData?.EligFirstSubHead}
           </p>
@@ -259,7 +259,7 @@ const handleScroll = () => {
           <p>
           {pData?.EligPara3}
           </p>
-          <h2> {pData?.ImportantThingsHeading}</h2>
+          <h3> {pData?.ImportantThingsHeading}</h3>
           <p>
            {pData?.ImportantThingsPara}
           </p>
@@ -282,9 +282,9 @@ const handleScroll = () => {
           id="stem-eligiblity"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.EligCritHeading}
-          </h2>
+          </h3>
           <p>
           {pData?.EligCritSubHeading}
           </p>
@@ -300,9 +300,9 @@ const handleScroll = () => {
           id="stem-eligiblity"
           ref={(el) => (sectionsRef.current[7] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
            {pData?.ExpressEntryHeading}
-          </h2>
+          </h3>
            <p>
           {pData?.ExpressEntryPara}
           </p>
@@ -319,7 +319,7 @@ const handleScroll = () => {
           id="stem-noc-codes"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.StemEligTableHeading}</h2>
+          <h3 className={styles.subheading}>{pData?.StemEligTableHeading}</h3>
           {/* <p>
             <Link
               href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile/rounds-invitations/category-based-selection.html"
@@ -335,7 +335,7 @@ const handleScroll = () => {
             <thead>
               <tr>
                 <th> {pData?.stT1h1}</th>
-                <th> {pData?.stT2h2}</th>
+                <th> {pData?.stT2h3}</th>
                 <th>{pData?.stT3h3}</th>
               </tr>
             </thead>
@@ -469,9 +469,9 @@ const handleScroll = () => {
           id="testing2"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
             Express Entry STEM Draws History
-          </h2>
+          </h3>
           <p>
             The first-ever Express Entry draw for STEM workers was just held.
             Express Entry draw #254 saw a CRS score of 486 and invited 500
@@ -491,7 +491,7 @@ const handleScroll = () => {
           id="testing2"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.StillNotHeading}</h2>
+          <h3 className={styles.subheading}>{pData?.StillNotHeading}</h3>
           <p>
           {pData?.s1}
           </p>
@@ -514,7 +514,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2 className={styles.subheading}>Why Choose Us</h2>
+          <h3 className={styles.subheading}>Why Choose Us</h3>
           <p>
             Brightlight Immigration offers personalized services to maximize
             your chances of success. Our experienced team provides dedicated
@@ -537,7 +537,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>{pData?.WhyChooseUsHeading01 }</h2>
+         <h3>{pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

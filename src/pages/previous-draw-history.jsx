@@ -150,7 +150,7 @@ const PreviousDrawHistory = ({metaData}) => {
       <Navbar1 />
       <div className={styles.bannerParent}>
         <div className={styles.bannerMain}>
-          <h1>Previous Draw History</h1>
+          <h3>Previous Draw History</h3>
         </div>
       </div>
 

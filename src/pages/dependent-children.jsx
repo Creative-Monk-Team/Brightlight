@@ -199,7 +199,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.EligibilityHeading}</h2>
+          <h3>{pData?.EligibilityHeading}</h3>
           <h4>
           {pData?.EligibilitySubHeading}
           </h4>
@@ -212,9 +212,9 @@ const handleScroll = () => {
             {pData?.EligSubHeadPara2}
             </li>
           </ul>
-          <h2 className={styles.marginTop}>
+          <h3 className={styles.marginTop}>
           {pData?.EligSubRequListHead}
-          </h2>
+          </h3>
           <ul style={{marginLeft: "40px"}}>
             <li>
             {pData?.e1}
@@ -233,7 +233,7 @@ const handleScroll = () => {
           id="application-process"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>{pData?.HowApplyHeading}</h2>
+          <h3>{pData?.HowApplyHeading}</h3>
           <ol style={{marginLeft: "40px"}}>
             <li>
             {pData?.ha1}
@@ -252,9 +252,9 @@ const handleScroll = () => {
           id="refusal-reasons"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>
+          <h3>
           {pData?.RefusalHeading}
-          </h2>
+          </h3>
           <ul style={{marginLeft: "40px"}}>
             <li>
             {pData?.r1}
@@ -281,7 +281,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2>{pData?.StillNotHeading}</h2>
+          <h3>{pData?.StillNotHeading}</h3>
           <p>
           {pData?.s1}
           </p>
@@ -303,7 +303,7 @@ const handleScroll = () => {
           id="why-choose-u"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

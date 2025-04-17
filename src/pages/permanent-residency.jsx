@@ -108,7 +108,7 @@ const PermanentResidency = ({ metaData }) => {
       <div className={styles.bannerParent}>
         <div className={styles.banner}>
           <div className={styles.bannerHeading}>
-            <h1>{pData?.heading}</h1>
+            <h3>{pData?.heading}</h3>
             <p>{pData?.description}</p>
             <p>{pData?.description2}</p>
           </div>
@@ -167,7 +167,7 @@ const PermanentResidency = ({ metaData }) => {
       >
         <div className={styles.pathway}>
           <div className={styles.pathwayHeading}>
-            <h1>{pData?.pathHeading}</h1>
+            <h3>{pData?.pathHeading}</h3>
           </div>
           <div className={styles.pathwayCardsParent}>
             <div className={styles.pathwayCards}>

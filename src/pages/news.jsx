@@ -243,7 +243,7 @@ let News = ({metaData}) => {
         <div className={styles.firstBlog}>
           <div className={styles.firstBlogContentSection}>
             <h4>{firstBlog.date && firstBlog.date.trim().split("T")[0]}</h4>
-            {firstBlog.news_heading && <h1>{firstBlog.news_heading}</h1>}
+            {firstBlog.news_heading && <h3>{firstBlog.news_heading}</h3>}
             <button
               onClick={() => handleNewsClick(firstBlog)}
             >
@@ -279,7 +279,7 @@ let News = ({metaData}) => {
                     {item?.tag_1 && <h4>{item?.tag_1}</h4>}
                     <h4>{item.date && item.date.trim().split("T")[0]}</h4>
                   </div>
-                  <h1>{item.news_heading}</h1>
+                  <h3>{item.news_heading}</h3>
                   <p>{truncateText(item?.news_content, 100)}</p>
                 </div>
               );
@@ -298,7 +298,7 @@ let News = ({metaData}) => {
             <h3>Quick Links</h3>
             {quickLinksBlogs?.map((item, index) => (
               <div key={index}>
-                {item.news_heading && <h2>{item.news_heading}</h2>}
+                {item.news_heading && <h3>{item.news_heading}</h3>}
                 <p>{item.date && item.date.trim().split("T")[0]}</p>
                 <button
                   onClick={() => handleNewsClick(item)}

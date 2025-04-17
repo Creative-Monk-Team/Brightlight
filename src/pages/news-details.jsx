@@ -110,7 +110,7 @@ let NewsDetails = () => {
       <Navbar1 />
       <div className={styles.blogTopSection}>
         <div className={styles.blogsTopContentSection}>
-          <h1>{blog.news_heading}</h1>
+          <h3>{blog.news_heading}</h3>
         </div>
       </div>
       <div className={styles.blogsFlexSection}>

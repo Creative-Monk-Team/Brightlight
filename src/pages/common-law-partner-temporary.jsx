@@ -216,9 +216,9 @@ const handleScroll = () => {
           id="benifits"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.BenifitHeading}
-          </h2>
+          </h3>
           <ul className={styles.benifitsLi} style={{marginLeft: "40px"}}>
             <li>
             {pData?.b1}
@@ -250,16 +250,16 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.EligibilityHeading}
-          </h2>
+          </h3>
           <p>
           {pData?.EligSubHead}
           </p>
 
           <h3>{pData?.e1h1}</h3>
           <ul className={styles.requirementsList}>
-            <h2>{pData?.eh1}</h2>
+            <h3>{pData?.eh1}</h3>
             <li>
               <strong>{pData?.es1h1Lih}</strong>
               <ul style={{marginLeft: "40px"}} className={styles.subList}>
@@ -271,9 +271,9 @@ const handleScroll = () => {
               </ul>
             </li>
             <li>
-              <strong>{pData?.es1h2Lih}</strong>
+              <strong>{pData?.es1h3Lih}</strong>
               <p>
-              {pData?.es1h2Li1}
+              {pData?.es1h3Li1}
               </p>
             </li>
             <li>
@@ -373,11 +373,11 @@ const handleScroll = () => {
           </ul>
 
           <h3 className={styles.validWorkLiHead}>
-          {pData?.e2h2}
+          {pData?.e2h3}
           </h3>
           <ul className={styles.requirementsList}>
             <li>
-              <strong>{pData?.eh2}</strong>
+              <strong>{pData?.eh3}</strong>
               <p>{pData?.es2h6Lih}</p>
               <ul style={{marginLeft: "40px"}} className={styles.subList}>
                 <li>{pData?.es2h6Li1}</li>
@@ -452,7 +452,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[14] = el)}
         >
-          <h2>{pData?.FamMembHeading}</h2>
+          <h3>{pData?.FamMembHeading}</h3>
           <p className={styles.testPara}>
           {pData?.FamMembSubHead}
           </p>
@@ -473,9 +473,9 @@ const handleScroll = () => {
           id="how-to-apply"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2 className={styles.subheading} id="how-to-apply">
+          <h3 className={styles.subheading} id="how-to-apply">
           {pData?.HowApplyHeading}
-          </h2>
+          </h3>
           <ol style={{marginLeft: "40px"}}>
             <li>
             {pData?.ha1}
@@ -502,9 +502,9 @@ const handleScroll = () => {
           id="refusal-reasons"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.RefusalHeading}
-          </h2>
+          </h3>
           <ul className={styles.RefusalLi} style={{marginLeft: "40px"}}>
             <li>
             {pData?.r1}
@@ -526,7 +526,7 @@ const handleScroll = () => {
           id="testing2"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2 className={styles.subheading}>   {pData?.NeedAssisHeading}</h2>
+          <h3 className={styles.subheading}>   {pData?.NeedAssisHeading}</h3>
           <p>
           {pData?.NeedAssisPara} {" "}
             <Link className={styles.contactUS} href="/contact-us">
@@ -541,7 +541,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[7] = el)}
         >
-          <h2 className={styles.subheading}>Why Choose Us?</h2>
+          <h3 className={styles.subheading}>Why Choose Us?</h3>
           <p>
             At Brightlight Immigration, we provide expert guidance and support
             throughout your immigration journey. Our dedicated team is committed
@@ -554,7 +554,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+         <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

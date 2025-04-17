@@ -143,7 +143,7 @@ const handleScroll = () => {
       <Navbar1 />
       <div className={styles.bannerParent}>
         <header className={styles.header}>
-          <h1>{pData?.PFLHeading}</h1>
+          <h3>{pData?.PFLHeading}</h3>
         </header>
         <div className={styles.banner}>
           <div
@@ -184,7 +184,7 @@ const handleScroll = () => {
             id="about-program"
             ref={(el) => (sectionsRef.current[0] = el)}
           >
-            <h2>{pData?.RedFlagHeading}</h2>
+            <h3>{pData?.RedFlagHeading}</h3>
             <p>
             {pData?.RedFlagPara1}
             </p>
@@ -204,7 +204,7 @@ const handleScroll = () => {
             id="recieved-a-pfl"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>{pData?.ReasonReceivedHeading}</h2>
+            <h3>{pData?.ReasonReceivedHeading}</h3>
             <ul style={{ marginLeft: "40px" }}>
               <li>
               {pData?.r1}
@@ -226,7 +226,7 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.StillNotHeading}</h2>
+            <h3>{pData?.StillNotHeading}</h3>
             <p>
             {pData?.s1}
             </p>
@@ -249,7 +249,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

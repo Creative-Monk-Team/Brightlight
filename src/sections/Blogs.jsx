@@ -86,7 +86,7 @@ let Blogs = () => {
         <div className={styles.blogsTopSection}>
              <Image loading="lazy" height={50} width={100} src={brightBlogs} alt="Bright Blogs" />
           <div className={styles.blogsHeading}>
-            <h2>{data?.heading}</h2>
+            <h3>{data?.heading}</h3>
             <p>{data?.description}</p>
           </div>
         </div>
@@ -109,7 +109,7 @@ let Blogs = () => {
                     .replace(/\s+/g, "-")}`}
                 >
                      <Image loading="lazy" height={50} width={100}       src={item.image} alt={item.blog_heading} />
-                  <h2>{item.blog_heading}</h2>
+                  <h3>{item.blog_heading}</h3>
                   <h6>
                     <b>{item.date && item.date.trim().split("T")[0]}</b>
                   </h6>

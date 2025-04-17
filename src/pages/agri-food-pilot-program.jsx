@@ -201,7 +201,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
           id="about-program"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-          <h1>{pData?.AgriFoodPilotHeading}</h1>
+          <h3>{pData?.AgriFoodPilotHeading}</h3>
         </header>
 
         <section
@@ -236,12 +236,12 @@ const AgriFoodPilotProgram = ({metaData}) => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2
+          <h3
             className={`${styles.section} ${styles.section}`}
             id="testing25"
             ref={(el) => (sectionsRef.current[25] = el)}>
               {pData?.EligCritHeading}
-          </h2>
+          </h3>
           <h4>{pData?.EligCritSubHead1}</h4>
           <p>
           {pData?.EligCritPara1}
@@ -476,7 +476,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
             id="testing6"
             ref={(el) => (sectionsRef.current[8] = el)}
           >
-          {pData?.EligCritPoH2}
+          {pData?.EligCritPoh3}
           </h3>
           <p>
           {pData?.EligCritPoPara1}
@@ -608,7 +608,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
           id="how-to-apply"
           ref={(el) => (sectionsRef.current[20] = el)}
         >
-          <h2>{pData?.HowToApplyHeading}</h2>
+          <h3>{pData?.HowToApplyHeading}</h3>
           <ul
           style={{marginLeft: "40px"}}
             className={`${styles.section} ${styles.section}`}
@@ -628,7 +628,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
           className={`${styles.contact} ${styles.section}`}
           ref={(el) => (sectionsRef.current[22] = el)}
         >
-          <h2>{pData?.StillNotSureHeading}</h2>
+          <h3>{pData?.StillNotSureHeading}</h3>
           <p
             className={`${styles.section} ${styles.section}`}
             id="testing"
@@ -648,7 +648,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[50] = el)}
          >
-         <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+         <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

@@ -230,7 +230,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.buisinessVisitorVisaSubHead}</h2>
+          <h3>{pData?.buisinessVisitorVisaSubHead}</h3>
           <p>{pData?.buisinessVisitorVisaPara}</p>
         </section>
 
@@ -239,7 +239,7 @@ const handleScroll = () => {
           id="activities"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.ActivitiesHeading}</h2>
+          <h3 className={styles.subheading}>{pData?.ActivitiesHeading}</h3>
           <ul style={{ marginLeft: "40px" }}>
             <li>{pData?.a1}</li>
             <li>{pData?.a2}</li>
@@ -262,7 +262,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.EligibilityHeading}</h2>
+          <h3 className={styles.subheading}>{pData?.EligibilityHeading}</h3>
           <h4>{pData?.EligibilityPara}</h4>
           <p>{pData?.EligLiHead}</p>
           <ul className={styles.eligibilityList}>
@@ -288,7 +288,7 @@ const handleScroll = () => {
           id="event-codes"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.EventCodeHeading}</h2>
+          <h3 className={styles.subheading}>{pData?.EventCodeHeading}</h3>
           <li style={{ marginLeft: "40px" }}>
           {pData?.e1}
           </li>
@@ -298,7 +298,7 @@ const handleScroll = () => {
         </section>
 
         <section className={styles.documents}>
-          <h2 className={styles.subheading}>{pData?.EssenDocuHeading}</h2>
+          <h3 className={styles.subheading}>{pData?.EssenDocuHeading}</h3>
           <p>{pData?.EssenDocuPara}</p>
           <ul>
             <li>{pData?.ed1}</li>
@@ -318,7 +318,7 @@ const handleScroll = () => {
           id="testing2"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.StillNotHeading}</h2>
+          <h3 className={styles.subheading}>{pData?.StillNotHeading}</h3>
           <p>{pData?.s1}</p>
           <p>{pData?.s2}</p>
           <button
@@ -337,7 +337,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+         <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

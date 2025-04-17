@@ -209,9 +209,9 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
             {pData?.EligibilityHeading}
-          </h2>
+          </h3>
           <p>
             {pData?.EligPara}
           </p>
@@ -310,9 +310,9 @@ const handleScroll = () => {
           </p>
 
           <section className={styles.expressEntry}>
-            <h2 className={styles.subheading}>
+            <h3 className={styles.subheading}>
               {pData?.AssessmentHeading}
-            </h2>
+            </h3>
             <p>
               {pData?.AssessmentPara}
             </p>
@@ -330,9 +330,9 @@ const handleScroll = () => {
           id="expressEntry"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
             {pData?.ExpressEntryHead}
-          </h2>
+          </h3>
           <p>
             For the latest updates on Express Entry draws, {" "}
             <Link href="/previous-draw-history" className={styles.link}>
@@ -347,9 +347,9 @@ const handleScroll = () => {
           id="Process"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
             {pData?.HowToApplyHeading}
-          </h2>
+          </h3>
           <ol style={{ marginLeft: "40px" }}>
             <li>
               {pData?.ha1} {" "}
@@ -384,9 +384,9 @@ const handleScroll = () => {
           id="refusal-reasons"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
             {pData?.RefusalHeading}
-          </h2>
+          </h3>
           <ul style={{ marginLeft: "40px" }}>
             <li>
               {pData?.r1}
@@ -411,7 +411,7 @@ const handleScroll = () => {
           id="testing3"
           ref={(el) => (sectionsRef.current[7] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.StillNotSureHeading}</h2>
+          <h3 className={styles.subheading}>{pData?.StillNotSureHeading}</h3>
           <p>
             {pData?.s1}
           </p>
@@ -434,7 +434,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[8] = el)}
         >
-          <h2 className={styles.subheading}>Why Choose Us?</h2>
+          <h3 className={styles.subheading}>Why Choose Us?</h3>
           <p>
             At Brightlight Immigration, we offer expert guidance and support
             throughout your immigration journey. Our dedicated team is committed
@@ -446,7 +446,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-          <h2>Why Choose Us?</h2>
+          <h3>Why Choose Us?</h3>
           <ul>
             <li>
               <strong>Experienced Team:</strong> Over a decade of experience in
@@ -472,7 +472,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[94] = el)}
         >
-          <h2>  {pData?.WhyChooseUsHeading01}</h2>
+          <h3>  {pData?.WhyChooseUsHeading01}</h3>
           <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

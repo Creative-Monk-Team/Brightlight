@@ -201,7 +201,7 @@ const handleScroll = () => {
             id="about-program"
             ref={(el) => (sectionsRef.current[0] = el)}
           >
-            <h1>{pData?.BridgingHeading}</h1>
+            <h3>{pData?.BridgingHeading}</h3>
           </header>
           <section className={styles.intro}>
             <p>
@@ -213,7 +213,7 @@ const handleScroll = () => {
             id="benefits"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>{pData?.BenifitsHeading}</h2>
+            <h3>{pData?.BenifitsHeading}</h3>
             <ul style={{marginLeft: "40px"}}>
               <li>
               {pData?.BenifitsList1}
@@ -234,7 +234,7 @@ const handleScroll = () => {
             id="application-process"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.EligibilityHeading}</h2>
+            <h3>{pData?.EligibilityHeading}</h3>
             <h4>
             {pData?.EligibilitySubHead}
             </h4>
@@ -350,7 +350,7 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[3] = el)}
           >
-            <h2>{pData?.HowApplyHeading}</h2>
+            <h3>{pData?.HowApplyHeading}</h3>
             <ol style={{marginLeft: "40px"}}>
               <li>
               {pData?.ha1}
@@ -368,7 +368,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[4] = el)}
           >
-            <h2>{pData?.StillNotSureHeading}</h2>
+            <h3>{pData?.StillNotSureHeading}</h3>
             <p>
             {pData?.StillNotSurePara1}
             </p>
@@ -390,7 +390,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-           <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+           <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

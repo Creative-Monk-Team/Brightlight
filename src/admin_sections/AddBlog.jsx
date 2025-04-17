@@ -27,7 +27,7 @@ let AddBlog = () => {
 
     switch (tag) {
       case "Bigger Heading":
-        tagValue = "<h2>Your bigger heading goes here</h2>";
+        tagValue = "<h3>Your bigger heading goes here</h3>";
         break;
       case "Sub Heading":
         tagValue = "<h3>Your sub heading goes here</h3>";

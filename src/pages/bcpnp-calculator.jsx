@@ -494,7 +494,7 @@ const BCPNPCalculator = ({metaData}) => {
       {/* Section 1: Work Experience in B.C. Job Offer */}
       <div className={styles.bannerParent}>
         <div className={styles.bannerHeading}>
-          {data && <h1>{data?.heading}</h1>}
+          {data && <h3>{data?.heading}</h3>}
           {data && <p>{data?.description}</p>}
         </div>
       </div>
@@ -1352,10 +1352,10 @@ const BCPNPCalculator = ({metaData}) => {
                 >
                   <div className={styles.pointContainer}>
                     <div className={styles.header}>
-                      <h2>Total Points</h2>
+                      <h3>Total Points</h3>
                     </div>
                     <div className={styles.points}>
-                      <h1>{totalPoints}</h1>
+                      <h3>{totalPoints}</h3>
                     </div>
                   </div>
                   {!isFooterVisible && (
@@ -1388,7 +1388,7 @@ const BCPNPCalculator = ({metaData}) => {
 
                         className={styles.actionButton}
                       >
-                        <h2>RCIC Appointment</h2>
+                        <h3>RCIC Appointment</h3>
                         <p>
                           To find out if you are eligible for PR, under FSWP
                           Program book an appointment with our RCIC.
@@ -1406,10 +1406,10 @@ const BCPNPCalculator = ({metaData}) => {
             >
               <div className={styles.pointContainer}>
                 <div className={styles.header}>
-                  <h2>Total Points</h2>
+                  <h3>Total Points</h3>
                 </div>
                 <div className={styles.points}>
-                  <h1>{totalPoints}</h1>
+                  <h3>{totalPoints}</h3>
                 </div>
               </div>
               {!isFooterVisible && (
@@ -1438,7 +1438,7 @@ const BCPNPCalculator = ({metaData}) => {
                     onClick={() => window.open("/booking", "_blank")}
                     className={styles.actionButton}
                   >
-                    <h2>RCIC Appointment</h2>
+                    <h3>RCIC Appointment</h3>
                     <p>
                       To find out if you are eligible for PR, under FSWP Program
                       book an appointment with our RCIC.

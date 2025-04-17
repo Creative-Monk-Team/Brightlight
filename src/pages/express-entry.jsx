@@ -195,7 +195,7 @@ const ExpressEntry = ({metaData}) => {
       </div>
 
       <div className={styles.benefits}>
-        <h2>{pData?.BenifitsHeading}</h2>
+        <h3>{pData?.BenifitsHeading}</h3>
         <ul style={{ marginLeft: "40px" }}>
           <li>{pData?.b1}</li>
           <li> {pData?.b2}</li>
@@ -205,7 +205,7 @@ const ExpressEntry = ({metaData}) => {
       </div>
 
       <div id="eligibility" className={styles.eligibleParent}>
-        <h2>{data?.eligibilityHeading}</h2>
+        <h3>{data?.eligibilityHeading}</h3>
         <p>{data?.eligibilityDescription}</p>
 
         <div className={styles.eligibleCardParent}>
@@ -216,7 +216,7 @@ const ExpressEntry = ({metaData}) => {
                 (window.location.href = "/federal-skilled-worker-program")
               }
             >
-              <h2>{data.er1}</h2>
+              <h3>{data.er1}</h3>
             </div>
           )}
           {data?.er2 && (
@@ -226,7 +226,7 @@ const ExpressEntry = ({metaData}) => {
                 (window.location.href = "/federal-skilled-trades-program")
               }
             >
-              <h2>{data.er2}</h2>
+              <h3>{data.er2}</h3>
             </div>
           )}
           {data?.er3 && (
@@ -236,17 +236,17 @@ const ExpressEntry = ({metaData}) => {
                 (window.location.href = "/canadian-experience-class")
               }
             >
-              <h2>{data.er3}</h2>
+              <h3>{data.er3}</h3>
             </div>
           )}
           {/* {data?.er4 && (
             <div className={styles.eligibleCard}>
-              <h2>{data.er4}</h2>
+              <h3>{data.er4}</h3>
             </div>
           )}
           {data?.er5 && (
             <div className={styles.eligibleCard}>
-              <h2>{data.er5}</h2>
+              <h3>{data.er5}</h3>
             </div>
           )} */}
         </div>
@@ -254,7 +254,7 @@ const ExpressEntry = ({metaData}) => {
 
       <div id="draw-history" className={styles.additionGrandParent}>
         <div className={styles.additionParent}>
-          <h2>{data?.drawHeading}</h2>
+          <h3>{data?.drawHeading}</h3>
           <div className={styles.additionCardParent}>
             {data?.draw1 && (
               <div
@@ -263,7 +263,7 @@ const ExpressEntry = ({metaData}) => {
                   (window.location.href = "/previous-draw-history")
                 }
               >
-                <h2>{data.draw1}</h2>
+                <h3>{data.draw1}</h3>
               </div>
             )}
             {data?.draw2 && (
@@ -271,7 +271,7 @@ const ExpressEntry = ({metaData}) => {
                 className={styles.additionCard}
                 onClick={() => (window.location.href = "/category-based")}
               >
-                <h2>{data.draw2}</h2>
+                <h3>{data.draw2}</h3>
               </div>
             )}
             {data?.draw3 && (
@@ -279,17 +279,17 @@ const ExpressEntry = ({metaData}) => {
                 className={styles.additionCard}
                 onClick={() => (window.location.href = "/pnp")}
               >
-                <h2>{data.draw3}</h2>
+                <h3>{data.draw3}</h3>
               </div>
             )}
             {/* {data?.draw4 && (
               <div className={styles.additionCard}>
-                <h2>{data.draw4}</h2>
+                <h3>{data.draw4}</h3>
               </div>
             )}
             {data?.draw5 && (
               <div className={styles.additionCard}>
-                <h2>{data.draw5}</h2>
+                <h3>{data.draw5}</h3>
               </div>
             )} */}
           </div>
@@ -299,7 +299,7 @@ const ExpressEntry = ({metaData}) => {
       <div id="advantages" className={styles.advantagesParent}>
         <div className={styles.advantages}>
           <div className={styles.advantagesHeading}>
-            <h2>{data?.advantageHeading}</h2>
+            <h3>{data?.advantageHeading}</h3>
           </div>
           <div className={styles.advantagesPara}>
             <p>{data?.advantageDescription}</p>
@@ -323,7 +323,7 @@ const ExpressEntry = ({metaData}) => {
       <div id="refusal-reason" className={styles.forgetParent}>
         <div className={styles.forgetMain}>
           <div className={styles.forgetHeading}>
-            <h2>{data?.refusalHeading}</h2>
+            <h3>{data?.refusalHeading}</h3>
           </div>
           <div className={styles.forgetListParent}>
             <ul
@@ -347,7 +347,7 @@ const ExpressEntry = ({metaData}) => {
         className={styles.whyChooseUs}
         id="why-choose-us"
       >
-        <h2> {pData?.WhyChooseUsHeading01}</h2>
+        <h3> {pData?.WhyChooseUsHeading01}</h3>
         <ul style={{ marginLeft: "40px" }}>
           <li>
             <strong>{strongText91}</strong> {remainingText91}
@@ -367,7 +367,7 @@ const ExpressEntry = ({metaData}) => {
       <div id="appointment" className={styles.incaseParent}>
         <div className={styles.incaseMain}>
           <div className={styles.incaseContent}>
-            <h2>{data?.appointmentHeading}</h2>
+            <h3>{data?.appointmentHeading}</h3>
             <p>{data?.appointmentDescription}</p>
             <button
               className={styles.button}

@@ -598,11 +598,11 @@ let HomePage = ({metaData}) => {
                       {headline2Last}
                     </span>
                   </h1>
-                  <h2
+                  <h3
                     className={`${styles.slideInFromBottom} ${styles.fadeIn}`}
                   >
                     {topSection?.SmallHeadline1}
-                  </h2>
+                  </h3>
                 </div>
               </CSSTransition>
             )}
@@ -646,7 +646,7 @@ let HomePage = ({metaData}) => {
                       </CSSTransition>
 
                       <div className={styles.title}>
-                        <h2>{card.title}</h2>
+                        <h3>{card.title}</h3>
                       </div>
                     </div>
                   ))}
@@ -763,7 +763,7 @@ let HomePage = ({metaData}) => {
                       />
                     </div>
                     <div className={styles.simplifyingContent}>
-                      <h2>{featuresData[`feature${num}Heading`]}</h2>
+                      <h3>{featuresData[`feature${num}Heading`]}</h3>
                       <p>{featuresData[`feature${num}Description`]}</p>
                     </div>
                   </div>
@@ -780,7 +780,7 @@ let HomePage = ({metaData}) => {
           ref={expertiseContentParentRef}
         >
           <div className={styles.expertiseContentHeading}>
-            <h1>{servicesData?.heading}</h1>
+            <h3>{servicesData?.heading}</h3>
             <p>{servicesData?.description}</p>
 
             <button className={styles.knowButton}>
@@ -845,7 +845,7 @@ let HomePage = ({metaData}) => {
       <div className={styles.aspectsParent}>
         <div className={styles.aspectsMain}>
           <div className={styles.aspectsHeading}>
-            <h2>{achiementsData?.heading}</h2>
+            <h3>{achiementsData?.heading}</h3>
             <p>{achiementsData?.description}</p>
           </div>
 
@@ -861,9 +861,9 @@ let HomePage = ({metaData}) => {
               // Arbitrary number, Next.js auto-adjusts it
 
               />
-              <h2>
+              <h3>
                 <Odometer value={achiementsData?.achievement1Numbers} />+
-              </h2>
+              </h3>
               <p>{achiementsData?.achievement1Heading}</p>
             </div>
             <div
@@ -877,9 +877,9 @@ let HomePage = ({metaData}) => {
               // Arbitrary number, Next.js auto-adjusts it
 
               />
-              <h2>
+              <h3>
                 <Odometer value={achiementsData?.achievement2Numbers} />+
-              </h2>
+              </h3>
               <p>{achiementsData?.achievement2Heading}</p>
             </div>
             <div
@@ -893,9 +893,9 @@ let HomePage = ({metaData}) => {
               // Arbitrary number, Next.js auto-adjusts it
 
               />
-              <h2>
+              <h3>
                 <Odometer value={achiementsData?.achievement3Numbers} />+
-              </h2>
+              </h3>
               <p>{achiementsData?.achievement3Heading}</p>
             </div>
           </div>
@@ -911,7 +911,7 @@ let HomePage = ({metaData}) => {
               />
             </div>
             <div>
-              {newsSectionData && <h2>{newsSectionData.heading}</h2>}
+              {newsSectionData && <h3>{newsSectionData.heading}</h3>}
               {newsSectionData && <p>{newsSectionData.description}</p>}
             </div>
           </div>
@@ -966,8 +966,8 @@ let HomePage = ({metaData}) => {
                   >
                     <div className={styles.sourceContentDate}>
                       <p>{item.tag_1}</p>
-                      <h2>{monthName(item.date)}</h2>
-                      <h2>{date}</h2>
+                      <h3>{monthName(item.date)}</h3>
+                      <h3>{date}</h3>
                     </div>
                     <div className={styles.sourceContentData}>
                       <h3>{item.news_heading}</h3>

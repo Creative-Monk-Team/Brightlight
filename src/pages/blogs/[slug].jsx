@@ -139,7 +139,7 @@ let BlogDetails = () => {
             {!Loading && (<div>
                 <div className={styles.blogTopSection}>
                     <div className={styles.blogsTopContentSection}>
-                        <h1>{blog.blog_heading}</h1>
+                        <h3>{blog.blog_heading}</h3>
                         <div className={styles.loveneetSection}>
                             <Image loading="lazy" height={50} width={100} src={Lp} className={styles.loveneetImage} alt="loveneet image"/>
                             <div className={styles.loveneetContent}>

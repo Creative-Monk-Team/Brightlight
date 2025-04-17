@@ -260,7 +260,7 @@ let Blogs = ({metaData}) => {
         <div className={styles.firstBlog}>
           <div className={styles.firstBlogContentSection}>
             <h4>{firstBlog.date && firstBlog.date.trim().split("T")[0]}</h4>
-            <h1>{firstBlog.blog_heading}</h1>
+            <h3>{firstBlog.blog_heading}</h3>
             <button
               onClick={() => handleBlogClick(firstBlog)}
             >
@@ -297,7 +297,7 @@ let Blogs = ({metaData}) => {
 
                     <h4>{item.date && item.date.trim().split("T")[0]}</h4>
                   </div>
-                  {item.blog_heading && <h1>{item.blog_heading}</h1>}
+                  {item.blog_heading && <h3>{item.blog_heading}</h3>}
 
                   <p>{truncateText(item?.blog_content, 100)}</p>
                 </div>
@@ -317,7 +317,7 @@ let Blogs = ({metaData}) => {
             <h3>Quick Links</h3>
             {quickLinksBlogs?.map((item, index) => (
               <div key={index}>
-                <h2>{item.blog_heading}</h2>
+                <h3>{item.blog_heading}</h3>
                 <p>{item.date && item.date.trim().split("T")[0]}</p>
                 <button
                   onClick={() => handleBlogClick(item)}

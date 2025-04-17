@@ -25,7 +25,7 @@ const Footer1 = () => {
           title="Free Assessment"
         />
         <div>
-          <h2>Start your process today</h2>
+          <h3>Start your process today</h3>
           <p>
             Get your free assessment and discover your options to immigrate to
             Canada

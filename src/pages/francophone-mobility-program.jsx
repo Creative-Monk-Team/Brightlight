@@ -200,7 +200,7 @@ const handleScroll = () => {
           id="benefits"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.BenifitsHeading}</h2>
+          <h3>{pData?.BenifitsHeading}</h3>
           <h4>
           {pData?.BenifitsSubHeading}
           </h4>
@@ -228,7 +228,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2> {pData?.EligibilityHeading}</h2>
+          <h3> {pData?.EligibilityHeading}</h3>
           <p>
           {pData?.EligibilitySubHead}
           </p>
@@ -258,7 +258,7 @@ const handleScroll = () => {
           id="employer-requirement"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>{pData?.EmpReqHeading}</h2>
+          <h3>{pData?.EmpReqHeading}</h3>
           <ol style={{marginLeft: "40px"}}>
             <li style={{ marginBottom: "10px" }}>
             {pData?.EmpReqList1}
@@ -280,7 +280,7 @@ const handleScroll = () => {
           id="work-permit-duration"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2>{pData?.WorkPerDurHeading}</h2>
+          <h3>{pData?.WorkPerDurHeading}</h3>
           <p>
           {pData?.WorkPerDurSubHead}
           </p>
@@ -299,9 +299,9 @@ const handleScroll = () => {
           id="family-members"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>
+          <h3>
           {pData?.FamilyMemHeading}
-          </h2>
+          </h3>
           <p>
           {pData?.FamilyMemSubHead}
           </p>
@@ -320,7 +320,7 @@ const handleScroll = () => {
           id="application-process"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2> {pData?.AppProHeading}</h2>
+          <h3> {pData?.AppProHeading}</h3>
           <ol style={{marginLeft: "40px"}}>
             <li>
               <strong> {pData?.AppProSubHead1}</strong>
@@ -385,7 +385,7 @@ const handleScroll = () => {
           id="work-permit-renewals"
           ref={(el) => (sectionsRef.current[7] = el)}
         >
-          <h2>{pData?.WorkPerRenHeading}</h2>
+          <h3>{pData?.WorkPerRenHeading}</h3>
           <ul>
             <h4>
             {pData?.WorkPerRenSubHead}
@@ -401,7 +401,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[8] = el)}
         >
-          <h2>{pData?.StillNotSureHeading}</h2>
+          <h3>{pData?.StillNotSureHeading}</h3>
           <p>
           {pData?.StillNotSurePara1}
           </p>
@@ -423,7 +423,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

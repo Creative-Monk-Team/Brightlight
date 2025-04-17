@@ -145,7 +145,7 @@ const handleScroll = () => {
       <div className={styles.bannerParent}>
         <div className={styles.banner}>
           <header className={styles.header}>
-            {/* <h1>Open Work Permit</h1> */}
+            {/* <h3>Open Work Permit</h3> */}
           </header>
           <div
             className={`${styles.bannerHeadingRotateParent} ${
@@ -187,9 +187,9 @@ const handleScroll = () => {
             ref={(el) => (sectionsRef.current[0] = el)}
           >
             <header className={styles.header}>
-              <h1>
+              <h2>
               {pData?.OpenWorkPermitForSpouseHeading}
-              </h1>
+              </h2>
               <p>
               {pData?.OpenWorkPermitForSpousePara}
               </p>
@@ -220,9 +220,9 @@ const handleScroll = () => {
             id="benefits"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>
+            <h3>
             {pData?.BenifitsHeading}
-            </h2>
+            </h3>
             <ul style={{ marginLeft: "40px" }}>
               <li>
               {pData?.b1}
@@ -246,9 +246,9 @@ const handleScroll = () => {
             id="eligibility"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>
+            <h3>
             {pData?.EligibilityHeading}
-            </h2>
+            </h3>
             <ol style={{ marginLeft: "40px" }}>
               <li>
               {pData?.EligLi1}
@@ -270,9 +270,9 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[25] = el)}
           >
-            <h2>
+            <h3>
             {pData?.HowApplyHeading}
-            </h2>
+            </h3>
             <ol style={{ marginLeft: "40px" }}>
               <li>
               {pData?.ha1}
@@ -301,9 +301,9 @@ const handleScroll = () => {
             id="refusal-reasons"
             ref={(el) => (sectionsRef.current[35] = el)}
           >
-            <h2>
+            <h3>
             {pData?.RefusalHeading}
-            </h2>
+            </h3>
             <ol style={{ marginLeft: "40px" }}>
               <li>
               {pData?.r1}
@@ -325,7 +325,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

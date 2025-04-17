@@ -200,7 +200,7 @@ const handleScroll = () => {
             ref={(el) => (sectionsRef.current[0] = el)}
           >
             <header className={styles.header}>
-              <h1>{pData?.agricultAndAgriFoodOccuHeading}</h1>
+              <h3>{pData?.agricultAndAgriFoodOccuHeading}</h3>
             </header>
 
             <p className={styles.discription}>
@@ -213,7 +213,7 @@ const handleScroll = () => {
             id="eligibility"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.FirstEligibleHeading}</h2>
+            <h3>{pData?.FirstEligibleHeading}</h3>
             <p>{pData?.FirstEligSubHead}</p>
             <ul>
               <li>{pData?.e1}</li>
@@ -270,7 +270,7 @@ const handleScroll = () => {
             id="testing"
             ref={(el) => (sectionsRef.current[3] = el)}
           >
-            <h2>{pData?.EligCriHeading}</h2>
+            <h3>{pData?.EligCriHeading}</h3>
             <h4>
               {pData?.EligCriHeading}
             </h4>
@@ -285,7 +285,7 @@ const handleScroll = () => {
             id="express-entry"
             ref={(el) => (sectionsRef.current[31] = el)}
           >
-            <h2>{pData?.EligEntryHeading}</h2>
+            <h3>{pData?.EligEntryHeading}</h3>
             <button
               className={styles.button1}
               onClick={() => (window.location.href = "/previous-draw-history")}
@@ -302,7 +302,7 @@ const handleScroll = () => {
             id="noc"
             ref={(el) => (sectionsRef.current[4] = el)}
           >
-            <h2>{pData?.HereEligTabHeading}</h2>
+            <h3>{pData?.HereEligTabHeading}</h3>
 
             <table className={styles.occupationTable}>
               <thead>
@@ -336,7 +336,7 @@ const handleScroll = () => {
             className={`${styles.section} ${styles.section}`}
             ref={(el) => (sectionsRef.current[5] = el)}
           >
-            <h2>{pData?.StillNotHeading}</h2>
+            <h3>{pData?.StillNotHeading}</h3>
             <p>{pData?.s1}</p>
             <p>{pData?.s2}</p>
             <button
@@ -354,7 +354,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[6] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

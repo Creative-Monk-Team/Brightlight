@@ -451,14 +451,14 @@ const CLBILETSCalculator = ({metaData}) => {
       <div className={styles.calculatorBackgroundParent}>
         <div className={styles.calculatorBackground}>
           <div className={styles.calculatorHeading}>
-            {data && <h2>{data?.heading}</h2>}
+            {data && <h3>{data?.heading}</h3>}
             {data && <h4>{data?.description}</h4>}
           </div>
         </div>
       </div>
 
       <div className={styles.calculatorButtonsParent}>
-        {data && <h2>{data?.subHeading}</h2>}
+        {data && <h3>{data?.subHeading}</h3>}
         <div className={styles.calculatorButtonsDiv}>
           <div className={styles.calculatorButtons}>
             <button

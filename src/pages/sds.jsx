@@ -245,7 +245,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>   {pData?.WhatisStudyPerHeading}</h2>
+          <h3>   {pData?.WhatisStudyPerHeading}</h3>
           <p>
           {pData?.WhatisStudyPerSubHead}
           </p>
@@ -267,9 +267,9 @@ const handleScroll = () => {
           id="faster-processing"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-           <h2 className={styles.subheading}>
+           <h3 className={styles.subheading}>
              {pData?.BenifitHeading}
-          </h2>
+          </h3>
           <p>  {pData?.BenifitSubHead}</p>
           <ul>
             <li>
@@ -289,9 +289,9 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.EligCritTableHeading}
-          </h2>
+          </h3>
           <p>
           {pData?.EligCritTableSubHead}
           </p>
@@ -391,9 +391,9 @@ const handleScroll = () => {
           id="how-to-apply"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.HowtoApplyHeading}
-          </h2>
+          </h3>
           <h4>{pData?.HowtoApplyAppProcHead}</h4>
           <p>
            {pData?.HowtoApplyAppProcPara}
@@ -591,9 +591,9 @@ const handleScroll = () => {
           id="pgwp-requirements"
           ref={(el) => (sectionsRef.current[26] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.IfYouSubmitHeading}
-          </h2>
+          </h3>
           <h4>{pData?.IfYouSubmitSubHead}</h4>
           <p>
           {pData?.IfYouSubmitPara}
@@ -664,9 +664,9 @@ const handleScroll = () => {
           id="family"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.BringingSpouHeading}
-          </h2>
+          </h3>
           <p>
           {pData?.BringingSpouSubHead1}
           </p>
@@ -732,9 +732,9 @@ const handleScroll = () => {
           id="exclusion"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2 className={styles.subheading}>
+          <h3 className={styles.subheading}>
           {pData?.WhoIsNotHeading}
-          </h2>
+          </h3>
           <p style={{ marginBottom: "20px" }}>
           {pData?.WhoIsNotSubHead}
           </p>
@@ -753,7 +753,7 @@ const handleScroll = () => {
           id="application-submission"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2 className={styles.subheading}>  {pData?.SubmAppHeading}</h2>
+          <h3 className={styles.subheading}>  {pData?.SubmAppHeading}</h3>
           <ul style={{ marginLeft: "40px" }}>
             <li>
             {pData?.SubmAppSubHead}
@@ -827,7 +827,7 @@ const handleScroll = () => {
           id="refusal-reasons"
           ref={(el) => (sectionsRef.current[7] = el)}
         >
-          <h2 className={styles.subheading}>  {pData?.RefusalHeading}</h2>
+          <h3 className={styles.subheading}>  {pData?.RefusalHeading}</h3>
           <p style={{ marginBottom: "20px" }}>
           {pData?.RefusalHeading}
           </p>
@@ -842,7 +842,7 @@ const handleScroll = () => {
             <li> {pData?.r8}</li>
             <li>{pData?.r9}</li>
           </ul>
-          <h2 className={styles.subheading}> {pData?.StillNotSureHeading}</h2>
+          <h3 className={styles.subheading}> {pData?.StillNotSureHeading}</h3>
           <p>
           {pData?.StillNotSurePara1}
           </p>
@@ -867,7 +867,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+         <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

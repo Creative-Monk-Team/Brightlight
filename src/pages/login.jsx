@@ -69,7 +69,7 @@ let Login = () => {
     <>
       <div className={styles.login}>
         <div>
-          <h1>Login</h1>
+          <h3>Login</h3>
           <form onSubmit={handleSubmit}>
             <label>Username:</label>
             <input

@@ -121,7 +121,7 @@ const NewsDetails = () => {
             <Navbar1 />
             <div className={styles.newsTopSection}>
                 <div className={styles.newssTopContentSection}>
-                    <h1>{news.news_heading || "News Article"}</h1>
+                    <h3>{news.news_heading || "News Article"}</h3>
                 </div>
             </div>
             <div className={styles.newssFlexSection}>

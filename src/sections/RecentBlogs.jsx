@@ -181,7 +181,7 @@ const RecentBlogs = () => {
   return (
     <div className={styles.recentBlogs}>
       <div className={styles.recentBlogMainSection}>
-        <h2>Featured Blogs</h2>
+        <h3>Featured Blogs</h3>
         <div className={styles.blogsGridSection}>
           {blogs.map((item, index) => (
             <Link
@@ -199,7 +199,7 @@ const RecentBlogs = () => {
                   layout="responsive"
                 />
               </div>
-              <h2>{item.blog_heading}</h2>
+              <h3>{item.blog_heading}</h3>
               <h6>
                 <b>{item.date && item.date.trim().split("T")[0]}</b>
               </h6>

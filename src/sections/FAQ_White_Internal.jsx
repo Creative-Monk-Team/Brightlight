@@ -43,15 +43,14 @@ let FAQ_White_Internal = ({ data }) => {
                 <p>?</p>
               </div>
               <div className={styles.faqQuestionsParentSection}>
-                <h2>{faqHeading}</h2>
+                <h3>{faqHeading}</h3>
                 <div className={styles.questions}>
                   {faqData.map((item, index) => (
                     <div
                       onClick={() => handleQuestionClick(index)}
                       key={index}
-                      className={`${styles.questionSection} ${
-                        activeIndex === index ? styles.active : ""
-                      }`}
+                      className={`${styles.questionSection} ${activeIndex === index ? styles.active : ""
+                        }`}
                     >
                       <p>{item.question}</p>
                       <RightArrow width={30} height={30} />
@@ -72,16 +71,15 @@ let FAQ_White_Internal = ({ data }) => {
                 <p>?</p>
               </div>
               <div className={styles.faqQuestionsParentSection}>
-                <h2>{faqHeading}</h2>
+                <h3>{faqHeading}</h3>
                 <div className={styles.questions}>
                   {faqData.map((item, index) => (
                     <>
                       <div
                         onClick={() => handleQuestionClick(index)}
                         key={index}
-                        className={`${styles.questionSection} ${
-                          activeIndex === index ? styles.active : ""
-                        }`}
+                        className={`${styles.questionSection} ${activeIndex === index ? styles.active : ""
+                          }`}
                       >
                         <p>{item.question}</p>
                         <RightArrow width={30} height={30} />

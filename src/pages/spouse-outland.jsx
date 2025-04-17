@@ -222,7 +222,7 @@ const SpouseOutland = ({metaData}) => {
           {pData?.description}
         </p>
 
-        <h2>{pData?.IsOutlandSponHeading}</h2>
+        <h3>{pData?.IsOutlandSponHeading}</h3>
         <p>{pData?.IsOutlandSponSubHead}</p>
         <ul
           style={{
@@ -238,26 +238,26 @@ const SpouseOutland = ({metaData}) => {
         {pData?.IsOutlandSponSubPara}
         </p>
 
-        <h2
+        <h3
           style={{
             marginTop: "50px",
           }}
           id="Process"
         >
            {pData?.ApprovalProcessHeading}
-        </h2>
+        </h3>
         <p>
            {pData?.ApprovalProcessPara}
         </p>
 
-        <h2
+        <h3
           style={{
             marginTop: "50px",
           }}
           id="Eligibility"
         >
            {pData?.eligCritHeading}
-        </h2>
+        </h3>
         <p>
           {pData?.eligCritSubHead}
         </p>
@@ -300,14 +300,14 @@ const SpouseOutland = ({metaData}) => {
             {pData?.eNote}
         </p>
 
-        <h2
+        <h3
           style={{
             marginTop: "60px",
           }}
           id="How-to-apply"
         >
             {pData?.HowToApplyOutlSponHeading}
-        </h2>
+        </h3>
         <p>
            {pData?.HowToApplyOutlSponPara}
         </p>
@@ -339,7 +339,7 @@ const SpouseOutland = ({metaData}) => {
           </li>
         </ol>
 
-        <h2>  {pData?.QueSpecConsidHeading}</h2>
+        <h3>  {pData?.QueSpecConsidHeading}</h3>
         <p
           style={{
             marginLeft: "40px",
@@ -359,7 +359,7 @@ const SpouseOutland = ({metaData}) => {
          <strong> {strongText9}</strong> {remainingText9}
         </p>
 
-        <h2 id="Process-Timeline">  {pData?.ProcTimeHeading}</h2>
+        <h3 id="Process-Timeline">  {pData?.ProcTimeHeading}</h3>
         <p>
         <strong> {strongText10}</strong> {remainingText10}
         </p>
@@ -387,13 +387,13 @@ const SpouseOutland = ({metaData}) => {
           {pData?.ptNote}
         </p>
 
-        <h2
+        <h3
           style={{
             marginTop: "50px",
           }}
         >
            {pData?.DualIntVisaOutSpouHeading}
-        </h2>
+        </h3>
         <p>
         {pData?.DualIntVisaOutSpouPara}
         </p>
@@ -413,13 +413,13 @@ const SpouseOutland = ({metaData}) => {
           {pData?.wd2}
         </p>
 
-        <h2
+        <h3
           style={{
             marginTop: "50px",
           }}
         >
              {pData?.SpousesPartnersHeading}
-        </h2>
+        </h3>
         <p>
              {pData?.SpousesPartnerPara1}
         </p>
@@ -444,7 +444,7 @@ const SpouseOutland = ({metaData}) => {
           className={`${styles.section} ${styles.section}`}
           id="why-choose-u"
         >
-          <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+          <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi}  style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

@@ -118,7 +118,7 @@
 //   return (
 //     <div className={styles.testimonialsSection}>
 //       <div className={styles.testimonialsContentSection}>
-//         <h1>{videosData?.heading}</h1>
+//         <h3>{videosData?.heading}</h3>
 //         <div className={styles.googleImageSection}>
 //              <Image loading="lazy" height={50} width={100}      src={google} alt="Google Ratings" />
 //           <p>{videosData?.googleRatings}/5</p>
@@ -130,7 +130,7 @@
 //           </div>
 //           <div className={styles.reviewDetails}>
 //             <h3>{reviewData[currentReview]?.review}</h3>
-//             <h2>{reviewData[currentReview]?.person_name}</h2>
+//             <h3>{reviewData[currentReview]?.person_name}</h3>
 //             <div className={styles.reviewsStarsSection}>
 //               {Array.from({ length: reviewData[currentReview]?.review_stars }, (_, i) => (
 //                 <ReviewStar key={i} width={25} height={25} />
@@ -308,7 +308,7 @@ const Testimonials_White = () => {
   return (
     <div className={styles.testimonialsSection}>
       <div className={styles.testimonialsContentSection}>
-        <h2>{data?.heading}</h2>
+        <h3>{data?.heading}</h3>
         <div className={styles.googleImageSection}>
              <Image loading="lazy" height={50} width={100}    // Arbitrary number, Next.js auto-adjusts it
      src={google}  alt="Google" title="Google" />
@@ -329,7 +329,7 @@ const Testimonials_White = () => {
             </div>
             <div className={styles.reviewDetails}>
               <h3>{reviewData[currentReview]?.review}</h3>
-              <h2>{reviewData[currentReview]?.person_name}</h2>
+              <h3>{reviewData[currentReview]?.person_name}</h3>
               <div className={styles.reviewsStarsSection}>
                 {Array.from(
                   { length: reviewData[currentReview]?.review_stars },

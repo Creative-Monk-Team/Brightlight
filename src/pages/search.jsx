@@ -230,7 +230,7 @@ const Search = () => {
           <>
             {servicesData.length > 0 && (
               <div className={styles.servicesSection}>
-                <h2>Services</h2>
+                <h3>Services</h3>
                 <div className={styles.servicesGridSection}>
                   {servicesData.map((item, index) => (
                     <div
@@ -249,7 +249,7 @@ const Search = () => {
 
             {blogsData.length > 0 && (
               <div className={styles.blogsSection}>
-                <h2 className={styles.sectionHeading}>Blogs</h2>
+                <h3 className={styles.sectionHeading}>Blogs</h3>
                 <div className={styles.blogsGridSection}>
                   {blogsData.map((item, index) => (
                     <Link
@@ -276,7 +276,7 @@ const Search = () => {
 
             {newsData.length > 0 && (
               <div className={styles.newsSection}>
-                <h2 className={styles.sectionHeading}>News</h2>
+                <h3 className={styles.sectionHeading}>News</h3>
                 <div className={styles.newsGridSection}>
                   {newsData.map((item, index) => (
                     <Link
@@ -304,9 +304,9 @@ const Search = () => {
         ) : (
           <div className={styles.noResults}>
             {showNoResults ? (
-              <h2>No results found. Try searching for something different.</h2>
+              <h3>No results found. Try searching for something different.</h3>
             ) : (
-              <h2>Searching..</h2>
+              <h3>Searching..</h3>
             )}
           </div>
         )}

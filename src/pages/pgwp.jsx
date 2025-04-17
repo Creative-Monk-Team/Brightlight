@@ -221,9 +221,9 @@ const handleScroll = () => {
           id="about-program"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-          <h1>
+          <h3>
           {pData?.PgwpHeading}
-          </h1>
+          </h3>
           <p>
           {pData?.PgwpPara1}
           </p>
@@ -237,7 +237,7 @@ const handleScroll = () => {
           id="benefits"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.BenifitsHeading}</h2>
+          <h3>{pData?.BenifitsHeading}</h3>
           <ul style={{ marginLeft: "40px" }}>
             <li>
             {pData?.BenifitsList1 }
@@ -256,7 +256,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>{pData?.EligibilityHeading}</h2>
+          <h3>{pData?.EligibilityHeading}</h3>
           <p>{pData?.EligibilitySubHead}</p>
           <ul style={{ marginLeft: "40px" }}>
             <li>
@@ -282,9 +282,9 @@ const handleScroll = () => {
           id="application-process"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>
+          <h3>
           {pData?.ChanAnnHeading }
-          </h2>
+          </h3>
           <p>
             <strong>  {pData?.ChanAnnSubHead }</strong>
           </p>
@@ -335,9 +335,9 @@ const handleScroll = () => {
             </li>
           </ul>
 
-          <h2 style={{ marginTop: "30px", fontSize: "20px" }}>
+          <h3 style={{ marginTop: "30px", fontSize: "20px" }}>
           {pData?.IfYouSumHeading}
-          </h2>
+          </h3>
           <p>
             If you submitted your{" "}
             <strong>{strongText1}</strong>{" "} {remainingText1}
@@ -391,9 +391,9 @@ const handleScroll = () => {
             </li>
           </ul>
 
-          <h2 style={{ marginTop: "50px", fontSize: "20px" }}>
+          <h3 style={{ marginTop: "50px", fontSize: "20px" }}>
           {pData?.IfYouSubmitPara }
-          </h2>
+          </h3>
           <p>
           {pData?. IfYouSubmitPara}
           </p>
@@ -477,7 +477,7 @@ const handleScroll = () => {
           id="field-study"
           ref={(el) => (sectionsRef.current[244] = el)}
         >
-          <h2>{pData?.FieldStudyRequHeading }</h2>
+          <h3>{pData?.FieldStudyRequHeading }</h3>
           <p>
           {pData?.FieldStudyRequPara }
           </p>
@@ -498,7 +498,7 @@ const handleScroll = () => {
           id="how-to-apply"
           ref={(el) => (sectionsRef.current[24] = el)}
         >
-          <h2>{pData?.HowApplyHeading}</h2>
+          <h3>{pData?.HowApplyHeading}</h3>
           <p>
           {pData?.HowApplyPara1}
           </p>
@@ -523,9 +523,9 @@ const handleScroll = () => {
           id="refusal-reasons"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2>
+          <h3>
           {pData?.RefusalHeading}
-          </h2>
+          </h3>
           <h4>
           {pData?.RefusalSubHeading}
           </h4>
@@ -555,7 +555,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>{pData?.StillNotSureHeading}</h2>
+          <h3>{pData?.StillNotSureHeading}</h3>
           <p>
           {pData?.StillNotSurePara1}
           </p>
@@ -577,7 +577,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

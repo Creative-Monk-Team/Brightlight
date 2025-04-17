@@ -265,9 +265,9 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[2] = el)}
          >
-          <h2>
+          <h3>
           {pData?.BenifitHeading}
-          </h2>
+          </h3>
           <ul
             style={{ marginLeft: "40px" }}
             className={`${styles.section} ${styles.section}`}
@@ -304,9 +304,9 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2>
+          <h3>
           {pData?.EligCritHeading}
-          </h2>
+          </h3>
           <p>
           {pData?.EligCritPara}
           </p>
@@ -318,7 +318,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>{pData?.EligReqHeading}</h2>
+          <h3>{pData?.EligReqHeading}</h3>
           <h3>{pData?.EligReqSubHead1}</h3>
           <p>
             {pData?.EligReqSubHead1Para1}
@@ -441,13 +441,13 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[14] = el)}
         >
-          <h2
+          <h3
             className={`${styles.section} ${styles.section}`}
             id="testing"
             ref={(el) => (sectionsRef.current[15] = el)}
           >
            {pData?.EligReqAccomHeading}
-          </h2>
+          </h3>
           <p
             className={`${styles.section} ${styles.section}`}
             id="testing"
@@ -486,9 +486,9 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[18] = el)}
         >
-          <h2>
+          <h3>
            {pData?.WhenToApplyHeading}
-          </h2>
+          </h3>
           <ol style={{marginLeft: "40px", marginTop: "10px"}}>
             <li>
             {pData?.wa1}
@@ -506,9 +506,9 @@ const handleScroll = () => {
           className={`${styles.section} ${styles.section}`}
           id="testing"
           ref={(el) => (sectionsRef.current[19] = el)}>
-          <h2>
+          <h3>
           {pData?.HowApplyHeading}
-          </h2>
+          </h3>
           <ol className={styles.subList} style={{marginLeft: "40px", marginTop: "10px"}} >
             <li>
             {pData?.ha1}
@@ -530,9 +530,9 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[20] = el)}
         >
-          <h2>
+          <h3>
           {pData?.RefusalHeading}
-          </h2>
+          </h3>
           <ul style={{marginLeft: "40px", marginTop: "10px"}}>
             <li>
             {pData?.r1}
@@ -560,7 +560,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[90] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

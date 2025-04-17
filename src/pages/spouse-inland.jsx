@@ -231,14 +231,14 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           {pData?.description}
         </p>
 
-        <h2
+        <h3
           style={{
             marginTop: "50px",
           }}
           id="Key Points"
         >
            {pData?.KeyPointsHeading}
-        </h2>
+        </h3>
         <ul
           style={{
             marginTop: "20px",
@@ -260,7 +260,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           </li>
         </ul>
 
-        <h2 id="Benifits">  {pData?.BenefitHeading}</h2>
+        <h3 id="Benifits">  {pData?.BenefitHeading}</h3>
         <ul
           style={{
             marginTop: "20px",
@@ -279,9 +279,9 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           </li>
         </ul>
 
-        <h2 id="Eligibility">
+        <h3 id="Eligibility">
         {pData?.eligibleCriteriaHeading}
-        </h2>
+        </h3>
         <ul
           style={{
             marginBottom: "60px",
@@ -330,7 +330,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           </li>
         </ul>
 
-        <h2 id="Inland-SOWP">{pData?.HowInlaSpoSponWorkHeading}</h2>
+        <h3 id="Inland-SOWP">{pData?.HowInlaSpoSponWorkHeading}</h3>
         <p
           style={{
             marginBottom: "60px",
@@ -354,7 +354,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           </li>
         </ul>
 
-        <h2   id="How-to-apply">{pData?.HowAppInlSpoSponHeading}</h2> 
+        <h3   id="How-to-apply">{pData?.HowAppInlSpoSponHeading}</h3> 
         <ol className={styles.howToApply}
           style={{
             marginTop: "20px",
@@ -373,7 +373,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           {pData?.RemainingCanadaPara}
         </p>
 
-        <h2>{pData?.HowLongProcInlAppHeading}</h2>
+        <h3>{pData?.HowLongProcInlAppHeading}</h3>
         <p
           style={{
             marginBottom: "60px",
@@ -382,7 +382,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
          {pData?.HowLongProcInlAppPara}
         </p>
 
-        <h2>{pData?.InlSpouSponHeading}</h2>
+        <h3>{pData?.InlSpouSponHeading}</h3>
         <p
           style={{
             marginBottom: "20px",
@@ -424,7 +424,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           className={`${styles.section} ${styles.section}`}
           id="why-choose-us"
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

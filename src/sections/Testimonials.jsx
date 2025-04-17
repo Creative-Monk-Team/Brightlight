@@ -112,7 +112,7 @@ const Testimonials = () => {
   return (
     <div className={styles.testimonialsSection}>
       <div className={styles.testimonialsContentSection}>
-        <h2>{data?.heading}</h2>
+        <h3>{data?.heading}</h3>
         <div className={styles.googleImageSection}>
           <Image loading="lazy"
             src={google}
@@ -139,7 +139,7 @@ const Testimonials = () => {
             </div>
             <div className={styles.reviewDetails}>
               <h3>{reviewData[currentReview]?.review}</h3>
-              <h2>{reviewData[currentReview]?.person_name}</h2>
+              <h3>{reviewData[currentReview]?.person_name}</h3>
               <div className={styles.reviewsStarsSection}>
                 {Array.from(
                   { length: reviewData[currentReview]?.review_stars },

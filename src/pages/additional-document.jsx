@@ -192,7 +192,7 @@ const handleScroll = () => {
 
       <div className={styles.container} id="container">
         <header className={styles.header} id="about-program">
-          <h1>{pData?.AdditionalDocumentHeading}</h1>
+          <h3>{pData?.AdditionalDocumentHeading}</h3>
         </header>
         <main className={styles.mainContent}>
           <section
@@ -200,7 +200,7 @@ const handleScroll = () => {
             id="about"
             ref={(el) => (sectionsRef.current[0] = el)}
           >
-            <h2>{pData?.DonotWorryHeading}</h2>
+            <h3>{pData?.DonotWorryHeading}</h3>
             <ul style={{ marginLeft: "40px" }}>
               <li>{pData?.DonotWorryPara1}</li>
               <li>{pData?.DonotWorryPara2}</li>
@@ -214,7 +214,7 @@ const handleScroll = () => {
             id="key-points"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>{pData?.KeyPointsHeading}</h2>
+            <h3>{pData?.KeyPointsHeading}</h3>
             <ul style={{ marginLeft: "40px" }}>
               <li>{pData?.k1}</li>
               <li>{pData?.k2}</li>
@@ -236,7 +236,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.StillNotHeading}</h2>
+            <h3>{pData?.StillNotHeading}</h3>
             <p>{pData?.s1}</p>
             <p>{pData?.s2}</p>
             <button
@@ -254,7 +254,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-            <h2> {pData?.WhyChooseUsHeading01}</h2>
+            <h3> {pData?.WhyChooseUsHeading01}</h3>
             <ul className={styles.whychooseusLi}  style={{ marginLeft: "40px" }}>
               <li>
                 <strong>{strongText91}</strong> {remainingText91}

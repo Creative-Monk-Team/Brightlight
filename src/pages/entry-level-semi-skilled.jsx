@@ -221,13 +221,13 @@ const handleScroll = () => {
         {pData?.description2}
         </p>
 
-        <h2
+        <h3
           className={`${styles.subtitle} ${styles.section}`}
           id="key-points"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
             {pData?.benefitsHeading}
-        </h2>
+        </h3>
         <ul
           style={{ marginLeft: "40px" }}
           className={`${styles.list} ${styles.section}`}
@@ -247,13 +247,13 @@ const handleScroll = () => {
           </li>
         </ul>
 
-        <h2
+        <h3
           className={`${styles.subtitle} ${styles.section}`}
           id="eligibility"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
           {pData?.eligibilityHeading}
-        </h2>
+        </h3>
         <p>
          {pData?.elibilityDescription}
         </p>
@@ -383,7 +383,7 @@ const handleScroll = () => {
               <thead>
                 <tr>
                   <th className={styles.tableHeader}>{pData?.t1h1}</th>
-                  <th className={styles.tableHeader}>{pData?.t1h2}</th>
+                  <th className={styles.tableHeader}>{pData?.t1h3}</th>
                 </tr>
               </thead>
               <tbody>
@@ -405,7 +405,7 @@ const handleScroll = () => {
               <thead>
                 <tr>
                   <th className={styles.tableHeader}>{pData?.t3h1}</th>
-                  <th className={styles.tableHeader}>{pData?.t3h2}</th>
+                  <th className={styles.tableHeader}>{pData?.t3h3}</th>
                 </tr>
               </thead>
               <tbody>
@@ -437,7 +437,7 @@ const handleScroll = () => {
               <thead>
                 <tr>
                   <th className={styles.tableHeader}>{pData?.t3h1}</th>
-                  <th className={styles.tableHeader}>{pData?.t3h2}</th>
+                  <th className={styles.tableHeader}>{pData?.t3h3}</th>
                 </tr>
               </thead>
               <tbody>
@@ -477,7 +477,7 @@ const handleScroll = () => {
               <thead>
                 <tr>
                   <th className={styles.tableHeader}>{pData?.t4h1}</th>
-                  <th className={styles.tableHeader}>{pData?.t4h2}</th>
+                  <th className={styles.tableHeader}>{pData?.t4h3}</th>
                 </tr>
               </thead>
               <tbody>
@@ -516,7 +516,7 @@ const handleScroll = () => {
               <thead>
                 <tr>
                   <th className={styles.tableHeader}>{pData?.t5h1}</th>
-                  <th className={styles.tableHeader}>{pData?.t5h2}</th>
+                  <th className={styles.tableHeader}>{pData?.t5h3}</th>
                 </tr>
               </thead>
               <tbody>
@@ -548,7 +548,7 @@ const handleScroll = () => {
               <thead>
                 <tr>
                   <th className={styles.tableHeader}>{pData?.t6h1}</th>
-                  <th className={styles.tableHeader}>{pData?.t6h2}</th>
+                  <th className={styles.tableHeader}>{pData?.t6h3}</th>
                 </tr>
               </thead>
               <tbody>
@@ -594,13 +594,13 @@ const handleScroll = () => {
           </button>
         </div>
 
-        <h2
+        <h3
           className={`${styles.subtitle} ${styles.section}`}
           id="how-to-apply"
           ref={(el) => (sectionsRef.current[27] = el)}
         >
           {pData?.applicationProcessHeading}
-        </h2>
+        </h3>
         <p>
         {pData?.applicationProcessDescription}
         </p>
@@ -659,13 +659,13 @@ const handleScroll = () => {
           </li>
         </ul>
 
-        <h2
+        <h3
           className={`${styles.subtitle} ${styles.section}`}
           id="testing26"
           ref={(el) => (sectionsRef.current[29] = el)}
         >
         {pData?.StillNotHeading}
-        </h2>
+        </h3>
         <p
           className={`${styles.description} ${styles.section}`}
           id="testing27"
@@ -691,13 +691,13 @@ const handleScroll = () => {
           Book Appointment
         </button>
 
-        {/* <h2
+        {/* <h3
           className={`${styles.subtitle} ${styles.section}`}
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[32] = el)}
         >
           Why Choose Us?
-        </h2>
+        </h3>
         <p
           className={`${styles.description} ${styles.section}`}
           id="testing29"
@@ -728,7 +728,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

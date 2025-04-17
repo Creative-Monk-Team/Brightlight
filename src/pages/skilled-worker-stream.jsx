@@ -144,10 +144,10 @@ const handleScroll = () => {
       <div className={styles.bannerParent}>
         <div className={styles.banner}>
           {/* <header className={styles.header}>
-            <h1>
+            <h3>
               British Columbia Provincial Nominee Program (BC PNP) Skilled
               Worker Stream
-            </h1>
+            </h3>
           </header> */}
           <div
             className={`${styles.bannerHeadingRotateParent} ${
@@ -192,9 +192,9 @@ const handleScroll = () => {
           id="benefits-2"
           ref={(el) => (sectionsRef.current[50] = el)}
         >
-          <h1>
+          <h3>
           {pData?.heading}
-          </h1>
+          </h3>
           <p>
           {pData?.description}
           </p>
@@ -204,7 +204,7 @@ const handleScroll = () => {
           id="benefits"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-          <h2>    {pData?.benefitsHeading}</h2>
+          <h3>    {pData?.benefitsHeading}</h3>
           <ul style={{marginLeft: "40px"}}>
             <li>
             {pData?.b1}
@@ -226,9 +226,9 @@ const handleScroll = () => {
           <h3 style={{ marginBottom: "20px" }}>
           {pData?.eligibleSubHeading}
           </h3>
-          <h2 style={{ marginBottom: "20px" }}>
+          <h3 style={{ marginBottom: "20px" }}>
           {pData?.eligibileHeading}
-          </h2>
+          </h3>
           <p style={{ marginBottom: "20px" }}>
           {pData?.eligibleDesc}
           </p>
@@ -287,7 +287,7 @@ const handleScroll = () => {
           id="testting1"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>{pData?.expressConsiderationHeading}</h2>
+          <h3>{pData?.expressConsiderationHeading}</h3>
           <p>
           {pData?.expressConsiderationDescription}
           </p>
@@ -298,7 +298,7 @@ const handleScroll = () => {
           id="employer_requirements"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>{pData?.recruitmentHeading}</h2>
+          <h3>{pData?.recruitmentHeading}</h3>
           <p>
           {pData?.recruitmentDescription}
           </p>
@@ -383,7 +383,7 @@ const handleScroll = () => {
           id="process"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>{pData?.applicationHeading}</h2>
+          <h3>{pData?.applicationHeading}</h3>
           <ol style={{marginLeft: "40px"}}>
             <li>
               <strong className={styles.sectionStrong}>
@@ -478,7 +478,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
          >
-          <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+          <h3>  {pData?.WhyChooseUsHeading01 }</h3>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}
@@ -500,7 +500,7 @@ const handleScroll = () => {
           id="book-appointment"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2>   {pData?.StillNotHeading}</h2>
+          <h3>   {pData?.StillNotHeading}</h3>
           <p>
           {pData?.s1}
           </p>
