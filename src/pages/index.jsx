@@ -569,6 +569,7 @@ let HomePage = ({metaData}) => {
       />
       <Head>
         <meta name="keywords" content={metaData?.metaKeywords || "default, keywords"} />
+        <link rel="canonical" href="https://www.brightlightimmigration.ca/" />
       </Head>
 
       <Navbar1 showBlue={true} />
