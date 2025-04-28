@@ -212,6 +212,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { MdArrowBackIosNew, MdArrowForwardIos  } from "react-icons/md";
 
 const Testimonials_White = () => {
   const videoSwiperRef = useRef(null);
@@ -389,10 +390,10 @@ const Testimonials_White = () => {
           {/* Navigation Buttons */}
           <div className={styles.navigationButtons}>
             <button onClick={handlePreviousVideo} className={styles.prevButton}>
-              <span>{"<"}</span>
+            <MdArrowBackIosNew/>
             </button>
             <button onClick={handleNextVideo} className={styles.nextButton}>
-              <span>{">"}</span>
+            <MdArrowForwardIos/> 
             </button>
           </div>
         </div>

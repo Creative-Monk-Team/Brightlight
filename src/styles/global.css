@@ -281,6 +281,7 @@ ol{
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  color: #132f46 !important;
 }
 
 .swiper-button-prev:after,

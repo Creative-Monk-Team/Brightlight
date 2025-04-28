@@ -9,7 +9,7 @@ export default {
     },
     additionalMetaTags: [
       {
-        name: 'keywords',
+        name: 'Brightlight Immigration',
         content: 'your, keywords, here'
       }
     ],

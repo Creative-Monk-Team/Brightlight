@@ -8,11 +8,26 @@ import Loader from "../components/Loader";
 import FloatingButton from "../components/FloatingButton";
 import Head from "next/head";
 import Script from "next/script"; // Import Next.js Script component
-import { DefaultSeo } from 'next-seo';
+import { DefaultSeo, LogoJsonLd } from 'next-seo';
 import SEO from "../../seo-config";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const [redirectsData, setRedirectsData] = useState([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      if (window.fbq) {
+        window.fbq("track", "PageView");
+      }
+    };
+  
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   // Fetch Redirect Data
   useEffect(() => {
@@ -94,7 +109,81 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       />
-      <DefaultSeo {...SEO} />
+      {/* Facebook Pixel Script */}
+      <Script
+        id="facebook-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '576043718512204'); 
+            fbq('track', 'PageView');
+          `,
+        }}
+      />
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style={{ display: 'none' }}
+          src="https://www.facebook.com/tr?id=576043718512204&ev=PageView&noscript=1"
+        />
+      </noscript>
+
+      <DefaultSeo
+        titleTemplate="%s | Brightlight"
+        defaultTitle="Brightlight"
+        openGraph={{
+          type: 'website',
+          locale: 'en_IE',
+          url: 'https://www.brightlightimmigration.ca/',
+          siteName: 'Brightlight Immigration',
+        }}
+        twitter={{
+          handle: '@handle',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+      />
+
+      <LogoJsonLd
+        logo="https://www.brightlightimmigration.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbrlightlight-icon.a58008c2.webp&w=256&q=75"
+        url="https://www.brightlightimmigration.ca/"
+      />
+
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Brightlight Immigration",
+            "image": "https://www.brightlightimmigration.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbrlightlight-icon.a58008c2.webp&w=256&q=75",
+            "url": "https://www.brightlightimmigration.ca/",
+            "telephone": "+1(604)5033734",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "15315 66 Ave unit 327",
+              "addressLocality": "Surrey",
+              "addressRegion": "BC",
+              "postalCode": "V3S 2A1",
+              "addressCountry": "CA"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "priceRange": "$$"
+          })
+        }}
+      />
+
       <HelmetProvider>
         <ToastContainer />
         <Loader />
