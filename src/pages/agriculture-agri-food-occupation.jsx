@@ -112,7 +112,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/agriculture-agri-food-occupation" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

@@ -124,7 +124,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/french-targeted-draw" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

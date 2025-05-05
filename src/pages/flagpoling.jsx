@@ -98,7 +98,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/flagpoling" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

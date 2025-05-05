@@ -405,7 +405,7 @@ const CLBILETSCalculator = ({metaData}) => {
   return (
     <>
     <Head>
-            <link rel="canonical" href="https://brightlightimmigration.ca/clb-ilets-calculator" />
+            
             <title>
               {metaData?.metaTitle
                 ? metaData?.metaTitle

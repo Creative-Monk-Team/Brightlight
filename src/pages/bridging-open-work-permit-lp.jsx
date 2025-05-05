@@ -114,7 +114,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/bridging-open-work-permit-lp" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

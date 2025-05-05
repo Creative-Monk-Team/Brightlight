@@ -112,7 +112,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/entry-level-semi-skilled" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

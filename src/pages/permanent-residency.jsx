@@ -76,7 +76,7 @@ const PermanentResidency = ({ metaData }) => {
   return (
     <>
       <Head>
-        <link rel="canonical" href="https://brightlightimmigration.ca/permanent-residency" />
+        
         <title>{metaData?.metaTitle || "Brightlight Immigration"}</title>
         <meta
           name="description"

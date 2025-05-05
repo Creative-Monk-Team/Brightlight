@@ -151,7 +151,7 @@ const handleScroll = () => {
   return (
     <>
           <Head>
-          <link rel="canonical" href="https://brightlightimmigration.ca/common-law-partner-international" />
+          
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

@@ -100,7 +100,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/common-law-partner-temporary" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

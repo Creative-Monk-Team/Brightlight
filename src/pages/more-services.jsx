@@ -115,7 +115,7 @@ const MoreServices = ({metaData}) => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/more-services" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

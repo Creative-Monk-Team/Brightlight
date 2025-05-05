@@ -98,7 +98,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/federal-skilled-trades-program" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

@@ -16,7 +16,7 @@ const parseDate = (dateString) => {
   return new Date(dateString);
 };
 
-const PreviousDrawHistory = ({metaData}) => {
+const PreviousDrawHistory = ({ metaData }) => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortConfig, setSortConfig] = useState({
@@ -104,8 +104,8 @@ const PreviousDrawHistory = ({metaData}) => {
   const pageNumbers = Math.ceil(filteredData.length / itemsPerPage);
   return (
     <>
-              <Head>
-              <link rel="canonical" href="https://brightlightimmigration.ca/previous-draw-history" />
+      <Head>
+
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle
@@ -181,11 +181,10 @@ const PreviousDrawHistory = ({metaData}) => {
                 >
                   <span className={styles.headingSpan}>#</span>
                   <span
-                    className={`${styles.dropdownArrow} ${
-                      sortConfig.key === "drawNumber"
+                    className={`${styles.dropdownArrow} ${sortConfig.key === "drawNumber"
                         ? styles[sortConfig.direction]
                         : ""
-                    }`}
+                      }`}
                   >
                     {sortConfig.key === "drawNumber"
                       ? sortConfig.direction === "ascending"
@@ -202,11 +201,10 @@ const PreviousDrawHistory = ({metaData}) => {
                 >
                   <span className={styles.headingSpan}>Date</span>
                   <span
-                    className={`${styles.dropdownArrow} ${
-                      sortConfig.key === "drawDateFull"
+                    className={`${styles.dropdownArrow} ${sortConfig.key === "drawDateFull"
                         ? styles[sortConfig.direction]
                         : ""
-                    }`}
+                      }`}
                   >
                     {sortConfig.key === "drawDateFull"
                       ? sortConfig.direction === "ascending"
@@ -223,11 +221,10 @@ const PreviousDrawHistory = ({metaData}) => {
                 >
                   <span className={styles.headingSpan}>Round Type</span>
                   <span
-                    className={`${styles.dropdownArrow} ${
-                      sortConfig.key === "drawName"
+                    className={`${styles.dropdownArrow} ${sortConfig.key === "drawName"
                         ? styles[sortConfig.direction]
                         : ""
-                    }`}
+                      }`}
                   >
                     {sortConfig.key === "drawName"
                       ? sortConfig.direction === "ascending"
@@ -244,11 +241,10 @@ const PreviousDrawHistory = ({metaData}) => {
                 >
                   <span className={styles.headingSpan}>Invitations Issued</span>
                   <span
-                    className={`${styles.dropdownArrow} ${
-                      sortConfig.key === "drawSize"
+                    className={`${styles.dropdownArrow} ${sortConfig.key === "drawSize"
                         ? styles[sortConfig.direction]
                         : ""
-                    }`}
+                      }`}
                   >
                     {sortConfig.key === "drawSize"
                       ? sortConfig.direction === "ascending"
@@ -267,11 +263,10 @@ const PreviousDrawHistory = ({metaData}) => {
                     CRS score of lowest-ranked candidate invited
                   </span>
                   <span
-                    className={`${styles.dropdownArrow} ${
-                      sortConfig.key === "drawCRS"
+                    className={`${styles.dropdownArrow} ${sortConfig.key === "drawCRS"
                         ? styles[sortConfig.direction]
                         : ""
-                    }`}
+                      }`}
                   >
                     {sortConfig.key === "drawCRS"
                       ? sortConfig.direction === "ascending"

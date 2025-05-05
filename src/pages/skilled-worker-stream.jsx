@@ -14,9 +14,9 @@ export async function getServerSideProps() {
   return fetchSeoData("skilledWorkerStreamMeta"); // Pass the API endpoint specific to this page
 }
 
-const SkilledWorkerStream = ({metaData}) => {
+const SkilledWorkerStream = ({ metaData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [pData,setPData]=useState([]);
+  let [pData, setPData] = useState([]);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -46,7 +46,7 @@ const SkilledWorkerStream = ({metaData}) => {
 
   const sectionsRef = useRef([]);
 
-const handleScroll = () => {
+  const handleScroll = () => {
     sectionsRef.current.forEach((section) => {
       if (section) { // ✅ Check if section exists
         const rect = section.getBoundingClientRect();
@@ -82,23 +82,23 @@ const handleScroll = () => {
   const fetchedValue91 = pData?.wcu1;
   const strongText91 = extractStrongText(fetchedValue91);
   const remainingText91 = extractRemainingText(fetchedValue91);
-  
+
   const fetchedValue92 = pData?.wcu2;
   const strongText92 = extractStrongText(fetchedValue92);
   const remainingText92 = extractRemainingText(fetchedValue92);
-  
+
   const fetchedValue93 = pData?.wcu3;
   const strongText93 = extractStrongText(fetchedValue93);
   const remainingText93 = extractRemainingText(fetchedValue93);
-  
+
   const fetchedValue94 = pData?.wcu4;
   const strongText94 = extractStrongText(fetchedValue94);
   const remainingText94 = extractRemainingText(fetchedValue94);
 
   return (
     <>
-          <Head>
-          <link rel="canonical" href="https://brightlightimmigration.ca/skilled-worker-stream" />
+      <Head>
+
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle
@@ -150,9 +150,8 @@ const handleScroll = () => {
             </h1>
           </header> */}
           <div
-            className={`${styles.bannerHeadingRotateParent} ${
-              isDropdownOpen ? styles.active : ""
-            }`}
+            className={`${styles.bannerHeadingRotateParent} ${isDropdownOpen ? styles.active : ""
+              }`}
           >
             <div
               className={styles.bannerHeadingRotate}
@@ -193,10 +192,10 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[50] = el)}
         >
           <h1>
-          {pData?.heading}
+            {pData?.heading}
           </h1>
           <p>
-          {pData?.description}
+            {pData?.description}
           </p>
         </section>
         <section
@@ -205,15 +204,15 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[0] = el)}
         >
           <h2>    {pData?.benefitsHeading}</h2>
-          <ul style={{marginLeft: "40px"}}>
+          <ul style={{ marginLeft: "40px" }}>
             <li>
-            {pData?.b1}
+              {pData?.b1}
             </li>
             <li>
-            {pData?.b2}
+              {pData?.b2}
             </li>
             <li>
-            {pData?.b3}
+              {pData?.b3}
             </li>
           </ul>
         </section>
@@ -224,23 +223,23 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[1] = el)}
         >
           <h3 style={{ marginBottom: "20px" }}>
-          {pData?.eligibleSubHeading}
+            {pData?.eligibleSubHeading}
           </h3>
           <h2 style={{ marginBottom: "20px" }}>
-          {pData?.eligibileHeading}
+            {pData?.eligibileHeading}
           </h2>
           <p style={{ marginBottom: "20px" }}>
-          {pData?.eligibleDesc}
+            {pData?.eligibleDesc}
           </p>
-          <ol style={{marginLeft: "40px"}}>
+          <ol style={{ marginLeft: "40px" }}>
             <li>
               <strong>   {pData?.e1}</strong>
               <ul>
                 <li>
-                {pData?.e1l1}
+                  {pData?.e1l1}
                 </li>
                 <li>
-                {pData?.e1l2}
+                  {pData?.e1l2}
                 </li>
               </ul>
             </li>
@@ -248,10 +247,10 @@ const handleScroll = () => {
               <strong>{pData?.e2}</strong>
               <ul>
                 <li>
-                {pData?.e2l1}
+                  {pData?.e2l1}
                 </li>
                 <li>
-                {pData?.e2l2}
+                  {pData?.e2l2}
                 </li>
               </ul>
             </li>
@@ -259,7 +258,7 @@ const handleScroll = () => {
               <strong>{pData?.e3}</strong>
               <ul>
                 <li>
-                {pData?.e3l1}
+                  {pData?.e3l1}
                 </li>
               </ul>
             </li>
@@ -267,7 +266,7 @@ const handleScroll = () => {
               <strong>{pData?.e4}</strong>
               <ul>
                 <li>
-                {pData?.e4l1}
+                  {pData?.e4l1}
                 </li>
               </ul>
             </li>
@@ -275,7 +274,7 @@ const handleScroll = () => {
               <strong>{pData?.e5}</strong>
               <ul>
                 <li>
-                {pData?.e5l1}
+                  {pData?.e5l1}
                 </li>
               </ul>
             </li>
@@ -289,7 +288,7 @@ const handleScroll = () => {
         >
           <h2>{pData?.expressConsiderationHeading}</h2>
           <p>
-          {pData?.expressConsiderationDescription}
+            {pData?.expressConsiderationDescription}
           </p>
         </section>
 
@@ -300,20 +299,20 @@ const handleScroll = () => {
         >
           <h2>{pData?.recruitmentHeading}</h2>
           <p>
-          {pData?.recruitmentDescription}
+            {pData?.recruitmentDescription}
           </p>
           <h4 style={{ marginTop: "20px" }}>
-          {pData?.recruitmentSubHeading}
+            {pData?.recruitmentSubHeading}
           </h4>
           <p style={{ marginBottom: "20px" }}>
-          {pData?.recruitmentSubDesc}
+            {pData?.recruitmentSubDesc}
           </p>
-          <ol style={{marginLeft: "40px"}}>
+          <ol style={{ marginLeft: "40px" }}>
             <li>
               <strong>{pData?.r1}</strong>
               <ul>
                 <li>
-                {pData?.r1l1}
+                  {pData?.r1l1}
                 </li>
               </ul>
             </li>
@@ -321,7 +320,7 @@ const handleScroll = () => {
               <strong>{pData?.r2}</strong>
               <ul>
                 <li>
-                {pData?.r2l1}
+                  {pData?.r2l1}
                 </li>
               </ul>
             </li>
@@ -329,10 +328,10 @@ const handleScroll = () => {
               <strong>{pData?.r3}</strong>
               <ul>
                 <li>
-                {pData?.r3l1}
+                  {pData?.r3l1}
                 </li>
                 <li>
-                {pData?.r3l2}
+                  {pData?.r3l2}
                 </li>
               </ul>
             </li>
@@ -340,7 +339,7 @@ const handleScroll = () => {
               <strong>{pData?.r4}</strong>
               <ul>
                 <li>
-                {pData?.r4l1}
+                  {pData?.r4l1}
                 </li>
               </ul>
             </li>
@@ -349,7 +348,7 @@ const handleScroll = () => {
               <ul>
                 <li>{pData?.r5l1}</li>
                 <li>
-                {pData?.r5l2}
+                  {pData?.r5l2}
                 </li>
                 <li>{pData?.r5l3}</li>
               </ul>
@@ -358,7 +357,7 @@ const handleScroll = () => {
               <strong>{pData?.r6}</strong>
               <ul>
                 <li>
-                {pData?.r6l1}
+                  {pData?.r6l1}
                 </li>
               </ul>
             </li>
@@ -384,40 +383,40 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[5] = el)}
         >
           <h2>{pData?.applicationHeading}</h2>
-          <ol style={{marginLeft: "40px"}}>
+          <ol style={{ marginLeft: "40px" }}>
             <li>
               <strong className={styles.sectionStrong}>
-              {pData?.a1}
+                {pData?.a1}
               </strong>
               <ul>
                 <li>
-                {pData?.a1l1}
+                  {pData?.a1l1}
                 </li>
                 <li>
-                {pData?.a1l2}
+                  {pData?.a1l2}
                 </li>
               </ul>
             </li>
             <li>
               <strong className={styles.sectionStrong}>
-              {pData?.a2}
+                {pData?.a2}
               </strong>
               <ul>
                 <li>
-                {pData?.a2l1}
+                  {pData?.a2l1}
                 </li>
                 <li>
-                {pData?.a2l2}
+                  {pData?.a2l2}
                 </li>
               </ul>
             </li>
             <li>
               <strong className={styles.sectionStrong}>
-              {pData?.a3}
+                {pData?.a3}
               </strong>
               <ul>
                 <li>
-                {pData?.a3l1}
+                  {pData?.a3l1}
                 </li>
                 <li>{pData?.a3l2}</li>
               </ul>
@@ -426,46 +425,46 @@ const handleScroll = () => {
               <strong>{pData?.a4}</strong>
               <ul>
                 <li>
-                {pData?.a4l1}
+                  {pData?.a4l1}
                 </li>
                 <li>
-                {pData?.a4l2}
-                </li>
-              </ul>
-            </li>
-            <li>
-              <strong className={styles.sectionStrong}>
-              {pData?.a5}
-              </strong>
-              <ul>
-                <li>
-                {pData?.a5l1}
-                </li>
-                <li>
-                {pData?.a5l2}
-                </li>
-                <li>
-                {pData?.a5l3}
-                </li>
-                <li>
-                {pData?.a5l4}
+                  {pData?.a4l2}
                 </li>
               </ul>
             </li>
             <li>
               <strong className={styles.sectionStrong}>
-              {pData?.a6}
+                {pData?.a5}
               </strong>
               <ul>
                 <li>
-                {pData?.a6l1}
+                  {pData?.a5l1}
+                </li>
+                <li>
+                  {pData?.a5l2}
+                </li>
+                <li>
+                  {pData?.a5l3}
+                </li>
+                <li>
+                  {pData?.a5l4}
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong className={styles.sectionStrong}>
+                {pData?.a6}
+              </strong>
+              <ul>
+                <li>
+                  {pData?.a6l1}
                   <ul>
                     <li>  {pData?.a6l1n1}</li>
                     <li>
-                    {pData?.a6l1n2}
+                      {pData?.a6l1n2}
                     </li>
                     <li>
-                    {pData?.a6l1n3}
+                      {pData?.a6l1n3}
                     </li>
                   </ul>
                 </li>
@@ -477,20 +476,20 @@ const handleScroll = () => {
           className={`${styles.section} ${styles.section}`}
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
-         >
-          <h2>  {pData?.WhyChooseUsHeading01 }</h2>
-          <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
+        >
+          <h2>  {pData?.WhyChooseUsHeading01}</h2>
+          <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}
             </li>
             <li>
-            <strong>{strongText92}</strong>{" "} {remainingText92}
+              <strong>{strongText92}</strong>{" "} {remainingText92}
             </li>
             <li>
-            <strong>{strongText93}</strong>{" "} {remainingText93}
+              <strong>{strongText93}</strong>{" "} {remainingText93}
             </li>
             <li>
-            <strong>{strongText94}</strong>{" "} {remainingText94}
+              <strong>{strongText94}</strong>{" "} {remainingText94}
             </li>
           </ul>
 
@@ -502,16 +501,16 @@ const handleScroll = () => {
         >
           <h2>   {pData?.StillNotHeading}</h2>
           <p>
-          {pData?.s1}
+            {pData?.s1}
           </p>
           <p >
-          {pData?.s2}
+            {pData?.s2}
           </p>
           <button
             className={styles.button}
             onClick={() =>
-              (window.location.href =
-                "/booking")
+            (window.location.href =
+              "/booking")
             }
           >
             Book Appointment
@@ -521,13 +520,13 @@ const handleScroll = () => {
 
       </div>
       <div id="faqs">
-      <FAQ_White_Internal data={pData} />
+        <FAQ_White_Internal data={pData} />
       </div>
       {pData?.show_testimonials == "Y" && (
         <div id="testimonials">
           <Testimonials />
-        </div>
-      )}
+        </div>
+      )}
       <div id="blogs">
         <RecentBlogs />
       </div>

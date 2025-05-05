@@ -98,7 +98,7 @@ const handleScroll = () => {
     <>
 
      <Head>
-     <link rel="canonical" href="https://brightlightimmigration.ca/lmia-reviewed" />
+     
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

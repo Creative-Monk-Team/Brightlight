@@ -156,7 +156,7 @@ const handleScroll = () => {
   return (
     <>
               <Head>
-              <link rel="canonical" href="https://brightlightimmigration.ca/same-sex" />
+              
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

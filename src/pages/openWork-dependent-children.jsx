@@ -98,7 +98,7 @@ const OpenWorkCanadaLP = ({ metaData }) => {
   return (
     <>
       <Head>
-        <link rel="canonical" href="https://brightlightimmigration.ca/openWork-dependent-children" />
+        
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

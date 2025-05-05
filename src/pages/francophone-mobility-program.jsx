@@ -99,7 +99,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/francophone-mobility-program" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

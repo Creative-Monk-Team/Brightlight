@@ -114,7 +114,7 @@ const CanadianExperienceClass = ({metaData}) => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/canadian-experience-class" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

@@ -101,7 +101,7 @@ const Citizenship = ({ metaData }) => {
   return (
     <>
       <Head>
-        <link rel="canonical" href="https://brightlightimmigration.ca/citizenship" />
+        
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

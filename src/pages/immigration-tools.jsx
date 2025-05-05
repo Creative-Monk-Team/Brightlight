@@ -63,7 +63,7 @@ let Immigration = ({metaData}) => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/immigration-tools" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

@@ -96,7 +96,7 @@ const handleScroll = () => {
   return (
     <>
           <Head>
-          <link rel="canonical" href="https://brightlightimmigration.ca/orphan" />
+          
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

@@ -140,7 +140,7 @@ let News = ({metaData}) => {
   return (
     <>
       <Head>
-        <link rel="canonical" href="https://brightlightimmigration.ca/news" />
+        
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

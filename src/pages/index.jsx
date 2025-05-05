@@ -557,7 +557,6 @@ let HomePage = ({metaData}) => {
           metaData?.metaDesc ||
           "Learn about Brightlight Immigration, ;'.mission, values, and dedicated team."
         }
-        canonical="https://brightlightimmigration.ca/"
         openGraph={{
           title: metaData?.metaOgTitle || "Brightlight Immigration",
           description:

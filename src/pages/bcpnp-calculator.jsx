@@ -449,7 +449,7 @@ const BCPNPCalculator = ({metaData}) => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/bcpnp-calculator" />
+      
         <title>
           {metaData.metaTitle ? metaData?.metaTitle : "Brightlight Immigration"}
         </title>

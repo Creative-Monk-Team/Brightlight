@@ -99,7 +99,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/global-stream-lmia" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

@@ -97,7 +97,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/reply-to-pfl-page" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

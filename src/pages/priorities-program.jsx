@@ -97,7 +97,7 @@ const handleScroll = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://brightlightimmigration.ca/priorities-program" />
+      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle

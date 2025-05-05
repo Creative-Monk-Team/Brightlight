@@ -118,7 +118,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
   return (
     <>
         <Head>
-        <link rel="canonical" href="https://brightlightimmigration.ca/agri-food-pilot-program" />
+        
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle
