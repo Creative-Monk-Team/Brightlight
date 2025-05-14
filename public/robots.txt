@@ -9,7 +9,6 @@ Sitemap: https://www.brightlightimmigration.ca/sitemap.xml
 # Block Unwanted Directories
 Disallow: /home/
 Disallow: /ParentsGrandparents
-Disallow: /outside-canada
 Disallow: /tmp/
 Disallow: /workspace/
 Disallow: /builder-preview/
