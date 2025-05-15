@@ -1,15 +1,4 @@
 User-agent: *
 Allow: /
 
-Host: https://www.brightlightimmigration.ca/
-
 Sitemap: https://www.brightlightimmigration.ca/sitemap.xml
-
-# Only block genuine admin or temporary directories/pages
-Disallow: /admin/
-Disallow: /tmp/
-Disallow: /workspace/
-Disallow: /builder-preview/
-Disallow: /production/
-Disallow: /_preview/
-Disallow: /testing-purpose/
