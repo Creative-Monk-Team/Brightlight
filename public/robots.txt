@@ -1,47 +1,15 @@
 User-agent: *
-Disallow: /admin/
 Allow: /
 
 Host: https://www.brightlightimmigration.ca/
 
 Sitemap: https://www.brightlightimmigration.ca/sitemap.xml
 
-# Block Unwanted Directories
-Disallow: /home/
-Disallow: /ParentsGrandparents
+# Only block genuine admin or temporary directories/pages
+Disallow: /admin/
 Disallow: /tmp/
 Disallow: /workspace/
 Disallow: /builder-preview/
 Disallow: /production/
 Disallow: /_preview/
-
-# Block Unwanted Pages
-Disallow: /6-options-after-your-pgwp-expires
-Disallow: /about/
-Disallow: /new-delivery-system/
-Disallow: /ways-to-prove-you-will-leave-canada-at-the-end-of-your-temporary-stay
-Disallow: /business-investor-immigration/
-Disallow: /agricultureand-agri-food-occu
-Disallow: /study-in-canada/
-Disallow: /contact/
-Disallow: /blogs/:id
-Disallow: /testing-purpose
-Disallow: /pnp-2/
-Disallow: /tag/canada/
-Disallow: /discovering-the-space/
-Disallow: /labour-market-impact-assessment/
-Disallow: /the-new-reserch/
-Disallow: /author/admin/
-Disallow: /searching-for-the-way-out/
-Disallow: /category/news-updates/
-Disallow: /category/info/
-Disallow: /services/
-Disallow: /family-sponsorship-sponsor-your-relatives/
-Disallow: /video-gallery-page/
-Disallow: /bc-pnp-point-calculator-skills-immigration-registration-system-sirs/
-Disallow: /project/the-green-road/
-Disallow: /tag/visa/
-Disallow: /terms-&-conditions
-Disallow: /permanent-resident/
-Disallow: /tag/bright-light/
-Disallow: /Federal-Skilled
+Disallow: /testing-purpose/
