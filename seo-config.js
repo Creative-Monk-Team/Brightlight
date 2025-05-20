@@ -4,7 +4,7 @@ export default {
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: 'https://www.brightlightimmigration.com/',
+      url: 'https://www.brightlightimmigration.ca/',
       site_name: 'Brightlight Immigration',
     },
     additionalMetaTags: [
@@ -23,7 +23,7 @@ export default {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Brightlight Immigration",
-      "url": "https://www.brightlightimmigration.com/",
+      "url": "https://www.brightlightimmigration.ca/",
     }
   };
   
