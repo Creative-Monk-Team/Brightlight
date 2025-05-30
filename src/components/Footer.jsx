@@ -66,7 +66,7 @@ let Footer = () => {
               <div>
                 <LinkedInIcon className={styles.socialIcon} />
               </div>
-              <div>
+              <div className="cursor-pointer">
                 <InstagramIcon className={styles.socialIcon} />
               </div>
               <div>

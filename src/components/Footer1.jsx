@@ -161,6 +161,7 @@ const Footer1 = () => {
               />
               <Image loading="lazy"
                 src={"/assets/instagram.svg"}
+                className="cursor-pointer"
                 height={25}
                 width={25}
                 style={{height: "25px", width:"25px", marginBottom: "15px"}}

@@ -263,6 +263,7 @@ let Blogs = ({metaData}) => {
             <h1>{firstBlog.blog_heading}</h1>
             <button
               onClick={() => handleBlogClick(firstBlog)}
+              className="text-white cursor-pointer"
             >
               Read More
             </button>
@@ -287,7 +288,7 @@ let Blogs = ({metaData}) => {
               return (
                 <div
                   key={index}
-                  className={styles.blog}
+                  className={`${styles.blog} cursor-pointer`}
                   onClick={() => handleBlogClick(item)}
                 >
                   {item.image && <Image loading="lazy" height={50} width={100} src={item.image} />}
@@ -321,6 +322,7 @@ let Blogs = ({metaData}) => {
                 <p>{item.date && item.date.trim().split("T")[0]}</p>
                 <button
                   onClick={() => handleBlogClick(item)}
+                  className="cursor-pointer"
                 >
                   Read more
                 </button>
