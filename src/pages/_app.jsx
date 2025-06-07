@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../styles/global.css"; // Ensure this file exists
+import "../styles/global.css";
 import { HelmetProvider } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,13 +7,38 @@ import { AuthProvider } from "../context/AuthContext";
 import Loader from "../components/Loader";
 import FloatingButton from "../components/FloatingButton";
 import Head from "next/head";
-import Script from "next/script"; // Import Next.js Script component
-import { DefaultSeo, LogoJsonLd } from 'next-seo';
+import Script from "next/script";
+import { DefaultSeo, LogoJsonLd } from "next-seo";
 import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const [redirectsData, setRedirectsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+
+  // Global loading logic (once on mount)
+  useEffect(() => {
+    let isDone = false;
+
+    // Safety timeout
+    const timeout = setTimeout(() => {
+      if (!isDone) setIsLoading(false);
+    }, 4000);
+
+    // Check if API is awake
+    fetch("https://brightlight-node.onrender.com")
+      .then((res) => res.text())
+      .then(() => {
+        isDone = true;
+        setIsLoading(false);
+      })
+      .catch(() => {
+        isDone = true;
+        setIsLoading(false);
+      });
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -21,14 +46,13 @@ function MyApp({ Component, pageProps }) {
         window.fbq("track", "PageView");
       }
     };
-  
+
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
 
-  // Fetch Redirect Data
   useEffect(() => {
     async function fetchRedirects() {
       try {
@@ -56,8 +80,6 @@ function MyApp({ Component, pageProps }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-
-  // Apply Redirects Without Infinite Loops
   useEffect(() => {
     redirectsData.forEach((redirect) => {
       if (
@@ -69,8 +91,6 @@ function MyApp({ Component, pageProps }) {
     });
   }, [redirectsData]);
 
-
-  // Handle Background Color Change
   useEffect(() => {
     const updateBackgroundColor = () => {
       document.body.style.backgroundColor =
@@ -79,7 +99,7 @@ function MyApp({ Component, pageProps }) {
 
     updateBackgroundColor();
     window.addEventListener("popstate", updateBackgroundColor);
-    window.addEventListener("hashchange", updateBackgroundColor); // Extra safety for hash routes
+    window.addEventListener("hashchange", updateBackgroundColor);
 
     return () => {
       window.removeEventListener("popstate", updateBackgroundColor);
@@ -90,12 +110,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-
-      {/* Google Analytics Script */}
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-LMQ3S0MVPW"
-      />
+      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-LMQ3S0MVPW" />
       <Script
         id="google-analytics"
         strategy="afterInteractive"
@@ -108,7 +123,7 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       />
-      {/* Facebook Pixel Script */}
+
       <Script
         id="facebook-pixel"
         strategy="afterInteractive"
@@ -131,7 +146,7 @@ function MyApp({ Component, pageProps }) {
         <img
           height="1"
           width="1"
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
           src="https://www.facebook.com/tr?id=576043718512204&ev=PageView&noscript=1"
         />
       </noscript>
@@ -140,15 +155,15 @@ function MyApp({ Component, pageProps }) {
         titleTemplate="%s | Brightlight"
         defaultTitle="Brightlight"
         openGraph={{
-          type: 'website',
-          locale: 'en_IE',
-          url: 'https://www.brightlightimmigration.ca/',
-          siteName: 'Brightlight Immigration',
+          type: "website",
+          locale: "en_IE",
+          url: "https://www.brightlightimmigration.ca/",
+          siteName: "Brightlight Immigration",
         }}
         twitter={{
-          handle: '@handle',
-          site: '@site',
-          cardType: 'summary_large_image',
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
         }}
       />
 
@@ -156,6 +171,13 @@ function MyApp({ Component, pageProps }) {
         logo="https://www.brightlightimmigration.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbrlightlight-icon.a58008c2.webp&w=256&q=75"
         url="https://www.brightlightimmigration.ca/"
       />
+
+      <Head>
+        <link
+          rel="canonical"
+          href={`https://www.brightlightimmigration.ca${router.asPath.split("?")[0]}`}
+        />
+      </Head>
 
       <Script
         id="local-business-schema"
@@ -165,30 +187,34 @@ function MyApp({ Component, pageProps }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Brightlight Immigration",
-            "image": "https://www.brightlightimmigration.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbrlightlight-icon.a58008c2.webp&w=256&q=75",
-            "url": "https://www.brightlightimmigration.ca/",
-            "telephone": "+1(604)5033734",
-            "address": {
+            name: "Brightlight Immigration",
+            image:
+              "https://www.brightlightimmigration.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbrlightlight-icon.a58008c2.webp&w=256&q=75",
+            url: "https://www.brightlightimmigration.ca/",
+            telephone: "+1(604)5033734",
+            address: {
               "@type": "PostalAddress",
-              "streetAddress": "15315 66 Ave unit 327",
-              "addressLocality": "Surrey",
-              "addressRegion": "BC",
-              "postalCode": "V3S 2A1",
-              "addressCountry": "CA"
+              streetAddress: "15315 66 Ave unit 327",
+              addressLocality: "Surrey",
+              addressRegion: "BC",
+              postalCode: "V3S 2A1",
+              addressCountry: "CA",
             },
-            "openingHours": "Mo-Fr 09:00-18:00",
-            "priceRange": "$$"
-          })
+            openingHours: "Mo-Fr 09:00-18:00",
+            priceRange: "$$",
+          }),
         }}
       />
 
       <HelmetProvider>
         <ToastContainer />
-        <Loader />
-        <AuthProvider>
-          <Component {...pageProps} />
-        </AuthProvider>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <AuthProvider>
+            <Component {...pageProps} />
+          </AuthProvider>
+        )}
         <FloatingButton />
       </HelmetProvider>
     </>

@@ -13,6 +13,8 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import { fetchSeoData } from "../../lib/fetchSeoData";
+import SpinnerLoader from "../../components/Loader2";
+import { ArticleJsonLd } from "next-seo";
 
 export async function getServerSideProps() {
   return fetchSeoData(""); // Pass the API endpoint specific to this page
@@ -36,7 +38,9 @@ const BlogDetails = () => {
         setError(null);
 
         // Fetch blog data
-        const blogResponse = await fetch(`https://brightlight-node.onrender.com/new-added-blogs`);
+        const blogResponse = await fetch(
+          `https://brightlight-node.onrender.com/new-added-blogs`
+        );
         if (!blogResponse.ok) throw new Error("Failed to fetch blog data");
         const blogData = await blogResponse.json();
 
@@ -54,22 +58,31 @@ const BlogDetails = () => {
 
         if (!filteredData && blogData.length > 0) {
           const idValueArray = slug?.split("-").slice(0, 3).join(" ") || "";
-          filteredData = blogData.find((item) =>
-            item.blog_heading.toLowerCase().includes(idValueArray.toLowerCase())
-          ) || blogData[0]; // Fallback to first blog if no match
+          filteredData =
+            blogData.find((item) =>
+              item.blog_heading
+                .toLowerCase()
+                .includes(idValueArray.toLowerCase())
+            ) || blogData[0]; // Fallback to first blog if no match
         }
 
         setBlog(filteredData || null);
 
         // Fetch loveneet data
-        const loveneetResponse = await fetch("https://brightlight-node.onrender.com/loveneet");
-        if (!loveneetResponse.ok) throw new Error("Failed to fetch loveneet data");
+        const loveneetResponse = await fetch(
+          "https://brightlight-node.onrender.com/loveneet"
+        );
+        if (!loveneetResponse.ok)
+          throw new Error("Failed to fetch loveneet data");
         const loveneetData = await loveneetResponse.json();
         setLoveneetData(loveneetData[0] || null);
 
         // Fetch recent blogs
-        const recentBlogsResponse = await fetch("https://brightlight-node.onrender.com/new-added-blogs/");
-        if (!recentBlogsResponse.ok) throw new Error("Failed to fetch recent blogs");
+        const recentBlogsResponse = await fetch(
+          "https://brightlight-node.onrender.com/new-added-blogs/"
+        );
+        if (!recentBlogsResponse.ok)
+          throw new Error("Failed to fetch recent blogs");
         const recentBlogsData = await recentBlogsResponse.json();
         const recentBlogsFilteredData = recentBlogsData
           .filter((item) => item.blog_heading !== filteredData?.blog_heading)
@@ -102,9 +115,7 @@ const BlogDetails = () => {
   return (
     <>
       <Head>
-        <title>
-          {blog?.metaTitle || "Blog - Brightlight Immigration"}
-        </title>
+        <title>{blog?.metaTitle || "Blog - Brightlight Immigration"}</title>
         <meta
           name="description"
           content={
@@ -126,11 +137,32 @@ const BlogDetails = () => {
             "Discover expert advice and updates on Canadian immigration from Brightlight Immigration."
           }
         />
-        <meta name="robots" content={loading ? "noindex" : "index"} /> {/* Prevent indexing during loading */}
+        <meta name="robots" content={loading ? "noindex" : "index"} />{" "}
+        {/* Prevent indexing during loading */}
       </Head>
+      {!loading && blog && (
+        <ArticleJsonLd
+          type="BlogPosting"
+          url={`https://www.brightlightimmigration.ca/blogs/${slug}`}
+          title={blog.blog_heading}
+          images={[
+            blog.image ||
+              "https://www.brightlightimmigration.ca/default-blog-image.jpg",
+          ]}
+          datePublished={blog.created_at || new Date().toISOString()}
+          authorName={loveneetData?.name || "Brightlight Immigration"}
+          description={
+            blog.metaDescription ||
+            "Discover expert insights and updates on Canadian immigration."
+          }
+          publisherName="Brightlight Immigration"
+          publisherLogo="https://www.brightlightimmigration.ca/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbrlightlight-icon.a58008c2.webp&w=256&q=75"
+        />
+      )}
+
       <Navbar1 />
       {loading ? (
-        <Loader />
+        <SpinnerLoader />
       ) : error ? (
         <div className={styles.errorSection}>
           <p>{error}</p>

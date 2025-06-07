@@ -356,7 +356,7 @@ let About = ({metaData}) => {
       <div className={styles.aboutBanner} >
       <div className={styles.aboutUsTopContentSection}>
           <div className={styles.aboutLogo}>
-               <img src={"/assets/brightlight-main-logo.webp"} />
+               <Image src={"/assets/brightlight-main-logo.webp"} />
           </div>
           <div className={styles.aboutHeading}>
             <h1>{topSectionData?.heading}</h1>
