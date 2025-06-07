@@ -157,7 +157,8 @@ const AddBlog = () => {
           metaDescription: "",
         });
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e)
         toast.error("Request rejected, please try again later.", toastOptions);
       });
   };
