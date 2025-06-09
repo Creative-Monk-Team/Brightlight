@@ -308,7 +308,7 @@ const BlogDetails = () => {
                 src={searchIcon}
                 onClick={handleSearchClick}
                 className={styles.searchIcon}
-                alt="Search blogs"
+                alt="Search blogs"  
                 width={24}
                 height={24}
                 loading="lazy"
