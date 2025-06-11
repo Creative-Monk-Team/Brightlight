@@ -17,11 +17,13 @@
   color: #132f46;
   margin-top: 8px;
 }
+
 .ql-toolbar.ql-snow+.ql-container.ql-snow {
     border-top: 0;
     max-height: 50vh;
     overflow: auto;
 }
+
 .deletePopupParent {
   width: 100vw;
   height: 100vh;
