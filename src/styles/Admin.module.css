@@ -24,6 +24,10 @@
     overflow: auto;
 }
 
+.ql-toolbar.ql-snow + .ql-container.ql-snow{
+  max-height: 50vh;
+    overflow: auto;
+}
 .deletePopupParent {
   width: 100vw;
   height: 100vh;
@@ -730,6 +734,7 @@
   padding: 10px;
   border: 1px solid rgb(236, 236, 236);
   border-radius: 5px;
+  font-size: small;
 }
 
 .noBlogsPara {

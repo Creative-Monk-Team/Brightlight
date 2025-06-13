@@ -5,6 +5,40 @@ import deleteIcon from "../assets/delete.png";
 import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+// Dynamically import ReactQuill to avoid SSR issues
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import "react-quill/dist/quill.snow.css"; // Import Quill styles
+
+const quillModules = {
+  toolbar: [
+    [{ header: [1, 2, false] }],
+    ["bold", "italic", "underline", "strike"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    ["link", "image"],
+    ["clean"],
+  ],
+};
+
+const quillFormats = [
+  "header",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "list",
+  "bullet",
+  "link",
+  "image",
+];
+
+const handleQuillChange = (content) => {
+  setNewBlogData((prevData) => ({
+    ...prevData,
+    blog_content: content,
+  }));
+};
+
 const AllBlogs = () => {
   let [confirmDelete, setConfirmDelete] = useState(null);
   let [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -91,9 +125,18 @@ const AllBlogs = () => {
       });
   }, []);
 
-  // Handle input change
   const handleInputChange = (e) => {
-    if (e.target.type === "file") {
+    // ReactQuill triggers this with string content (not a native event)
+    if (typeof e === "string") {
+      setNewBlogData((prevData) => ({
+        ...prevData,
+        blog_content: e,
+      }));
+      return;
+    }
+
+    // Native input event (like text inputs or file inputs)
+    if (e?.target?.type === "file") {
       const file = e.target.files[0];
       if (file) {
         setNewBlogData((prevData) => ({
@@ -102,10 +145,10 @@ const AllBlogs = () => {
         }));
       }
     } else {
-      setNewBlogData({
-        ...newBlogData,
+      setNewBlogData((prevData) => ({
+        ...prevData,
         [e.target.name]: e.target.value,
-      });
+      }));
     }
   };
 
@@ -153,13 +196,11 @@ const AllBlogs = () => {
         setEditBlogId(null);
         setNewBlogData({
           blog_heading: "",
+          blog_content: "",
           image: "",
           tag_1: "",
           tag_2: "",
           tag_3: "",
-          custom_url: "",
-          alt_tag: "",
-          blog_content: "",
           metaTitle: "",
           metaDescription: "",
         });
@@ -238,17 +279,30 @@ const AllBlogs = () => {
             <div key={blog._id} className={styles.blogItem}>
               <div className={styles.blogContent}>
                 <h4>{blog.blog_heading}</h4>
-                   <Image loading="lazy" height={50} width={100} src={blog.image} alt="Blog" className={styles.blogImage} />
+                <Image
+                  loading="lazy"
+                  height={50}
+                  width={100}
+                  src={blog.image}
+                  alt="Blog"
+                  className={styles.blogImage}
+                />
                 <div className={styles.singleBlogOptions}>
                   {editBlogId === blog._id ? (
                     <>
-                         <Image loading="lazy" height={50} width={100}
+                      <Image
+                        loading="lazy"
+                        height={50}
+                        width={100}
                         src={update}
                         className={styles.updateIcon}
                         onClick={handleUpdateClick}
                         alt="Update"
                       />
-                         <Image loading="lazy" height={50} width={100}
+                      <Image
+                        loading="lazy"
+                        height={50}
+                        width={100}
                         src={editIcon}
                         className={styles.editIcon}
                         onClick={() => setEditBlogId(null)}
@@ -257,13 +311,19 @@ const AllBlogs = () => {
                     </>
                   ) : (
                     <>
-                         <Image loading="lazy" height={50} width={100}
+                      <Image
+                        loading="lazy"
+                        height={50}
+                        width={100}
                         src={editIcon}
                         className={styles.editIcon}
                         onClick={() => handleEditClick(blog)}
                         alt="Edit"
                       />
-                         <Image loading="lazy" height={50} width={100}
+                      <Image
+                        loading="lazy"
+                        height={50}
+                        width={100}
                         src={deleteIcon}
                         className={styles.deleteIcon}
                         onClick={() => {
@@ -279,73 +339,123 @@ const AllBlogs = () => {
               </div>
               {editBlogId === blog._id && (
                 <div className={styles.editForm}>
-                  <input
-                    placeholder="Blog Heading"
-                    name="blog_heading"
-                    value={newBlogData.blog_heading}
-                    onChange={handleInputChange}
-                  />
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleInputChange}
-                    name="image"
-                  />
-                  {newBlogData.image && (
-                       <Image loading="lazy" height={50} width={100}
-                      src={newBlogData.image}
-                      alt="New Blog"
-                      className={styles.blogImage}
+                  <div className={styles.formGroup}>
+                    <label htmlFor="blog_heading">Blog Heading</label>
+                    <input
+                      id="blog_heading"
+                      name="blog_heading"
+                      type="text"
+                      value={newBlogData.blog_heading}
+                      onChange={handleInputChange}
+                      placeholder="Enter blog heading"
                     />
-                  )}
-                  <input
-                    placeholder="Tag 1"
-                    name="tag_1"
-                    value={newBlogData.tag_1}
-                    onChange={handleInputChange}
-                  />
-                  <input
-                    placeholder="Tag 2"
-                    name="tag_2"
-                    value={newBlogData.tag_2}
-                    onChange={handleInputChange}
-                  />
-                  <input
-                    placeholder="Tag 3"
-                    name="tag_3"
-                    value={newBlogData.tag_3}
-                    onChange={handleInputChange}
-                  />
-                  <input
-                    placeholder="Custom URL"
-                    name="custom_url"
-                    value={newBlogData.custom_url}
-                    onChange={handleInputChange}
-                  />
-                  <textarea
-                    placeholder="Blog Content"
-                    name="blog_content"
-                    value={newBlogData.blog_content}
-                    onChange={handleInputChange}
-                  />
-                  <input
-                    placeholder="Alt Tag"
-                    name="alt_tag"
-                    value={newBlogData.alt_tag}
-                    onChange={handleInputChange}
-                  />
-                  <input
-                    placeholder="Meta Title"
-                    name="metaTitle"
-                    value={newBlogData.metaTitle}
-                    onChange={handleInputChange}
-                  />
-                  <input
-                    placeholder="Meta Description"
-                    name="metaDescription"
-                    value={newBlogData.metaDescription}
-                    onChange={handleInputChange}
-                  />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="image">Blog Image</label>
+                    <input
+                      id="image"
+                      name="image"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleInputChange}
+                    />
+                    {newBlogData.image && (
+                      <Image
+                        loading="lazy"
+                        height={80}
+                        width={150}
+                        src={newBlogData.image}
+                        alt="Preview"
+                        className={styles.blogImage}
+                      />
+                    )}
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="tag_1">Tag 1</label>
+                    <input
+                      id="tag_1"
+                      name="tag_1"
+                      type="text"
+                      value={newBlogData.tag_1}
+                      onChange={handleInputChange}
+                      placeholder="Tag 1"
+                    />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="tag_2">Tag 2</label>
+                    <input
+                      id="tag_2"
+                      name="tag_2"
+                      type="text"
+                      value={newBlogData.tag_2}
+                      onChange={handleInputChange}
+                      placeholder="Tag 2"
+                    />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="tag_3">Tag 3</label>
+                    <input
+                      id="tag_3"
+                      name="tag_3"
+                      type="text"
+                      value={newBlogData.tag_3}
+                      onChange={handleInputChange}
+                      placeholder="Tag 3"
+                    />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="custom_url">Custom URL</label>
+                    <input
+                      id="custom_url"
+                      name="custom_url"
+                      type="text"
+                      value={newBlogData.custom_url}
+                      onChange={handleInputChange}
+                      placeholder="/your-custom-url"
+                    />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="blog_content">Blog Content</label>
+                    <ReactQuill
+                      theme="snow"
+                      value={newBlogData.blog_content}
+                      onChange={handleInputChange}
+                      modules={quillModules}
+                      formats={quillFormats}
+                      className={`max-h-[50vh] overflow-auto ${styles.quillEditor}`}
+                      placeholder="Write your blog content here..."
+                    />
+                  </div>
+
+                  <div className={`mt-5 ${styles.formGroup}`}>
+                    <label htmlFor="metaTitle">Meta Title</label>
+                    <input
+                      id="metaTitle"
+                      name="metaTitle"
+                      type="text"
+                      value={newBlogData.metaTitle}
+                      onChange={handleInputChange}
+                      placeholder="Meta title for SEO"
+                    />
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="metaDescription">Meta Description</label>
+                    <input
+                      id="metaDescription"
+                      name="metaDescription"
+                      type="text"
+                      value={newBlogData.metaDescription}
+                      onChange={handleInputChange}
+                      placeholder="Meta description for SEO"
+                    />
+                  </div>
                 </div>
               )}
             </div>
