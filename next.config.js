@@ -90,6 +90,11 @@ const nextConfig = {
         destination: "https://www.brightlightimmigration.ca/contact-us",
         permanent: true,
       },
+      {
+        source: "/booking",
+        destination: "https://book.brightlightimmigration.ca/",
+        permanent: true,
+      },
     ];
   },
 };
