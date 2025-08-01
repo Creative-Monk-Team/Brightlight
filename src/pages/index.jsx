@@ -679,9 +679,8 @@ let HomePage = ({metaData}) => {
           {/* LinkedIn button */}
           {linkedinLink && (
             <Link href={linkedinLink} target="_blank" rel="noopener noreferrer">
-              <button className={styles.linkedInButton}>
-                <Image loading="lazy" height={50} width={100} src={LinkedinLogo} alt="LinkedIn"    // Arbitrary number, Next.js auto-adjusts it
-                />
+              <button className={`${styles.linkedInButton} px-2`}>
+                <b className="text-sm md:text-md lg:text-lg">LinkedIn</b>
               </button>
             </Link>
           )}
@@ -693,7 +692,7 @@ let HomePage = ({metaData}) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className={styles.rcicButton}>
+              <button className={`${styles.rcicButton} px-4 py-1`}>
                 <b>RCIC</b>
                 <p>APPOINTEMENT</p>
               </button>

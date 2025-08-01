@@ -242,7 +242,6 @@
   cursor: pointer;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 10px 40px;
   border-radius: 5px;
   position: relative;
   transition: 0.2s ease-in-out;
@@ -856,6 +855,9 @@
   height: 360px;
   width: 288px;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .aspectsCard img {
@@ -1616,7 +1618,7 @@
   }
 
   .simplifyingDiv {
-    padding: 40px 0px;
+    padding: 40px 10px;
   }
 
   .simplifyingMain p {
@@ -1957,9 +1959,6 @@
     font-size: 8px;
   }
 
-  .bannerParent2 button {
-    padding: 5px 20px;
-  }
 }
 
 @media all and (max-width: 690px) {
@@ -2096,9 +2095,6 @@
     font-size: 6px;
   }
 
-  .bannerParent2 button {
-    padding: 5px 20px;
-  }
 }
 
 @media all and (max-width: 501px) {
@@ -2371,9 +2367,6 @@
     font-size: 6px;
   }
 
-  .bannerParent2 button {
-    padding: 5px 20px;
-  }
   .simplifyingHeading {
     text-align: center;
   }
