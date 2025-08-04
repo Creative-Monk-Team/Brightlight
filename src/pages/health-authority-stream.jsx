@@ -468,7 +468,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[91] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

@@ -194,7 +194,7 @@ const handleScroll = () => {
           id="benifits"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.benefitsHeading}</h2>
+          <h2 className="text-3xl">{pData?.benefitsHeading}</h2>
           <ul style={{ marginLeft: "40px" }}>
             <li>
             {pData?.b1}
@@ -219,7 +219,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>{pData?.eligibilityHeading}</h2>
+          <h2 className="text-3xl">{pData?.eligibilityHeading}</h2>
           <p>  {pData?.eligibilityDescription}</p>
           <ol
             style={{ marginTop: "20px" }}
@@ -290,7 +290,7 @@ const handleScroll = () => {
               id="testing5"
               ref={(el) => (sectionsRef.current[8] = el)}
             >
-              <h2> {pData?.foreign1}</h2>
+              <h2 className="text-3xl"> {pData?.foreign1}</h2>
               <p>
               {pData?.foreign1Desc}
               </p>
@@ -300,7 +300,7 @@ const handleScroll = () => {
               id="testing6"
               ref={(el) => (sectionsRef.current[9] = el)}
             >
-              <h2> {pData?.foreign2}</h2>
+              <h2 className="text-3xl"> {pData?.foreign2}</h2>
               <p>
               {pData?.foreign2Desc}
               </p>
@@ -395,7 +395,7 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[16] = el)}
         >
           <h3>{pData?.applyHeading}</h3>
-          <h2>{pData?.asEmployer}</h2>
+          <h2 className="text-3xl">{pData?.asEmployer}</h2>
           <ol style={{ marginTop: "20px", marginLeft: "40px" }}>
             <li>
             {pData?.emp1}
@@ -412,7 +412,7 @@ const handleScroll = () => {
             </li>
             <li>{pData?.emp6}</li>
             <li>{pData?.emp7}</li>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>
               {pData?.emp7l1}
               </li>
@@ -428,7 +428,7 @@ const handleScroll = () => {
             </li>
           </ol>
 
-          <h2>{pData?.asForiegn}</h2>
+          <h2 className="text-3xl">{pData?.asForiegn}</h2>
           <ul
             style={{ marginTop: "20px", marginLeft: "40px" }}
             className={`${styles.section} ${styles.section}`}
@@ -453,7 +453,7 @@ const handleScroll = () => {
           id="testing1"
           ref={(el) => (sectionsRef.current[18] = el)}
         >
-          <h2>{pData?.StillNotHeading}</h2>
+          <h2 className="text-3xl">{pData?.StillNotHeading}</h2>
           <p>
           {pData?.s1}
           </p>

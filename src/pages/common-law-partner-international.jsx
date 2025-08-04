@@ -265,7 +265,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[2] = el)}
          >
-          <h2>
+          <h2 className="text-3xl">
           {pData?.BenifitHeading}
           </h2>
           <ul
@@ -304,7 +304,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2>
+          <h2 className="text-3xl">
           {pData?.EligCritHeading}
           </h2>
           <p>
@@ -318,7 +318,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>{pData?.EligReqHeading}</h2>
+          <h2 className="text-3xl">{pData?.EligReqHeading}</h2>
           <h3>{pData?.EligReqSubHead1}</h3>
           <p>
             {pData?.EligReqSubHead1Para1}
@@ -385,7 +385,7 @@ const handleScroll = () => {
             {pData?.er2li2}
             </li>
             <p><strong>{strongText1}</strong></p>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>
               {pData?.er2li3}
               </li>
@@ -486,7 +486,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[18] = el)}
         >
-          <h2>
+          <h2 className="text-3xl">
            {pData?.WhenToApplyHeading}
           </h2>
           <ol style={{marginLeft: "40px", marginTop: "10px"}}>
@@ -506,7 +506,7 @@ const handleScroll = () => {
           className={`${styles.section} ${styles.section}`}
           id="testing"
           ref={(el) => (sectionsRef.current[19] = el)}>
-          <h2>
+          <h2 className="text-3xl">
           {pData?.HowApplyHeading}
           </h2>
           <ol className={styles.subList} style={{marginLeft: "40px", marginTop: "10px"}} >
@@ -530,7 +530,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[20] = el)}
         >
-          <h2>
+          <h2 className="text-3xl">
           {pData?.RefusalHeading}
           </h2>
           <ul style={{marginLeft: "40px", marginTop: "10px"}}>
@@ -560,7 +560,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[90] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

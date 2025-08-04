@@ -220,7 +220,7 @@ const handleScroll = () => {
             id="benefits"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>
+            <h2 className="text-3xl">
             {pData?.BenifitsHeading}
             </h2>
             <ul style={{ marginLeft: "40px" }}>
@@ -246,7 +246,7 @@ const handleScroll = () => {
             id="eligibility"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>
+            <h2 className="text-3xl">
             {pData?.EligibilityHeading}
             </h2>
             <ol style={{ marginLeft: "40px" }}>
@@ -270,7 +270,7 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[25] = el)}
           >
-            <h2>
+            <h2 className="text-3xl">
             {pData?.HowApplyHeading}
             </h2>
             <ol style={{ marginLeft: "40px" }}>
@@ -301,7 +301,7 @@ const handleScroll = () => {
             id="refusal-reasons"
             ref={(el) => (sectionsRef.current[35] = el)}
           >
-            <h2>
+            <h2 className="text-3xl">
             {pData?.RefusalHeading}
             </h2>
             <ol style={{ marginLeft: "40px" }}>
@@ -325,7 +325,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

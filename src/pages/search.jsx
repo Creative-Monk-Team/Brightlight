@@ -230,7 +230,7 @@ const Search = () => {
           <>
             {servicesData.length > 0 && (
               <div className={styles.servicesSection}>
-                <h2>Services</h2>
+                <h2 className="text-3xl">Services</h2>
                 <div className={styles.servicesGridSection}>
                   {servicesData.map((item, index) => (
                     <div
@@ -304,9 +304,9 @@ const Search = () => {
         ) : (
           <div className={styles.noResults}>
             {showNoResults ? (
-              <h2>No results found. Try searching for something different.</h2>
+              <h2 className="text-3xl">No results found. Try searching for something different.</h2>
             ) : (
-              <h2>Searching..</h2>
+              <h2 className="text-3xl">Searching..</h2>
             )}
           </div>
         )}

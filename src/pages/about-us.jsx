@@ -421,7 +421,7 @@ let About = ({metaData}) => {
           <div className={styles.pillarLogo}>
                <Image loading="lazy" height={50} width={100} src={pillarsImage?.image} />
             <div className={styles.pillarLogoContent}>
-              <h2>{pillarsSection?.heading}</h2>
+              <h2 className="text-3xl">{pillarsSection?.heading}</h2>
               <p>{pillarsSection?.description1}</p>
             </div>
           </div>
@@ -538,19 +538,19 @@ let About = ({metaData}) => {
           <div className={styles.ourAchivementCardParent}>
             <div className={styles.ourAchivementCard}>
                  <Image loading="lazy" height={50} width={100} src={VisaImg} />
-              <h2><Odometer value={achievements?.achievement1Numbers}/><span className={styles.ourAchivementCardPlus}>+</span></h2>
+              <h2 className="text-3xl"><Odometer value={achievements?.achievement1Numbers}/><span className={styles.ourAchivementCardPlus}>+</span></h2>
               <p>{achievements?.achievement1Heading}</p>
             </div>
 
             <div className={styles.ourAchivementCard}>
                  <Image loading="lazy" height={50} width={100} src={TickBlue} />
-              <h2><Odometer value={achievements?.achievement2Numbers}/><span className={styles.ourAchivementCardPlus}>+</span></h2>
+              <h2 className="text-3xl"><Odometer value={achievements?.achievement2Numbers}/><span className={styles.ourAchivementCardPlus}>+</span></h2>
               <p>{achievements?.achievement2Heading}</p>
             </div>
 
             <div className={styles.ourAchivementCard}>
                  <Image loading="lazy" height={50} width={100} src={SmileBlue} />
-              <h2><Odometer value={achievements?.achievement3Numbers}/><span className={styles.ourAchivementCardPlus}>+</span></h2>
+              <h2 className="text-3xl"><Odometer value={achievements?.achievement3Numbers}/><span className={styles.ourAchivementCardPlus}>+</span></h2>
               <p>{achievements?.achievement3Heading}</p>
             </div>
           </div>

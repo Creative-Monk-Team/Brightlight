@@ -193,7 +193,7 @@ const handleScroll = () => {
           id="benefits"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.BenifitsHeading}</h2>
+          <h2 className="text-3xl">{pData?.BenifitsHeading}</h2>
           <ul style={{marginLeft: "40px"}}>
             <li>
             {pData?.BenifitsList1}
@@ -215,7 +215,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>{pData?.EligibilityHeading}</h2>
+          <h2 className="text-3xl">{pData?.EligibilityHeading}</h2>
           <ul style={{marginLeft: "40px"}}>
             <li>
             {pData?.EligibilityList1}
@@ -249,7 +249,7 @@ const handleScroll = () => {
           id="evidence"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>{pData?.TypesOfHeadingHeading}</h2>
+          <h2 className="text-3xl">{pData?.TypesOfHeadingHeading}</h2>
           <p>
           {pData?.TypesEvidenceHeading}
           </p>
@@ -287,7 +287,7 @@ const handleScroll = () => {
           id="application-process"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2> {pData?.HowApplyHeading}</h2>
+          <h2 className="text-3xl"> {pData?.HowApplyHeading}</h2>
           <ol style={{marginLeft: "40px"}}>
             <li> {pData?.ha1}</li>
             <li>{pData?.ha2}</li>
@@ -302,7 +302,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2> {pData?.StillNotSureHeading}</h2>
+          <h2 className="text-3xl"> {pData?.StillNotSureHeading}</h2>
           <p>
           {pData?.StillNotSurePara1}
           </p>
@@ -324,7 +324,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

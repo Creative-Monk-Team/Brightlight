@@ -201,7 +201,7 @@ const handleScroll = () => {
           id="benefits"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-          <h2>{pData?.BenifitsHeading}</h2>
+          <h2 className="text-3xl">{pData?.BenifitsHeading}</h2>
           <ul style={{marginLeft: "40px"}}>
             <li>
             {pData?.BenifitsList1}
@@ -219,7 +219,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.EligibilityHeading}</h2>
+          <h2 className="text-3xl">{pData?.EligibilityHeading}</h2>
           <ul className={styles.subheadingLink}>
                 <li>
                   <button
@@ -262,7 +262,7 @@ const handleScroll = () => {
           <h4>{pData?.EligibilityHeading}</h4>
           <div className={styles.criteria}>
             <h3>{pData?.EligibilityList1}</h3>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>
               {pData?.EligibilityList1NestedList1}
               </li>
@@ -282,7 +282,7 @@ const handleScroll = () => {
           </div>
           <div className={styles.criteria}>
             <h3>{pData?.EligibilityList2}</h3>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>
               {pData?.EligibilityList2NestedList1}
               </li>
@@ -302,7 +302,7 @@ const handleScroll = () => {
           </div>
           <div className={styles.criteria}>
             <h3>{pData?.EligibilityList3}</h3>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>
               {pData?.EligibilityList3NestedList1}
               </li>
@@ -313,7 +313,7 @@ const handleScroll = () => {
           </div>
           <div className={styles.criteria}>
             <h3>{pData?.EligibilityList4}</h3>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>
               {pData?.EligibilityList4NestedList1}
               </li>
@@ -331,7 +331,7 @@ const handleScroll = () => {
           id="employer_requirements"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>{pData?.ReqExpressHeading}</h2>
+          <h2 className="text-3xl">{pData?.ReqExpressHeading}</h2>
           <p>
           {pData?.ReqExpressDesc}
           </p>
@@ -358,7 +358,7 @@ const handleScroll = () => {
           id="testing1"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>  {pData?.EmpRequirementsHeading}</h2>
+          <h2 className="text-3xl">  {pData?.EmpRequirementsHeading}</h2>
           <p>
           {pData?.EmpRequirementsDescription}
           </p>
@@ -392,13 +392,13 @@ const handleScroll = () => {
           id="how-to-apply"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>
+          <h2 className="text-3xl">
           {pData?.ApplicationHeading}
           </h2>
           <ol style={{marginLeft: "40px"}}>
             <li>
               <strong>  {pData?.ApplyPoint1}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.ApplyPoint1List1}
                 </li>
@@ -409,10 +409,10 @@ const handleScroll = () => {
             </li>
             <li>
               <strong> {pData?.ApplyPoint2}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.ApplyPoint2List1}
-                  <ul>
+                  <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                     <li> {pData?.ApplyPoint2List1Nested1} </li>
                     <li>
                     {pData?.ApplyPoint2List1Nested2}
@@ -426,7 +426,7 @@ const handleScroll = () => {
             </li>
             <li>
               <strong>{pData?.ApplyPoint3}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.ApplyPoint3List1}
                 </li>
@@ -437,7 +437,7 @@ const handleScroll = () => {
             </li>
             <li>
               <strong> {pData?.ApplyPoint4}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.ApplyPoint4List1}
                 </li>
@@ -445,7 +445,7 @@ const handleScroll = () => {
             </li>
             <li>
               <strong> {pData?.ApplyPoint5}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.ApplyPoint5List1}
                 </li>
@@ -459,7 +459,7 @@ const handleScroll = () => {
             </li>
             <li>
               <strong>{pData?.ApplyPoint6}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.ApplyPoint6List1}
                 </li>
@@ -473,7 +473,7 @@ const handleScroll = () => {
             </li>
             <li>
               <strong>  {pData?.ApplyPoint7}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.ApplyPoint7List1}
                 </li>
@@ -490,7 +490,7 @@ const handleScroll = () => {
           id="book-appointment"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2>  {pData?.StillNotSureHeading}</h2>
+          <h2 className="text-3xl">  {pData?.StillNotSureHeading}</h2>
           <p>
           {pData?.StillNotSurePara1}
           </p>
@@ -511,7 +511,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>{pData?.WhyChooseUsHeading01 }</h2>
+         <h2 className="text-3xl">{pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

@@ -735,7 +735,7 @@ const handleScroll = () => {
           <ol style={{ marginLeft: "40px" }}>
             <li>
             {pData?.a1}
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.a1l1}
                 </li>
@@ -749,7 +749,7 @@ const handleScroll = () => {
             </li>
             <li>
             {pData?.a2}
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.a2l1}
                 </li>
@@ -757,7 +757,7 @@ const handleScroll = () => {
             </li>
             <li>
             {pData?.a3}
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.a3l1}
                 </li>
@@ -765,7 +765,7 @@ const handleScroll = () => {
             </li>
             <li>
             {pData?.a4}
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.a4l1}
                 </li>
@@ -773,7 +773,7 @@ const handleScroll = () => {
             </li>
             <li>
             {pData?.a5}
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.a5l1}
                 </li>
@@ -802,7 +802,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

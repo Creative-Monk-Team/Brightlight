@@ -138,7 +138,7 @@ let Immigration = ({metaData}) => {
                     }
                     alt={tool.tool_name}
                   />
-                  <h2>{tool.tool_name}</h2>
+                  <h2 className="text-3xl">{tool.tool_name}</h2>
                   <p>{tool.tool_desc}</p>
                 </Link>
               ))}

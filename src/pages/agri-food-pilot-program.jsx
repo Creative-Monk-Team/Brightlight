@@ -282,13 +282,13 @@ const AgriFoodPilotProgram = ({metaData}) => {
             </li>
           </ul>
 
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
             {pData?.Qwe5}
             </li>
           </ul>
 
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
             {pData?.Qwe6}
               <ol style={{marginLeft: "40px"}}>
@@ -540,7 +540,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
           >
             <li>
             {pData?.EligCritPo4Li1}
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.EligCritPo4SubLi1}
                 </li>
@@ -548,7 +548,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
             </li>
             <li>
             {pData?.EligCritPo4Li2}
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                 {pData?.EligCritPo2SubLi}
                 </li>
@@ -556,7 +556,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
             </li>
             <li>
             {pData?.EligCritPo4Li3}
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>{pData?.EligCritPo3SubLi1}</li>
                 <li>
                 {pData?.EligCritPo3SubLi2}
@@ -608,7 +608,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
           id="how-to-apply"
           ref={(el) => (sectionsRef.current[20] = el)}
         >
-          <h2>{pData?.HowToApplyHeading}</h2>
+          <h2 className="text-3xl">{pData?.HowToApplyHeading}</h2>
           <ul
           style={{marginLeft: "40px"}}
             className={`${styles.section} ${styles.section}`}
@@ -628,7 +628,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
           className={`${styles.contact} ${styles.section}`}
           ref={(el) => (sectionsRef.current[22] = el)}
         >
-          <h2>{pData?.StillNotSureHeading}</h2>
+          <h2 className="text-3xl">{pData?.StillNotSureHeading}</h2>
           <p
             className={`${styles.section} ${styles.section}`}
             id="testing"
@@ -648,7 +648,7 @@ const AgriFoodPilotProgram = ({metaData}) => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[50] = el)}
          >
-         <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+         <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

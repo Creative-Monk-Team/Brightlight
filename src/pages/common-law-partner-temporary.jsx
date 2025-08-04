@@ -259,7 +259,7 @@ const handleScroll = () => {
 
           <h3>{pData?.e1h1}</h3>
           <ul className={styles.requirementsList}>
-            <h2>{pData?.eh1}</h2>
+            <h2 className="text-3xl">{pData?.eh1}</h2>
             <li>
               <strong>{pData?.es1h1Lih}</strong>
               <ul style={{marginLeft: "40px"}} className={styles.subList}>
@@ -452,7 +452,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[14] = el)}
         >
-          <h2>{pData?.FamMembHeading}</h2>
+          <h2 className="text-3xl">{pData?.FamMembHeading}</h2>
           <p className={styles.testPara}>
           {pData?.FamMembSubHead}
           </p>
@@ -554,7 +554,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+         <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

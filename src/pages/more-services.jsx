@@ -189,7 +189,7 @@ const MoreServices = ({metaData}) => {
                     }
                     alt={section.tool_name}
                   />
-                  <h2>{section.tool_name}</h2>
+                  <h2 className="text-3xl">{section.tool_name}</h2>
                   <p>{section.tool_desc}</p>
                   <h4>{pData?.read_more}</h4>
                 </Link>

@@ -184,7 +184,7 @@ const handleScroll = () => {
             id="about-program"
             ref={(el) => (sectionsRef.current[0] = el)}
           >
-            <h2>{pData?.RedFlagHeading}</h2>
+            <h2 className="text-3xl">{pData?.RedFlagHeading}</h2>
             <p>
             {pData?.RedFlagPara1}
             </p>
@@ -204,7 +204,7 @@ const handleScroll = () => {
             id="recieved-a-pfl"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>{pData?.ReasonReceivedHeading}</h2>
+            <h2 className="text-3xl">{pData?.ReasonReceivedHeading}</h2>
             <ul style={{ marginLeft: "40px" }}>
               <li>
               {pData?.r1}
@@ -226,7 +226,7 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.StillNotHeading}</h2>
+            <h2 className="text-3xl">{pData?.StillNotHeading}</h2>
             <p>
             {pData?.s1}
             </p>
@@ -249,7 +249,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

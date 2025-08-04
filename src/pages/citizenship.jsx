@@ -205,8 +205,8 @@ const Citizenship = ({ metaData }) => {
             id="benefits"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2> {pData?.BenifitHeading}</h2>
-            <ul>
+            <h2 className="text-3xl"> {pData?.BenifitHeading}</h2>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>{pData?.b1}</li>
               <li>
                 {pData?.b2}
@@ -224,7 +224,7 @@ const Citizenship = ({ metaData }) => {
             id="eligibility"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.EligibilityHeading}</h2>
+            <h2 className="text-3xl">{pData?.EligibilityHeading}</h2>
             <p>
               {pData?.EligibilitySubHeading}
             </p>
@@ -250,8 +250,8 @@ const Citizenship = ({ metaData }) => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[3] = el)}
           >
-            <h2>{pData?.HowApplyHeading}</h2>
-            <ul>
+            <h2 className="text-3xl">{pData?.HowApplyHeading}</h2>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>
                 {pData?.ha1}
               </li>
@@ -275,8 +275,8 @@ const Citizenship = ({ metaData }) => {
             id="refusal-reasons"
             ref={(el) => (sectionsRef.current[4] = el)}
           >
-            <h2>{pData?.RefusalHeading}</h2>
-            <ul>
+            <h2 className="text-3xl">{pData?.RefusalHeading}</h2>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>
                 {pData?.r1}
               </li>
@@ -307,7 +307,7 @@ const Citizenship = ({ metaData }) => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[5] = el)}
           >
-            <h2>{pData?.StillNotHeading}</h2>
+            <h2 className="text-3xl">{pData?.StillNotHeading}</h2>
             <p>
               {pData?.s1}
             </p>
@@ -329,7 +329,7 @@ const Citizenship = ({ metaData }) => {
             id="why-choose-u"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-            <h2>  {pData?.WhyChooseUsHeading01}</h2>
+            <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01}</h2>
             <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
               <li>
                 <strong>{strongText91}</strong>{" "} {remainingText91}

@@ -645,7 +645,7 @@ let HomePage = ({metaData}) => {
                       </CSSTransition>
 
                       <div className={styles.title}>
-                        <h2>{card.title}</h2>
+                        <h2 className="text-3xl">{card.title}</h2>
                       </div>
                     </div>
                   ))}
@@ -761,7 +761,7 @@ let HomePage = ({metaData}) => {
                       />
                     </div>
                     <div className={styles.simplifyingContent}>
-                      <h2>{featuresData[`feature${num}Heading`]}</h2>
+                      <h2 className="text-3xl">{featuresData[`feature${num}Heading`]}</h2>
                       <p>{featuresData[`feature${num}Description`]}</p>
                     </div>
                   </div>
@@ -844,7 +844,7 @@ let HomePage = ({metaData}) => {
         <div className={styles.aspectsMain}>
           <div className={styles.aspectsHeading}>
             <h1>{achiementsData?.heading}</h1>
-            <h2>{achiementsData?.description}</h2>
+            <h2 className="text-3xl">{achiementsData?.description}</h2>
           </div>
 
           <div className={styles.aspectsCardParent} ref={aspectsCardParentRef}>

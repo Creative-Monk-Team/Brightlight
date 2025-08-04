@@ -203,7 +203,7 @@ const SkilledWorkerStream = ({ metaData }) => {
           id="benefits"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-          <h2>    {pData?.benefitsHeading}</h2>
+          <h2 className="text-3xl">    {pData?.benefitsHeading}</h2>
           <ul style={{ marginLeft: "40px" }}>
             <li>
               {pData?.b1}
@@ -234,7 +234,7 @@ const SkilledWorkerStream = ({ metaData }) => {
           <ol style={{ marginLeft: "40px" }}>
             <li>
               <strong>   {pData?.e1}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.e1l1}
                 </li>
@@ -245,7 +245,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.e2}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.e2l1}
                 </li>
@@ -256,7 +256,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.e3}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.e3l1}
                 </li>
@@ -264,7 +264,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.e4}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.e4l1}
                 </li>
@@ -272,7 +272,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.e5}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.e5l1}
                 </li>
@@ -286,7 +286,7 @@ const SkilledWorkerStream = ({ metaData }) => {
           id="testting1"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>{pData?.expressConsiderationHeading}</h2>
+          <h2 className="text-3xl">{pData?.expressConsiderationHeading}</h2>
           <p>
             {pData?.expressConsiderationDescription}
           </p>
@@ -297,7 +297,7 @@ const SkilledWorkerStream = ({ metaData }) => {
           id="employer_requirements"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>{pData?.recruitmentHeading}</h2>
+          <h2 className="text-3xl">{pData?.recruitmentHeading}</h2>
           <p>
             {pData?.recruitmentDescription}
           </p>
@@ -310,7 +310,7 @@ const SkilledWorkerStream = ({ metaData }) => {
           <ol style={{ marginLeft: "40px" }}>
             <li>
               <strong>{pData?.r1}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.r1l1}
                 </li>
@@ -318,7 +318,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.r2}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.r2l1}
                 </li>
@@ -326,7 +326,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.r3}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.r3l1}
                 </li>
@@ -337,7 +337,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.r4}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.r4l1}
                 </li>
@@ -345,7 +345,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.r5}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>{pData?.r5l1}</li>
                 <li>
                   {pData?.r5l2}
@@ -355,7 +355,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.r6}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.r6l1}
                 </li>
@@ -382,13 +382,13 @@ const SkilledWorkerStream = ({ metaData }) => {
           id="process"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>{pData?.applicationHeading}</h2>
+          <h2 className="text-3xl">{pData?.applicationHeading}</h2>
           <ol style={{ marginLeft: "40px" }}>
             <li>
               <strong className={styles.sectionStrong}>
                 {pData?.a1}
               </strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.a1l1}
                 </li>
@@ -401,7 +401,7 @@ const SkilledWorkerStream = ({ metaData }) => {
               <strong className={styles.sectionStrong}>
                 {pData?.a2}
               </strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.a2l1}
                 </li>
@@ -414,7 +414,7 @@ const SkilledWorkerStream = ({ metaData }) => {
               <strong className={styles.sectionStrong}>
                 {pData?.a3}
               </strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.a3l1}
                 </li>
@@ -423,7 +423,7 @@ const SkilledWorkerStream = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.a4}</strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.a4l1}
                 </li>
@@ -436,7 +436,7 @@ const SkilledWorkerStream = ({ metaData }) => {
               <strong className={styles.sectionStrong}>
                 {pData?.a5}
               </strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.a5l1}
                 </li>
@@ -455,10 +455,10 @@ const SkilledWorkerStream = ({ metaData }) => {
               <strong className={styles.sectionStrong}>
                 {pData?.a6}
               </strong>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>
                   {pData?.a6l1}
-                  <ul>
+                  <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                     <li>  {pData?.a6l1n1}</li>
                     <li>
                       {pData?.a6l1n2}
@@ -477,7 +477,7 @@ const SkilledWorkerStream = ({ metaData }) => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-          <h2>  {pData?.WhyChooseUsHeading01}</h2>
+          <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01}</h2>
           <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}
@@ -499,7 +499,7 @@ const SkilledWorkerStream = ({ metaData }) => {
           id="book-appointment"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2>   {pData?.StillNotHeading}</h2>
+          <h2 className="text-3xl">   {pData?.StillNotHeading}</h2>
           <p>
             {pData?.s1}
           </p>

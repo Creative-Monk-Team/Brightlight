@@ -109,7 +109,7 @@ let Blogs = () => {
                     .replace(/\s+/g, "-")}`}
                 >
                      <Image loading="lazy" height={50} width={100}       src={item.image} alt={item.blog_heading} />
-                  <h2>{item.blog_heading}</h2>
+                  <h2 className="text-3xl">{item.blog_heading}</h2>
                   <h6>
                     <b>{item.date && item.date.trim().split("T")[0]}</b>
                   </h6>

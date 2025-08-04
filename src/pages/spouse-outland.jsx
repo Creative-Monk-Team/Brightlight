@@ -222,7 +222,7 @@ const SpouseOutland = ({metaData}) => {
           {pData?.description}
         </p>
 
-        <h2>{pData?.IsOutlandSponHeading}</h2>
+        <h2 className="text-3xl">{pData?.IsOutlandSponHeading}</h2>
         <p>{pData?.IsOutlandSponSubHead}</p>
         <ul
           style={{
@@ -339,7 +339,7 @@ const SpouseOutland = ({metaData}) => {
           </li>
         </ol>
 
-        <h2>  {pData?.QueSpecConsidHeading}</h2>
+        <h2 className="text-3xl">  {pData?.QueSpecConsidHeading}</h2>
         <p
           style={{
             marginLeft: "40px",
@@ -444,7 +444,7 @@ const SpouseOutland = ({metaData}) => {
           className={`${styles.section} ${styles.section}`}
           id="why-choose-u"
         >
-          <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+          <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi}  style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

@@ -15,9 +15,9 @@ export async function getServerSideProps() {
   return fetchSeoData("outsideCanadaMeta"); // Pass the API endpoint specific to this page
 }
 
-const OutsideCananda = ({metaData}) => {
+const OutsideCananda = ({ metaData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [pData,setPData]=useState([]);
+  let [pData, setPData] = useState([]);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -47,9 +47,10 @@ const OutsideCananda = ({metaData}) => {
 
   const sectionsRef = useRef([]);
 
-const handleScroll = () => {
+  const handleScroll = () => {
     sectionsRef.current.forEach((section) => {
-      if (section) { // ✅ Check if section exists
+      if (section) {
+        // ✅ Check if section exists
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           section.classList.add(styles.visible);
@@ -82,22 +83,21 @@ const handleScroll = () => {
   const fetchedValue91 = pData?.wcu1;
   const strongText91 = extractStrongText(fetchedValue91);
   const remainingText91 = extractRemainingText(fetchedValue91);
-  
+
   const fetchedValue92 = pData?.wcu2;
   const strongText92 = extractStrongText(fetchedValue92);
   const remainingText92 = extractRemainingText(fetchedValue92);
-  
+
   const fetchedValue93 = pData?.wcu3;
   const strongText93 = extractStrongText(fetchedValue93);
   const remainingText93 = extractRemainingText(fetchedValue93);
-  
+
   const fetchedValue94 = pData?.wcu4;
   const strongText94 = extractStrongText(fetchedValue94);
   const remainingText94 = extractRemainingText(fetchedValue94);
   return (
     <>
-          <Head>
-          
+      <Head>
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle
@@ -177,22 +177,18 @@ const handleScroll = () => {
           id="about-program"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-         {pData?.outsideCanadaHeading}
+          {pData?.outsideCanadaHeading}
         </h1>
-        <p className={styles.intro}>  {pData?.outsideCanadatPara1}</p>
-        <p className={styles.intro}>
-        {pData?.outsideCanadatPara2}
-        </p>
-        <p className={styles.intro}>
-        {pData?.outsideCanadatPara3}
-        </p>
+        <p className={styles.intro}> {pData?.outsideCanadatPara1}</p>
+        <p className={styles.intro}>{pData?.outsideCanadatPara2}</p>
+        <p className={styles.intro}>{pData?.outsideCanadatPara3}</p>
 
         <section
           className={`${styles.programs} ${styles.section}`}
           id="programs"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2 className={styles.subheading}>  {pData?.TwoMainHeading}</h2>
+          <h2 className={styles.subheading}> {pData?.TwoMainHeading}</h2>
           <div className={styles.buttonContainer}>
             <Link href="/sds" className={styles.button}>
               Student Direct Stream (SDS) Study Visa
@@ -208,40 +204,37 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-          <h2>  {pData?.WhyChooseUsHeading01 }</h2>
-          <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
+          <h2 className="text-3xl"> {pData?.WhyChooseUsHeading01}</h2>
+          <ul className={`list-disc flex flex-col gap-2 mb-10 ${styles.whychooseusLi}`} style={{ marginLeft: "40px" }}>
             <li>
-              <strong>{strongText91}</strong>{" "} {remainingText91}
+              <strong>{strongText91}</strong> {remainingText91}
             </li>
             <li>
-            <strong>{strongText92}</strong>{" "} {remainingText92}
+              <strong>{strongText92}</strong> {remainingText92}
             </li>
             <li>
-            <strong>{strongText93}</strong>{" "} {remainingText93}
+              <strong>{strongText93}</strong> {remainingText93}
             </li>
             <li>
-            <strong>{strongText94}</strong>{" "} {remainingText94}
+              <strong>{strongText94}</strong> {remainingText94}
             </li>
           </ul>
 
-          <Link
-            href="/booking"
-            className={styles.buttonBook}
-          >
+          <Link href="/booking" className={styles.buttonBook}>
             Book Appointment
           </Link>
         </section>
       </div>
 
       <div id="faqs">
-      <FAQ_White_Internal data={pData} />
+        <FAQ_White_Internal data={pData} />
       </div>
 
       {pData?.show_testimonials == "Y" && (
         <div id="testimonials">
-          <Testimonials />
-        </div>
-      )}
+          <Testimonials /> 
+        </div>
+      )}
       <div id="blogs">
         <RecentBlogs />
       </div>

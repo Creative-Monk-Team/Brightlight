@@ -214,7 +214,7 @@ const handleScroll = () => {
         <h1>{data?.drawsHeading}</h1>
         <div className={styles.container}>
           <div className={styles.column}>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li
                 style={{ cursor: "pointer" }}
                 onClick={() => (window.location.href = "/french-targeted-draw")}
@@ -239,7 +239,7 @@ const handleScroll = () => {
             </ul>
           </div>
           <div className={styles.column}>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li
                 style={{ cursor: "pointer" }}
                 onClick={() =>
@@ -458,7 +458,7 @@ const handleScroll = () => {
       </div>
 
       <section className={styles.whyChooseUs}>
-        <h2> {whyChooseData?.WhyChooseUsHeading01}</h2>
+        <h2 className="text-3xl"> {whyChooseData?.WhyChooseUsHeading01}</h2>
         <ul style={{ marginLeft: "40px" }}>
           <li>
             <strong>{strongText91}</strong> {remainingText91}

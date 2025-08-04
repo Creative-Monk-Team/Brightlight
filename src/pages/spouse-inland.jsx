@@ -311,7 +311,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           <h3 style={{ margin: "20px 0px" }}>
             {pData?.eligRelHeading}
           </h3>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
             <strong>{strongText8}</strong> {remainingText8}
             </li>
@@ -373,7 +373,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           {pData?.RemainingCanadaPara}
         </p>
 
-        <h2>{pData?.HowLongProcInlAppHeading}</h2>
+        <h2 className="text-3xl">{pData?.HowLongProcInlAppHeading}</h2>
         <p
           style={{
             marginBottom: "60px",
@@ -382,7 +382,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
          {pData?.HowLongProcInlAppPara}
         </p>
 
-        <h2>{pData?.InlSpouSponHeading}</h2>
+        <h2 className="text-3xl">{pData?.InlSpouSponHeading}</h2>
         <p
           style={{
             marginBottom: "20px",
@@ -424,7 +424,7 @@ const remainingText94 = extractRemainingText(fetchedValue94);
           className={`${styles.section} ${styles.section}`}
           id="why-choose-us"
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

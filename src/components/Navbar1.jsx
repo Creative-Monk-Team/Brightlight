@@ -854,7 +854,7 @@ const Navbar1 = (props) => {
                     </div>
                   </div>
                   <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link href="/pr-renewal">PR Renewal</Link>
+                  <Link href="/pr-renewal">PR Renewal</Link>
                     <div
                       className={`${styles.permanentNestedSection} ${showNestedDropdown11 ? styles.showNested : null
                         }`}
@@ -863,7 +863,7 @@ const Navbar1 = (props) => {
                     </div>
                   </div>
                   <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link href="/citizenship">Citizenship</Link>
+                  <Link href="/citizenship">Citizenship</Link>
                     <div
                       className={`${styles.permanentNestedSection} ${showNestedDropdown12 ? styles.showNested : null
                         }`}

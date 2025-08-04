@@ -200,7 +200,7 @@ const handleScroll = () => {
             id="about"
             ref={(el) => (sectionsRef.current[0] = el)}
           >
-            <h2>{pData?.DonotWorryHeading}</h2>
+            <h2 className="text-3xl">{pData?.DonotWorryHeading}</h2>
             <ul style={{ marginLeft: "40px" }}>
               <li>{pData?.DonotWorryPara1}</li>
               <li>{pData?.DonotWorryPara2}</li>
@@ -214,7 +214,7 @@ const handleScroll = () => {
             id="key-points"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>{pData?.KeyPointsHeading}</h2>
+            <h2 className="text-3xl">{pData?.KeyPointsHeading}</h2>
             <ul style={{ marginLeft: "40px" }}>
               <li>{pData?.k1}</li>
               <li>{pData?.k2}</li>
@@ -236,7 +236,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.StillNotHeading}</h2>
+            <h2 className="text-3xl">{pData?.StillNotHeading}</h2>
             <p>{pData?.s1}</p>
             <p>{pData?.s2}</p>
             <button
@@ -254,7 +254,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-            <h2> {pData?.WhyChooseUsHeading01}</h2>
+            <h2 className="text-3xl"> {pData?.WhyChooseUsHeading01}</h2>
             <ul className={styles.whychooseusLi}  style={{ marginLeft: "40px" }}>
               <li>
                 <strong>{strongText91}</strong> {remainingText91}

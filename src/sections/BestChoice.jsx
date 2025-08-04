@@ -91,7 +91,7 @@ const BestChoice = () => {
     <div className={styles.bestChoiceParent}>
       <div className={styles.bestChoice}>
         <div className={styles.bestChoiceHeading}>
-          <h2>{bestChoiceHeading?.heading}</h2>
+          <h2 className="text-3xl">{bestChoiceHeading?.heading}</h2>
         </div>
         <Image loading="lazy"
           src={plane?.image}

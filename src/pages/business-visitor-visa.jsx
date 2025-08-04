@@ -230,7 +230,7 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.buisinessVisitorVisaSubHead}</h2>
+          <h2 className="text-3xl">{pData?.buisinessVisitorVisaSubHead}</h2>
           <p>{pData?.buisinessVisitorVisaPara}</p>
         </section>
 
@@ -250,7 +250,7 @@ const handleScroll = () => {
             <li>{pData?.a7}</li>
           </ul>
           <h4>{pData?.ActivitiesSubHead}</h4>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
               <p><strong>{strongText1}</strong>{remainingText1}</p>
             </li>
@@ -272,7 +272,7 @@ const handleScroll = () => {
             <li><strong>{strongText2}</strong> {" "} {remainingText2}</li>
             <li>
             <strong>{strongText3}</strong> {" "} {remainingText3}
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li>{pData?.e5SubLi1}</li>
                 <li>{pData?.e5SubLi2}</li>
                 <li>{pData?.e5SubLi3}</li>
@@ -300,7 +300,7 @@ const handleScroll = () => {
         <section className={styles.documents}>
           <h2 className={styles.subheading}>{pData?.EssenDocuHeading}</h2>
           <p>{pData?.EssenDocuPara}</p>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>{pData?.ed1}</li>
             <li>{pData?.ed2}</li>
             <li></li>
@@ -337,7 +337,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+         <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

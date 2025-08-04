@@ -200,7 +200,7 @@ const handleScroll = () => {
           <h2 className={styles.subheading}>
           {pData?.HereHeading}
           </h2>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
               <Link href="/agri-food-pilot-program" className={styles.button}>
                 Agri-Food Pilot
@@ -246,7 +246,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

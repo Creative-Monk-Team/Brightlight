@@ -254,7 +254,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-          <h2 style={{textAlign: "left"}}>  {pData?.WhyChooseUsHeading01 }</h2>
+          <h2 style={{textAlign: "left"}} className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}
@@ -278,8 +278,8 @@ const handleScroll = () => {
       {pData?.show_testimonials == "Y" && (
         <div id="testimonials">
           <Testimonials />
-        </div>
-      )}
+        </div>
+      )}
       <div id="blogs">
         <RecentBlogs />
       </div>

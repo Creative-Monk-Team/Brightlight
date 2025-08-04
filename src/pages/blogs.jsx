@@ -318,7 +318,7 @@ let Blogs = ({metaData}) => {
             <h3>Quick Links</h3>
             {quickLinksBlogs?.map((item, index) => (
               <div key={index}>
-                <h2>{item.blog_heading}</h2>
+                <h2 className="text-3xl">{item.blog_heading}</h2>
                 <p>{item.date && item.date.trim().split("T")[0]}</p>
                 <button
                   onClick={() => handleBlogClick(item)}

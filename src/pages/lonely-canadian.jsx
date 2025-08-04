@@ -206,7 +206,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>
+          <h2 className="text-3xl">
           {pData?.EligibilityHeading}
           </h2>
           <h4>
@@ -249,7 +249,7 @@ const handleScroll = () => {
           id="duration"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>{pData?.DurationHeading}</h2>
+          <h2 className="text-3xl">{pData?.DurationHeading}</h2>
           <ul style={{marginLeft: "40px"}}>
             <li>
             {pData?.DLi1}
@@ -277,7 +277,7 @@ const handleScroll = () => {
           id="bankruptcy"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>{pData?.BankruptcyHeading}</h2>
+          <h2 className="text-3xl">{pData?.BankruptcyHeading}</h2>
           <ul style={{marginLeft: "40px"}}>
             <li>
             {pData?.bankL1}
@@ -300,8 +300,8 @@ const handleScroll = () => {
           id="sponsor-siblings"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2>  {pData?.SponsoringHeading}</h2>
-          <ul>
+          <h2 className="text-3xl">  {pData?.SponsoringHeading}</h2>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
               <h4>{pData?.SponsoringSubHead1}</h4>
             </li>
@@ -322,7 +322,7 @@ const handleScroll = () => {
             {pData?.SponLi2}
             </li>
           </ul>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
               <h4>{pData?.SponsoringSubHead2}</h4>
             </li>
@@ -351,7 +351,7 @@ const handleScroll = () => {
           id="alternatives"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>{pData?.ExplHeading}</h2>
+          <h2 className="text-3xl">{pData?.ExplHeading}</h2>
           <p>
           {pData?.ExplSubHead}
           </p>
@@ -385,7 +385,7 @@ const handleScroll = () => {
           id="application-process"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2>{pData?.HowApplyHeading}</h2>
+          <h2 className="text-3xl">{pData?.HowApplyHeading}</h2>
           <h3>{pData?.HowApplyStepHead1}</h3>
           <ul
             style={{
@@ -465,7 +465,7 @@ const handleScroll = () => {
             </li>
           </ul>
           <h3>{pData?.HowApplyStepHead2}</h3>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <h4>
               <strong>{pData?.HowApplySubHead4}</strong>
             </h4>
@@ -489,7 +489,7 @@ const handleScroll = () => {
               <strong>{pData?.HowApplySubHead5}</strong>
             </h4>
             <li style={{ listStyle: "none" }}>
-              <ul>
+              <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                 <li style={{ listStyle: "none" }}>
                   <p>
                   {pData?.haPara1}
@@ -527,7 +527,7 @@ const handleScroll = () => {
           id="why-choose-u"
           ref={(el) => (sectionsRef.current[99] = el)}
         >
-         <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+         <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

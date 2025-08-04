@@ -259,7 +259,7 @@ const handleScroll = () => {
           <p>
           {pData?.EligPara3}
           </p>
-          <h2> {pData?.ImportantThingsHeading}</h2>
+          <h2 className="text-3xl"> {pData?.ImportantThingsHeading}</h2>
           <p>
            {pData?.ImportantThingsPara}
           </p>
@@ -288,7 +288,7 @@ const handleScroll = () => {
           <p>
           {pData?.EligCritSubHeading}
           </p>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li> {pData?.ec1}</li>
             <li>{pData?.ec2}</li>
             <li> {pData?.ec3}</li>
@@ -537,7 +537,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>{pData?.WhyChooseUsHeading01 }</h2>
+         <h2 className="text-3xl">{pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

@@ -63,7 +63,7 @@ export default function NewsComponent(){
                   >
                     <div className={styles.sourceContentDate}>
                       <p>{item.tag_1}</p>
-                      <h2>{monthName(item.date)}</h2>
+                      <h2 className="text-3xl">{monthName(item.date)}</h2>
                       <h1>{date}</h1>
                     </div>
                     <div className={styles.sourceContentData}>

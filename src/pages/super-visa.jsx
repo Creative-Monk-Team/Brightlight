@@ -198,7 +198,7 @@ const handleScroll = () => {
           <p>
           {pData?.EligibilitySubHead}
           </p>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li> {pData?.EligibilityList1}</li>
             <li>
             {pData?.EligibilityList2}
@@ -221,7 +221,7 @@ const handleScroll = () => {
 
           <h3>   {pData?.ApartHeading}</h3>
           <h4>   {pData?.ApartSubHead}</h4>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
             {pData?.ApartLi1}
             </li>
@@ -309,7 +309,7 @@ const handleScroll = () => {
 
         <section  className={`${styles.refusalReasons} ${styles.section}`} id="refusal-reasons" ref={(el) => sectionsRef.current[6] = el}>
           <h2 className={styles.subheading}>{pData?.RefusalHeading}</h2>
-          <ul style={{marginLeft: "40px"}}>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
             {pData?.r1}
             </li>
@@ -329,7 +329,7 @@ const handleScroll = () => {
             {pData?.r6}
             </li>
           </ul>
-          <p>
+          <p className="">
           {pData?.rPara1}
           </p>
           <p>
@@ -351,8 +351,8 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>{pData?.WhyChooseUsHeading01 }</h2>
-          <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
+         <h2 className="text-3xl">{pData?.WhyChooseUsHeading01 }</h2>
+          <ul className="list-disc flex flex-col gap-4 mb-10" style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}
             </li>

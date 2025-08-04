@@ -245,11 +245,11 @@ const handleScroll = () => {
           id="testing"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>   {pData?.WhatisStudyPerHeading}</h2>
+          <h2 className="text-3xl">   {pData?.WhatisStudyPerHeading}</h2>
           <p>
           {pData?.WhatisStudyPerSubHead}
           </p>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>   {pData?.wspLi1}</li>
             <li>  {pData?.wspLi2}</li>
             <li>  {pData?.wspLi3}</li>
@@ -271,7 +271,7 @@ const handleScroll = () => {
              {pData?.BenifitHeading}
           </h2>
           <p>  {pData?.BenifitSubHead}</p>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
              {pData?.BenLi1}
             </li>
@@ -686,7 +686,7 @@ const handleScroll = () => {
           <p>
           {pData?.intenationalPara}
           </p>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li
               style={{
                 listStyle: "none",
@@ -831,7 +831,7 @@ const handleScroll = () => {
           <p style={{ marginBottom: "20px" }}>
           {pData?.RefusalHeading}
           </p>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>{pData?.r1}</li>
             <li> {pData?.r2}</li>
             <li> {pData?.r3}</li>
@@ -867,7 +867,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-         <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+         <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

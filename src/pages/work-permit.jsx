@@ -199,7 +199,7 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[15] = el)}
           >
-            <h2> {pData?.PathwaysHeading}</h2>
+            <h2 className="text-3xl"> {pData?.PathwaysHeading}</h2>
             <div className={styles.pathwaysBtnFlex}>
               <div onClick={() => (window.location.href = "/open-work-permit")}>
                 <strong
@@ -233,7 +233,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-           <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+           <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}
@@ -255,7 +255,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2> {pData?.HowWeHelpHeading}</h2>
+            <h2 className="text-3xl"> {pData?.HowWeHelpHeading}</h2>
             {/* Embed the process section from the homepage here */}
             <p>
             {pData?.HowWeHelpSubHeading}

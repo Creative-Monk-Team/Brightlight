@@ -196,7 +196,7 @@ const handleScroll = () => {
             id="categories"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>{pData?.CategoriesHeading}</h2>
+            <h2 className="text-3xl">{pData?.CategoriesHeading}</h2>
             <div className={styles.categories}>
               <Link href="/pgwp" className={styles.button}>
                 Post-Graduate Work Permit (PGWP)
@@ -229,7 +229,7 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.HowWeHelpHeading}</h2>
+            <h2 className="text-3xl">{pData?.HowWeHelpHeading}</h2>
             <p>
             {pData?.HowWeHelpSubHeading}
             </p>
@@ -265,7 +265,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

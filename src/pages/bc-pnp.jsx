@@ -296,13 +296,13 @@ const handleScroll = () => {
         >
           <li className={styles.listItem}>
           {pData?.EligibilityList1}
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>
               {pData?.EligibilityList1NestedList1}
               </li>
               <li>
               {pData?.EligibilityList1NestedList2}
-                <ul>
+                <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                   <li>
                   {pData?.EligibilityList1NestedList2Nested1}
                   </li>
@@ -313,7 +313,7 @@ const handleScroll = () => {
               </li>
               <li>
               {pData?.EligibilityList1NestedList3}
-                <ul>
+                <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                   <li>{pData?.EligibilityList1NestedList3Nested1}</li>
                   <li>{pData?.EligibilityList1NestedList3Nested2}</li>
                   <li>{pData?.EligibilityList1NestedList3Nested3}</li>
@@ -488,7 +488,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[90] = el)}
         >
-         <h2>{pData?.WhyChooseUsHeading01 }</h2>
+         <h2 className="text-3xl">{pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

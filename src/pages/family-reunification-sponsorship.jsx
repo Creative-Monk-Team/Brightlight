@@ -202,8 +202,8 @@ const handleScroll = () => {
           id="categories"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.CategoriesHeading}</h2>
-          <ul>
+          <h2 className="text-3xl">{pData?.CategoriesHeading}</h2>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
               <button
                 onClick={() =>
@@ -254,7 +254,7 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>
+          <h2 className="text-3xl">
           {pData?.EligibilityHeading}
           </h2>
           <p>
@@ -290,7 +290,7 @@ const handleScroll = () => {
           id="application-process"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>
+          <h2 className="text-3xl">
           {pData?.HowApplyHeading}
           </h2>
           <ol style={{marginLeft: "40px"}}>
@@ -314,7 +314,7 @@ const handleScroll = () => {
           id="refusal-reasons"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2>{pData?.RefusalHeading}</h2>
+          <h2 className="text-3xl">{pData?.RefusalHeading}</h2>
           <ul style={{marginLeft: "40px"}}>
             <li>
             {pData?.r1}
@@ -333,7 +333,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>{pData?.StillNotHeading}</h2>
+          <h2 className="text-3xl">{pData?.StillNotHeading}</h2>
           <p>
           {pData?.s1}
           </p>
@@ -356,7 +356,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

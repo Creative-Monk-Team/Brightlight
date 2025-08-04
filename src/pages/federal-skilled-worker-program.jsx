@@ -215,7 +215,7 @@ const handleScroll = () => {
           <p>
             {pData?.EligPara}
           </p>
-          <ul>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>{pData?.e1}</li>
             <li>
               {pData?.e2}
@@ -256,7 +256,7 @@ const handleScroll = () => {
                 <td>{pData?.EligTable1HeadLi3}</td>
                 <td>
                   {pData?.OccupReqTabHeading1}
-                  <ul>
+                  <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                     <li> {pData?.OccupReqTab1Li1}</li>
                     <li>{pData?.OccupReqTab1Li2}</li>
                     <li>{pData?.OccupReqTab1Li3}</li>
@@ -270,7 +270,7 @@ const handleScroll = () => {
                 <td>{pData?.EligTable1HeadLi4}</td>
                 <td>
                   {pData?.OccupReqTabHeading2}
-                  <ul>
+                  <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                     <li>  {pData?.OccupReqTab2Li1}</li>
                     <li> {pData?.OccupReqTab2Li2}</li>
                     <li> {pData?.OccupReqTab2Li3}</li>
@@ -284,7 +284,7 @@ const handleScroll = () => {
                 <td>{pData?.EligTable1HeadLi5}</td>
                 <td>
                   {pData?.OccupReqTabHeading3}
-                  <ul>
+                  <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
                     <li> {pData?.OccupReqTab3Li1}</li>
                     <li> {pData?.OccupReqTab3Li2}</li>
                   </ul>
@@ -446,8 +446,8 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-          <h2>Why Choose Us?</h2>
-          <ul>
+          <h2 className="text-3xl">Why Choose Us?</h2>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
             <li>
               <strong>Experienced Team:</strong> Over a decade of experience in
               handling BCPNP applications with a high success rate.
@@ -472,7 +472,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[94] = el)}
         >
-          <h2>  {pData?.WhyChooseUsHeading01}</h2>
+          <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01}</h2>
           <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

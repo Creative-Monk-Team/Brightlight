@@ -213,9 +213,9 @@ const handleScroll = () => {
             id="eligibility"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.FirstEligibleHeading}</h2>
+            <h2 className="text-3xl">{pData?.FirstEligibleHeading}</h2>
             <p>{pData?.FirstEligSubHead}</p>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li>{pData?.e1}</li>
               <li>
                 {pData?.e2}
@@ -270,7 +270,7 @@ const handleScroll = () => {
             id="testing"
             ref={(el) => (sectionsRef.current[3] = el)}
           >
-            <h2>{pData?.EligCriHeading}</h2>
+            <h2 className="text-3xl">{pData?.EligCriHeading}</h2>
             <h4>
               {pData?.EligCriHeading}
             </h4>
@@ -285,7 +285,7 @@ const handleScroll = () => {
             id="express-entry"
             ref={(el) => (sectionsRef.current[31] = el)}
           >
-            <h2>{pData?.EligEntryHeading}</h2>
+            <h2 className="text-3xl">{pData?.EligEntryHeading}</h2>
             <button
               className={styles.button1}
               onClick={() => (window.location.href = "/previous-draw-history")}
@@ -302,7 +302,7 @@ const handleScroll = () => {
             id="noc"
             ref={(el) => (sectionsRef.current[4] = el)}
           >
-            <h2>{pData?.HereEligTabHeading}</h2>
+            <h2 className="text-3xl">{pData?.HereEligTabHeading}</h2>
 
             <table className={styles.occupationTable}>
               <thead>
@@ -336,7 +336,7 @@ const handleScroll = () => {
             className={`${styles.section} ${styles.section}`}
             ref={(el) => (sectionsRef.current[5] = el)}
           >
-            <h2>{pData?.StillNotHeading}</h2>
+            <h2 className="text-3xl">{pData?.StillNotHeading}</h2>
             <p>{pData?.s1}</p>
             <p>{pData?.s2}</p>
             <button
@@ -354,7 +354,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[6] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

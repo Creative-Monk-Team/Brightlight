@@ -210,7 +210,7 @@ const handleScroll = () => {
             id="requests-for-reconsideration"
             ref={(el) => (sectionsRef.current[1] = el)}
           >
-            <h2>
+            <h2 className="text-3xl">
             {pData?.RequestReconsiderationHeading}
             </h2>
             <ul style={{marginLeft: "40px"}}>
@@ -229,7 +229,7 @@ const handleScroll = () => {
             id="eligibilty"
             ref={(el) => (sectionsRef.current[2] = el)}
           >
-            <h2>{pData?.EligibilityHeading}</h2>
+            <h2 className="text-3xl">{pData?.EligibilityHeading}</h2>
             <p>
               <strong> 
               {pData?.EligibilitySubHeading}
@@ -253,7 +253,7 @@ const handleScroll = () => {
             id="how-to-apply"
             ref={(el) => (sectionsRef.current[3] = el)}
           >
-            <h2>{pData?.HowToApplyHeading}</h2>
+            <h2 className="text-3xl">{pData?.HowToApplyHeading}</h2>
             <p>
               <strong>
               {pData?.HowToApplySubHeading}
@@ -277,7 +277,7 @@ const handleScroll = () => {
             id="refusal-reasons"
             ref={(el) => (sectionsRef.current[4] = el)}
           >
-            <h2>{pData?.RefusalHeading}</h2>
+            <h2 className="text-3xl">{pData?.RefusalHeading}</h2>
             <p>
               {" "}
               <strong>
@@ -326,7 +326,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[5] = el)}
           >
-            <h2>{pData?.StillNotHeading}</h2>
+            <h2 className="text-3xl">{pData?.StillNotHeading}</h2>
             <p>
             {pData?.s1}
             </p>
@@ -347,7 +347,7 @@ const handleScroll = () => {
             id="why-choose-us"
             ref={(el) => (sectionsRef.current[9] = el)}
           >
-        <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

@@ -130,7 +130,7 @@
 //           </div>
 //           <div className={styles.reviewDetails}>
 //             <h3>{reviewData[currentReview]?.review}</h3>
-//             <h2>{reviewData[currentReview]?.person_name}</h2>
+//             <h2 className="text-3xl">{reviewData[currentReview]?.person_name}</h2>
 //             <div className={styles.reviewsStarsSection}>
 //               {Array.from({ length: reviewData[currentReview]?.review_stars }, (_, i) => (
 //                 <ReviewStar key={i} width={25} height={25} />
@@ -330,7 +330,7 @@ const Testimonials_White = () => {
             </div>
             <div className={styles.reviewDetails}>
               <h3>{reviewData[currentReview]?.review}</h3>
-              <h2>{reviewData[currentReview]?.person_name}</h2>
+              <h2 className="text-3xl">{reviewData[currentReview]?.person_name}</h2>
               <div className={styles.reviewsStarsSection}>
                 {Array.from(
                   { length: reviewData[currentReview]?.review_stars },

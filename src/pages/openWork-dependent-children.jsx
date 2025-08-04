@@ -200,7 +200,7 @@ const OpenWorkCanadaLP = ({ metaData }) => {
           id="benefits"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2>{pData?.BenifitsHeading}</h2>
+          <h2 className="text-3xl">{pData?.BenifitsHeading}</h2>
           <ul className={styles.BenifitsList} style={{ marginLeft: "40px" }}>
             <li>
               {pData?.BenifitsList1}
@@ -228,7 +228,7 @@ const OpenWorkCanadaLP = ({ metaData }) => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2>
+          <h2 className="text-3xl">
             {pData?.EligibilityHeading}
           </h2>
           <p>
@@ -402,7 +402,7 @@ const OpenWorkCanadaLP = ({ metaData }) => {
           id="age-chart"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2>{pData?.LegalMinTableHeading}</h2>
+          <h2 className="text-3xl">{pData?.LegalMinTableHeading}</h2>
           <table className={styles.LegalMinTable}>
             <thead>
               <tr>
@@ -486,7 +486,7 @@ const OpenWorkCanadaLP = ({ metaData }) => {
           id="application-process"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2>{pData?.HowApplyHeading}</h2>
+          <h2 className="text-3xl">{pData?.HowApplyHeading}</h2>
           <ol style={{ marginLeft: "40px" }}>
             <li>
               {pData?.HowAppList1}
@@ -505,7 +505,7 @@ const OpenWorkCanadaLP = ({ metaData }) => {
           id="refusal-reasons"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2>{pData?.RefusalHeading}</h2>
+          <h2 className="text-3xl">{pData?.RefusalHeading}</h2>
           <ul style={{ marginLeft: "40px" }}>
             <li>
               {pData?.RefusalList1}
@@ -527,7 +527,7 @@ const OpenWorkCanadaLP = ({ metaData }) => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2>{pData?.StillNotSureHeading}</h2>
+          <h2 className="text-3xl">{pData?.StillNotSureHeading}</h2>
           <p>
             {pData?.StillNotSurePara}
           </p>
@@ -546,7 +546,7 @@ const OpenWorkCanadaLP = ({ metaData }) => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-          <h2>  {pData?.WhyChooseUsHeading01}</h2>
+          <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01}</h2>
           <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

@@ -210,7 +210,7 @@ const handleScroll = () => {
             </li>
           </ul>
 
-          <h2>{pData?.benefitsHeading}</h2>
+          <h2 className="text-3xl">{pData?.benefitsHeading}</h2>
           <ul style={{ marginLeft: "40px" }}>
             <li>
             {pData?.b1}
@@ -222,7 +222,7 @@ const handleScroll = () => {
             {pData?.b3}
             </li>
           </ul>
-          <h2>{pData?.eligibilityHeading}</h2>
+          <h2 className="text-3xl">{pData?.eligibilityHeading}</h2>
           <p>{pData?.eligibilityDescription}</p>
           <ol style={{ marginLeft: "40px" }}>
             <li style={{ marginBottom: "20px" }}>
@@ -232,7 +232,7 @@ const handleScroll = () => {
             {pData?.elibilityP2}
             </li>
           </ol>
-          <h2>  {pData?.applyHeading}</h2>
+          <h2 className="text-3xl">  {pData?.applyHeading}</h2>
           <ol style={{ marginLeft: "40px" }}>
             <li style={{ marginBottom: "20px" }}>
             {pData?.apply1}
@@ -333,7 +333,7 @@ const handleScroll = () => {
             <li>{pData?.eachCommunityParaList4}</li>
           </ul>
 
-          <h2>{pData?.workExpHeading}</h2>
+          <h2 className="text-3xl">{pData?.workExpHeading}</h2>
           <ul style={{ marginTop: "20px", marginLeft: "40px" }}>
             <li>
             {pData?.workExpList1}
@@ -531,7 +531,7 @@ const handleScroll = () => {
             </tbody>
           </table>
 
-          <h2>{pData?.educationalReqHeading}</h2>
+          <h2 className="text-3xl">{pData?.educationalReqHeading}</h2>
           <p>
              {pData?.educationalReqDescription}
           </p>
@@ -552,11 +552,11 @@ const handleScroll = () => {
             </li>
           </ul>
 
-          <h2>{pData?.intentionHeading}</h2>
+          <h2 className="text-3xl">{pData?.intentionHeading}</h2>
           <p>
           {pData?.intentionDescription}
           </p>
-          <h2>{pData?.findingJobHeading}</h2>
+          <h2 className="text-3xl">{pData?.findingJobHeading}</h2>
           <ul style={{ marginLeft: "40px" }}>
             <li>
               As a candidate, you must have a genuine job offer to work in one
@@ -572,7 +572,7 @@ const handleScroll = () => {
             </li>
           </ul>
 
-          <h2>   {pData?.jobOfferReqHeading}</h2>
+          <h2 className="text-3xl">   {pData?.jobOfferReqHeading}</h2>
           <p style={{ marginTop: "20px", marginBottom: "20px" }}>
           {pData?.jobOfferReqDescription}
           </p>
@@ -674,7 +674,7 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-          <h2>  {pData?.WhyChooseUsHeading01 }</h2>
+          <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
           <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
             <li>
               <strong>{strongText91}</strong>{" "} {remainingText91}

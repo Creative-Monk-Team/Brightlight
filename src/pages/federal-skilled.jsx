@@ -995,7 +995,7 @@ const FederalSkilled = ({metaData}) => {
                 >
                   <div className={styles.pointContainer}>
                     <div className={styles.header}>
-                      <h2>Total Points</h2>
+                      <h2 className="text-3xl">Total Points</h2>
                     </div>
                     <div className={styles.points}>
                       <h1 className={styles.resultClass} style={resultClass == "notEligible" ? { fontSize: "20px" } : {}}>{displayResult}</h1>
@@ -1029,7 +1029,7 @@ const FederalSkilled = ({metaData}) => {
                         onClick={() => window.open("/booking", "_blank")}
                         className={styles.actionButton}
                       >
-                        <h2>RCIC Appointment</h2>
+                        <h2 className="text-3xl">RCIC Appointment</h2>
                         <p>
                           To find out if you are eligible for PR, under FSWP
                           Program book an appointment with our RCIC.
@@ -1047,7 +1047,7 @@ const FederalSkilled = ({metaData}) => {
             >
               <div className={styles.pointContainer}>
                 <div className={styles.header}>
-                  <h2>Total Points</h2>
+                  <h2 className="text-3xl">Total Points</h2>
                 </div>
                 <div className={styles.points}>
                   <h1 style={resultClass == "notEligible" ? { fontSize: "20px" } : {}}>{displayResult}</h1>
@@ -1078,7 +1078,7 @@ const FederalSkilled = ({metaData}) => {
                     onClick={() => window.open("/booking", "_blank")}
                     className={styles.actionButton}
                   >
-                    <h2>RCIC Appointment</h2>
+                    <h2 className="text-3xl">RCIC Appointment</h2>
                     <p>
                       To find out if you are eligible for PR, under FSWP Program
                       book an appointment with our RCIC.

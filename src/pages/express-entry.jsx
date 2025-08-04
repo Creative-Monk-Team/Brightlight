@@ -216,7 +216,7 @@ const ExpressEntry = ({metaData}) => {
                 (window.location.href = "/federal-skilled-worker-program")
               }
             >
-              <h2>{data.er1}</h2>
+              <h2 className="text-3xl">{data.er1}</h2>
             </div>
           )}
           {data?.er2 && (
@@ -226,7 +226,7 @@ const ExpressEntry = ({metaData}) => {
                 (window.location.href = "/federal-skilled-trades-program")
               }
             >
-              <h2>{data.er2}</h2>
+              <h2 className="text-3xl">{data.er2}</h2>
             </div>
           )}
           {data?.er3 && (
@@ -236,17 +236,17 @@ const ExpressEntry = ({metaData}) => {
                 (window.location.href = "/canadian-experience-class")
               }
             >
-              <h2>{data.er3}</h2>
+              <h2 className="text-3xl">{data.er3}</h2>
             </div>
           )}
           {/* {data?.er4 && (
             <div className={styles.eligibleCard}>
-              <h2>{data.er4}</h2>
+              <h2 className="text-3xl">{data.er4}</h2>
             </div>
           )}
           {data?.er5 && (
             <div className={styles.eligibleCard}>
-              <h2>{data.er5}</h2>
+              <h2 className="text-3xl">{data.er5}</h2>
             </div>
           )} */}
         </div>
@@ -263,7 +263,7 @@ const ExpressEntry = ({metaData}) => {
                   (window.location.href = "/previous-draw-history")
                 }
               >
-                <h2>{data.draw1}</h2>
+                <h2 className="text-3xl">{data.draw1}</h2>
               </div>
             )}
             {data?.draw2 && (
@@ -271,7 +271,7 @@ const ExpressEntry = ({metaData}) => {
                 className={styles.additionCard}
                 onClick={() => (window.location.href = "/category-based")}
               >
-                <h2>{data.draw2}</h2>
+                <h2 className="text-3xl">{data.draw2}</h2>
               </div>
             )}
             {data?.draw3 && (
@@ -279,17 +279,17 @@ const ExpressEntry = ({metaData}) => {
                 className={styles.additionCard}
                 onClick={() => (window.location.href = "/pnp")}
               >
-                <h2>{data.draw3}</h2>
+                <h2 className="text-3xl">{data.draw3}</h2>
               </div>
             )}
             {/* {data?.draw4 && (
               <div className={styles.additionCard}>
-                <h2>{data.draw4}</h2>
+                <h2 className="text-3xl">{data.draw4}</h2>
               </div>
             )}
             {data?.draw5 && (
               <div className={styles.additionCard}>
-                <h2>{data.draw5}</h2>
+                <h2 className="text-3xl">{data.draw5}</h2>
               </div>
             )} */}
           </div>
@@ -303,7 +303,7 @@ const ExpressEntry = ({metaData}) => {
           </div>
           <div className={styles.advantagesPara}>
             <p>{data?.advantageDescription}</p>
-            <ul>
+            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               {data?.a1 && <li>{data.a1}</li>}
               {data?.a2 && <li>{data.a2}</li>}
               {data?.a3 && <li>{data.a3}</li>}
@@ -347,7 +347,7 @@ const ExpressEntry = ({metaData}) => {
         className={styles.whyChooseUs}
         id="why-choose-us"
       >
-        <h2> {pData?.WhyChooseUsHeading01}</h2>
+        <h2 className="text-3xl"> {pData?.WhyChooseUsHeading01}</h2>
         <ul style={{ marginLeft: "40px" }}>
           <li>
             <strong>{strongText91}</strong> {remainingText91}

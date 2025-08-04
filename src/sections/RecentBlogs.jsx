@@ -199,7 +199,7 @@ const RecentBlogs = () => {
                   layout="responsive"
                 />
               </div>
-              <h2>{item.blog_heading}</h2>
+              <h2 className="text-3xl">{item.blog_heading}</h2>
               <h6>
                 <b>{item.date && item.date.trim().split("T")[0]}</b>
               </h6>
