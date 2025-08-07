@@ -4,51 +4,41 @@ import Navbar1 from "../components/Navbar1";
 import Footer1 from "../components/Footer1";
 import Testimonials from "../sections/Testimonials";
 import RecentBlogs from "../sections/RecentBlogs";
-import FAQ from "../sections/FAQ";
+import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
-import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import Image from "next/image";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData("superVisaMeta"); // Pass the API endpoint specific to this page
+  return fetchSeoData("superVisaMeta");
 }
 
-const SuperVisa = ({metaData}) => {
+const SuperVisa = ({ metaData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [pData,setPData]=useState([]);
+  const [pData, setPData] = useState({});
+  const sectionsRef = useRef([]);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/superVisa")
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
-        if (data) {
-          setPData(data[0]);
-        }
+        if (data && data.length > 0) setPData(data[0]);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.log(error));
   }, []);
-  const sectionsRef = useRef([]);
 
-const handleScroll = () => {
+  // Animate sections on scroll
+  const handleScroll = () => {
     sectionsRef.current.forEach((section) => {
-      if (section) { // ✅ Check if section exists
+      if (section) {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           section.classList.add(styles.visible);
@@ -61,80 +51,61 @@ const handleScroll = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Utility for extracting <strong>text</strong> from HTML string
   const extractStrongText = (htmlString) => {
     if (typeof htmlString !== "string") return "";
     const strongMatch = htmlString.match(/<strong>(.*?)<\/strong>/);
     return strongMatch ? strongMatch[1] : "";
   };
-
   const extractRemainingText = (htmlString) => {
     if (typeof htmlString !== "string") return "";
     return htmlString.replace(/<strong>.*?<\/strong>/, "").trim();
   };
 
-  const fetchedValue91 = pData?.wcu1;
-  const strongText91 = extractStrongText(fetchedValue91);
-  const remainingText91 = extractRemainingText(fetchedValue91);
-  
-  const fetchedValue92 = pData?.wcu2;
-  const strongText92 = extractStrongText(fetchedValue92);
-  const remainingText92 = extractRemainingText(fetchedValue92);
-  
-  const fetchedValue93 = pData?.wcu3;
-  const strongText93 = extractStrongText(fetchedValue93);
-  const remainingText93 = extractRemainingText(fetchedValue93);
-  
-  const fetchedValue94 = pData?.wcu4;
-  const strongText94 = extractStrongText(fetchedValue94);
-  const remainingText94 = extractRemainingText(fetchedValue94);
+  // For Why Choose Us points
+  const strongText91 = extractStrongText(pData?.wcu1);
+  const remainingText91 = extractRemainingText(pData?.wcu1);
+  const strongText92 = extractStrongText(pData?.wcu2);
+  const remainingText92 = extractRemainingText(pData?.wcu2);
+  const strongText93 = extractStrongText(pData?.wcu3);
+  const remainingText93 = extractRemainingText(pData?.wcu3);
+  const strongText94 = extractStrongText(pData?.wcu4);
+  const remainingText94 = extractRemainingText(pData?.wcu4);
 
   return (
     <>
-          <Head>
-        <title>
-          {metaData?.metaTitle
-            ? metaData?.metaTitle
-            : "Brightlight Immigration"}
-        </title>
+      <Head>
+        <title>{metaData?.metaTitle || "Brightlight Immigration"}</title>
         <meta
           name="description"
           content={
-            metaData?.metaDesc
-              ? metaData?.metaDesc
-              : "Learn about Brightlight Immigration, our mission, values, and the dedicated team behind our immigration services. We are committed to providing honest and accurate advice to guide you through your immigration journey."
+            metaData?.metaDesc ||
+            "Learn about Brightlight Immigration, our mission, values, and the dedicated team behind our immigration services. We are committed to providing honest and accurate advice to guide you through your immigration journey."
           }
         />
         <meta
           name="title"
           property="og:title"
-          content={
-            metaData?.metaOgTitle
-              ? metaData?.metaOgTitle
-              : " Brightlight Immigration"
-          }
+          content={metaData?.metaOgTitle || "Brightlight Immigration"}
         />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:type" content="image/png" />
         <meta
           property="og:description"
           content={
-            metaData?.metaOgDesc
-              ? metaData?.metaOgDesc
-              : "Discover the story behind Brightlight Immigration, our commitment to providing honest and accurate advice, and how our team can assist you with your immigration needs."
+            metaData?.metaOgDesc ||
+            "Discover the story behind Brightlight Immigration, our commitment to providing honest and accurate advice, and how our team can assist you with your immigration needs."
           }
         />
         <meta
           name="Keywords"
           content={
-            metaData?.metaKeywords
-              ? metaData?.metaKeywords
-              : "Brightlight Immigration, Immigration Services, Mission, Team"
+            metaData?.metaKeywords ||
+            "Brightlight Immigration, Immigration Services, Mission, Team"
           }
         />
       </Head>
@@ -154,7 +125,7 @@ const handleScroll = () => {
             </div>
             <div className={styles.bannerHeadingRotatePara}>
               <p onClick={() => scrollToSection("about-program")}>About the Program</p>
-              <p onClick={() => scrollToSection("benifits")}>Benifits</p>
+              <p onClick={() => scrollToSection("benifits")}>Benefits</p>
               <p onClick={() => scrollToSection("eligibility")}>Eligibility</p>
               <p onClick={() => scrollToSection("income-table")}>Income Table</p>
               <p onClick={() => scrollToSection("how-to-apply")}>How to Apply?</p>
@@ -169,79 +140,36 @@ const handleScroll = () => {
       </div>
 
       <div className={styles.container} id="container">
-        <h1  className={`${styles.heading} ${styles.section}`} id="about-program" ref={(el) => sectionsRef.current[0] = el}>
-        {pData?.superVisaHeading}
+        <h1
+          className={`${styles.heading} ${styles.section}`}
+          id="about-program"
+          ref={(el) => (sectionsRef.current[0] = el)}
+        >
+          {pData?.superVisaHeading}
         </h1>
 
-        <section className={`${styles.introduction} ${styles.section}`} id="testing" ref={(el) => sectionsRef.current[1] = el}>
-          <p>
-          {pData?.superVisaPara}
-          </p>
+        <section
+          className={`${styles.introduction} ${styles.section}`}
+          id="testing"
+          ref={(el) => (sectionsRef.current[1] = el)}
+        >
+          <p>{pData?.superVisaPara}</p>
         </section>
 
-        <section className={`${styles.benefits} ${styles.section}`} id="benifits" ref={(el) => sectionsRef.current[2] = el}>
-          <h2 className={styles.subheading}>{pData?.BenifitsHeading}</h2>
-          <ul style={{marginLeft: "40px"}}>
-            <li>
-            {pData?.BenifitsList1}
-            </li>
-            <li>
-            {pData?.BenifitsList2}
-            </li>
-          </ul>
+        <section>
+            <h2 className={styles.subheading}>{pData?.question}</h2>
+            <p>{pData?.answer}</p>
         </section>
 
-        <section className={`${styles.eligibility} ${styles.section}`} id="eligibility" ref={(el) => sectionsRef.current[3] = el}>
-          <h2 className={styles.subheading}>
-          {pData?.EligibilityHeading}
-          </h2>
-          <p>
-          {pData?.EligibilitySubHead}
-          </p>
-          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
-            <li> {pData?.EligibilityList1}</li>
-            <li>
-            {pData?.EligibilityList2}
-            </li>
-            <li>
-            {pData?.EligibilityList3}
-            </li>
-            <li>
-            {pData?.EligibilityList4}
-              <ul className={styles.subList}> 
-                <li>{pData?.EligibilitySub4List1}</li>
-                <li>   {pData?.EligibilitySub4List2}</li>
-
-              </ul>
-              <li>
-              {pData?.EligEligibilityList5ibilityList2}
-                </li>
-            </li>
-          </ul>
-
-          <h3>   {pData?.ApartHeading}</h3>
-          <h4>   {pData?.ApartSubHead}</h4>
-          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
-            <li>
-            {pData?.ApartLi1}
-            </li>
-            <li>{pData?.ApartLi2}</li>
-            <li>
-            {pData?.ApartLi3}
-            </li>
-            <li>
-            {pData?.ApartLi4}
-            </li>
-          </ul>
-        </section>
-
-        <section className={`${styles.incomeTable} ${styles.section}`} id="income-table" ref={(el) => sectionsRef.current[4] = el}>
+        <section
+          className={`${styles.benefits} ${styles.section}`}
+          id="income-requirements"
+          ref={(el) => (sectionsRef.current[2] = el)}
+        >
           <h2 className={styles.subheading}>{pData?.SuperVisaTabHeading}</h2>
-          <h4>
-          {pData?.SuperVisaTabSubHead}
-          </h4>
-          <h4>{pData?.SuperVisaTabSubHead2}</h4>
-          <table className={styles.table}>
+          <p className="mb-4">{pData?.SuperVisaTabSubHead}</p>
+          <p className="font-semibold">{pData?.SuperVisaTabSubHead2}</p>
+          <table className={`mb-6 ${styles.table}`}>
             <thead>
               <tr>
                 <th>{pData?.SupVTabHead1}</th>
@@ -283,112 +211,137 @@ const handleScroll = () => {
               </tr>
             </tbody>
           </table>
+          <p>{pData?.SuperVisaTabFooter}</p>
         </section>
 
-        <section className={`${styles.applicationProcess} ${styles.section}`} id="how-to-apply" ref={(el) => sectionsRef.current[5] = el}>
-          <h2 className={styles.subheading}>{pData?.HowtoApplyHeading}</h2>
-          <h4>{pData?.HowtoApplySubHead}</h4>
-          <ol>
-            <li>
-            {pData?.ha1}
-            </li>
-            <li>
-            {pData?.ha2}
-            </li>
-            <li>
-            {pData?.ha3}
-            </li>
-            <li>
-            {pData?.ha4}
-            </li>
-            <li>
-            {pData?.ha5}
-            </li>
-          </ol>
-        </section>
-
-        <section  className={`${styles.refusalReasons} ${styles.section}`} id="refusal-reasons" ref={(el) => sectionsRef.current[6] = el}>
-          <h2 className={styles.subheading}>{pData?.RefusalHeading}</h2>
+        <section
+          className={`${styles.eligibility} ${styles.section}`}
+          id="who-is-counted"
+          ref={(el) => (sectionsRef.current[3] = el)}
+        >
+          <h2 className={styles.subheading}>{pData?.WhoisCountedHeading}</h2>
+          <p>{pData?.WhoisCountedSubHead}</p>
           <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
-            <li>
-            {pData?.r1}
-            </li>
-            <li>
-            {pData?.r2}
-            </li>
-            <li>
-            {pData?.r3}
-            </li>
-            <li>
-            {pData?.r4}
-            </li>
-            <li>
-            {pData?.r5}
-            </li>
-            <li>
-            {pData?.r6}
-            </li>
+            <li>{pData?.wc1}</li>
+            <li>{pData?.wc2}</li>
+            <li>{pData?.wc3}</li>
+            <li>{pData?.wc4}</li>
+            <li>{pData?.wc5}</li>
+            <li>{pData?.wc6}</li>
           </ul>
-          <p className="">
-          {pData?.rPara1}
-          </p>
-          <p>
-          {pData?.rPara2}
-          </p>
+            <p>{pData?.WhoisCountedFooter}</p>
+          
         </section>
 
-        {/* <section className={`${styles.whyChooseUs} ${styles.section}`} id="why-choose-us" ref={(el) => sectionsRef.current[7] = el} >
-          <h2 className={styles.subheading}>Why Choose Us?</h2>
-          <p>
-            At Brightlight Immigration, we provide expert guidance and support
-            throughout your immigration journey. Our dedicated team is committed
-            to achieving the best possible outcomes for our clients.
-          </p>
+        <section
+          className={`${styles.incomeTable} ${styles.section}`}
+          id="benifits"
+          ref={(el) => (sectionsRef.current[4] = el)}
+        >
+          <h2 className={styles.subheading}>{pData?.BenifitsHeading}</h2>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
+            <li>{pData?.b1}</li>
+            <li>{pData?.b2}</li>    
+            <li>{pData?.b3}</li>
+            <li>{pData?.b4}</li>
+            <li>{pData?.b5}</li>
+            <li>{pData?.b6}</li>
+          </ul>
+        </section>
 
-        </section> */}
+        <section
+          className={`${styles.applicationProcess} ${styles.section}`}
+          id="Super Visa Vs PGP"
+          ref={(el) => (sectionsRef.current[5] = el)}
+        >
+          <h2 className={styles.subheading}>{pData?.SuperVisaPgpHeading}</h2>
+          <table className={`mb-6 ${styles.table}`}>
+            <thead>
+                <tr>
+                    <th>{pData?.SuperVisaPgpHead1}</th>
+                    <th>{pData?.SuperVisaPgpHead2}</th>
+                    <th>{pData?.SuperVisaPgpHead3}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{pData?.SuperVisaPgpHead1d1}</td>
+                
+                    <td>{pData?.SuperVisaPgpHead2d1}</td>
+                
+                    <td>{pData?.SuperVisaPgpHead3d1}</td>
+                </tr>
+                <tr>
+                    <td>{pData?.SuperVisaPgpHead1d2}</td>
+                    <td>{pData?.SuperVisaPgpHead2d2}</td>
+                    <td>{pData?.SuperVisaPgpHead3d2}</td>
+                </tr>
+                <tr>
+                    <td>{pData?.SuperVisaPgpHead1d3}</td>
+                    <td>{pData?.SuperVisaPgpHead2d3}</td>
+                    <td>{pData?.SuperVisaPgpHead3d3}</td>
+                </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section
+          className={`${styles.refusalReasons} ${styles.section}`}
+          id="docs-to-prove-income"
+          ref={(el) => (sectionsRef.current[6] = el)}
+        >
+          <h2 className={styles.subheading}>{pData?.DocstoProveHeading}</h2>
+            <p>{pData?.DocstoProvePara}</p>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
+            <li>{pData?.dtp1}</li>
+            <li>{pData?.dtp2}</li>
+            <li>{pData?.dtp3}</li>
+            <li>{pData?.dtp4}</li>
+            <li>{pData?.dtp5}</li>
+            <li>{pData?.dtp6}</li>
+            <li>{pData?.dtp7}</li>
+          </ul>
+            <p>{pData?.DocstoProveFooter}</p>
+        </section>
+
         <section
           className={`${styles.whyChooseUs} ${styles.section}`}
-          id="why-choose-us"
-          ref={(el) => (sectionsRef.current[9] = el)}
+          id="not-sure-if-you-qualify"
+          ref={(el) => (sectionsRef.current[7] = el)}
         >
-         <h2 className="text-3xl">{pData?.WhyChooseUsHeading01 }</h2>
-          <ul className="list-disc flex flex-col gap-4 mb-10" style={{marginLeft: "40px"}}>
-            <li>
-              <strong>{strongText91}</strong>{" "} {remainingText91}
-            </li>
-            <li>
-            <strong>{strongText92}</strong>{" "} {remainingText92}
-            </li>
-            <li>
-            <strong>{strongText93}</strong>{" "} {remainingText93}
-            </li>
-            <li>
-            <strong>{strongText94}</strong>{" "} {remainingText94}
-            </li>
+          <h2 className="text-3xl">{pData?.NotSureHeading01}</h2>
+            <p className="mb-4">{pData?.NotSurePara}</p>
+          <ul className="list-disc flex flex-col gap-4 mb-10" style={{ marginLeft: "40px" }}>
+            <li>{pData?.ns1}</li>
+            <li>{pData?.ns2}</li>
+            <li>{pData?.ns3}</li>
           </ul>
-          <button
-          onClick={() =>
-            (window.location.href =
-              "/booking")
-          }
+        </section>
+
+        <section 
+        className={`${styles.whyChooseUs} ${styles.section}`}
+          id="talk-to-expert"
+          ref={(el) => (sectionsRef.current[7] = el)}
         >
-          Book Appointment
-        </button>
+          <h2 className={styles.subheading}>{pData?.TalktoSvHeading}</h2>
+          <p className="mb-4">{pData?.TalktoSvPara1}</p>
+          <button onClick={() => (window.location.href = "/booking")}>
+            Book Appointment
+          </button>
         </section>
       </div>
 
       <div id="faqs">
-      <FAQ_White_Internal data={pData} />
+        <FAQ_White_Internal data={pData} />
       </div>
-      {pData?.show_testimonials == "Y" && (
+      {pData?.show_testimonials === "Y" && (
         <div id="testimonials">
           <Testimonials />
-        </div>
-      )}
+        </div>
+      )}
       <div id="blogs">
         <RecentBlogs />
       </div>
-
       <Footer1 />
     </>
   );

@@ -166,18 +166,18 @@ const AddNews = () => {
       case "Numbered List":
         tagValue = `
         <ol>
-  <li>First item</li>
-  <li>Second item</li>
-  <li>Third item</li>
-</ol>`.trim();
+          <li>First item</li>
+          <li>Second item</li>
+          <li>Third item</li>
+        </ol>`.trim();
         break;
       case "Bullet Points List":
         tagValue = `
         <ul>
-  <li>First point</li>
-  <li>Second point</li>
-  <li>Third point</li>
-</ul>`.trim();
+          <li>First point</li>
+          <li>Second point</li>
+          <li>Third point</li>
+        </ul>`.trim();
         break;
       default:
         break;
