@@ -645,7 +645,7 @@ let HomePage = ({metaData}) => {
                       </CSSTransition>
 
                       <div className={styles.title}>
-                        <h2 className="text-3xl">{card.title}</h2>
+                        <h2>{card.title}</h2>
                       </div>
                     </div>
                   ))}
