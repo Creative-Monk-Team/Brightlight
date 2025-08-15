@@ -1,20 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "../styles/Flagpoling.module.css";
+import styles from "../styles/Rcip.module.css";
 import Navbar1 from "../components/Navbar1";
 import Footer1 from "../components/Footer1";
 import Testimonials from "../sections/Testimonials";
 import RecentBlogs from "../sections/RecentBlogs";
-import FAQ from "../sections/FAQ";
+import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
-import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData("flagpolingMeta"); // Pass the API endpoint specific to this page
+  return fetchSeoData("rcipMeta"); // Pass the API endpoint specific to this page
 }
 
-const Flagpoling = ({ metaData }) => {
+const Rcip = ({ metaData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [pData, setPData] = useState([]);
 
@@ -30,7 +29,7 @@ const Flagpoling = ({ metaData }) => {
   };
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/flagpoling")
+    fetch("https://brightlight-node.onrender.com/rcip")
       .then((res) => {
         return res.json();
       })
@@ -159,8 +158,14 @@ const Flagpoling = ({ metaData }) => {
               </p>
               <p onClick={() => scrollToSection("benefits")}>Benefits</p>
               <p onClick={() => scrollToSection("eligibility")}>Eligibility</p>
-              <p onClick={() => scrollToSection("important-tip")}>
-                Important Tip
+              <p onClick={() => scrollToSection("provinces")}>
+                Participating Provinces
+              </p>
+              <p onClick={() => scrollToSection("how-to-apply")}>
+                How to Apply
+              </p>
+              <p onClick={() => scrollToSection("refusal-reasons")}>
+                Refusal Reasons
               </p>
               <p onClick={() => scrollToSection("book-appointment")}>
                 Book Appointment
@@ -184,15 +189,14 @@ const Flagpoling = ({ metaData }) => {
           id="about-program"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-          {pData?.programStatus}
+          {pData?.heading}
         </h1>
         <section
           className={`${styles.introduction} ${styles.section}`}
           id="about-program"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.aboutHeading}</h2>
-          <p className="text-start">{pData?.aboutPara}</p>
+          <p>{pData?.introPara}</p>
         </section>
 
         <section
@@ -201,7 +205,7 @@ const Flagpoling = ({ metaData }) => {
           ref={(el) => (sectionsRef.current[2] = el)}
         >
           <h2 className={styles.subheading}>{pData?.benefitsHeading}</h2>
-          <ul className="flex flex-col gap-2 list-disc" style={{ marginLeft: "40px" }}>
+          <ul style={{ marginLeft: "40px" }}>
             {pData?.benefitsList?.map((benefit, index) => (
               <li key={index}>{benefit}</li>
             ))}
@@ -222,21 +226,51 @@ const Flagpoling = ({ metaData }) => {
         </section>
 
         <section
-          className={`${styles.tips} ${styles.section}`}
-          id="important-tip"
+          className={`${styles.provinces} ${styles.section}`}
+          id="provinces"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.importantTipHeading}</h2>
-          <p>{pData?.importantTipPara}</p>
+          <h2 className={styles.subheading}>{pData?.provincesHeading}</h2>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
+            {pData?.provincesList?.map((province, index) => (
+              <li key={index}>
+                <strong>{province.province}</strong>: {province.communities.join(", ")}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section
+          className={`${styles.howToApply} ${styles.section}`}
+          id="how-to-apply"
+          ref={(el) => (sectionsRef.current[5] = el)}
+        >
+          <h2 className={styles.subheading}>{pData?.howToApplyHeading}</h2>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
+            {pData?.howToApplySteps?.map((step, index) => (
+              <li key={index}>{step}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section
+          className={`${styles.refusal} ${styles.section}`}
+          id="refusal-reasons"
+          ref={(el) => (sectionsRef.current[6] = el)}
+        >
+          <h2 className={styles.subheading}>{pData?.refusalHeading}</h2>
+          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
+            {pData?.refusalList?.map((reason, index) => (
+              <li key={index}>{reason}</li>
+            ))}
+          </ul>
         </section>
 
         <section
           className={`${styles.assistance} ${styles.section}`}
           id="book-appointment"
-          ref={(el) => (sectionsRef.current[5] = el)}
+          ref={(el) => (sectionsRef.current[7] = el)}
         >
-          <h2 className={styles.subheading}>{pData?.ctaHeading}</h2>
-          <p>{pData?.ctaPara}</p>
           <button
             className={styles.button}
             onClick={() => (window.location.href = "/booking")}
@@ -248,10 +282,10 @@ const Flagpoling = ({ metaData }) => {
         <section
           className={`${styles.whyChooseUs} ${styles.section}`}
           id="why-choose-us"
-          ref={(el) => (sectionsRef.current[6] = el)}
+          ref={(el) => (sectionsRef.current[8] = el)}
         >
           <h2 className="text-3xl">{pData?.whyChooseUsHeading}</h2>
-          <ul className={`flex flex-col gap-2 list-disc ${styles.whychooseusLi}`} style={{ marginLeft: "40px" }}>
+          <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
             <li>
               <strong>{strongText1}</strong> {remainingText1}
             </li>
@@ -271,9 +305,7 @@ const Flagpoling = ({ metaData }) => {
       <div id="faqs">
         <FAQ_White_Internal data={pData} />
       </div>
-      {(pData?.showTestimonials === "Y" ||
-        pData?.showVideoTestimonials === "Y" ||
-        pData?.showWrittenTestimonials === "Y") && (
+      {pData?.showTestimonials === "Y" && (
         <div id="testimonials">
           <Testimonials />
         </div>
@@ -294,4 +326,4 @@ const Flagpoling = ({ metaData }) => {
   );
 };
 
-export default Flagpoling;
+export default Rcip;

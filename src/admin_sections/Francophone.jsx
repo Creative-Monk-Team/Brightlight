@@ -4,6 +4,7 @@ import editIcon from "../assets/edit.png";
 import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Image from "next/image";
+
 const FrancophoneContent = () => {
   const notifySuccess = () => {
     toast.success("Success", {
@@ -50,37 +51,34 @@ const FrancophoneContent = () => {
   const [sectionDataSingle, setSectionDataSingle] = useState({
     FrancophoneHeading: "",
     FrancophonePara: "",
-
-    BenifitsHeading: "",
-    BenifitsSubHeading: "",
-    BenifitsList1: "",
-    BenifitsList2: "",
-    BenifitsList3: "",
-    BenifitsList4: "",
-    BenifitsList5: "",
-
+    BenefitsHeading: "",
+    BenefitsSubHeading: "",
+    BenefitsList1: "",
+    BenefitsList2: "",
+    BenefitsList3: "",
+    BenefitsList4: "",
+    BenefitsList5: "",
     EligibilityHeading: "",
     EligibilitySubHead: "",
     EligibilityList1: "",
     EligibilityList2: "",
     EligibilityList3: "",
-
+    EligibilityList4: "",
+    FrenchLanguageSubList1: "",
+    FrenchLanguageSubList2: "",
     EmpReqHeading: "",
     EmpReqList1: "",
     EmpReqList2: "",
     EmpReqList3: "",
     EmpReqList4: "",
-
     WorkPerDurHeading: "",
     WorkPerDurSubHead: "",
     WorkPerDurList1: "",
     WorkPerDurList2: "",
-
     FamilyMemHeading: "",
     FamilyMemSubHead: "",
     FamilyMemList1: "",
     FamilyMemList2: "",
-
     AppProHeading: "",
     AppProSubHead1: "",
     AppProSubHead1List1: "",
@@ -92,21 +90,16 @@ const FrancophoneContent = () => {
     AppProSubHead3List1: "",
     AppProSubHead3List2: "",
     AppProSubHead3List3: "",
-
     WorkPerRenHeading: "",
     WorkPerRenSubHead: "",
-    WorkPerRenList: "",
-
+    WorkPerRenList1: "",
     StillNotSureHeading: "",
-    StillNotSurePara1: "",
-    StillNotSurePara2: "",
-
-    WhyChooseUsHeading01: "",
-    wcu1: "",
-    wcu2: "",
-    wcu3: "",
-    wcu4: "",
-
+    StillNotSurePara: "",
+    WhyChooseUsHeading: "",
+    WhyChooseUsList1: "",
+    WhyChooseUsList2: "",
+    WhyChooseUsList3: "",
+    WhyChooseUsList4: "",
     faq_heading: "",
     q1: "",
     qa1: "",
@@ -118,18 +111,9 @@ const FrancophoneContent = () => {
     qa4: "",
     q5: "",
     qa5: "",
-    q6: "",
-    qa6: "",
-    q7: "",
-    qa7: "",
-    q8: "",
-    qa8: "",
-    q9: "",
-    qa9: "",
-    q10: "",
-    qa10: "",
-
     show_testimonials: "",
+    showBlogs: "",
+    showEligibilityAssessment: "",
   });
 
   const [editMode, setEditMode] = useState(false);
@@ -151,6 +135,91 @@ const FrancophoneContent = () => {
       return;
     }
 
+    const payload = {
+      FrancophoneHeading: sectionDataSingle.FrancophoneHeading,
+      FrancophonePara: sectionDataSingle.FrancophonePara,
+      BenefitsHeading: sectionDataSingle.BenefitsHeading,
+      BenefitsSubHeading: sectionDataSingle.BenefitsSubHeading,
+      BenefitsList: [
+        sectionDataSingle.BenefitsList1,
+        sectionDataSingle.BenefitsList2,
+        sectionDataSingle.BenefitsList3,
+        sectionDataSingle.BenefitsList4,
+        sectionDataSingle.BenefitsList5,
+      ],
+      EligibilityHeading: sectionDataSingle.EligibilityHeading,
+      EligibilitySubHead: sectionDataSingle.EligibilitySubHead,
+      EligibilityList: [
+        sectionDataSingle.EligibilityList1,
+        sectionDataSingle.EligibilityList2,
+        sectionDataSingle.EligibilityList3,
+        sectionDataSingle.EligibilityList4,
+      ],
+      FrenchLanguageSubList: [
+        sectionDataSingle.FrenchLanguageSubList1,
+        sectionDataSingle.FrenchLanguageSubList2,
+      ],
+      EmpReqHeading: sectionDataSingle.EmpReqHeading,
+      EmpReqList: [
+        sectionDataSingle.EmpReqList1,
+        sectionDataSingle.EmpReqList2,
+        sectionDataSingle.EmpReqList3,
+        sectionDataSingle.EmpReqList4,
+      ],
+      WorkPerDurHeading: sectionDataSingle.WorkPerDurHeading,
+      WorkPerDurSubHead: sectionDataSingle.WorkPerDurSubHead,
+      WorkPerDurList: [
+        sectionDataSingle.WorkPerDurList1,
+        sectionDataSingle.WorkPerDurList2,
+      ],
+      FamilyMemHeading: sectionDataSingle.FamilyMemHeading,
+      FamilyMemSubHead: sectionDataSingle.FamilyMemSubHead,
+      FamilyMemList: [
+        sectionDataSingle.FamilyMemList1,
+        sectionDataSingle.FamilyMemList2,
+      ],
+      AppProHeading: sectionDataSingle.AppProHeading,
+      AppProSubHead1: sectionDataSingle.AppProSubHead1,
+      AppProSubHead1List: [
+        sectionDataSingle.AppProSubHead1List1,
+        sectionDataSingle.AppProSubHead1List2,
+      ],
+      AppProSubHead2: sectionDataSingle.AppProSubHead2,
+      AppProSubHead2List: [
+        sectionDataSingle.AppProSubHead2List1,
+        sectionDataSingle.AppProSubHead2List2,
+      ],
+      AppProSubHead3: sectionDataSingle.AppProSubHead3,
+      AppProSubHead3List: [
+        sectionDataSingle.AppProSubHead3List1,
+        sectionDataSingle.AppProSubHead3List2,
+        sectionDataSingle.AppProSubHead3List3,
+      ],
+      WorkPerRenHeading: sectionDataSingle.WorkPerRenHeading,
+      WorkPerRenSubHead: sectionDataSingle.WorkPerRenSubHead,
+      WorkPerRenList: [sectionDataSingle.WorkPerRenList1],
+      StillNotSureHeading: sectionDataSingle.StillNotSureHeading,
+      StillNotSurePara: sectionDataSingle.StillNotSurePara,
+      WhyChooseUsHeading: sectionDataSingle.WhyChooseUsHeading,
+      WhyChooseUsList: [
+        sectionDataSingle.WhyChooseUsList1,
+        sectionDataSingle.WhyChooseUsList2,
+        sectionDataSingle.WhyChooseUsList3,
+        sectionDataSingle.WhyChooseUsList4,
+      ],
+      faq_heading: sectionDataSingle.faq_heading,
+      faqs: [
+        { question: sectionDataSingle.q1, answer: sectionDataSingle.qa1 },
+        { question: sectionDataSingle.q2, answer: sectionDataSingle.qa2 },
+        { question: sectionDataSingle.q3, answer: sectionDataSingle.qa3 },
+        { question: sectionDataSingle.q4, answer: sectionDataSingle.qa4 },
+        { question: sectionDataSingle.q5, answer: sectionDataSingle.qa5 },
+      ],
+      show_testimonials: sectionDataSingle.show_testimonials,
+      showBlogs: sectionDataSingle.showBlogs,
+      showEligibilityAssessment: sectionDataSingle.showEligibilityAssessment,
+    };
+
     fetch(
       `https://brightlight-node.onrender.com/francoMob/${sectionDataSingle._id}`,
       {
@@ -158,7 +227,7 @@ const FrancophoneContent = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(sectionDataSingle),
+        body: JSON.stringify(payload),
       }
     )
       .then((response) => {
@@ -186,7 +255,75 @@ const FrancophoneContent = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {
-          setSectionDataSingle(data[0]);
+          const doc = data[0];
+          setSectionDataSingle({
+            _id: doc._id,
+            FrancophoneHeading: doc.FrancophoneHeading || "",
+            FrancophonePara: doc.FrancophonePara || "",
+            BenefitsHeading: doc.BenefitsHeading || "",
+            BenefitsSubHeading: doc.BenefitsSubHeading || "",
+            BenefitsList1: doc.BenefitsList?.[0] || "",
+            BenefitsList2: doc.BenefitsList?.[1] || "",
+            BenefitsList3: doc.BenefitsList?.[2] || "",
+            BenefitsList4: doc.BenefitsList?.[3] || "",
+            BenefitsList5: doc.BenefitsList?.[4] || "",
+            EligibilityHeading: doc.EligibilityHeading || "",
+            EligibilitySubHead: doc.EligibilitySubHead || "",
+            EligibilityList1: doc.EligibilityList?.[0] || "",
+            EligibilityList2: doc.EligibilityList?.[1] || "",
+            EligibilityList3: doc.EligibilityList?.[2] || "",
+            EligibilityList4: doc.EligibilityList?.[3] || "",
+            FrenchLanguageSubList1: doc.FrenchLanguageSubList?.[0] || "",
+            FrenchLanguageSubList2: doc.FrenchLanguageSubList?.[1] || "",
+            EmpReqHeading: doc.EmpReqHeading || "",
+            EmpReqList1: doc.EmpReqList?.[0] || "",
+            EmpReqList2: doc.EmpReqList?.[1] || "",
+            EmpReqList3: doc.EmpReqList?.[2] || "",
+            EmpReqList4: doc.EmpReqList?.[3] || "",
+            WorkPerDurHeading: doc.WorkPerDurHeading || "",
+            WorkPerDurSubHead: doc.WorkPerDurSubHead || "",
+            WorkPerDurList1: doc.WorkPerDurList?.[0] || "",
+            WorkPerDurList2: doc.WorkPerDurList?.[1] || "",
+            FamilyMemHeading: doc.FamilyMemHeading || "",
+            FamilyMemSubHead: doc.FamilyMemSubHead || "",
+            FamilyMemList1: doc.FamilyMemList?.[0] || "",
+            FamilyMemList2: doc.FamilyMemList?.[1] || "",
+            AppProHeading: doc.AppProHeading || "",
+            AppProSubHead1: doc.AppProSubHead1 || "",
+            AppProSubHead1List1: doc.AppProSubHead1List?.[0] || "",
+            AppProSubHead1List2: doc.AppProSubHead1List?.[1] || "",
+            AppProSubHead2: doc.AppProSubHead2 || "",
+            AppProSubHead2List1: doc.AppProSubHead2List?.[0] || "",
+            AppProSubHead2List2: doc.AppProSubHead2List?.[1] || "",
+            AppProSubHead3: doc.AppProSubHead3 || "",
+            AppProSubHead3List1: doc.AppProSubHead3List?.[0] || "",
+            AppProSubHead3List2: doc.AppProSubHead3List?.[1] || "",
+            AppProSubHead3List3: doc.AppProSubHead3List?.[2] || "",
+            WorkPerRenHeading: doc.WorkPerRenHeading || "",
+            WorkPerRenSubHead: doc.WorkPerRenSubHead || "",
+            WorkPerRenList1: doc.WorkPerRenList?.[0] || "",
+            StillNotSureHeading: doc.StillNotSureHeading || "",
+            StillNotSurePara: doc.StillNotSurePara || "",
+            WhyChooseUsHeading: doc.WhyChooseUsHeading || "",
+            WhyChooseUsList1: doc.WhyChooseUsList?.[0] || "",
+            WhyChooseUsList2: doc.WhyChooseUsList?.[1] || "",
+            WhyChooseUsList3: doc.WhyChooseUsList?.[2] || "",
+            WhyChooseUsList4: doc.WhyChooseUsList?.[3] || "",
+            faq_heading: doc.faq_heading || "",
+            q1: doc.faqs?.[0]?.question || "",
+            qa1: doc.faqs?.[0]?.answer || "",
+            q2: doc.faqs?.[1]?.question || "",
+            qa2: doc.faqs?.[1]?.answer || "",
+            q3: doc.faqs?.[2]?.question || "",
+            qa3: doc.faqs?.[2]?.answer || "",
+            q4: doc.faqs?.[3]?.question || "",
+            qa4: doc.faqs?.[3]?.answer || "",
+            q5: doc.faqs?.[4]?.question || "",
+            qa5: doc.faqs?.[4]?.answer || "",
+            show_testimonials: doc.show_testimonials || "",
+            showBlogs: doc.showBlogs || "",
+            showEligibilityAssessment: doc.showEligibilityAssessment || "",
+          });
         }
       })
       .catch((error) => {
@@ -205,7 +342,6 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
         placeholder="Francophone Program Description"
         name="FrancophonePara"
@@ -215,60 +351,29 @@ const FrancophoneContent = () => {
       />
 
       <input
-        placeholder="Benefits of Francophone Mobility Program Heading"
-        name="BenifitsHeading"
-        value={sectionDataSingle.BenifitsHeading}
+        placeholder="Benefits Heading"
+        name="BenefitsHeading"
+        value={sectionDataSingle.BenefitsHeading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
         placeholder="Benefits Subheading"
-        name="BenifitsSubHeading"
-        value={sectionDataSingle.BenifitsSubHeading}
+        name="BenefitsSubHeading"
+        value={sectionDataSingle.BenefitsSubHeading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
-      <textarea
-        placeholder="Benefit 1"
-        name="BenifitsList1"
-        value={sectionDataSingle.BenifitsList1}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Benefit 2"
-        name="BenifitsList2"
-        value={sectionDataSingle.BenifitsList2}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Benefit 3"
-        name="BenifitsList3"
-        value={sectionDataSingle.BenifitsList3}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Benefit 4"
-        name="BenifitsList4"
-        value={sectionDataSingle.BenifitsList4}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Benefit 5"
-        name="BenifitsList5"
-        value={sectionDataSingle.BenifitsList5}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
+      {Array.from({ length: 5 }, (_, i) => (
+        <textarea
+          key={`BenefitsList${i + 1}`}
+          placeholder={`Benefit ${i + 1}`}
+          name={`BenefitsList${i + 1}`}
+          value={sectionDataSingle[`BenefitsList${i + 1}`]}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      ))}
 
       <input
         placeholder="Eligibility Criteria Heading"
@@ -277,7 +382,6 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
         placeholder="Eligibility Subheading"
         name="EligibilitySubHead"
@@ -285,27 +389,27 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
+      {Array.from({ length: 4 }, (_, i) => (
+        <textarea
+          key={`EligibilityList${i + 1}`}
+          placeholder={`Eligibility Criterion ${i + 1}`}
+          name={`EligibilityList${i + 1}`}
+          value={sectionDataSingle[`EligibilityList${i + 1}`]}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      ))}
       <textarea
-        placeholder="Eligibility Criteria 1"
-        name="EligibilityList1"
-        value={sectionDataSingle.EligibilityList1}
+        placeholder="French Language Requirement 1"
+        name="FrenchLanguageSubList1"
+        value={sectionDataSingle.FrenchLanguageSubList1}
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
-        placeholder="Eligibility Criteria 2"
-        name="EligibilityList2"
-        value={sectionDataSingle.EligibilityList2}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Eligibility Criteria 3"
-        name="EligibilityList3"
-        value={sectionDataSingle.EligibilityList3}
+        placeholder="French Language Requirement 2"
+        name="FrenchLanguageSubList2"
+        value={sectionDataSingle.FrenchLanguageSubList2}
         onChange={handleInputChange}
         disabled={!editMode}
       />
@@ -317,38 +421,16 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
-      <textarea
-        placeholder="Employer Requirement 1"
-        name="EmpReqList1"
-        value={sectionDataSingle.EmpReqList1}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Employer Requirement 2"
-        name="EmpReqList2"
-        value={sectionDataSingle.EmpReqList2}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Employer Requirement 3"
-        name="EmpReqList3"
-        value={sectionDataSingle.EmpReqList3}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Employer Requirement 4"
-        name="EmpReqList4"
-        value={sectionDataSingle.EmpReqList4}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
+      {Array.from({ length: 4 }, (_, i) => (
+        <textarea
+          key={`EmpReqList${i + 1}`}
+          placeholder={`Employer Requirement ${i + 1}`}
+          name={`EmpReqList${i + 1}`}
+          value={sectionDataSingle[`EmpReqList${i + 1}`]}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      ))}
 
       <input
         placeholder="Work Permit Duration Heading"
@@ -357,7 +439,6 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
         placeholder="Work Permit Duration Subheading"
         name="WorkPerDurSubHead"
@@ -365,22 +446,16 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
-      <textarea
-        placeholder="Work Permit Duration Criteria 1"
-        name="WorkPerDurList1"
-        value={sectionDataSingle.WorkPerDurList1}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Work Permit Duration Criteria 2"
-        name="WorkPerDurList2"
-        value={sectionDataSingle.WorkPerDurList2}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
+      {Array.from({ length: 2 }, (_, i) => (
+        <textarea
+          key={`WorkPerDurList${i + 1}`}
+          placeholder={`Work Permit Duration Criterion ${i + 1}`}
+          name={`WorkPerDurList${i + 1}`}
+          value={sectionDataSingle[`WorkPerDurList${i + 1}`]}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      ))}
 
       <input
         placeholder="Family Members Heading"
@@ -389,7 +464,6 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
         placeholder="Family Members Subheading"
         name="FamilyMemSubHead"
@@ -397,22 +471,16 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
-      <textarea
-        placeholder="Family Member Option 1"
-        name="FamilyMemList1"
-        value={sectionDataSingle.FamilyMemList1}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Family Member Option 2"
-        name="FamilyMemList2"
-        value={sectionDataSingle.FamilyMemList2}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
+      {Array.from({ length: 2 }, (_, i) => (
+        <textarea
+          key={`FamilyMemList${i + 1}`}
+          placeholder={`Family Member Option ${i + 1}`}
+          name={`FamilyMemList${i + 1}`}
+          value={sectionDataSingle[`FamilyMemList${i + 1}`]}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      ))}
 
       <input
         placeholder="Application Process Heading"
@@ -421,7 +489,6 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
         placeholder="Application Process Subheading 1"
         name="AppProSubHead1"
@@ -429,23 +496,16 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
-      <textarea
-        placeholder="Application Process Subheading 1 List 1"
-        name="AppProSubHead1List1"
-        value={sectionDataSingle.AppProSubHead1List1}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Application Process Subheading 1 List 2"
-        name="AppProSubHead1List2"
-        value={sectionDataSingle.AppProSubHead1List2}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
+      {Array.from({ length: 2 }, (_, i) => (
+        <textarea
+          key={`AppProSubHead1List${i + 1}`}
+          placeholder={`Application Process Subheading 1 List ${i + 1}`}
+          name={`AppProSubHead1List${i + 1}`}
+          value={sectionDataSingle[`AppProSubHead1List${i + 1}`]}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      ))}
       <textarea
         placeholder="Application Process Subheading 2"
         name="AppProSubHead2"
@@ -453,23 +513,16 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
-      <textarea
-        placeholder="Application Process Subheading 2 List 1"
-        name="AppProSubHead2List1"
-        value={sectionDataSingle.AppProSubHead2List1}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Application Process Subheading 2 List 2"
-        name="AppProSubHead2List2"
-        value={sectionDataSingle.AppProSubHead2List2}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
+      {Array.from({ length: 2 }, (_, i) => (
+        <textarea
+          key={`AppProSubHead2List${i + 1}`}
+          placeholder={`Application Process Subheading 2 List ${i + 1}`}
+          name={`AppProSubHead2List${i + 1}`}
+          value={sectionDataSingle[`AppProSubHead2List${i + 1}`]}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      ))}
       <textarea
         placeholder="Application Process Subheading 3"
         name="AppProSubHead3"
@@ -477,30 +530,16 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
-      <textarea
-        placeholder="Application Process Subheading 3 List 1"
-        name="AppProSubHead3List1"
-        value={sectionDataSingle.AppProSubHead3List1}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Application Process Subheading 3 List 2"
-        name="AppProSubHead3List2"
-        value={sectionDataSingle.AppProSubHead3List2}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Application Process Subheading 3 List 3"
-        name="AppProSubHead3List3"
-        value={sectionDataSingle.AppProSubHead3List3}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
+      {Array.from({ length: 3 }, (_, i) => (
+        <textarea
+          key={`AppProSubHead3List${i + 1}`}
+          placeholder={`Application Process Subheading 3 List ${i + 1}`}
+          name={`AppProSubHead3List${i + 1}`}
+          value={sectionDataSingle[`AppProSubHead3List${i + 1}`]}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      ))}
 
       <input
         placeholder="Work Permit Renewals Heading"
@@ -509,7 +548,6 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
         placeholder="Work Permit Renewals Subheading"
         name="WorkPerRenSubHead"
@@ -517,11 +555,10 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
         placeholder="Work Permit Renewals List"
-        name="WorkPerRenList"
-        value={sectionDataSingle.WorkPerRenList}
+        name="WorkPerRenList1"
+        value={sectionDataSingle.WorkPerRenList1}
         onChange={handleInputChange}
         disabled={!editMode}
       />
@@ -533,243 +570,114 @@ const FrancophoneContent = () => {
         onChange={handleInputChange}
         disabled={!editMode}
       />
-
       <textarea
-        placeholder="Still Not Sure? Paragraph 1"
-        name="StillNotSurePara1"
-        value={sectionDataSingle.StillNotSurePara1}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Still Not Sure? Paragraph 2"
-        name="StillNotSurePara2"
-        value={sectionDataSingle.StillNotSurePara2}
+        placeholder="Still Not Sure? Paragraph"
+        name="StillNotSurePara"
+        value={sectionDataSingle.StillNotSurePara}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <input
         placeholder="Why Choose Us Heading"
-        name="WhyChooseUsHeading01"
-        value={sectionDataSingle.WhyChooseUsHeading01 || ""}
+        name="WhyChooseUsHeading"
+        value={sectionDataSingle.WhyChooseUsHeading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
-      <textarea
-        placeholder="Why Choose Us Point 1"
-        name="wcu1"
-        value={sectionDataSingle.wcu1 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Why Choose Us Point 2"
-        name="wcu2"
-        value={sectionDataSingle.wcu2 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Why Choose Us Point 3"
-        name="wcu3"
-        value={sectionDataSingle.wcu3 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Why Choose Us Point 4"
-        name="wcu4"
-        value={sectionDataSingle.wcu4 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
+      {Array.from({ length: 4 }, (_, i) => (
+        <textarea
+          key={`WhyChooseUsList${i + 1}`}
+          placeholder={`Why Choose Us Point ${i + 1}`}
+          name={`WhyChooseUsList${i + 1}`}
+          value={sectionDataSingle[`WhyChooseUsList${i + 1}`]}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      ))}
 
       <h1 className={styles.faqStartsHeading}>FAQ's Starts Below</h1>
-
       <input
-        placeholder="FAQ's Made Simple"
+        placeholder="FAQ Heading"
         name="faq_heading"
-        value={sectionDataSingle.faq_heading || ""}
+        value={sectionDataSingle.faq_heading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
-      <input
-        placeholder="Question 1"
-        name="q1"
-        value={sectionDataSingle.q1 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 1"
-        name="qa1"
-        value={sectionDataSingle.qa1 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 2"
-        name="q2"
-        value={sectionDataSingle.q2 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 2"
-        name="qa2"
-        value={sectionDataSingle.qa2 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 3"
-        name="q3"
-        value={sectionDataSingle.q3 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 3"
-        name="qa3"
-        value={sectionDataSingle.qa3 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 4"
-        name="q4"
-        value={sectionDataSingle.q4 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 4"
-        name="qa4"
-        value={sectionDataSingle.qa4 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 5"
-        name="q5"
-        value={sectionDataSingle.q5 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 5"
-        name="qa5"
-        value={sectionDataSingle.qa5 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 6"
-        name="q6"
-        value={sectionDataSingle.q6 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 6"
-        name="qa6"
-        value={sectionDataSingle.qa6 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 7"
-        name="q7"
-        value={sectionDataSingle.q7 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 7"
-        name="qa7"
-        value={sectionDataSingle.qa7 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 8"
-        name="q8"
-        value={sectionDataSingle.q8 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 8"
-        name="qa8"
-        value={sectionDataSingle.qa8 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 9"
-        name="q9"
-        value={sectionDataSingle.q9 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 9"
-        name="qa9"
-        value={sectionDataSingle.qa9 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 10"
-        name="q10"
-        value={sectionDataSingle.q10 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 10"
-        name="qa10"
-        value={sectionDataSingle.qa10 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
+      {Array.from({ length: 5 }, (_, i) => (
+        <>
+          <input
+            key={`q${i + 1}`}
+            placeholder={`Question ${i + 1}`}
+            name={`q${i + 1}`}
+            value={sectionDataSingle[`q${i + 1}`]}
+            onChange={handleInputChange}
+            disabled={!editMode}
+          />
+          <textarea
+            key={`qa${i + 1}`}
+            placeholder={`Answer ${i + 1}`}
+            name={`qa${i + 1}`}
+            value={sectionDataSingle[`qa${i + 1}`]}
+            onChange={handleInputChange}
+            disabled={!editMode}
+          />
+        </>
+      ))}
 
       <h1 className={styles.faqEndHeading}>FAQ's Ends here</h1>
 
-      <h1 className={styles.faqStartsHeading}>
-        Testimonials Visibility Control
-      </h1>
-
+      <h1 className={styles.faqStartsHeading}>Visibility Controls</h1>
       <div className={styles.testimonialsVisibility}>
-        <p>Want to display Testimonials Section</p>
+        <p>Show Testimonials (Y/N)</p>
         <input
           placeholder="Show Testimonials"
           name="show_testimonials"
-          value={sectionDataSingle.show_testimonials || ""}
+          value={sectionDataSingle.show_testimonials}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      </div>
+      <div className={styles.testimonialsVisibility}>
+        <p>Show Blogs (Y/N)</p>
+        <input
+          placeholder="Show Blogs"
+          name="showBlogs"
+          value={sectionDataSingle.showBlogs}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      </div>
+      <div className={styles.testimonialsVisibility}>
+        <p>Show Eligibility Assessment (Y/N)</p>
+        <input
+          placeholder="Show Eligibility Assessment"
+          name="showEligibilityAssessment"
+          value={sectionDataSingle.showEligibilityAssessment}
           onChange={handleInputChange}
           disabled={!editMode}
         />
       </div>
       <p className={styles.testimonialsDisclamier}>
-        Note: Testimonials Visibility On the Selected Page is totally dependent
-        on the input value above. If you want to display the section , just
-        write "Y" without quotes , anything else will be considered as "N" even
-        "y". If not want to display then just write "N" without qoutes.
+        Note: Visibility On the Selected Page is totally dependent on the input value above. If you want to display the section, just write "Y" without quotes, anything else will be considered as "N" even "y". If not want to display then just write "N" without quotes.
       </p>
-      
+
       <div className={styles.editIcons}>
         {editMode ? (
-             <Image loading="lazy" height={50} width={100}
+          <Image
+            loading="lazy"
+            height={50}
+            width={100}
             src={update}
             className={styles.updateIcon}
             onClick={handleUpdateClick}
             alt="Update"
           />
         ) : (
-             <Image loading="lazy" height={50} width={100}
+          <Image
+            loading="lazy"
+            height={50}
+            width={100}
             src={editIcon}
             className={styles.editIcon}
             onClick={handleEditClick}

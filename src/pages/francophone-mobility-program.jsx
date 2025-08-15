@@ -4,20 +4,18 @@ import Footer1 from "../components/Footer1";
 import Navbar1 from "../components/Navbar1";
 import Testimonials from "../sections/Testimonials";
 import RecentBlogs from "../sections/RecentBlogs";
-import FAQ from "../sections/FAQ";
+import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import ogImage from "../assets/ogImage.png";
 import Head from "next/head";
-import FAQ_White_Internal from "../sections/FAQ_White_Internal";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData("francophoneMobilityMeta"); // Pass the API endpoint specific to this page
+  return fetchSeoData("francophoneMobilityMeta");
 }
 
-const FrancophoneMobilityProgram = ({metaData}) => {
+const FrancophoneMobilityProgram = ({ metaData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  let [pData,setPData]=useState([])
-
+  const [pData, setPData] = useState([]);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -32,9 +30,7 @@ const FrancophoneMobilityProgram = ({metaData}) => {
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/francoMob")
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
         if (data) {
           setPData(data[0]);
@@ -47,9 +43,9 @@ const FrancophoneMobilityProgram = ({metaData}) => {
 
   const sectionsRef = useRef([]);
 
-const handleScroll = () => {
+  const handleScroll = () => {
     sectionsRef.current.forEach((section) => {
-      if (section) { // ✅ Check if section exists
+      if (section) {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           section.classList.add(styles.visible);
@@ -62,8 +58,7 @@ const handleScroll = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -80,26 +75,25 @@ const handleScroll = () => {
     return htmlString.replace(/<strong>.*?<\/strong>/, "").trim();
   };
 
-  const fetchedValue91 = pData?.wcu1;
-  const strongText91 = extractStrongText(fetchedValue91);
-  const remainingText91 = extractRemainingText(fetchedValue91);
-  
-  const fetchedValue92 = pData?.wcu2;
-  const strongText92 = extractStrongText(fetchedValue92);
-  const remainingText92 = extractRemainingText(fetchedValue92);
-  
-  const fetchedValue93 = pData?.wcu3;
-  const strongText93 = extractStrongText(fetchedValue93);
-  const remainingText93 = extractRemainingText(fetchedValue93);
-  
-  const fetchedValue94 = pData?.wcu4;
-  const strongText94 = extractStrongText(fetchedValue94);
-  const remainingText94 = extractRemainingText(fetchedValue94);
+  const fetchedValue1 = pData?.WhyChooseUsList?.[0];
+  const strongText1 = extractStrongText(fetchedValue1);
+  const remainingText1 = extractRemainingText(fetchedValue1);
+
+  const fetchedValue2 = pData?.WhyChooseUsList?.[1];
+  const strongText2 = extractStrongText(fetchedValue2);
+  const remainingText2 = extractRemainingText(fetchedValue2);
+
+  const fetchedValue3 = pData?.WhyChooseUsList?.[2];
+  const strongText3 = extractStrongText(fetchedValue3);
+  const remainingText3 = extractRemainingText(fetchedValue3);
+
+  const fetchedValue4 = pData?.WhyChooseUsList?.[3];
+  const strongText4 = extractStrongText(fetchedValue4);
+  const remainingText4 = extractRemainingText(fetchedValue4);
 
   return (
     <>
       <Head>
-      
         <title>
           {metaData?.metaTitle
             ? metaData?.metaTitle
@@ -119,8 +113,7 @@ const handleScroll = () => {
           content={
             metaData?.metaOgTitle
               ? metaData?.metaOgTitle
-              : " Brightlight Immigration"
-          }
+              : "Brightlight Immigration"}
         />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:type" content="image/png" />
@@ -137,8 +130,7 @@ const handleScroll = () => {
           content={
             metaData?.metaKeywords
               ? metaData?.metaKeywords
-              : "Brightlight Immigration, Immigration Services, Mission, Team"
-          }
+              : "Brightlight Immigration, Immigration Services, Mission, Team"}
         />
       </Head>
       <Navbar1 />
@@ -159,16 +151,25 @@ const handleScroll = () => {
               <p onClick={() => scrollToSection("about-program")}>
                 About the Program
               </p>
-              <p onClick={() => scrollToSection("benifits")}>Benifits</p>
+              <p onClick={() => scrollToSection("benefits")}>Benefits</p>
               <p onClick={() => scrollToSection("eligibility")}>Eligibility</p>
-              <p onClick={() => scrollToSection("employer-requirement")}>
-                Employer Requirement
+              <p onClick={() => scrollToSection("employer-requirements")}>
+                Employer Requirements
               </p>
               <p onClick={() => scrollToSection("work-permit-duration")}>
                 Work Permit Duration
               </p>
-              <p onClick={() => scrollToSection("how-to-apply")}>
-                How to Apply?
+              <p onClick={() => scrollToSection("family-members")}>
+                Family Members
+              </p>
+              <p onClick={() => scrollToSection("application-process")}>
+                Application Process
+              </p>
+              <p onClick={() => scrollToSection("work-permit-renewals")}>
+                Work Permit Renewals
+              </p>
+              <p onClick={() => scrollToSection("still-not-sure")}>
+                Still Not Sure?
               </p>
               <p onClick={() => scrollToSection("why-choose-us")}>
                 Why Choose Us?
@@ -178,6 +179,9 @@ const handleScroll = () => {
               </p>
               <p onClick={() => scrollToSection("faqs")}>FAQs</p>
               <p onClick={() => scrollToSection("blogs")}>Blogs</p>
+              <p onClick={() => scrollToSection("eligibility-assessment")}>
+                Eligibility Assessment
+              </p>
             </div>
           </div>
         </div>
@@ -190,9 +194,7 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[0] = el)}
         >
           <h1>{pData?.FrancophoneHeading}</h1>
-          <p>
-          {pData?.FrancophonePara}
-          </p>
+          <p>{pData?.FrancophonePara}</p>
         </header>
 
         <section
@@ -200,26 +202,12 @@ const handleScroll = () => {
           id="benefits"
           ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2 className="text-3xl">{pData?.BenifitsHeading}</h2>
-          <h4>
-          {pData?.BenifitsSubHeading}
-          </h4>
+          <h2 className="text-3xl">{pData?.BenefitsHeading}</h2>
+          <h4>{pData?.BenefitsSubHeading}</h4>
           <ul className={styles.BenifitList} style={{ marginLeft: "40px" }}>
-            <li>
-            {pData?.BenifitsList1}
-            </li>
-            <li>
-            {pData?.BenifitsList2}
-            </li>
-            <li>
-            {pData?.BenifitsList3}
-            </li>
-            <li>
-            {pData?.BenifitsList4}
-            </li>
-            <li>
-            {pData?.BenifitsList5}
-            </li>
+            {pData?.BenefitsList?.map((benefit, index) => (
+              <li key={index}>{benefit}</li>
+            ))}
           </ul>
         </section>
 
@@ -228,22 +216,21 @@ const handleScroll = () => {
           id="eligibility"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <h2 className="text-3xl"> {pData?.EligibilityHeading}</h2>
-          <p>
-          {pData?.EligibilitySubHead}
-          </p>
-          <ol
-            style={{ marginLeft: "40px", marginTop: "20px", lineHeight: "2" }}
-          >
-            <li>
-            {pData?.EmpReqList1}
-            </li>
-            <li>
-            {pData?.EmpReqList2}
-            </li>
-            <li>
-            {pData?.EligibilityList3}
-            </li>
+          <h2 className="text-3xl">{pData?.EligibilityHeading}</h2>
+          <p>{pData?.EligibilitySubHead}</p>
+          <ol style={{ marginLeft: "40px", marginTop: "20px", lineHeight: "2" }}>
+            {pData?.EligibilityList?.map((criterion, index) => (
+              <li key={index}>
+                {criterion}
+                {index === 3 && (
+                  <ul style={{ marginLeft: "40px", marginTop: "10px" }}>
+                    {pData?.FrenchLanguageSubList?.map((subItem, subIndex) => (
+                      <li key={subIndex}>{subItem}</li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
           </ol>
           <button
             onClick={() => (window.location.href = "/french-targeted-draw")}
@@ -255,23 +242,16 @@ const handleScroll = () => {
 
         <section
           className={`${styles.employerRequirements} ${styles.section}`}
-          id="employer-requirement"
+          id="employer-requirements"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
           <h2 className="text-3xl">{pData?.EmpReqHeading}</h2>
-          <ol style={{marginLeft: "40px"}}>
-            <li style={{ marginBottom: "10px" }}>
-            {pData?.EmpReqList1}
-            </li>
-            <li style={{ marginBottom: "10px" }}>
-            {pData?.EmpReqList2}
-            </li>
-            <li style={{ marginBottom: "10px" }}>
-            {pData?.EmpReqList3}
-            </li>
-            <li>
-            {pData?.EmpReqList4}
-            </li>
+          <ol style={{ marginLeft: "40px" }}>
+            {pData?.EmpReqList?.map((requirement, index) => (
+              <li key={index} style={{ marginBottom: "10px" }}>
+                {requirement}
+              </li>
+            ))}
           </ol>
         </section>
 
@@ -281,16 +261,11 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[4] = el)}
         >
           <h2 className="text-3xl">{pData?.WorkPerDurHeading}</h2>
-          <p>
-          {pData?.WorkPerDurSubHead}
-          </p>
+          <p>{pData?.WorkPerDurSubHead}</p>
           <ul style={{ marginLeft: "40px", marginTop: "20px" }}>
-            <li>
-            {pData?.WorkPerDurList1}
-            </li>
-            <li>
-            {pData?.WorkPerDurList2}
-            </li>
+            {pData?.WorkPerDurList?.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </section>
 
@@ -299,19 +274,12 @@ const handleScroll = () => {
           id="family-members"
           ref={(el) => (sectionsRef.current[5] = el)}
         >
-          <h2 className="text-3xl">
-          {pData?.FamilyMemHeading}
-          </h2>
-          <p>
-          {pData?.FamilyMemSubHead}
-          </p>
+          <h2 className="text-3xl">{pData?.FamilyMemHeading}</h2>
+          <p>{pData?.FamilyMemSubHead}</p>
           <ul style={{ marginLeft: "40px", marginTop: "10px" }}>
-            <li>
-            {pData?.FamilyMemList1}
-            </li>
-            <li>
-            {pData?.FamilyMemList2}
-            </li>
+            {pData?.FamilyMemList?.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </section>
 
@@ -320,10 +288,10 @@ const handleScroll = () => {
           id="application-process"
           ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2 className="text-3xl"> {pData?.AppProHeading}</h2>
-          <ol style={{marginLeft: "40px"}}>
+          <h2 className="text-3xl">{pData?.AppProHeading}</h2>
+          <ol style={{ marginLeft: "40px" }}>
             <li>
-              <strong> {pData?.AppProSubHead1}</strong>
+              <strong>{pData?.AppProSubHead1}</strong>
               <ul
                 style={{
                   marginLeft: "40px",
@@ -331,12 +299,9 @@ const handleScroll = () => {
                   marginBottom: "20px",
                 }}
               >
-                <li>
-                {pData?.AppProSubHead1List1}
-                </li>
-                <li>
-                {pData?.AppProSubHead1List2}
-                </li>
+                {pData?.AppProSubHead1List?.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </li>
             <li>
@@ -348,12 +313,9 @@ const handleScroll = () => {
                   marginBottom: "20px",
                 }}
               >
-                <li>
-                {pData?.AppProSubHead2List1}
-                </li>
-                <li>
-                {pData?.AppProSubHead2List2}
-                </li>
+                {pData?.AppProSubHead2List?.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </li>
             <li>
@@ -365,16 +327,9 @@ const handleScroll = () => {
                   marginBottom: "20px",
                 }}
               >
-                <li>
-                {pData?.AppProSubHead3List1}
-                </li>
-                <li>
-                  {" "}
-                  {pData?.AppProSubHead3List2}
-                </li>
-                <li>
-                {pData?.AppProSubHead3List3}
-                </li>
+                {pData?.AppProSubHead3List?.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </li>
           </ol>
@@ -386,33 +341,23 @@ const handleScroll = () => {
           ref={(el) => (sectionsRef.current[7] = el)}
         >
           <h2 className="text-3xl">{pData?.WorkPerRenHeading}</h2>
-          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
-            <h4>
-            {pData?.WorkPerRenSubHead}
-            </h4>
-            <li style={{marginLeft: "40px"}}>
-            {pData?.WorkPerRenList}
-            </li>
+          <h4>{pData?.WorkPerRenSubHead}</h4>
+          <ul style={{ marginLeft: "40px", marginTop: "20px" }}>
+            {pData?.WorkPerRenList?.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </section>
 
         <section
           className={`${styles.consultation} ${styles.section}`}
-          id="why-choose-us"
+          id="still-not-sure"
           ref={(el) => (sectionsRef.current[8] = el)}
         >
           <h2 className="text-3xl">{pData?.StillNotSureHeading}</h2>
-          <p>
-          {pData?.StillNotSurePara1}
-          </p>
-          <p>
-          {pData?.StillNotSurePara2}
-          </p>
+          <p>{pData?.StillNotSurePara}</p>
           <button
-            onClick={() =>
-              (window.location.href =
-                "/booking")
-            }
+            onClick={() => (window.location.href = "/booking")}
           >
             Book Appointment
           </button>
@@ -423,36 +368,45 @@ const handleScroll = () => {
           id="why-choose-us"
           ref={(el) => (sectionsRef.current[9] = el)}
         >
-        <h2 className="text-3xl">  {pData?.WhyChooseUsHeading01 }</h2>
-          <ul className={styles.whychooseusLi} style={{marginLeft: "40px"}}>
+          <h2 className="text-3xl">{pData?.WhyChooseUsHeading}</h2>
+          <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
             <li>
-              <strong>{strongText91}</strong>{" "} {remainingText91}
+              <strong>{strongText1}</strong> {remainingText1}
             </li>
             <li>
-            <strong>{strongText92}</strong>{" "} {remainingText92}
+              <strong>{strongText2}</strong> {remainingText2}
             </li>
             <li>
-            <strong>{strongText93}</strong>{" "} {remainingText93}
+              <strong>{strongText3}</strong> {remainingText3}
             </li>
             <li>
-            <strong>{strongText94}</strong>{" "} {remainingText94}
+              <strong>{strongText4}</strong> {remainingText4}
             </li>
           </ul>
         </section>
-      </div>
 
-      <div id="faqs">
-      <FAQ_White_Internal data={pData} />
+        <div id="faqs">
+          <FAQ_White_Internal data={pData} />
+        </div>
+
+        {pData?.showTestimonials === "Y" && (
+          <div id="testimonials">
+            <Testimonials />
+          </div>
+        )}
+        {pData?.showBlogs === "Y" && (
+          <div id="blogs">
+            <RecentBlogs />
+          </div>
+        )}
+        {pData?.showEligibilityAssessment === "Y" && (
+          <div id="eligibility-assessment">
+            <h2>Eligibility Assessment</h2>
+            {/* Add your Eligibility Assessment component or content here */}
+          </div>
+        )}
+        <Footer1 />
       </div>
-      {pData?.show_testimonials == "Y" && (
-        <div id="testimonials">
-          <Testimonials />
-        </div>
-      )}
-      <div id="blogs">
-        <RecentBlogs />
-      </div>
-      <Footer1 />
     </>
   );
 };

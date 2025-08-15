@@ -4,6 +4,7 @@ import editIcon from "../assets/edit.png";
 import update from "../assets/update.png";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Image from "next/image";
+
 const FlagPolingContent = () => {
   const notifySuccess = () => {
     toast.success("Success", {
@@ -48,37 +49,35 @@ const FlagPolingContent = () => {
   };
 
   const [sectionDataSingle, setSectionDataSingle] = useState({
-    flagpolingHeading: "",
-    flagpolingPara1: "",
-    flagpolingPara2: "",
-
-    BenifitHeading: "",
-    b1: "",
-    b2: "",
-    b3: "",
-
-    EligibilityHeading: "",
-    EligibilitySubHead: "",
-    e1: "",
-    e2: "",
-    e3: "",
-    e4: "",
-    e5: "",
-
-    DoNotForgetHeading: "",
-    DoNotForgetSubHead: "",
-
-    StillNotHeading: "",
-    s1: "",
-    s2: "",
-
-    WhyChooseUsHeading01: "",
-    wcu1: "",
-    wcu2: "",
-    wcu3: "",
-    wcu4: "",
-
-    faq_heading: "",
+    _id: "",
+    programStatus: "",
+    heading: "",
+    aboutHeading: "",
+    aboutPara: "",
+    benefitsHeading: "",
+    benefits1: "",
+    benefits2: "",
+    benefits3: "",
+    eligibilityHeading: "",
+    eligibility1: "",
+    eligibility2: "",
+    eligibility3: "",
+    eligibility4: "",
+    eligibility5: "",
+    importantTipHeading: "",
+    importantTipPara: "",
+    ctaHeading: "",
+    ctaPara: "",
+    bookAppointment: "",
+    whyChooseUsHeading: "",
+    whyChooseUs1: "",
+    whyChooseUs2: "",
+    whyChooseUs3: "",
+    whyChooseUs4: "",
+    showTestimonials: "",
+    showVideoTestimonials: "",
+    showWrittenTestimonials: "",
+    faqHeading: "",
     q1: "",
     qa1: "",
     q2: "",
@@ -91,16 +90,8 @@ const FlagPolingContent = () => {
     qa5: "",
     q6: "",
     qa6: "",
-    q7: "",
-    qa7: "",
-    q8: "",
-    qa8: "",
-    q9: "",
-    qa9: "",
-    q10: "",
-    qa10: "",
-
-    show_testimonials: "",
+    showBlogs: "",
+    showEligibilityAssessment: "",
   });
 
   const [editMode, setEditMode] = useState(false);
@@ -122,6 +113,53 @@ const FlagPolingContent = () => {
       return;
     }
 
+    const payload = {
+      programStatus: sectionDataSingle.programStatus,
+      heading: sectionDataSingle.heading,
+      aboutHeading: sectionDataSingle.aboutHeading,
+      aboutPara: sectionDataSingle.aboutPara,
+      benefitsHeading: sectionDataSingle.benefitsHeading,
+      benefitsList: [
+        sectionDataSingle.benefits1,
+        sectionDataSingle.benefits2,
+        sectionDataSingle.benefits3,
+      ],
+      eligibilityHeading: sectionDataSingle.eligibilityHeading,
+      eligibilityList: [
+        sectionDataSingle.eligibility1,
+        sectionDataSingle.eligibility2,
+        sectionDataSingle.eligibility3,
+        sectionDataSingle.eligibility4,
+        sectionDataSingle.eligibility5,
+      ],
+      importantTipHeading: sectionDataSingle.importantTipHeading,
+      importantTipPara: sectionDataSingle.importantTipPara,
+      ctaHeading: sectionDataSingle.ctaHeading,
+      ctaPara: sectionDataSingle.ctaPara,
+      bookAppointment: sectionDataSingle.bookAppointment,
+      whyChooseUsHeading: sectionDataSingle.whyChooseUsHeading,
+      whyChooseUsList: [
+        sectionDataSingle.whyChooseUs1,
+        sectionDataSingle.whyChooseUs2,
+        sectionDataSingle.whyChooseUs3,
+        sectionDataSingle.whyChooseUs4,
+      ],
+      showTestimonials: sectionDataSingle.showTestimonials,
+      showVideoTestimonials: sectionDataSingle.showVideoTestimonials,
+      showWrittenTestimonials: sectionDataSingle.showWrittenTestimonials,
+      faqHeading: sectionDataSingle.faqHeading,
+      faqs: [
+        { question: sectionDataSingle.q1, answer: sectionDataSingle.qa1 },
+        { question: sectionDataSingle.q2, answer: sectionDataSingle.qa2 },
+        { question: sectionDataSingle.q3, answer: sectionDataSingle.qa3 },
+        { question: sectionDataSingle.q4, answer: sectionDataSingle.qa4 },
+        { question: sectionDataSingle.q5, answer: sectionDataSingle.qa5 },
+        { question: sectionDataSingle.q6, answer: sectionDataSingle.qa6 },
+      ],
+      showBlogs: sectionDataSingle.showBlogs,
+      showEligibilityAssessment: sectionDataSingle.showEligibilityAssessment,
+    };
+
     fetch(
       `https://brightlight-node.onrender.com/flagpoling/${sectionDataSingle._id}`,
       {
@@ -129,7 +167,7 @@ const FlagPolingContent = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(sectionDataSingle),
+        body: JSON.stringify(payload),
       }
     )
       .then((response) => {
@@ -157,7 +195,52 @@ const FlagPolingContent = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {
-          setSectionDataSingle(data[0]);
+          const doc = data[0];
+          setSectionDataSingle({
+            _id: doc._id,
+            programStatus: doc.programStatus || "",
+            heading: doc.heading || "",
+            aboutHeading: doc.aboutHeading || "",
+            aboutPara: doc.aboutPara || "",
+            benefitsHeading: doc.benefitsHeading || "",
+            benefits1: doc.benefitsList?.[0] || "",
+            benefits2: doc.benefitsList?.[1] || "",
+            benefits3: doc.benefitsList?.[2] || "",
+            eligibilityHeading: doc.eligibilityHeading || "",
+            eligibility1: doc.eligibilityList?.[0] || "",
+            eligibility2: doc.eligibilityList?.[1] || "",
+            eligibility3: doc.eligibilityList?.[2] || "",
+            eligibility4: doc.eligibilityList?.[3] || "",
+            eligibility5: doc.eligibilityList?.[4] || "",
+            importantTipHeading: doc.importantTipHeading || "",
+            importantTipPara: doc.importantTipPara || "",
+            ctaHeading: doc.ctaHeading || "",
+            ctaPara: doc.ctaPara || "",
+            bookAppointment: doc.bookAppointment || "",
+            whyChooseUsHeading: doc.whyChooseUsHeading || "",
+            whyChooseUs1: doc.whyChooseUsList?.[0] || "",
+            whyChooseUs2: doc.whyChooseUsList?.[1] || "",
+            whyChooseUs3: doc.whyChooseUsList?.[2] || "",
+            whyChooseUs4: doc.whyChooseUsList?.[3] || "",
+            showTestimonials: doc.showTestimonials || "",
+            showVideoTestimonials: doc.showVideoTestimonials || "",
+            showWrittenTestimonials: doc.showWrittenTestimonials || "",
+            faqHeading: doc.faqHeading || "",
+            q1: doc.faqs?.[0]?.question || "",
+            qa1: doc.faqs?.[0]?.answer || "",
+            q2: doc.faqs?.[1]?.question || "",
+            qa2: doc.faqs?.[1]?.answer || "",
+            q3: doc.faqs?.[2]?.question || "",
+            qa3: doc.faqs?.[2]?.answer || "",
+            q4: doc.faqs?.[3]?.question || "",
+            qa4: doc.faqs?.[3]?.answer || "",
+            q5: doc.faqs?.[4]?.question || "",
+            qa5: doc.faqs?.[4]?.answer || "",
+            q6: doc.faqs?.[5]?.question || "",
+            qa6: doc.faqs?.[5]?.answer || "",
+            showBlogs: doc.showBlogs || "",
+            showEligibilityAssessment: doc.showEligibilityAssessment || "",
+          });
         }
       })
       .catch((error) => {
@@ -170,377 +253,376 @@ const FlagPolingContent = () => {
       <ToastContainer />
 
       <input
-        placeholder="Flagpoling Heading"
-        name="flagpolingHeading"
-        value={sectionDataSingle.flagpolingHeading}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Flagpoling Detail 1"
-        name="flagpolingPara1"
-        value={sectionDataSingle.flagpolingPara1}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Flagpoling Detail 2"
-        name="flagpolingPara2"
-        value={sectionDataSingle.flagpolingPara2}
+        placeholder="Program Status"
+        name="programStatus"
+        value={sectionDataSingle.programStatus}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <input
-        placeholder="Benefits of Flagpoling Heading"
-        name="BenifitHeading"
-        value={sectionDataSingle.BenifitHeading}
+        placeholder="Heading"
+        name="heading"
+        value={sectionDataSingle.heading}
+        onChange={handleInputChange}
+        disabled={!editMode}
+      />
+
+      <input
+        placeholder="About Heading"
+        name="aboutHeading"
+        value={sectionDataSingle.aboutHeading}
+        onChange={handleInputChange}
+        disabled={!editMode}
+      />
+
+      <textarea
+        placeholder="About Paragraph"
+        name="aboutPara"
+        value={sectionDataSingle.aboutPara}
+        onChange={handleInputChange}
+        disabled={!editMode}
+      />
+
+      <input
+        placeholder="Benefits Heading"
+        name="benefitsHeading"
+        value={sectionDataSingle.benefitsHeading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
         placeholder="Benefit 1"
-        name="b1"
-        value={sectionDataSingle.b1}
+        name="benefits1"
+        value={sectionDataSingle.benefits1}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
         placeholder="Benefit 2"
-        name="b2"
-        value={sectionDataSingle.b2}
+        name="benefits2"
+        value={sectionDataSingle.benefits2}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
         placeholder="Benefit 3"
-        name="b3"
-        value={sectionDataSingle.b3}
+        name="benefits3"
+        value={sectionDataSingle.benefits3}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <input
-        placeholder="Eligibility Criteria Heading"
-        name="EligibilityHeading"
-        value={sectionDataSingle.EligibilityHeading}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <textarea
-        placeholder="Eligibility Subheading"
-        name="EligibilitySubHead"
-        value={sectionDataSingle.EligibilitySubHead}
+        placeholder="Eligibility Heading"
+        name="eligibilityHeading"
+        value={sectionDataSingle.eligibilityHeading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
         placeholder="Eligibility 1"
-        name="e1"
-        value={sectionDataSingle.e1}
+        name="eligibility1"
+        value={sectionDataSingle.eligibility1}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
         placeholder="Eligibility 2"
-        name="e2"
-        value={sectionDataSingle.e2}
+        name="eligibility2"
+        value={sectionDataSingle.eligibility2}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
         placeholder="Eligibility 3"
-        name="e3"
-        value={sectionDataSingle.e3}
+        name="eligibility3"
+        value={sectionDataSingle.eligibility3}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
         placeholder="Eligibility 4"
-        name="e4"
-        value={sectionDataSingle.e4}
+        name="eligibility4"
+        value={sectionDataSingle.eligibility4}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
         placeholder="Eligibility 5"
-        name="e5"
-        value={sectionDataSingle.e5}
+        name="eligibility5"
+        value={sectionDataSingle.eligibility5}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <input
-        placeholder="Do Not Forget Heading"
-        name="DoNotForgetHeading"
-        value={sectionDataSingle.DoNotForgetHeading}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <input
-        placeholder="Do Not Forget SubHead"
-        name="DoNotForgetSubHead"
-        value={sectionDataSingle.DoNotForgetSubHead}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-
-      <input
-        placeholder="Still Not Heading"
-        name="StillNotHeading"
-        value={sectionDataSingle.StillNotHeading}
+        placeholder="Important Tip Heading"
+        name="importantTipHeading"
+        value={sectionDataSingle.importantTipHeading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
-        placeholder="Still Not Section Para 1"
-        name="s1"
-        value={sectionDataSingle.s1}
+        placeholder="Important Tip Paragraph"
+        name="importantTipPara"
+        value={sectionDataSingle.importantTipPara}
+        onChange={handleInputChange}
+        disabled={!editMode}
+      />
+
+      <input
+        placeholder="CTA Heading"
+        name="ctaHeading"
+        value={sectionDataSingle.ctaHeading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
-        placeholder="Still Not Section Para 2"
-        name="s2"
-        value={sectionDataSingle.s2}
+        placeholder="CTA Paragraph"
+        name="ctaPara"
+        value={sectionDataSingle.ctaPara}
+        onChange={handleInputChange}
+        disabled={!editMode}
+      />
+
+      <input
+        placeholder="Book Appointment Button Text"
+        name="bookAppointment"
+        value={sectionDataSingle.bookAppointment}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <input
         placeholder="Why Choose Us Heading"
-        name="WhyChooseUsHeading01"
-        value={sectionDataSingle.WhyChooseUsHeading01 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Why Choose Us Point 1"
-        name="wcu1"
-        value={sectionDataSingle.wcu1 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Why Choose Us Point 2"
-        name="wcu2"
-        value={sectionDataSingle.wcu2 || ""}
+        name="whyChooseUsHeading"
+        value={sectionDataSingle.whyChooseUsHeading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <textarea
-        placeholder="Why Choose Us Point 3"
-        name="wcu3"
-        value={sectionDataSingle.wcu3 || ""}
+        placeholder="Why Choose Us 1"
+        name="whyChooseUs1"
+        value={sectionDataSingle.whyChooseUs1}
         onChange={handleInputChange}
         disabled={!editMode}
       />
+
       <textarea
-        placeholder="Why Choose Us Point 4"
-        name="wcu4"
-        value={sectionDataSingle.wcu4 || ""}
+        placeholder="Why Choose Us 2"
+        name="whyChooseUs2"
+        value={sectionDataSingle.whyChooseUs2}
         onChange={handleInputChange}
         disabled={!editMode}
       />
+
+      <textarea
+        placeholder="Why Choose Us 3"
+        name="whyChooseUs3"
+        value={sectionDataSingle.whyChooseUs3}
+        onChange={handleInputChange}
+        disabled={!editMode}
+      />
+
+      <textarea
+        placeholder="Why Choose Us 4"
+        name="whyChooseUs4"
+        value={sectionDataSingle.whyChooseUs4}
+        onChange={handleInputChange}
+        disabled={!editMode}
+      />
+
+      <h1 className={styles.faqStartsHeading}>Visibility Controls</h1>
+
+      <div className={styles.testimonialsVisibility}>
+        <p>Show Testimonials (Y/N)</p>
+        <input
+          placeholder="Show Testimonials"
+          name="showTestimonials"
+          value={sectionDataSingle.showTestimonials}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      </div>
+
+      <div className={styles.testimonialsVisibility}>
+        <p>Show Video Testimonials (Y/N)</p>
+        <input
+          placeholder="Show Video Testimonials"
+          name="showVideoTestimonials"
+          value={sectionDataSingle.showVideoTestimonials}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      </div>
+
+      <div className={styles.testimonialsVisibility}>
+        <p>Show Written Testimonials (Y/N)</p>
+        <input
+          placeholder="Show Written Testimonials"
+          name="showWrittenTestimonials"
+          value={sectionDataSingle.showWrittenTestimonials}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      </div>
+
+      <div className={styles.testimonialsVisibility}>
+        <p>Show Blogs (Y/N)</p>
+        <input
+          placeholder="Show Blogs"
+          name="showBlogs"
+          value={sectionDataSingle.showBlogs}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      </div>
+
+      <div className={styles.testimonialsVisibility}>
+        <p>Show Eligibility Assessment (Y/N)</p>
+        <input
+          placeholder="Show Eligibility Assessment"
+          name="showEligibilityAssessment"
+          value={sectionDataSingle.showEligibilityAssessment}
+          onChange={handleInputChange}
+          disabled={!editMode}
+        />
+      </div>
+
+      <p className={styles.testimonialsDisclamier}>
+        Note: Visibility On the Selected Page is totally dependent on the input value above. If you want to display the section, just write "Y" without quotes, anything else will be considered as "N" even "y". If not want to display then just write "N" without quotes.
+      </p>
 
       <h1 className={styles.faqStartsHeading}>FAQ's Starts Below</h1>
 
       <input
-        placeholder="FAQ's Made Simple"
-        name="faq_heading"
-        value={sectionDataSingle.faq_heading || ""}
+        placeholder="FAQ Heading"
+        name="faqHeading"
+        value={sectionDataSingle.faqHeading}
         onChange={handleInputChange}
         disabled={!editMode}
       />
+
       <input
         placeholder="Question 1"
         name="q1"
-        value={sectionDataSingle.q1 || ""}
+        value={sectionDataSingle.q1}
         onChange={handleInputChange}
         disabled={!editMode}
       />
       <textarea
         placeholder="Answer 1"
         name="qa1"
-        value={sectionDataSingle.qa1 || ""}
+        value={sectionDataSingle.qa1}
         onChange={handleInputChange}
         disabled={!editMode}
       />
+
       <input
         placeholder="Question 2"
         name="q2"
-        value={sectionDataSingle.q2 || ""}
+        value={sectionDataSingle.q2}
         onChange={handleInputChange}
         disabled={!editMode}
       />
       <textarea
         placeholder="Answer 2"
         name="qa2"
-        value={sectionDataSingle.qa2 || ""}
+        value={sectionDataSingle.qa2}
         onChange={handleInputChange}
         disabled={!editMode}
       />
+
       <input
         placeholder="Question 3"
         name="q3"
-        value={sectionDataSingle.q3 || ""}
+        value={sectionDataSingle.q3}
         onChange={handleInputChange}
         disabled={!editMode}
       />
       <textarea
         placeholder="Answer 3"
         name="qa3"
-        value={sectionDataSingle.qa3 || ""}
+        value={sectionDataSingle.qa3}
         onChange={handleInputChange}
         disabled={!editMode}
       />
+
       <input
         placeholder="Question 4"
         name="q4"
-        value={sectionDataSingle.q4 || ""}
+        value={sectionDataSingle.q4}
         onChange={handleInputChange}
         disabled={!editMode}
       />
       <textarea
         placeholder="Answer 4"
         name="qa4"
-        value={sectionDataSingle.qa4 || ""}
+        value={sectionDataSingle.qa4}
         onChange={handleInputChange}
         disabled={!editMode}
       />
+
       <input
         placeholder="Question 5"
         name="q5"
-        value={sectionDataSingle.q5 || ""}
+        value={sectionDataSingle.q5}
         onChange={handleInputChange}
         disabled={!editMode}
       />
       <textarea
         placeholder="Answer 5"
         name="qa5"
-        value={sectionDataSingle.qa5 || ""}
+        value={sectionDataSingle.qa5}
         onChange={handleInputChange}
         disabled={!editMode}
       />
+
       <input
         placeholder="Question 6"
         name="q6"
-        value={sectionDataSingle.q6 || ""}
+        value={sectionDataSingle.q6}
         onChange={handleInputChange}
         disabled={!editMode}
       />
       <textarea
         placeholder="Answer 6"
         name="qa6"
-        value={sectionDataSingle.qa6 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 7"
-        name="q7"
-        value={sectionDataSingle.q7 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 7"
-        name="qa7"
-        value={sectionDataSingle.qa7 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 8"
-        name="q8"
-        value={sectionDataSingle.q8 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 8"
-        name="qa8"
-        value={sectionDataSingle.qa8 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 9"
-        name="q9"
-        value={sectionDataSingle.q9 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 9"
-        name="qa9"
-        value={sectionDataSingle.qa9 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <input
-        placeholder="Question 10"
-        name="q10"
-        value={sectionDataSingle.q10 || ""}
-        onChange={handleInputChange}
-        disabled={!editMode}
-      />
-      <textarea
-        placeholder="Answer 10"
-        name="qa10"
-        value={sectionDataSingle.qa10 || ""}
+        value={sectionDataSingle.qa6}
         onChange={handleInputChange}
         disabled={!editMode}
       />
 
       <h1 className={styles.faqEndHeading}>FAQ's Ends here</h1>
 
-      <h1 className={styles.faqStartsHeading}>
-        Testimonials Visibility Control
-      </h1>
-
-      <div className={styles.testimonialsVisibility}>
-        <p>Want to display Testimonials Section</p>
-        <input
-          placeholder="Show Testimonials"
-          name="show_testimonials"
-          value={sectionDataSingle.show_testimonials || ""}
-          onChange={handleInputChange}
-          disabled={!editMode}
-        />
-      </div>
-      <p className={styles.testimonialsDisclamier}>
-        Note: Testimonials Visibility On the Selected Page is totally dependent
-        on the input value above. If you want to display the section , just
-        write "Y" without quotes , anything else will be considered as "N" even
-        "y". If not want to display then just write "N" without qoutes.
-      </p>
-      
       <div className={styles.editIcons}>
         {editMode ? (
-             <Image loading="lazy" height={50} width={100}
+          <Image
+            loading="lazy"
+            height={50}
+            width={100}
             src={update}
             className={styles.updateIcon}
             onClick={handleUpdateClick}
             alt="Update"
           />
         ) : (
-             <Image loading="lazy" height={50} width={100}
+          <Image
+            loading="lazy"
+            height={50}
+            width={100}
             src={editIcon}
             className={styles.editIcon}
             onClick={handleEditClick}

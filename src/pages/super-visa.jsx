@@ -125,15 +125,15 @@ const SuperVisa = ({ metaData }) => {
             </div>
             <div className={styles.bannerHeadingRotatePara}>
               <p onClick={() => scrollToSection("about-program")}>About the Program</p>
+              <p onClick={() => scrollToSection("question-answer")}>Common Question</p>
+              <p onClick={() => scrollToSection("income-requirements")}>Income Requirements</p>
+              <p onClick={() => scrollToSection("who-is-counted")}>Who is Counted?</p>
               <p onClick={() => scrollToSection("benifits")}>Benefits</p>
-              <p onClick={() => scrollToSection("eligibility")}>Eligibility</p>
-              <p onClick={() => scrollToSection("income-table")}>Income Table</p>
-              <p onClick={() => scrollToSection("how-to-apply")}>How to Apply?</p>
-              <p onClick={() => scrollToSection("refusal-reasons")}>Refusal Reasons</p>
-              <p onClick={() => scrollToSection("why-choose-us")}>Why Choose Us?</p>
-              <p onClick={() => scrollToSection("testimonials")}>Testimonials</p>
+              <p onClick={() => scrollToSection("Super Visa Vs PGP")}>Super Visa Vs PGP</p>
+              <p onClick={() => scrollToSection("docs-to-prove-income")}>Docs to Prove Income</p>
+              <p onClick={() => scrollToSection("not-sure-if-you-qualify")}>Not Sure if You Qualify?</p>
+              <p onClick={() => scrollToSection("talk-to-expert")}>Talk to Expert</p>
               <p onClick={() => scrollToSection("faqs")}>FAQs</p>
-              <p onClick={() => scrollToSection("blogs")}>Blogs</p>
             </div>
           </div>
         </div>
