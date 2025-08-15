@@ -187,7 +187,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
         </div>
       </div>
 
-      <div className={styles.container} id="container">
+      <div className={`${styles.container}`} id="container">
         <header
           className={`${styles.header} ${styles.section}`}
           id="about-program"
@@ -204,7 +204,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
         >
           <h2 className="text-3xl">{pData?.BenefitsHeading}</h2>
           <h4>{pData?.BenefitsSubHeading}</h4>
-          <ul className={styles.BenifitList} style={{ marginLeft: "40px" }}>
+          <ul className={`list-disc flex flex-col gap-2 my-4 ${styles.BenifitList}`} style={{ marginLeft: "40px" }}>
             {pData?.BenefitsList?.map((benefit, index) => (
               <li key={index}>{benefit}</li>
             ))}
@@ -218,7 +218,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
         >
           <h2 className="text-3xl">{pData?.EligibilityHeading}</h2>
           <p>{pData?.EligibilitySubHead}</p>
-          <ol style={{ marginLeft: "40px", marginTop: "20px", lineHeight: "2" }}>
+          <ol className="list-decimal flex flex-col gap-2 my-4" style={{ marginLeft: "40px", marginTop: "20px", lineHeight: "2" }}>
             {pData?.EligibilityList?.map((criterion, index) => (
               <li key={index}>
                 {criterion}
@@ -246,7 +246,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
           ref={(el) => (sectionsRef.current[3] = el)}
         >
           <h2 className="text-3xl">{pData?.EmpReqHeading}</h2>
-          <ol style={{ marginLeft: "40px" }}>
+          <ol className="list-decimal flex flex-col gap-2 my-4" style={{ marginLeft: "40px" }}>
             {pData?.EmpReqList?.map((requirement, index) => (
               <li key={index} style={{ marginBottom: "10px" }}>
                 {requirement}
@@ -262,7 +262,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
         >
           <h2 className="text-3xl">{pData?.WorkPerDurHeading}</h2>
           <p>{pData?.WorkPerDurSubHead}</p>
-          <ul style={{ marginLeft: "40px", marginTop: "20px" }}>
+          <ul className={`list-disc flex flex-col gap-2 my-4 ${styles.WorkPerDurList}`} style={{ marginLeft: "40px", marginTop: "20px" }}>
             {pData?.WorkPerDurList?.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -276,7 +276,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
         >
           <h2 className="text-3xl">{pData?.FamilyMemHeading}</h2>
           <p>{pData?.FamilyMemSubHead}</p>
-          <ul style={{ marginLeft: "40px", marginTop: "10px" }}>
+          <ul className={`list-disc flex flex-col gap-2 my-4 ${styles.FamilyMemList}`} style={{ marginLeft: "40px", marginTop: "10px" }}>
             {pData?.FamilyMemList?.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -289,11 +289,10 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
           ref={(el) => (sectionsRef.current[6] = el)}
         >
           <h2 className="text-3xl">{pData?.AppProHeading}</h2>
-          <ol style={{ marginLeft: "40px" }}>
+          <ol className="list-decimal flex flex-col gap-2 my-4" style={{ marginLeft: "40px" }}>
             <li>
               <strong>{pData?.AppProSubHead1}</strong>
-              <ul
-                style={{
+              <ul className={`list-disc flex flex-col gap-2 my-4 ${styles.AppProSubHead1List}`} style={{
                   marginLeft: "40px",
                   marginTop: "20px",
                   marginBottom: "20px",
@@ -306,8 +305,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.AppProSubHead2}</strong>
-              <ul
-                style={{
+              <ul className={`list-disc flex flex-col gap-2 my-4 ${styles.AppProSubHead2List}`} style={{
                   marginLeft: "40px",
                   marginTop: "20px",
                   marginBottom: "20px",
@@ -320,12 +318,12 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
             </li>
             <li>
               <strong>{pData?.AppProSubHead3}</strong>
-              <ul
-                style={{
+              <ul className={`list-disc flex flex-col gap-2 my-4 ${styles.AppProSubHead3List}`} style={{
                   marginLeft: "40px",
                   marginTop: "20px",
                   marginBottom: "20px",
                 }}
+              
               >
                 {pData?.AppProSubHead3List?.map((item, index) => (
                   <li key={index}>{item}</li>
@@ -342,7 +340,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
         >
           <h2 className="text-3xl">{pData?.WorkPerRenHeading}</h2>
           <h4>{pData?.WorkPerRenSubHead}</h4>
-          <ul style={{ marginLeft: "40px", marginTop: "20px" }}>
+          <ul className={`list-disc flex flex-col gap-2 my-4 ${styles.WorkPerRenList}`} style={{ marginLeft: "40px", marginTop: "20px" }}>
             {pData?.WorkPerRenList?.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -369,7 +367,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
           ref={(el) => (sectionsRef.current[9] = el)}
         >
           <h2 className="text-3xl">{pData?.WhyChooseUsHeading}</h2>
-          <ul className={styles.whychooseusLi} style={{ marginLeft: "40px" }}>
+          <ul className={`list-disc flex flex-col gap-2 my-4 ${styles.whychooseusLi}`} style={{ marginLeft: "40px" }}>
             <li>
               <strong>{strongText1}</strong> {remainingText1}
             </li>
@@ -384,6 +382,7 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
             </li>
           </ul>
         </section>
+        </div>
 
         <div id="faqs">
           <FAQ_White_Internal data={pData} />
@@ -399,14 +398,9 @@ const FrancophoneMobilityProgram = ({ metaData }) => {
             <RecentBlogs />
           </div>
         )}
-        {pData?.showEligibilityAssessment === "Y" && (
-          <div id="eligibility-assessment">
-            <h2>Eligibility Assessment</h2>
-            {/* Add your Eligibility Assessment component or content here */}
-          </div>
-        )}
+        
         <Footer1 />
-      </div>
+      
     </>
   );
 };

@@ -396,7 +396,7 @@ let AdminDashboard = () => {
       label: "Federal Skilled Worker Program Page",
     },
     { id: "flag_poling", label: "Flag Poling Page" },
-    { id: "francophone", label: "Framcophone Mobility Page" },
+    { id: "francophone", label: "Francophone Mobility Page" },
     { id: "french_tageted_draw", label: "French Targeted Draw Page" },
     { id: "global_stream_lmia", label: "Global Stream LMIA Page" },
     {

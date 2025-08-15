@@ -149,13 +149,11 @@
 }
 
 .benefits h2 {
-  font-size: 24px;
   margin-bottom: 20px;
   color: #00273f;
 }
 
 .benefits h3 {
-  font-size: 20px;
   margin-bottom: 10px;
   color: #00273f;
 }
@@ -201,7 +199,6 @@ opacity: 0.9;
   color: #00273f;
   margin-top: 30px;
   margin-bottom: 20px;
-  font-size: 24px;
 }
 
 .header h1 {

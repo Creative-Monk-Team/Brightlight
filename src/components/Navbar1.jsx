@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Navbar1.module.css";
-import IconGear from "../assets/gearIcon.svg";
-import RightArrow from "../assets/rightArrow.svg";
-import PhoneIcon from "../assets/phoneIcon.svg";
+
+// ASSETS (kept only those actually used)
 import BrightlightBlueLogo from "../assets/brlightlight-icon.webp";
 import LocationIcon from "../assets/location-white.png";
 import EmailIcon from "../assets/mail-white.png";
@@ -11,7 +10,6 @@ import LocationBlue from "../assets/locationBlue.png";
 import Search from "../assets/search.svg";
 import TikTokIcon from "../assets/tiktok.svg";
 import LinkedInIcon from "../assets/linkedin.svg";
-import InstagramIcon from "../assets/instagram.svg";
 import FacebookIcon from "../assets/facebook.svg";
 import YouTubeIcon from "../assets/youtube.svg";
 import Facebookblue from "../assets/facebookBlue.png";
@@ -19,268 +17,579 @@ import Youtubeblue from "../assets/youtubeBlue.png";
 import Instagramblue from "../assets/instagramBlue.png";
 import Linkedinblue from "../assets/linkedinBlue.png";
 import Tiktokblue from "../assets/tiktokBlue.png";
-import hamBurgerIconWhite from "../assets/hamBurgerIconWhite.svg";
-import hamBurgerIconBlue from "../assets/hamBurgerIconBlue.svg";
 import whiteLogo from "../assets/brightlight-logo-white.png";
+
 import Link from "next/link";
-import { fetchSeoData } from "../lib/fetchSeoData";
-
-export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
-}
 import Image from "next/image";
+import { useRouter } from "next/router";
 
-const Navbar1 = (props) => {
-  const [inputValue, setInputValue] = useState("");
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
-    if (inputValue.trim()) {
-      // Redirect using window.location
-      window.location.href = `/search?q=${encodeURIComponent(
-        inputValue.trim()
-      )}`;
+/* ------------------------------
+   1) SINGLE SOURCE OF TRUTH: MENU
+   Edit here to add/remove/rename links.
+   Structure keys:
+   - id, label, href (optional if purely a toggle in desktop)
+   - children: [] (nested)
+   - nestedContainer: "permanent" | "double" (override which dropdown box class to use for this node’s children on desktop)
+---------------------------------*/
+const SERVICES_MENU = [
+  {
+    id: "pr",
+    label: "Permanent Residency",
+    href: "/permanent-residency",
+    nestedContainer: "permanent",
+    children: [
+      {
+        id: "express-entry",
+        label: "Express Entry",
+        href: "/express-entry",
+        nestedContainer: "double",
+        children: [
+          { id: "fswp", label: "FSWP", href: "/federal-skilled-worker-program" },
+          { id: "fstp", label: "FSTP", href: "/federal-skilled-trades-program" },
+          { id: "cec", label: "CEC", href: "/canadian-experience-class" },
+          {
+            id: "category-based",
+            label: "Category Based",
+            href: "/category-based",
+            nestedContainer: "double",
+            children: [
+              { id: "cat-french", label: "French Language Proficiency", href: "/french-targeted-draw" },
+              { id: "cat-health", label: "Healthcare Occupations", href: "/healthcare-targeted-draw" },
+              { id: "cat-stem", label: "STEM Occupations", href: "/stem-targeted-draw" },
+              { id: "cat-trade", label: "Trade Occupations", href: "/trade-occupation-targeted-draw" },
+              { id: "cat-transport", label: "Transport Occupation Targeted Draws", href: "/transport-occupation-targeted-draw" },
+              { id: "cat-agri", label: "Agriculture and Agri-Food Occupation", href: "/agriculture-agri-food-occupation" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "pilot",
+        label: "Pilot Program",
+        href: "/pilot-programs",
+        nestedContainer: "double",
+        children: [{ id: "agri-food", label: "Agri Food Pilot", href: "/agri-food-pilot-program" }],
+      },
+      {
+        id: "pnp",
+        label: "Provincial Nominee Programs (PNP)",
+        href: "/pnp",
+        nestedContainer: "double",
+        children: [
+          {
+            id: "bcpnp",
+            label: "BCPNP",
+            href: "/bc-pnp",
+            nestedContainer: "double",
+            children: [
+              { id: "bcpnp-skilled", label: "Skilled Worker", href: "/skilled-worker-stream" },
+              { id: "bcpnp-health", label: "Health Authority", href: "/health-authority-stream" },
+              { id: "bcpnp-elss", label: "Entry Level and Semi-Skilled (ELSS)", href: "/entry-level-semi-skilled" },
+              { id: "bcpnp-ig", label: "International Graduate", href: "/international-graduate-program" },
+              { id: "bcpnp-ipg", label: "International Post-Graduate", href: "/international-post-graduate-program" },
+              { id: "bcpnp-priorities", label: "Program Priorities", href: "/priorities-program" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "other-pr",
+        label: "Other PR Pathways",
+        href: "#",
+        nestedContainer: "double",
+        children: [
+          { id: "rnip", label: "RNIP (Rural and Northern Immigration Pilot)", href: "/rnip" },
+          { id: "rcip", label: "RCIP (Rural Community Immigration Pilot)", href: "/rcip" },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: "temporary",
+    label: "Temporary Residency",
+    href: "/temporary-resident",
+    nestedContainer: "permanent",
+    children: [
+      { id: "super-visa", label: "Super Visa", href: "/super-visa" },
+      {
+        id: "visitor-visa",
+        label: "Visitor Visa",
+        href: "/visitor-visa",
+        nestedContainer: "double",
+        children: [
+          { id: "business-visitor", label: "Business Visitor Visa", href: "/business-visitor-visa" },
+          { id: "dual-intent", label: "Dual Intent Visa", href: "/dual-intent-visa" },
+          { id: "reconsideration", label: "Reconsideration for Refusal", href: "/reconsideration" },
+        ],
+      },
+      { id: "trp", label: "Temporary Resident Permits", href: "/temporary-resident-permit-draft" },
+      { id: "restoration", label: "Restoration", href: "/restoration-status-draft" },
+      { id: "extend-stay", label: "Extend Stay", href: "/extensions-draft" },
+      { id: "flagpoling", label: "Flagpoling", href: "/flagpoling" },
+      {
+        id: "spousal-owp",
+        label: "Spousal Open Work Permit",
+        href: "/spousal-open-work-permit",
+        nestedContainer: "double",
+        children: [
+          { id: "owp-spouse-worker", label: "Open Work Permit - For Spouse of Worker", href: "/common-law-partner-temporary" },
+          { id: "owp-spouse-student", label: "Open Work Permit - For Spouse of Student", href: "/cby" },
+          { id: "owp-pr-inland", label: "PR Open Work Permit, Inland", href: "/open-work-permit-for-spouse-inland" },
+          { id: "owp-franco", label: "Francophone Mobility Program", href: "/francophone-mobility-program" },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: "student",
+    label: "Student Visa",
+    href: "/student-visa",
+    nestedContainer: "permanent",
+    children: [
+      {
+        id: "outside-canada",
+        label: "Outside Canada",
+        href: "/outside-canada",
+        nestedContainer: "double",
+        children: [
+          { id: "sds", label: "SDS", href: "/sds" },
+          { id: "non-sds", label: "NON SDS", href: "/non-sds" },
+        ],
+      },
+      {
+        id: "inside-canada",
+        label: "Inside Canada",
+        href: "/inside-canada",
+        nestedContainer: "double",
+        children: [
+          { id: "visitor-to-student", label: "Visitor to Student", href: "/visitor-to-student" },
+          { id: "dli-change", label: "DLI Change", href: "/change-college-program" },
+        ],
+      },
+      { id: "minor", label: "Study Permit For Minor", href: "/study-permit-minors" },
+    ],
+  },
+
+  {
+    id: "family",
+    label: "Family Reunification & Sponsorship",
+    href: "/family-reunification-sponsorship",
+    nestedContainer: "permanent",
+    children: [
+      {
+        id: "spousal-sponsorship",
+        label: "Spousal Sponsorship",
+        href: "/spouse-common-law-sponsership",
+        // in original this nested box also used 'permanent' class
+        nestedContainer: "permanent",
+        children: [
+          { id: "spouse-inland", label: "Inside Canada", href: "/spouse-inland" },
+          { id: "spouse-outland", label: "Outside Canada", href: "/spouse-outland" },
+          { id: "same-sex", label: "Same Sex", href: "/same-sex" },
+        ],
+      },
+      { id: "parents", label: "Parents / Grandparents", href: "/parents-grandparents" },
+      { id: "dependent-children", label: "Dependent Children", href: "/dependent-children" },
+      { id: "hc", label: "H & C", href: "/humanitarian-compassionate" },
+      { id: "orphan", label: "Orphan", href: "/orphan" },
+      { id: "adoption", label: "Adoption", href: "/adoption" },
+      { id: "lonely-canadian", label: "Lonely Canadian", href: "/lonely-canadian" },
+    ],
+  },
+
+  {
+    id: "work",
+    label: "Work Permit",
+    href: "/work-permit",
+    nestedContainer: "permanent",
+    children: [
+      {
+        id: "lmia",
+        label: "LMIA",
+        href: "/lmia-reviewed",
+        nestedContainer: "double",
+        children: [
+          { id: "lmia-wage", label: "High Wage / Low Wage", href: "/low-wage-lmia" },
+          { id: "lmia-agri", label: "Agriculture", href: "/agriculture-stream-lmia" },
+          { id: "lmia-global", label: "Global Talent Stream", href: "/global-stream-lmia" },
+          { id: "lmia-caregiver", label: "Caregiver LMIA", href: "/in-home-caregiver-program-lp" },
+        ],
+      },
+      {
+        id: "open-work",
+        label: "Open Work Permit",
+        href: "/open-work-permit",
+        nestedContainer: "double",
+        children: [
+          { id: "bowp", label: "BOWP – Bridging Open Work Permit", href: "/bridging-open-work-permit-lp" },
+          { id: "pgwp", label: "PGWP – Post Graduate Open Work Permit", href: "/pgwp" },
+          { id: "sowp", label: "SOWP – Spousal Open Work Permit", href: "/spousal-open-work-permit" },
+          { id: "franco", label: "Francophone Mobility Program", href: "/francophone-mobility-program" },
+          { id: "vulnerable", label: "Vulnerable Worker", href: "/open-work-vulnerable-lp" },
+          { id: "dep-child", label: "Dependent Child of Worker", href: "/openWork-dependent-children" },
+        ],
+      },
+      {
+        id: "spousal-permit",
+        label: "Spousal Permit",
+        href: "/spouse-common-law-sponsership",
+        nestedContainer: "double",
+        children: [
+          { id: "spousal-worker", label: "Open Work Permit - For Spouse of Worker", href: "/spousal-open-work-permit" },
+          { id: "spousal-student", label: "Open Work Permit - For Spouse of Student", href: "/cby" },
+          { id: "spousal-pr", label: "Open Work Permit - For Spouse of PR", href: "/open-work-permit" },
+        ],
+      },
+      { id: "franco-standalone", label: "Francophone Mobility Program", href: "/francophone-mobility-program" },
+    ],
+  },
+
+  // Standalone links within Services dropdown (same order)
+  { id: "lmia-standalone", label: "LMIA", href: "/lmia-reviewed" },
+  { id: "franco-standalone2", label: "Francophone Mobility Program", href: "/francophone-mobility-program" },
+
+  {
+    id: "caregiver",
+    label: "Caregiver",
+    href: "/pathways-for-caregiver",
+    nestedContainer: "permanent",
+    children: [
+      { id: "care-in-lmia", label: "Inside - With LMIA", href: "/in-home-caregiver-program-lp" },
+      { id: "care-pr", label: "PR Pathways for Care-Giver", href: "/permanent-residence-pathways-caregivers-lp" },
+    ],
+  },
+
+  // Single-link groups preserved
+  {
+    id: "pr-renewal",
+    label: "PR Renewal",
+    href: "/pr-renewal",
+    nestedContainer: "permanent",
+    children: [{ id: "pr-renewal-link", label: "PR Renewal", href: "/pr-renewal" }],
+  },
+  {
+    id: "citizenship",
+    label: "Citizenship",
+    href: "/citizenship",
+    nestedContainer: "permanent",
+    children: [{ id: "citizenship-link", label: "Citizenship", href: "/citizenship" }],
+  },
+
+  {
+    id: "other-services",
+    label: "Other Services",
+    href: "#",
+    nestedContainer: "permanent",
+    children: [
+      { id: "reconsideration2", label: "Reconsideration of Refusal Decision", href: "/reconsideration" },
+      { id: "additional-doc", label: "Additional Document Request", href: "/additional-document" },
+      { id: "pfl", label: "PFL", href: "/reply-to-pfl-page" },
+    ],
+  },
+];
+
+// Calculators config (for both desktop & mobile dropdown)
+const CALCULATORS = [
+  { id: "fswp-calc", label: "FSWP Calculator", href: "/federal-skilled" },
+  { id: "clb-calc", label: "CLB Calculator", href: "/clb-ilets-calculator" },
+  { id: "bcpnp-calc", label: "BCPNP Calculator", href: "/bcpnp-calculator" },
+  { id: "draws-history", label: "Previous Draws History", href: "/previous-draw-history" },
+];
+
+/* ------------------------------
+   2) Small helper for many toggles
+---------------------------------*/
+function useDisclosureMap() {
+  const [open, setOpen] = useState({});
+  const set = (id, val) => setOpen((m) => ({ ...m, [id]: val }));
+  const isOpen = (id) => !!open[id];
+  const onEnter = (id) => () => set(id, true);
+  const onLeave = (id) => () => set(id, false);
+  const toggle = (id) => (e) => {
+    e?.preventDefault?.();
+    setOpen((m) => ({ ...m, [id]: !m[id] }));
+  };
+  return { isOpen, onEnter, onLeave, toggle };
+}
+
+/* ------------------------------
+   3) Desktop Services Menu (hover)
+   Reuses classes exactly as before
+---------------------------------*/
+function DesktopServices({ menu, h }) {
+  const renderChildrenBox = (parent, content) => {
+    const cls =
+      parent.nestedContainer === "permanent"
+        ? styles.permanentNestedSection
+        : styles.doubleNested; // "double" default
+    return (
+      <div
+        className={`${cls} ${h.isOpen(parent.id) ? styles.showNested : ""}`}
+        onMouseEnter={h.onEnter(parent.id)}
+        onMouseLeave={h.onLeave(parent.id)}
+      >
+        {content}
+      </div>
+    );
+  };
+
+  const renderNode = (node) => {
+    if (!node.children) {
+      // simple link directly inside dropdown
+      return <Link key={node.id} href={node.href}>{node.label}</Link>;
     }
+
+    // node with children: wrap in relativeDiv + Link, and its box (permanent/double)
+    return (
+      <div key={node.id} className={`${styles.relativeDiv} ${styles.flex}`}>
+        <Link
+          href={node.href || "#"}
+          onMouseEnter={h.onEnter(node.id)}
+          onMouseLeave={h.onLeave(node.id)}
+        >
+          {node.label}
+        </Link>
+        {renderChildrenBox(
+          node,
+          node.children.map((child) =>
+            child.children ? (
+              // child with its own nested (always rendered as a "double" style box)
+              <div key={child.id} className={`${styles.relativeDiv} ${styles.flex}`}>
+                <Link
+                  href={child.href || "#"}
+                  onMouseEnter={h.onEnter(child.id)}
+                  onMouseLeave={h.onLeave(child.id)}
+                >
+                  {child.label}
+                </Link>
+                <div
+                  className={`${styles.doubleNested} ${h.isOpen(child.id) ? styles.showNested : ""}`}
+                  onMouseEnter={h.onEnter(child.id)}
+                  onMouseLeave={h.onLeave(child.id)}
+                >
+                  {child.children.map((leaf) =>
+                    leaf.children ? (
+                      // third level with its own "double" box
+                      <div key={leaf.id} className={`${styles.relativeDiv} ${styles.flex}`}>
+                        <Link
+                          href={leaf.href || "#"}
+                          onMouseEnter={h.onEnter(leaf.id)}
+                          onMouseLeave={h.onLeave(leaf.id)}
+                        >
+                          {leaf.label}
+                        </Link>
+                        <div
+                          className={`${styles.doubleNested} ${h.isOpen(leaf.id) ? styles.showNested : ""}`}
+                          onMouseEnter={h.onEnter(leaf.id)}
+                          onMouseLeave={h.onLeave(leaf.id)}
+                        >
+                          {leaf.children.map((last) => (
+                            <Link key={last.id} href={last.href}>
+                              {last.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link key={leaf.id} href={leaf.href}>
+                        {leaf.label}
+                      </Link>
+                    )
+                  )}
+                </div>
+              </div>
+            ) : (
+              <Link key={child.id} href={child.href}>
+                {child.label}
+              </Link>
+            )
+          )
+        )}
+      </div>
+    );
   };
-  const [isFederalSkilledOpen, setIsFederalSkilledOpen] = useState(false);
-  const [isFederalSkilledProgramOpen, setIsFederalSkilledProgramOpen] =
-    useState(false);
 
-  const [isFederalSkilledOpenTwo, setIsFederalSkilledOpenTwo] = useState(false);
-  const [isFederalSkilledProgramOpenTwo, setIsFederalSkilledProgramOpenTwo] =
-    useState(false);
+  return <>{menu.map(renderNode)}</>;
+}
 
-  const [isFederalSkilledOpenThree, setIsFederalSkilledOpenThree] =
-    useState(false);
-  const [isFederalSkilledProgramOpenFour, setIsFederalSkilledProgramOpenFour] =
-    useState(false);
+/* ------------------------------
+   4) Sidebar Services Menu (click)
+   Reuses classes exactly as before
+---------------------------------*/
+function SidebarServices({ menu, h }) {
+  const renderChildrenBox = (open, content) => (
+    open ? <div className={styles.subDropdownContent}>{content}</div> : null
+  );
 
-  const [isFederalSkilledProgramOpenFive, setIsFederalSkilledProgramOpenFive] =
-    useState(false);
+  const renderSubChildrenBox = (open, content) =>
+    open ? <div className={styles.subSubDropdownContent}>{content}</div> : null;
 
-  const [isFederalSkilledProgramOpenSix, setIsFederalSkilledProgramOpenSix] =
-    useState(false);
+  const renderNode = (node, isTop = true) => {
+    if (!node.children) {
+      // simple link
+      return <Link key={node.id} href={node.href}>{node.label}</Link>;
+    }
 
-  const [
-    isFederalSkilledProgramOpenSeven,
-    setIsFederalSkilledProgramOpenSeven,
-  ] = useState(false);
+    if (isTop) {
+      // top-level within SERVICES dropdown
+      return (
+        <div key={node.id} className={styles.subDropdown}>
+          <Link href="#" onClick={h.toggle(node.id)}>
+            {node.label} <span className={styles.arrow}>▼</span>
+          </Link>
+          {renderChildrenBox(
+            h.isOpen(node.id),
+            <>
+              {/* when a group also has an href, first include that link like original markup */}
+              {node.href ? <Link href={node.href}>{node.label}</Link> : null}
+              {node.children.map((child) =>
+                child.children ? (
+                  <div key={child.id} className={styles.subSubDropdown}>
+                    <Link href="#" onClick={h.toggle(child.id)}>
+                      {child.label} <span className={styles.arrow}>▼</span>
+                    </Link>
+                    {renderSubChildrenBox(
+                      h.isOpen(child.id),
+                      <>
+                        {/* same: include the child href as first link if exists */}
+                        {child.href ? <Link href={child.href}>{child.label}</Link> : null}
+                        {child.children.map((leaf) =>
+                          leaf.children ? (
+                            <div key={leaf.id} className={styles.subSubDropdown}>
+                              <Link href="#" onClick={h.toggle(leaf.id)}>
+                                {leaf.label} <span className={styles.arrow}>▼</span>
+                              </Link>
+                              {renderSubChildrenBox(
+                                h.isOpen(leaf.id),
+                                <>
+                                  {leaf.href ? <Link href={leaf.href}>{leaf.label}</Link> : null}
+                                  {leaf.children.map((last) => (
+                                    <Link key={last.id} href={last.href}>
+                                      {last.label}
+                                    </Link>
+                                  ))}
+                                </>
+                              )}
+                            </div>
+                          ) : (
+                            <Link key={leaf.id} href={leaf.href}>
+                              {leaf.label}
+                            </Link>
+                          )
+                        )}
+                      </>
+                    )}
+                  </div>
+                ) : (
+                  <Link key={child.id} href={child.href}>
+                    {child.label}
+                  </Link>
+                )
+              )}
+            </>
+          )}
+        </div>
+      );
+    }
 
-  const [
-    isFederalSkilledProgramOpenEight,
-    setIsFederalSkilledProgramOpenEight,
-  ] = useState(false);
+    // not used (all service items are under top)
+    return null;
+  };
 
-  const [isFederalSkilledProgramOpenNine, setIsFederalSkilledProgramOpenNine] =
-    useState(false);
+  return (
+    <>
+      <div className={styles.dropdown}>
+        <Link href="#" className={styles.dropbtn} onClick={h.toggle("services-root")}>
+          SERVICES <span className={styles.arrow}>▼</span>
+        </Link>
+        <div
+          className={styles.dropdownContent}
+          style={h.isOpen("services-root") ? { display: "block" } : { display: "none" }}
+        >
+          {menu.map((group) => renderNode(group, true))}
+          {/* trailing links preserved */}
+          <Link href="/more-services">More Services</Link>
+        </div>
+      </div>
+    </>
+  );
+}
 
-  const [isFederalSkilledProgramOpenTen, setIsFederalSkilledProgramOpenTen] =
-    useState(false);
+/* ------------------------------
+   5) Component
+---------------------------------*/
+const Navbar1 = ({ showBlue }) => {
+  const router = useRouter();
 
-  const [isFederalSkilledProgramOpenEl, setIsFederalSkilledProgramOpenEl] =
-    useState(false);
-
-  const [isFederalSkilledProgramOpenTw, setIsFederalSkilledProgramOpenTw] =
-    useState(false);
-
-  const [isFederalSkilledProgramOpenTh, setIsFederalSkilledProgramOpenTh] =
-    useState(false);
-
-  const [isFederalSkilledProgramOpenFt, setIsFederalSkilledProgramOpenFt] =
-    useState(false);
-
-  const toggleFederalSkilled = (e) => {
+  // search
+  const [inputValue, setInputValue] = useState("");
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsFederalSkilledOpen(!isFederalSkilledOpen);
+    const q = inputValue.trim();
+    if (q) router.push(`/search?q=${encodeURIComponent(q)}`);
   };
 
-  const toggleFederalSkilledProgram = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpen(!isFederalSkilledProgramOpen);
-  };
-  const toggleFederalSkilledProgramTwo = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenTwo(!isFederalSkilledProgramOpenTwo);
-  };
-  const toggleFederalSkilledProgramThree = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledOpenThree(!isFederalSkilledOpenThree);
-  };
-  const toggleFederalSkilledProgramFour = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenFour(!isFederalSkilledProgramOpenFour);
-  };
-  const toggleFederalSkilledProgramFive = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenFive(!isFederalSkilledProgramOpenFive);
-  };
-  const toggleFederalSkilledProgramSix = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenSix(!isFederalSkilledProgramOpenSix);
-  };
-  const toggleFederalSkilledProgramSeven = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenSeven(!isFederalSkilledProgramOpenSeven);
-  };
-  const toggleFederalSkilledProgramEight = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenEight(!isFederalSkilledProgramOpenEight);
-  };
-  const toggleFederalSkilledProgramNine = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenNine(!isFederalSkilledProgramOpenNine);
-  };
-  const toggleFederalSkilledProgramTen = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenTen(!isFederalSkilledProgramOpenTen);
-  };
-
-  const toggleFederalSkilledProgramEl = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenEl(!isFederalSkilledProgramOpenEl);
-  };
-  const toggleFederalSkilledProgramTw = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenTw(!isFederalSkilledProgramOpenTw);
-  };
-  const toggleFederalSkilledProgramTh = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenTh(!isFederalSkilledProgramOpenTh);
-  };
-  const toggleFederalSkilledProgramFt = (e) => {
-    e.preventDefault();
-    setIsFederalSkilledProgramOpenFt(!isFederalSkilledProgramOpenFt);
-  };
-  const { showBlue } = props;
-  let [hideContactNavbar, setHideContactNavbar] = useState(false);
-  const [showAboutDropdown, setShowAboutDropdown] = useState(false);
-  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
-  const [showCalculatorsDropdown, setShowCalculatorsDropdown] = useState(false);
-  const [showSidebar, setShowSidebar] = useState(false);
-  let [showNestedDropdown, setShowNestedDropdown] = useState(false);
-  let [showNestedDropdown2, setShowNestedDropdown2] = useState(false);
-  let [showNestedDropdown3, setShowNestedDropdown3] = useState(false);
-  let [showNestedDropdown4, setShowNestedDropdown4] = useState(false);
-  let [showNestedDropdown5, setShowNestedDropdown5] = useState(false);
-  let [showNestedDropdown6, setShowNestedDropdown6] = useState(false);
-  let [showNestedDropdown7, setShowNestedDropdown7] = useState(false);
-  let [showNestedDropdown8, setShowNestedDropdown8] = useState(false);
-  let [showNestedDropdown9, setShowNestedDropdown9] = useState(false);
-  let [showNestedDropdown10, setShowNestedDropdown10] = useState(false);
-  let [showNestedDropdown11, setShowNestedDropdown11] = useState(false);
-  let [showNestedDropdown12, setShowNestedDropdown12] = useState(false);
-  let [showNestedDropdown13, setShowNestedDropdown13] = useState(false);
-  let [doubleNested1, setDoubleNested1] = useState(false);
-  let [doubleNested2, setDoubleNested2] = useState(false);
-  let [doubleNested3, setDoubleNested3] = useState(false);
-  let [doubleNested4, setDoubleNested4] = useState(false);
-  let [doubleNested7, setDoubleNested7] = useState(false);
-  let [showHamburgerServicesDropdown, setShowHamburgerServicesDropdown] =
-    useState(false);
-  const dropdownRef = useRef(null);
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-  //       setShowHamburgerServicesDropdown(false);
-  //     }
-  //   };
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
-
+  // sticky contact bar
+  const [hideContactNavbar, setHideContactNavbar] = useState(false);
   useEffect(() => {
-    let handleScroll = () => {
-      if (window.innerWidth > 1080) {
-        if (window.scrollY > 150) {
-          setHideContactNavbar(true);
-        } else {
-          setHideContactNavbar(false);
-        }
-      }
+    const handleScroll = () => {
+      if (window.innerWidth > 1080) setHideContactNavbar(window.scrollY > 150);
     };
-
-    document.addEventListener("scroll", handleScroll);
-
-    return () => document.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [isTemporaryResidencyOpen, setTemporaryResidencyOpen] = useState(false);
-  const [isVisitorVisaOpen, setVisitorVisaOpen] = useState(false);
-  const [isStudentVisaOpen, setStudentVisaOpen] = useState(false);
-  const [isOutsideCanadaOpen, setOutsideCanadaOpen] = useState(false);
-  const [isInsideCanadaOpen, setInsideCanadaOpen] = useState(false);
-  const [isFamilyReunificationOpen, setFamilyReunificationOpen] =
-    useState(false);
-  const [isSpousalPermitOpen, setSpousalPermitOpen] = useState(false);
+  // desktop hover states
+  const aboutHover = useDisclosureMap();
+  const servicesHover = useDisclosureMap();
+  const calculatorsHover = useDisclosureMap();
 
-  const toggleTemporaryResidency = () =>
-    setTemporaryResidencyOpen(!isTemporaryResidencyOpen);
-  const toggleVisitorVisa = () => setVisitorVisaOpen(!isVisitorVisaOpen);
-  const toggleStudentVisa = () => setStudentVisaOpen(!isStudentVisaOpen);
-  const toggleOutsideCanada = () => setOutsideCanadaOpen(!isOutsideCanadaOpen);
-  const toggleInsideCanada = () => setInsideCanadaOpen(!isInsideCanadaOpen);
-  const toggleFamilyReunification = () =>
-    setFamilyReunificationOpen(!isFamilyReunificationOpen);
-  const toggleSpousalPermit = () => setSpousalPermitOpen(!isSpousalPermitOpen);
-  const [isCalculatorsOpen, setCalculatorsOpen] = useState(false);
+  // sidebar / hamburger
+  const [showSidebar, setShowSidebar] = useState(false);
+  const toggleSidebar = () => setShowSidebar((s) => !s);
+  const side = useDisclosureMap(); // services-root + nested
+  const calcSide = useDisclosureMap();
 
-  const toggleCalculators = (e) => {
-    e.preventDefault();
-    setCalculatorsOpen(!isCalculatorsOpen);
-  };
+  // close hamburger services when clicking outside its dropdown
+  const dropdownRef = useRef(null);
+  useEffect(() => {
+    const onDocClick = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        // collapse the root SERVICES in sidebar
+        if (side.isOpen("services-root")) side.toggle("services-root")();
+      }
+    };
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, [side]);
 
-  // Adding your required states for "Super Visa" and "Dual Intent Visa" subheadings
-  const [doubleNestedVisitorVisa, setDoubleNestedVisitorVisa] = useState(false);
-  const [doubleNestedSpousalPermit, setDoubleNestedSpousalPermit] =
-    useState(false);
-
-  const [doubleNestedOutsideCanada, setDoubleNestedOutsideCanada] =
-    useState(false);
-  const [doubleNestedInsideCanada, setDoubleNestedInsideCanada] =
-    useState(false);
-
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
   return (
     <>
       <div className={styles.navbar}>
+        {/* TOP BAR */}
         <div className={styles.firstNavbar}>
           <div className={styles.calculatorIcon}>
-            <Image loading="lazy" src={"/assets/gearIcon.svg"} className={styles.iconGearIcon} width={25} height={25} />
-            <Link href = "/immigration-tools">
-              Immigration Tools
-            </Link>
-            <Image loading="lazy"
-              src={"/assets/rightArrow.svg"}
-              className={styles.RightArrowIcon}
-              width={10}
-              height={10}
-            />
+            <Image loading="lazy" src={"/assets/gearIcon.svg"} className={styles.iconGearIcon} width={25} height={25} alt="Tools" />
+            <Link href="/immigration-tools">Immigration Tools</Link>
+            <Image loading="lazy" src={"/assets/rightArrow.svg"} className={styles.RightArrowIcon} width={10} height={10} alt="Arrow" />
           </div>
+
           <div className={styles.ancor}>
             <div className={styles.relativeDiv}>
               <Link
                 href="/about-us"
-                onMouseEnter={() => setShowAboutDropdown(true)}
-                onMouseLeave={() => setShowAboutDropdown(false)}
+                onMouseEnter={aboutHover.onEnter("about")}
+                onMouseLeave={aboutHover.onLeave("about")}
               >
                 ABOUT
               </Link>
             </div>
             <Link href="/contact-us">CONTACT</Link>
+
             <div className={styles.mobileIcon}>
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 24 24"
-                className="w-3 md:w-5"
-                height="18"
-                width="18"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="w-3 md:w-5" height="18" width="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path fill="none" d="M0 0h24v24H0z"></path>
                 <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"></path>
               </svg>
@@ -289,1283 +598,212 @@ const Navbar1 = (props) => {
           </div>
         </div>
 
-        <div
-          className={`${styles.bottomSectionNavbar} ${hideContactNavbar ? styles.makeNavbarFixed : null
-            }`}
-        >
+        {/* MAIN BAR */}
+        <div className={`${styles.bottomSectionNavbar} ${hideContactNavbar ? styles.makeNavbarFixed : ""}`}>
           <div className={styles.secondNavbar}>
+            {/* Logos */}
             <Link href="/" className={`${styles.logo} ${styles.logoDesktop}`}>
               <Image loading="lazy" height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
             </Link>
-
             {showBlue ? (
               <Link href="/" className={`${styles.logo} ${styles.logoMobile}`}>
                 <Image loading="lazy" height={50} width={100} src={BrightlightBlueLogo} alt="Brightlight Blue Logo" />
               </Link>
             ) : (
               <Link href="/" className={`${styles.logo} ${styles.logoMobile}`}>
-                <Image loading="lazy" height={50} width={100} src={whiteLogo} alt="Brightlight Blue Logo" />
+                <Image loading="lazy" height={50} width={100} src={whiteLogo} alt="Brightlight White Logo" />
               </Link>
             )}
 
-            <div className={styles.mainNavbar}>
-              <Link href="/" className={styles.sidebarLink}>
-                HOME
-              </Link>
+            {/* Desktop Nav */}
+            <nav className={styles.mainNavbar} aria-label="Main">
+              <Link href="/" className={styles.sidebarLink}>HOME</Link>
+
+              {/* SERVICES (desktop hover) */}
               <div className={styles.relativeDiv}>
                 <Link
                   href="/more-services"
-                  onMouseEnter={() => setShowServicesDropdown(true)}
-                  onMouseLeave={() => setShowServicesDropdown(false)}
+                  onMouseEnter={servicesHover.onEnter("services")}
+                  onMouseLeave={servicesHover.onLeave("services")}
                 >
                   SERVICES
                 </Link>
                 <div
-                  className={`${styles.servicesDropdown} ${showServicesDropdown ? styles.showServicesDropdown : null
-                    }`}
-                  onMouseEnter={() => setShowServicesDropdown(true)}
-                  onMouseLeave={() => setShowServicesDropdown(false)}
+                  className={`${styles.servicesDropdown} ${servicesHover.isOpen("services") ? styles.showServicesDropdown : ""}`}
+                  onMouseEnter={servicesHover.onEnter("services")}
+                  onMouseLeave={servicesHover.onLeave("services")}
                 >
-                  {/* // */}
-                  {/* // */}
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link
-                      href="/permanent-residency"
-                      onMouseEnter={() => setShowNestedDropdown3(true)}
-                      onMouseLeave={() => setShowNestedDropdown3(false)}
-                    >
-                      Permanent Residency
-                    </Link>
-                    <div
-                      className={`${styles.permanentNestedSection} ${showNestedDropdown3 ? styles.showNested : null
-                        }`}
-                      onMouseEnter={() => {
-                        setShowNestedDropdown3(true);
-                      }}
-                      onMouseLeave={() => {
-                        setShowNestedDropdown3(false);
-                      }}
-                    >
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/express-entry"
-                          onMouseEnter={() => setDoubleNested3(true)}
-                          onMouseLeave={() => setDoubleNested3(false)}
-                        >
-                          Express Entry
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${doubleNested3 ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() => setDoubleNested3(true)}
-                          onMouseLeave={() => setDoubleNested3(false)}
-                        >
-                          <Link href="/federal-skilled-worker-program">FSWP</Link>
-                          <Link href="/federal-skilled-trades-program">FSTP</Link>
-                          <Link href="/canadian-experience-class">CEC</Link>
-                          <div
-                            className={`${styles.relativeDiv} ${styles.flex}`}
-                          >
-                            <Link
-                              href="/category-based"
-                              onMouseEnter={() => setShowNestedDropdown7(true)}
-                              onMouseLeave={() => setShowNestedDropdown7(false)}
-                            >
-                              Category Based
-                            </Link>
-                            <div
-                              className={`${styles.doubleNested} ${showNestedDropdown7 ? styles.showNested : null
-                                }`}
-                              onMouseEnter={() => setShowNestedDropdown7(true)}
-                              onMouseLeave={() => setShowNestedDropdown7(false)}
-                            >
-                              <Link href="/french-targeted-draw">
-                                French Language Proficiency
-                              </Link>
-                              <Link href="/healthcare-targeted-draw">
-                                Healthcare Occupations
-                              </Link>
-                              <Link href="/stem-targeted-draw">STEM Occupations</Link>
-                              <Link href="/trade-occupation-targeted-draw">
-                                Trade Occupations
-                              </Link>
-                              <Link href="/transport-occupation-targeted-draw">
-                                Transport Occupation Targeted Draws
-                              </Link>
-                              <Link href="/agriculture-agri-food-occupation">
-                                Agriculture and Agri-Food Occupation
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* // */}
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/pilot-programs"
-                          onMouseEnter={() => setDoubleNested4(true)}
-                          onMouseLeave={() => setDoubleNested4(false)}
-                        >
-                          Pilot Program
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${doubleNested4 ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() => setDoubleNested4(true)}
-                          onMouseLeave={() => setDoubleNested4(false)}
-                        >
-                          <Link href="/agri-food-pilot-program">Agri Food Pilot</Link>
-                        </div>
-                      </div>
-
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/pnp"
-                          onMouseEnter={() => setDoubleNested7(true)}
-                          onMouseLeave={() => setDoubleNested7(false)}
-                        >
-                          PNP
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${doubleNested7 ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() => setDoubleNested7(true)}
-                          onMouseLeave={() => setDoubleNested7(false)}
-                        >
-                          <div
-                            className={`${styles.relativeDiv} ${styles.flex}`}
-                          >
-                            <Link
-                              href="/bc-pnp"
-                              onMouseEnter={() => setShowNestedDropdown(true)}
-                              onMouseLeave={() => setShowNestedDropdown(false)}
-                            >
-                              BCPNP
-                            </Link>
-                            <div
-                              className={`${styles.doubleNested} ${showNestedDropdown ? styles.showNested : null
-                                }`}
-                              onMouseEnter={() => setShowNestedDropdown(true)}
-                              onMouseLeave={() => setShowNestedDropdown(false)}
-                            >
-                              <Link href="/skilled-worker-stream">
-                                Skilled Worker
-                              </Link>
-                              <Link href="/health-authority-stream">
-                                Health Authority
-                              </Link>
-                              <Link href="/entry-level-semi-skilled">
-                                Entry Level and Semi-Skilled (ELSS)
-                              </Link>
-                              <Link href="/international-graduate-program">
-                                International Graduate
-                              </Link>
-                              <Link href="/international-post-graduate-program">
-                                International Post-Graduate
-                              </Link>
-                              <Link href="/priorities-program">
-                                Program Priorities
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <Link href="/rnip">RNIP</Link>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link
-                      href="/temporary-resident"
-                      onMouseEnter={() => setShowNestedDropdown2(true)}
-                      onMouseLeave={() => setShowNestedDropdown2(false)}
-                    >
-                      Temporary Residency
-                    </Link>
-                    <div
-                      className={`${styles.permanentNestedSection} ${showNestedDropdown2 ? styles.showNested : null
-                        }`}
-                      onMouseEnter={() => setShowNestedDropdown2(true)}
-                      onMouseLeave={() => setShowNestedDropdown2(false)}
-                    >
-                      {/* Super Visa */}
-                      <Link href="/super-visa">Super Visa</Link>
-
-                      {/* Visitor Visa with subheadings */}
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/visitor-visa"
-                          onMouseEnter={() => setDoubleNestedVisitorVisa(true)}
-                          onMouseLeave={() => setDoubleNestedVisitorVisa(false)}
-                        >
-                          Visitor Visa
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${doubleNestedVisitorVisa ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() => setDoubleNestedVisitorVisa(true)}
-                          onMouseLeave={() => setDoubleNestedVisitorVisa(false)}
-                        >
-                          <Link href="/business-visitor-visa">
-                            Business Visitor Visa
-                          </Link>
-                          <Link href="/dual-intent-visa">Dual Intent Visa</Link>
-                          {/* <Link href="/super-visa">Super Visa</Link> */}
-                          <Link href="/reconsideration">
-                            Reconsideration for Refusal
-                          </Link>
-                        </div>
-                      </div>
-
-                      <Link href="/temporary-resident-permit-draft">
-                        Temporary Resident Permits
-                      </Link>
-
-                      {/* Spousal Permit with subheadings */}
-
-                      {/* Restoration */}
-                      <Link href="/restoration-status-draft">Restoration</Link>
-                      <Link href="/extensions-draft">Extend Stay</Link>
-                      <Link href="/flagpoling">Flagpoling</Link>
-
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/spousal-open-work-permit"
-                          onMouseEnter={() =>
-                            setDoubleNestedSpousalPermit(true)
-                          }
-                          onMouseLeave={() =>
-                            setDoubleNestedSpousalPermit(false)
-                          }
-                        >
-                          Spousal Open Work Permit
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${doubleNestedSpousalPermit ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() =>
-                            setDoubleNestedSpousalPermit(true)
-                          }
-                          onMouseLeave={() =>
-                            setDoubleNestedSpousalPermit(false)
-                          }
-                        >
-                          <Link href="/common-law-partner-temporary">
-                            Open Work Permit - For Spouse of Worker
-                          </Link>
-                          <Link href="/cby">
-                            Open Work Permit - For Spouse of Student
-                          </Link>
-                          <Link href="/open-work-permit-for-spouse-inland">
-                            PR Open Work Permit, Inland
-                          </Link>
-                          <Link href="/francophone-mobility-program">
-                            Francophone Mobility Program
-                          </Link>
-                          {/* <Link href="/cby">Cby</Link> */}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link
-                      href="/student-visa"
-                      onMouseEnter={() => setShowNestedDropdown6(true)}
-                      onMouseLeave={() => setShowNestedDropdown6(false)}
-                    >
-                      Student Visa
-                    </Link>
-                    <div
-                      className={`${styles.permanentNestedSection} ${showNestedDropdown6 ? styles.showNested : null
-                        }`}
-                      onMouseEnter={() => setShowNestedDropdown6(true)}
-                      onMouseLeave={() => setShowNestedDropdown6(false)}
-                    >
-                      {/* Outside Canada with subheadings */}
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/outside-canada"
-                          onMouseEnter={() =>
-                            setDoubleNestedOutsideCanada(true)
-                          }
-                          onMouseLeave={() =>
-                            setDoubleNestedOutsideCanada(false)
-                          }
-                        >
-                          Outside Canada
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${doubleNestedOutsideCanada ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() =>
-                            setDoubleNestedOutsideCanada(true)
-                          }
-                          onMouseLeave={() =>
-                            setDoubleNestedOutsideCanada(false)
-                          }
-                        >
-                          <Link href="/sds">SDS</Link>
-                          <Link href="/non-sds">NON SDS</Link>
-                        </div>
-                      </div>
-
-                      {/* Inside Canada with subheadings */}
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/inside-canada"
-                          onMouseEnter={() => setDoubleNestedInsideCanada(true)}
-                          onMouseLeave={() =>
-                            setDoubleNestedInsideCanada(false)
-                          }
-                        >
-                          Inside Canada
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${doubleNestedInsideCanada ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() => setDoubleNestedInsideCanada(true)}
-                          onMouseLeave={() =>
-                            setDoubleNestedInsideCanada(false)
-                          }
-                        >
-                          <Link href="/visitor-to-student">Visitor to Student</Link>
-                          <Link href="/change-college-program">DLI Change</Link>
-                          {/* <Link href="#">Admission</Link> */}
-                          {/* <Link href="#">Transfer DLI</Link> */}
-                        </div>
-                      </div>
-
-                      {/* Other menu items */}
-                      <Link href="/study-permit-minors">Study Permit For Minor</Link>
-                    </div>
-                  </div>
-                  {/*  */}
-                  {/* // */}
-
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link
-                      href="/family-reunification-sponsorship"
-                      onMouseEnter={() => setShowNestedDropdown4(true)}
-                      onMouseLeave={() => setShowNestedDropdown4(false)}
-                    >
-                      Family Reunification & Sponsorship
-                    </Link>
-                    <div
-                      className={`${styles.permanentNestedSection} ${showNestedDropdown4 ? styles.showNested : null
-                        }`}
-                      onMouseEnter={() => setShowNestedDropdown4(true)}
-                      onMouseLeave={() => setShowNestedDropdown4(false)}
-                    >
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/spouse-common-law-sponsership"
-                          onMouseEnter={() => setShowNestedDropdown8(true)}
-                          onMouseLeave={() => setShowNestedDropdown8(false)}
-                        >
-                          Spousal Sponsorship
-                        </Link>
-                        <div
-                          className={`${styles.permanentNestedSection} ${showNestedDropdown8 ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() => setShowNestedDropdown8(true)}
-                          onMouseLeave={() => setShowNestedDropdown8(false)}
-                        >
-                          <Link href="/spouse-inland">Inside Canada</Link>
-                          <Link href="/spouse-outland">Outside Canada</Link>
-                          <Link href="/same-sex">Same Sex</Link>
-                        </div>
-                      </div>
-
-                      <Link href="/parents-grandparents">Parents / Grandparents</Link>
-                      <Link href="/dependent-children">Dependent Children</Link>
-                      <Link href="/humanitarian-compassionate">H & C</Link>
-                      <Link href="/orphan">Orphan</Link>
-                      <Link href="/adoption">Adoption</Link>
-                      <Link href="/lonely-canadian">Lonely Canadian</Link>
-                    </div>
-                  </div>
-
-                  {/* // */}
-
-                  {/*  */}
-
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link
-                      href="/work-permit"
-                      onMouseEnter={() => setShowNestedDropdown5(true)}
-                      onMouseLeave={() => setShowNestedDropdown5(false)}
-                    >
-                      Work Permit
-                    </Link>
-                    <div
-                      className={`${styles.permanentNestedSection} ${showNestedDropdown5 ? styles.showNested : null
-                        }`}
-                      onMouseEnter={() => {
-                        setShowNestedDropdown5(true);
-                      }}
-                      onMouseLeave={() => {
-                        setShowNestedDropdown5(false);
-                      }}
-                    >
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/lmia-reviewed"
-                          onMouseEnter={() => setDoubleNested1(true)}
-                          onMouseLeave={() => setDoubleNested1(false)}
-                        >
-                          LMIA
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${doubleNested1 ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() => setDoubleNested1(true)}
-                          onMouseLeave={() => setDoubleNested1(false)}
-                        >
-                          <Link href="/low-wage-lmia">High Wage / Low Wage</Link>
-                          <Link href="/agriculture-stream-lmia">Agriculture</Link>
-                          {/* <Link href="#">PR Supporting</Link> */}
-                          <Link href="/global-stream-lmia">Global Talent Stream</Link>
-                          <Link href="/in-home-caregiver-program-lp">
-                            Caregiver LMIA
-                          </Link>
-                        </div>
-                      </div>
-
-                      {/* // */}
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/open-work-permit"
-                          onMouseEnter={() => setDoubleNested2(true)}
-                          onMouseLeave={() => setDoubleNested2(false)}
-                        >
-                          Open Work Permit{" "}
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${doubleNested2 ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() => setDoubleNested2(true)}
-                          onMouseLeave={() => setDoubleNested2(false)}
-                        >
-                          <Link href="/bridging-open-work-permit-lp">
-                            BOWP – Bridging Open Work Permit
-                          </Link>
-                          <Link href="/pgwp">
-                            PGWP – Post Graduate Open Work Permit
-                          </Link>
-                          <Link href="/spousal-open-work-permit">
-                            SOWP – Spousal Open Work Permit
-                          </Link>
-                          <Link href="/francophone-mobility-program">
-                            Francophone Mobility Program
-                          </Link>
-                          <Link href="/open-work-vulnerable-lp">
-                            Vulnerable Worker
-                          </Link>
-                          <Link href="/openWork-dependent-children">
-                            Dependent Child of Worker
-                          </Link>
-                        </div>
-                      </div>
-                      <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          href="/spouse-common-law-sponsership"
-                          onMouseEnter={() => setShowNestedDropdown10(true)}
-                          onMouseLeave={() => setShowNestedDropdown10(false)}
-                        >
-                          Spousal Permit
-                        </Link>
-                        <div
-                          className={`${styles.doubleNested} ${showNestedDropdown10 ? styles.showNested : null
-                            }`}
-                          onMouseEnter={() => setShowNestedDropdown10(true)}
-                          onMouseLeave={() => setShowNestedDropdown10(false)}
-                        >
-                          <Link href="/spousal-open-work-permit">
-                            Open Work Permit - For Spouse of Worker
-                          </Link>
-                          <Link href="/cby">
-                            Open Work Permit - For Spouse of Student
-                          </Link>
-                          <Link href="/open-work-permit">
-                            Open Work Permit - For Spouse of PR
-                          </Link>
-                          {/* <Link href="/cby">Cby</Link> */}
-                        </div>
-                      </div>
-                      <Link href="/francophone-mobility-program">
-                        Francophone Mobility Program
-                      </Link>
-                    </div>
-                  </div>
-                  <Link href="/lmia-reviewed">LMIA</Link>
-                  <Link href="/francophone-mobility-program">
-                    Francophone Mobility Program
-                  </Link>
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link
-                      href="/pathways-for-caregiver"
-                      onMouseEnter={() => setShowNestedDropdown9(true)}
-                      onMouseLeave={() => setShowNestedDropdown9(false)}
-                    >
-                      Caregiver
-                    </Link>
-                    <div
-                      className={`${styles.permanentNestedSection} ${showNestedDropdown9 ? styles.showNested : null
-                        }`}
-                      onMouseEnter={() => {
-                        setShowNestedDropdown9(true);
-                      }}
-                      onMouseLeave={() => {
-                        setShowNestedDropdown9(false);
-                      }}
-                    >
-                      <Link href="/in-home-caregiver-program-lp">
-                        Inside - With LMIA
-                      </Link>
-                      <Link href="/permanent-residence-pathways-caregivers-lp">
-                        PR Pathways for Care-Giver
-                      </Link>
-                      {/* <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                        <Link
-                          onMouseEnter={() => setShowNestedDropdown10(true)}
-                          onMouseLeave={() => setShowNestedDropdown10(false)}
-                        >
-                          Outside
-                        </Link>
-                        <div
-                          className={`${styles.permanentNestedSection} ${
-                            showNestedDropdown10 ? styles.showNested : null
-                          }`}
-                          onMouseEnter={() => {
-                            setShowNestedDropdown10(true);
-                          }}
-                          onMouseLeave={() => {
-                            setShowNestedDropdown10(false);
-                          }}
-                        >
-                          <Link>Home Child Care Provider Pilot</Link>
-                          <Link>Home Support Worker</Link>
-                        </div>
-                      </div> */}
-                    </div>
-                  </div>
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                  <Link href="/pr-renewal">PR Renewal</Link>
-                    <div
-                      className={`${styles.permanentNestedSection} ${showNestedDropdown11 ? styles.showNested : null
-                        }`}
-                    >
-                      <Link href="/pr-renewal">PR Renewal</Link>
-                    </div>
-                  </div>
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                  <Link href="/citizenship">Citizenship</Link>
-                    <div
-                      className={`${styles.permanentNestedSection} ${showNestedDropdown12 ? styles.showNested : null
-                        }`}
-                    >
-                      <Link href="/citizenship">Citizenship</Link>
-                    </div>
-                  </div>
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link
-                      href="#"
-                      onMouseEnter={() => setShowNestedDropdown13(true)}
-                      onMouseLeave={() => setShowNestedDropdown13(false)}
-                    >
-                      Other Services
-                    </Link>
-                    <div
-                      className={`${styles.permanentNestedSection} ${showNestedDropdown13 ? styles.showNested : null
-                        }`}
-                      onMouseEnter={() => {
-                        setShowNestedDropdown13(true);
-                      }}
-                      onMouseLeave={() => {
-                        setShowNestedDropdown13(false);
-                      }}
-                    >
-                      <Link href="/reconsideration">
-                        Reconsideration of Refusal Decision
-                      </Link>
-                      <Link href="/additional-document">
-                        Additional Document Request
-                      </Link>
-                      <Link href="/reply-to-pfl-page">PFL</Link>
-                    </div>
-                  </div>
+                  <DesktopServices menu={SERVICES_MENU} h={servicesHover} />
                 </div>
               </div>
 
               {/* BLOGS */}
               <Link href="/blogs">BLOGS</Link>
 
-              {/* NEWS */}
-              {/* <Link href="/news">NEWS</Link> */}
-
-              {/* CALCULATORS Menu with Dropdown */}
+              {/* CALCULATORS (desktop hover) */}
               <div className={styles.relativeDiv}>
                 <Link
                   href="#"
-                  onMouseEnter={() => setShowCalculatorsDropdown(true)}
-                  onMouseLeave={() => setShowCalculatorsDropdown(false)}
+                  onMouseEnter={calculatorsHover.onEnter("calc")}
+                  onMouseLeave={calculatorsHover.onLeave("calc")}
                 >
                   CALCULATORS
                 </Link>
                 <div
-                  className={`${styles.calculatorsDropdown} ${showCalculatorsDropdown
-                      ? styles.showCalculatorsDropdown
-                      : null
-                    }`}
-                  onMouseEnter={() => setShowCalculatorsDropdown(true)}
-                  onMouseLeave={() => setShowCalculatorsDropdown(false)}
+                  className={`${styles.calculatorsDropdown} ${calculatorsHover.isOpen("calc") ? styles.showCalculatorsDropdown : ""}`}
+                  onMouseEnter={calculatorsHover.onEnter("calc")}
+                  onMouseLeave={calculatorsHover.onLeave("calc")}
                 >
-                  <Link href="/federal-skilled">FSWP Calculator</Link>
-                  <Link href="/clb-ilets-calculator">CLB Calculator</Link>
-                  <Link href="/bcpnp-calculator">BCPNP Calculator</Link>
-                  <Link href="/previous-draw-history">Previous Draws History</Link>
+                  {CALCULATORS.map((l) => (
+                    <Link key={l.id} href={l.href}>{l.label}</Link>
+                  ))}
                 </div>
               </div>
 
               {/* CONTACT */}
               <Link href="/contact-us">CONTACT</Link>
-            </div>
+            </nav>
 
             {/* Search Bar */}
             <form onSubmit={handleSubmit}>
               <div className={styles.searchBar}>
                 <div className={styles.inputWrapper}>
-                  <Search
-                    className={styles.searchIcon}
-                    width={20}
-                    height={20}
-                  />
+                  <Search className={styles.searchIcon} width={20} height={20} />
                   <input
                     type="text"
                     className={styles.input}
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     required
+                    aria-label="Search"
                   />
                 </div>
-                <button type="submit" className={styles.button}>
-                  Search here
-                </button>
+                <button type="submit" className={styles.button}>Search here</button>
               </div>
             </form>
 
             {/* Hamburger Icon */}
-            <div className={styles.hamburger} onClick={toggleSidebar}>
-              {/* &#9776; */}{" "}
-              <Image loading="lazy" height={50} width={100}
+            <div className={styles.hamburger} onClick={toggleSidebar} aria-label="Open menu">
+              <Image
+                loading="lazy"
+                height={50}
+                width={100}
                 src={showBlue ? "/assets/hamBurgerIconBlue.svg" : "/assets/hamBurgerIconWhite.svg"}
                 className={styles.hamburgerColoredIcon}
-                alt="wee"
+                alt="Menu"
               />
             </div>
           </div>
 
           {/* Sidebar */}
-          <div
-            className={`${styles.sidebar} ${showSidebar ? styles.showSidebar : ""
-              }`}
-          >
-            {/* ///// */}
-            <div className={styles.sidebarContent}>
-              <div className={styles.closeBtn} onClick={toggleSidebar}>
+          <aside className={`${styles.sidebar} ${showSidebar ? styles.showSidebar : ""}`}>
+            <div className={styles.sidebarContent} ref={dropdownRef}>
+              <button className={styles.closeBtn} onClick={toggleSidebar} aria-label="Close menu">
                 &times;
-              </div>
-              <Link href="/" className={styles.sidebarLink}>
-                HOME
-              </Link>
-              <div className={styles.dropdown}>
-                <Link
-                  href="#"
-                  className={styles.dropbtn}
-                  onClick={() =>
-                    setShowHamburgerServicesDropdown(
-                      !showHamburgerServicesDropdown
-                    )
-                  }
-                  ref={dropdownRef}
-                >
-                  SERVICES
-                  <span className={styles.arrow}>▼</span>
-                </Link>
-                <div
-                  className={styles.dropdownContent}
-                  style={
-                    showHamburgerServicesDropdown
-                      ? { display: "block" }
-                      : { display: "none" }
-                  }
-                >
-                  {/* Federal Skilled with Clickable Dropdown */}
-                  <div className={styles.subDropdown}>
-                    <Link href="#" onClick={toggleFederalSkilled}>
-                      Permanent Residency
-                      <span className={styles.arrow}>▼</span>
-                    </Link>
-                    {isFederalSkilledOpen && (
-                      <div className={styles.subDropdownContent}>
-                        <div className={styles.subSubDropdown}>
-                          <Link href="/permanent-residency">Permanent Residency</Link>
-                          <Link href="#" onClick={toggleFederalSkilledProgram}>
-                            Express Entry
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isFederalSkilledProgramOpen && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/express-entry">Express Entry</Link>
-                              <Link href="/federal-skilled-worker-program">FSWP</Link>
-                              <Link href="/federal-skilled-trades-program">FSTP</Link>
-                              <Link href="/canadian-experience-class">CEC</Link>
-                              <Link
-                                href="#"
-                                onClick={toggleFederalSkilledProgramTwo}
-                              >
-                                Category Based{" "}
-                                <span className={styles.arrow}>▼</span>
-                              </Link>
-                              {isFederalSkilledProgramOpenTwo && (
-                                <div className={styles.subSubDropdownContent}>
-                                  <Link href="/category-based">Category Based</Link>
-                                  <Link href="/french-targeted-draw">
-                                    French Language Proficiency
-                                  </Link>
-                                  <Link href="/healthcare-targeted-draw">
-                                    Healthcare Occupations
-                                  </Link>
-                                  <Link href="/stem-targeted-draw">
-                                    STEM Occupationss
-                                  </Link>
-                                  <Link href="/trade-occupation-targeted-draw">
-                                    Trade Occupations
-                                  </Link>
-                                  <Link href="/transport-occupation-targeted-draw">
-                                    Transport Occupation Targeted Draws
-                                  </Link>
-                                  <Link href="/agriculture-agri-food-occupation">
-                                    Agriculture and Agri-Food Occupation
-                                  </Link>
-                                </div>
-                              )}
-                            </div>
-                          )}
-                        </div>
-                        <div className={styles.subSubDropdown}>
-                          <Link
-                            href="#"
-                            onClick={toggleFederalSkilledProgramThree}
-                          >
-                            Pilot Programs
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isFederalSkilledOpenThree && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/agri-food-pilot-program">
-                                Agri Food Pilot
-                              </Link>
-                              <Link href="/pilot-programs"> Pilot Programs</Link>
-                            </div>
-                          )}
-                        </div>
-                        <div className={styles.subSubDropdown}>
-                          <Link href="#" onClick={toggleFederalSkilledProgramFour}>
-                            PNP
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isFederalSkilledProgramOpenFour && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link
-                                href="#"
-                                onClick={toggleFederalSkilledProgramFive}
-                              >
-                                BCPNP
-                                <span className={styles.arrow}>▼</span>
-                              </Link>
-                              {isFederalSkilledProgramOpenFive && (
-                                <div className={styles.subSubDropdownContent}>
-                                  <Link href="/pnp">PNP</Link>
-                                  <Link href="/bc-pnp">BCPNP</Link>
-                                  <Link href="/skilled-worker-stream">
-                                    Skilled Worker
-                                  </Link>
-                                  <Link href="/health-authority-stream">
-                                    Health Authority
-                                  </Link>
-                                  <Link href="/entry-level-semi-skilled">
-                                    Entry Level and Semi-Skilled (ELSS)
-                                  </Link>
-                                  <Link href="/international-graduate-program">
-                                    International Graduate
-                                  </Link>
-                                  <Link href="/international-post-graduate-program">
-                                    International Post-Graduate
-                                  </Link>
-                                  <Link href="/priorities-program">
-                                    Program Priorities
-                                  </Link>
-                                </div>
-                              )}
-                            </div>
-                          )}
-                        </div>
-                        <Link href="/rnip">RNIP</Link>
-                      </div>
-                    )}
-                  </div>
+              </button>
 
-                  {/* Temporary Residency with Subheadings */}
-                  <div className={styles.subDropdown}>
-                    <Link href="#" onClick={toggleTemporaryResidency}>
-                      Temporary Residency
-                      <span className={styles.arrow}>▼</span>
-                    </Link>
-                    {isTemporaryResidencyOpen && (
-                      <div className={styles.subDropdownContent}>
-                        <Link href="/temporary-resident">Temporary Residency</Link>
-                        <Link href="/super-visa">Super Visa</Link>
+              <Link href="/" className={styles.sidebarLink}>HOME</Link>
 
-                        <div className={styles.subSubDropdown}>
-                          <Link href="#" onClick={toggleVisitorVisa}>
-                            Visitor Visa
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isVisitorVisaOpen && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/visitor-visa">Visitor Visa</Link>
-                              <Link href="/business-visitor-visa">Business Visa</Link>
-                              <Link href="/dual-intent-visa">Dual Intent Visa</Link>
-                              {/* <Link href="#">Super Visa</Link> */}
-                              <Link href="/reconsideration">
-                                Reconsideration for Refusal
-                              </Link>
-                            </div>
-                          )}
-                        </div>
+              {/* SERVICES (hamburger click) */}
+              <SidebarServices menu={SERVICES_MENU} h={side} />
 
-                        <Link href="/temporary-resident-permit-draft">
-                          Temporary Resident Permits
-                        </Link>
-                        <Link href="/restoration-status-draft">Restoration</Link>
-                        <Link href="/extensions-draft">Extend Stay</Link>
-                        <Link href="/flagpoling">Flagpoling</Link>
-
-                        <div className={styles.subSubDropdown}>
-                          <Link href="#" onClick={toggleSpousalPermit}>
-                            Spousal Open Work Permit
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isSpousalPermitOpen && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/common-law-partner-temporary">
-                                Open Work Permit - For Spouse of Worker
-                              </Link>
-                              <Link href="/cby">
-                                Open Work Permit - For Spouse of Student
-                              </Link>
-                              <Link href="/open-work-permit">
-                                Open Work Permit - For Spouse of PR
-                              </Link>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Student Visa with Subheadings */}
-                  <div className={styles.subDropdown}>
-                    <Link href="#" onClick={toggleStudentVisa}>
-                      Student Visa
-                      <span className={styles.arrow}>▼</span>
-                    </Link>
-                    {isStudentVisaOpen && (
-                      <div className={styles.subDropdownContent}>
-                        <div className={styles.subSubDropdown}>
-                          <Link href="/student-visa">Student Visa</Link>
-                          <Link href="#" onClick={toggleOutsideCanada}>
-                            Outside Canada
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isOutsideCanadaOpen && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/outside-canada">Outside Canada</Link>
-                              <Link href="/sds">SDS</Link>
-                              <Link href="/non-sds">Non SDS</Link>
-                            </div>
-                          )}
-                        </div>
-
-                        <div className={styles.subSubDropdown}>
-                          <Link href="#" onClick={toggleInsideCanada}>
-                            Inside Canada
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isInsideCanadaOpen && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/inside-canada">Inside Canada</Link>
-                              <Link href="/visitor-to-student">
-                                Visitor To Student
-                              </Link>
-                              <Link href="/change-college-program">DLI Change</Link>
-                              {/* <Link href="#">Admission</Link>
-                              <Link href="#">Transfer DLI</Link> */}
-                            </div>
-                          )}
-                        </div>
-
-                        <Link href="/study-permit-minors">Study Permit Minors</Link>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Family Reunification with Subheadings */}
-                  <div className={styles.subDropdown}>
-                    <Link href="#" onClick={toggleFamilyReunification}>
-                      Family Reunification & Sponsorship
-                      <span className={styles.arrow}>▼</span>
-                    </Link>
-                    {isFamilyReunificationOpen && (
-                      <div className={styles.subDropdownContent}>
-                        <Link href="/family-reunification-sponsorship">
-                          Family Reunification & Sponsorship
-                        </Link>
-                        <div className={styles.subSubDropdown}>
-                          <Link
-                            href="#"
-                            onClick={toggleFederalSkilledProgramSeven}
-                          >
-                            Spousal Sponsorship{" "}
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isFederalSkilledProgramOpenSeven && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/spouse-common-law-sponsership">
-                                Spousal Sponsorship
-                              </Link>
-                              <Link href="/spouse-inland">Inside Canada</Link>
-                              <Link href="/spouse-outland">Outside Canada</Link>
-                              <Link href="/same-sex">Same Sex</Link>
-                            </div>
-                          )}
-                        </div>
-                        <Link href="/dependent-children">Dependent Children</Link>
-                        <Link href="/humanitarian-compassionate">H & C</Link>
-                        <Link href="/orphan">Orphan</Link>
-                        <Link href="/adoption">Adoption</Link>
-                      </div>
-                    )}
-                  </div>
-                  <div className={styles.subDropdown}>
-                    <Link href="#" onClick={toggleFederalSkilledProgramSix}>
-                      Work Permit <span className={styles.arrow}>▼</span>
-                    </Link>
-                    {isFederalSkilledProgramOpenSix && (
-                      <div className={styles.subDropdownContent}>
-                        <Link href="/work-permit">Work Permit</Link>
-                        <div className={styles.subSubDropdown}>
-                          <Link
-                            href="#"
-                            onClick={toggleFederalSkilledProgramEight}
-                          >
-                            LMIA
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isFederalSkilledProgramOpenEight && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/low-wage-lmia">High Wage / Low Wage</Link>
-                              <Link href="/agriculture-stream-lmia">
-                                Agriculture Stream LMIA
-                              </Link>
-                              {/* <Link href="#">PR Supporting</Link> */}
-                              <Link href="/global-stream-lmia">
-                                Global Talent Stream
-                              </Link>
-                              <Link href="/in-home-caregiver-program-lp">
-                                Caregiver LMIA
-                              </Link>
-                            </div>
-                          )}
-
-                          <Link href="#" onClick={toggleFederalSkilledProgramNine}>
-                            Open Work Permit
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isFederalSkilledProgramOpenNine && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/bridging-open-work-permit-lp">
-                                BOWP – Bridging Open Work Permit
-                              </Link>
-                              <Link href="/pgwp">
-                                PGWP – Post Graduate Open Work Permit
-                              </Link>
-                              <Link href="/spousal-open-work-permit">
-                                SOWP – Spousal Open Work Permit
-                              </Link>
-                              <Link href="/francophone-mobility-program">
-                                Francophone Mobility Program
-                              </Link>
-                              <Link href="/open-work-vulnerable-lp">
-                                Vulnerable Worker
-                              </Link>
-                              <Link href="/openWork-dependent-children">
-                                Dependent Child of Worker
-                              </Link>
-                            </div>
-                          )}
-                          <Link href="#" onClick={toggleFederalSkilledProgramTw}>
-                            Spousal Permit
-                            <span className={styles.arrow}>▼</span>
-                          </Link>
-                          {isFederalSkilledProgramOpenTw && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="/spouse-common-law-sponsership">
-                                Spousal Permit
-                              </Link>
-                              <Link href="/spousal-open-work-permit">
-                                Open Work Permit - For Spouse of Worker
-                              </Link>
-                              <Link href="/cby">
-                                Open Work Permit - For Spouse of Student
-                              </Link>
-                              <Link href="/open-work-permit-for-spouse-inland">
-                                PR Open Work Permit, Inland
-                              </Link>
-                              <Link href="/francophone-mobility-program">
-                                Francophone Mobility Program
-                              </Link>
-                            </div>
-                          )}
-
-                          <Link href="/francophone-mobility-program">
-                            Francophone Mobility Program
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                  <Link href="/lmia-reviewed">LMIA</Link>
-                  <Link href="/francophone-mobility-program">
-                    Francophone Mobility Program
-                  </Link>
-                  <div className={styles.subDropdown}>
-                    <Link href="#" onClick={toggleFederalSkilledProgramTen}>
-                      Caregiver <span className={styles.arrow}>▼</span>
-                    </Link>
-                    {isFederalSkilledProgramOpenTen && (
-                      <div className={styles.subDropdownContent}>
-                        <Link href="/pathways-for-caregiver">Caregiver</Link>
-                        <Link href="/in-home-caregiver-program-lp">
-                          Inside - With LMIA{" "}
-                        </Link>
-                        <Link href="/permanent-residence-pathways-caregivers-lp">
-                          PR Pathways for Care-Giver
-                        </Link>
-                        <Link href="#" onClick={toggleFederalSkilledProgramEl}>
-                          Outside <span className={styles.arrow}>▼</span>
-                        </Link>
-                        {/* <div className={styles.subSubDropdown}>
-                          {isFederalSkilledProgramOpenEl && (
-                            <div className={styles.subSubDropdownContent}>
-                              <Link href="#">Home Child Care Provider Pilot</Link>
-                              <Link href="#">Home Support Worker</Link>
-                            </div>
-                          )}
-                        </div> */}
-                      </div>
-                    )}
-                  </div>
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link href="/pr-renewal">PR Renewal</Link>
-                  </div>
-                  <div className={`${styles.relativeDiv} ${styles.flex}`}>
-                    <Link href="/citizenship">Citizenship</Link>
-                  </div>
-                  <div className={styles.subDropdown}>
-                    <Link href="#" onClick={toggleFederalSkilledProgramEl}>
-                      Other Services <span className={styles.arrow}>▼</span>
-                    </Link>
-                    {isFederalSkilledProgramOpenEl && (
-                      <div className={styles.subDropdownContent}>
-                        <Link href="/reconsideration">
-                          Reconsideration of Refusal Decision
-                        </Link>
-                        <Link href="/additional-document">
-                          Additional Document Request
-                        </Link>
-                        <Link href="/reply-to-pfl-page">PFL</Link>
-                      </div>
-                    )}
-                  </div>
-                  <Link href="/more-services">More Services</Link>
-                </div>
-              </div>
-
+              {/* CALCULATORS (hamburger click) */}
               <div className={styles.subDropdown}>
-                <Link href="#" onClick={toggleCalculators}>
-                  CALCULATORS
-                  <span className={styles.arrow} style={{ marginLeft: "73px" }}>
-                    ▼
-                  </span>
+                <Link href="#" onClick={calcSide.toggle("calc-side")}>
+                  CALCULATORS <span className={styles.arrow} style={{ marginLeft: "73px" }}>▼</span>
                 </Link>
-                {isCalculatorsOpen && (
+                {calcSide.isOpen("calc-side") && (
                   <div className={styles.subDropdownContent}>
-                    {/* <Link href="/calculators">CALCULATORS</Link> */}
-                    <Link href="/federal-skilled">FSWP Calculator</Link>
-                    <Link href="/clb-ilets-calculator">CLB Calculator</Link>
-                    <Link href="/bcpnp-calculator">BCPNP Calculator</Link>
-                    <Link href="/previous-draw-history">Previous Draws History</Link>
+                    {CALCULATORS.map((l) => (
+                      <Link key={l.id} href={l.href}>{l.label}</Link>
+                    ))}
                   </div>
                 )}
               </div>
 
-              {/* Separate links below the SERVICES section */}
-              <Link href="/blogs" className={styles.sidebarLink}>
-                BLOGS
-              </Link>
-              {/* <Link href="/news" className={styles.sidebarLink}>
-                NEWS
-              </Link> */}
-              <Link href="/about-us" className={styles.sidebarLink}>
-                ABOUT
-              </Link>
-              <Link href="/contact-us" className={styles.sidebarLink}>
-                CONTACT
-              </Link>
+              {/* Bottom links */}
+              <Link href="/blogs" className={styles.sidebarLink}>BLOGS</Link>
+              <Link href="/about-us" className={styles.sidebarLink}>ABOUT</Link>
+              <Link href="/contact-us" className={styles.sidebarLink}>CONTACT</Link>
             </div>
-          </div>
+          </aside>
 
-          <div
-            className={`${styles.contactNavbar} ${hideContactNavbar ? styles.hideContactNumber : null
-              }`}
-          >
+          {/* Contact strip */}
+          <div className={`${styles.contactNavbar} ${hideContactNavbar ? styles.hideContactNumber : ""}`}>
             <div className={styles.contactInfo}>
               <div className={styles.location}>
                 {showBlue ? (
-                  <Image loading="lazy" height={50} width={100}
-                    src={LocationBlue}
-                    alt="Location Blue"
-                    className={styles.icon}
-                  />
+                  <Image loading="lazy" height={24} width={24} src={LocationBlue} alt="Location" className={styles.icon} />
                 ) : (
-                  <Image loading="lazy" height={50} width={100}
-                    src={LocationIcon}
-                    alt="Location"
-                    className={styles.icon}
-                  />
+                  <Image loading="lazy" height={24} width={24} src={LocationIcon} alt="Location" className={styles.icon} />
                 )}
-                <span
-                  className={styles.lowerFooterText}
-                  style={showBlue ? { color: "#164c95" } : { color: "white" }}
-                >
-                  <Link
-                    href="https://g.co/kgs/9BZVS85"
-                    className={styles.lowerFooterText}
-                    style={showBlue ? { color: "#164c95" } : { color: "white" }} target="_blank"
-                  >
+                <span className={styles.lowerFooterText} style={showBlue ? { color: "#164c95" } : { color: "white" }}>
+                  <Link href="https://g.co/kgs/9BZVS85" className={styles.lowerFooterText} style={showBlue ? { color: "#164c95" } : { color: "white" }} target="_blank">
                     Vancouver
                   </Link>
                 </span>
               </div>
+
               <div className={styles.email}>
                 {showBlue ? (
-                  <Image loading="lazy" height={50} width={100}
-                    src={EmailBlue}
-                    alt="Email blue"
-                    className={styles.icon} target="_blank"
-                  />
+                  <Image loading="lazy" height={24} width={24} src={EmailBlue} alt="Email" className={styles.icon} />
                 ) : (
-                  <Image loading="lazy" height={50} width={100} src={EmailIcon} alt="Email" className={styles.icon} />
+                  <Image loading="lazy" height={24} width={24} src={EmailIcon} alt="Email" className={styles.icon} />
                 )}
-
-                <span
-                  className={styles.lowerFooterText}
-                  style={showBlue ? { color: "#164c95" } : { color: "white" }} target="_blank"
-                >
+                <span className={styles.lowerFooterText} style={showBlue ? { color: "#164c95" } : { color: "white" }}>
                   info@brightlightimmigration.ca
                 </span>
               </div>
             </div>
+
             <div className={styles.socialMedia}>
               {showBlue ? (
-                <Link
-                  target="_blank"
-                  href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1"
-                >
-                  <Image loading="lazy" height={50} width={100} src={Tiktokblue} />
+                <Link target="_blank" href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1">
+                  <Image loading="lazy" height={24} width={24} src={Tiktokblue} alt="TikTok" />
                 </Link>
               ) : (
-                <Link
-                  target="_blank"
-                  href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1"
-                >
-                  <TikTokIcon className={styles.socialIcon} />
+                <Link target="_blank" href="https://www.tiktok.com/@brightlightimmigration?_t=8lzyE6vJG0E&_r=1">
+                  <TikTokIcon className={styles.socialIcon} aria-label="TikTok" />
                 </Link>
               )}
+
               {showBlue ? (
-                <Link
-                  target="_blank"
-                  href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198"
-                >
-                  <Image loading="lazy" height={50} width={100} src={Linkedinblue} />
+                <Link target="_blank" href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198">
+                  <Image loading="lazy" height={24} width={24} src={Linkedinblue} alt="LinkedIn" />
                 </Link>
               ) : (
-                <Link
-                  target="_blank"
-                  href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198"
-                >
-                  <LinkedInIcon className={styles.socialIcon} />
+                <Link target="_blank" href="https://ca.linkedin.com/in/loveneet-paneswar-5b2377198">
+                  <LinkedInIcon className={styles.socialIcon} aria-label="LinkedIn" />
                 </Link>
               )}
+
               {showBlue ? (
-                <Link
-                  target="_blank"
-                  href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
-                >
-                  <Image loading="lazy" height={50} width={100} src={Instagramblue} />
+                <Link target="_blank" href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p">
+                  <Image loading="lazy" height={24} width={24} src={Instagramblue} alt="Instagram" />
                 </Link>
               ) : (
-                <Link
-                  target="_blank"
-                  href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p"
-                >
-                  <Image loading="lazy" src={"/assets/instagram.svg"} height={25} width={25} className={styles.socialIcon} />
+                <Link target="_blank" href="https://www.instagram.com/brightlightimmigration?igsh=b2xmdzh5eDdsc29p">
+                  <Image loading="lazy" src={"/assets/instagram.svg"} height={25} width={25} className={styles.socialIcon} alt="Instagram" />
                 </Link>
               )}
+
               {showBlue ? (
-                <Link
-                  target="_blank"
-                  href="https://www.facebook.com/brightlightimmigration"
-                >
-                  <Image loading="lazy" height={50} width={100} src={Facebookblue} />
+                <Link target="_blank" href="https://www.facebook.com/brightlightimmigration">
+                  <Image loading="lazy" height={24} width={24} src={Facebookblue} alt="Facebook" />
                 </Link>
               ) : (
-                <Link
-                  target="_blank"
-                  href="https://www.facebook.com/brightlightimmigration"
-                >
-                  <FacebookIcon className={styles.socialIcon} />
+                <Link target="_blank" href="https://www.facebook.com/brightlightimmigration">
+                  <FacebookIcon className={styles.socialIcon} aria-label="Facebook" />
                 </Link>
               )}
+
               {showBlue ? (
-                <Link
-                  target="_blank"
-                  href="https://www.youtube.com/channel/UC2NJoKhIOconAE_IFCxX7uA"
-                >
-                  <Image loading="lazy" height={50} width={100} src={Youtubeblue} />
+                <Link target="_blank" href="https://www.youtube.com/channel/UC2NJoKhIOconAE_IFCxX7uA">
+                  <Image loading="lazy" height={24} width={24} src={Youtubeblue} alt="YouTube" />
                 </Link>
               ) : (
-                <Link
-                  target="_blank"
-                  href="https://www.youtube.com/channel/UC2NJoKhIOconAE_IFCxX7uA"
-                >
-                  <YouTubeIcon className={styles.socialIcon} />
+                <Link target="_blank" href="https://www.youtube.com/channel/UC2NJoKhIOconAE_IFCxX7uA">
+                  <YouTubeIcon className={styles.socialIcon} aria-label="YouTube" />
                 </Link>
               )}
             </div>

@@ -252,8 +252,12 @@ const FrancophoneContent = () => {
 
   useEffect(() => {
     fetch("https://brightlight-node.onrender.com/francoMob")
-      .then((res) => res.json())
+      .then((res) => { 
+        console.log("Fetched response:", res);
+        return res.json();
+      })
       .then((data) => {
+        console.log("Fetched data:", data);
         if (data && data.length > 0) {
           const doc = data[0];
           setSectionDataSingle({
