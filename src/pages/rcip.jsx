@@ -29,7 +29,7 @@ const Rcip = ({ metaData }) => {
   };
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/rcip")
+    fetch("https://brightlight-node.onrender.com/rcip-page")
       .then((res) => {
         return res.json();
       })
