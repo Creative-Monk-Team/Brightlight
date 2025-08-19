@@ -222,7 +222,7 @@ const RcipContent = () => {
     };
 
     fetch(
-      `https://brightlight-node.onrender.com/rcip/${sectionDataSingle._id}`,
+      `https://brightlight-node.onrender.com/rcip-page/${sectionDataSingle._id}`,
       {
         method: "PUT",
         headers: {
@@ -252,7 +252,7 @@ const RcipContent = () => {
   };
 
   useEffect(() => {
-    fetch("https://brightlight-node.onrender.com/rcip")
+    fetch("https://brightlight-node.onrender.com/rcip-page")
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {
