@@ -30,6 +30,7 @@ const SuperVisa = ({ metaData }) => {
     fetch("https://brightlight-node.onrender.com/superVisa")
       .then((res) => res.json())
       .then((data) => {
+        console.log("Fetched data:", data);
         if (data && data.length > 0) setPData(data[0]);
       })
       .catch((error) => console.log(error));
@@ -305,12 +306,12 @@ const SuperVisa = ({ metaData }) => {
         </section>
 
         <section
-          className={`${styles.whyChooseUs} ${styles.section}`}
+          className={``}
           id="not-sure-if-you-qualify"
           ref={(el) => (sectionsRef.current[7] = el)}
         >
-          <h2 className="text-3xl">{pData?.NotSureHeading01}</h2>
-            <p className="mb-4">{pData?.NotSurePara}</p>
+          <h2 className="text-3xl">{pData.NotSureHeading01}</h2>
+            <p className="mb-4">{pData.NotSurePara}</p>
           <ul className="list-disc flex flex-col gap-4 mb-10" style={{ marginLeft: "40px" }}>
             <li>{pData?.ns1}</li>
             <li>{pData?.ns2}</li>
