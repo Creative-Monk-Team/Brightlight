@@ -59,6 +59,7 @@ const SERVICES_MENU = [
               { id: "cat-trade", label: "Trade Occupations", href: "/trade-occupation-targeted-draw" },
               { id: "cat-transport", label: "Transport Occupation Targeted Draws", href: "/transport-occupation-targeted-draw" },
               { id: "cat-agri", label: "Agriculture and Agri-Food Occupation", href: "/agriculture-agri-food-occupation" },
+              { id: "cat-education", label: "Education Occupations", href: "/education-category" },
             ],
           },
         ],

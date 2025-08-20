@@ -212,9 +212,9 @@ const handleScroll = () => {
 
       <div className={styles.eligibleParent} id="categories">
         <h1>{data?.drawsHeading}</h1>
-        <div className={styles.container}>
-          <div className={styles.column}>
-            <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
+        <div className="">
+          <div className="flex flex-col md:flex-row items-start justify-start text-xl container px-2 md:px-6 ">
+            <ul className="list-disc flex flex-col gap-4 mb-10">
               <li
                 style={{ cursor: "pointer" }}
                 onClick={() => (window.location.href = "/french-targeted-draw")}
@@ -237,8 +237,6 @@ const handleScroll = () => {
               </li>
               <li style={{ cursor: "pointer" }}>{data?.draw8}</li>
             </ul>
-          </div>
-          <div className={styles.column}>
             <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
               <li
                 style={{ cursor: "pointer" }}

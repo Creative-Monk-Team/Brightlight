@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "../styles/Rcip.module.css";
-import Navbar1 from "../components/Navbar1";
+import styles from "../styles/EducationCategory.module.css";
 import Footer1 from "../components/Footer1";
+import Navbar1 from "../components/Navbar1";
 import Testimonials from "../sections/Testimonials";
 import RecentBlogs from "../sections/RecentBlogs";
 import FAQ_White_Internal from "../sections/FAQ_White_Internal";
@@ -10,10 +10,10 @@ import Head from "next/head";
 import { fetchSeoData } from "../lib/fetchSeoData";
 
 export async function getServerSideProps() {
-  return fetchSeoData(""); // Pass the API endpoint specific to this page
+  return fetchSeoData("educationCategoryMeta");
 }
 
-const Rcip = ({ metaData }) => {
+const EducationCategory = ({ metaData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [pData, setPData] = useState([]);
 
@@ -29,12 +29,9 @@ const Rcip = ({ metaData }) => {
   };
 
   useEffect(() => {
-    fetch("http://127.0.0.1:4000/rcip-page")
-      .then((res) => {
-        return res.json();
-      })
+    fetch("https://brightlight-node.onrender.com/educationCategory")
+      .then((res) => res.json())
       .then((data) => {
-        console.log("Fetched RCIP data:", data);
         if (data) {
           setPData(data[0]);
         }
@@ -61,8 +58,7 @@ const Rcip = ({ metaData }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -117,8 +113,7 @@ const Rcip = ({ metaData }) => {
           content={
             metaData?.metaOgTitle
               ? metaData?.metaOgTitle
-              : "Brightlight Immigration"
-          }
+              : "Brightlight Immigration"}
         />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:type" content="image/png" />
@@ -135,8 +130,7 @@ const Rcip = ({ metaData }) => {
           content={
             metaData?.metaKeywords
               ? metaData?.metaKeywords
-              : "Brightlight Immigration, Immigration Services, Mission, Team"
-          }
+              : "Brightlight Immigration, Immigration Services, Mission, Team"}
         />
       </Head>
       <Navbar1 />
@@ -158,55 +152,61 @@ const Rcip = ({ metaData }) => {
                 About the Program
               </p>
               <p onClick={() => scrollToSection("benefits")}>Benefits</p>
-              <p onClick={() => scrollToSection("eligibility")}>Eligibility</p>
-              <p onClick={() => scrollToSection("provinces")}>
-                Participating Provinces
+              <p onClick={() => scrollToSection("eligibility-express-entry")}>
+                Eligibility for Express Entry
+              </p>
+              <p onClick={() => scrollToSection("eligibility-criteria")}>
+                Eligibility Criteria
+              </p>
+              <p onClick={() => scrollToSection("noc-codes")}>
+                Eligible NOC Codes
+              </p>
+              <p onClick={() => scrollToSection("draw-history")}>
+                Draw History
               </p>
               <p onClick={() => scrollToSection("how-to-apply")}>
                 How to Apply
               </p>
-              <p onClick={() => scrollToSection("refusal-reasons")}>
-                Refusal Reasons
+              <p onClick={() => scrollToSection("refusals")}>
+                Common Reasons for Refusals
               </p>
-              <p onClick={() => scrollToSection("book-appointment")}>
-                Book Appointment
+              <p onClick={() => scrollToSection("still-not-sure")}>
+                Still Not Sure?
               </p>
               <p onClick={() => scrollToSection("why-choose-us")}>
                 Why Choose Us?
               </p>
+              <p onClick={() => scrollToSection("faqs")}>FAQs</p>
               <p onClick={() => scrollToSection("testimonials")}>
                 Testimonials
               </p>
-              <p onClick={() => scrollToSection("faqs")}>FAQs</p>
               <p onClick={() => scrollToSection("blogs")}>Blogs</p>
+              <p onClick={() => scrollToSection("eligibility-assessment")}>
+                Eligibility Assessment
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       <div className={styles.container} id="container">
-        <h1
-          className={`${styles.heading} ${styles.section}`}
+        <header
+          className={`${styles.header} ${styles.section}`}
           id="about-program"
           ref={(el) => (sectionsRef.current[0] = el)}
         >
-          {pData?.heading}
-        </h1>
-        <section
-          className={`${styles.introduction} ${styles.section}`}
-          id="about-program"
-          ref={(el) => (sectionsRef.current[1] = el)}
-        >
-          <p>{pData?.introPara}</p>
-        </section>
+          <h1>{pData?.heading}</h1>
+          <p>{pData?.description1}</p>
+          <p>{pData?.description2}</p>
+        </header>
 
         <section
           className={`${styles.benefits} ${styles.section}`}
           id="benefits"
-          ref={(el) => (sectionsRef.current[2] = el)}
+          ref={(el) => (sectionsRef.current[1] = el)}
         >
-          <h2 className={`text-3xl mb-4 ${styles.subheading}`}>{pData?.benefitsHeading}</h2>
-          <ul className="flex flex-col gap-2 list-disc" style={{ marginLeft: "40px" }}>
+          <h2 className="text-3xl">{pData?.benefitsHeading}</h2>
+          <ul className={styles.benefitList} style={{ marginLeft: "40px" }}>
             {pData?.benefitsList?.map((benefit, index) => (
               <li key={index}>{benefit}</li>
             ))}
@@ -214,53 +214,94 @@ const Rcip = ({ metaData }) => {
         </section>
 
         <section
-          className={`${styles.eligibility} ${styles.section}`}
-          id="eligibility"
+          className={`${styles.eligibilityExpressEntry} ${styles.section}`}
+          id="eligibility-express-entry"
+          ref={(el) => (sectionsRef.current[2] = el)}
+        >
+          <h2 className="text-3xl">{pData?.eligibilityExpressEntryHeading}</h2>
+          <p>{pData?.eligibilityExpressEntryPara}</p>
+          <ol style={{ marginLeft: "40px", marginTop: "20px", lineHeight: "2" }}>
+            {pData?.eligibilityExpressEntrySteps?.map((step, index) => (
+              <li key={index}>{step}</li>
+            ))}
+          </ol>
+        </section>
+
+        <section
+          className={`${styles.eligibilityCriteria} ${styles.section}`}
+          id="eligibility-criteria"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
-          <h2 className={`text-3xl mb-4 ${styles.subheading}`}>{pData?.eligibilityHeading}</h2>
-          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
-            {pData?.eligibilityList?.map((eligibility, index) => (
-              <li key={index}>{eligibility}</li>
+          <h2 className="text-3xl">{pData?.eligibilityCriteriaHeading}</h2>
+          <ul style={{ marginLeft: "40px", marginTop: "20px" }}>
+            {pData?.eligibilityCriteriaList?.map((criterion, index) => (
+              <li key={index}>{criterion}</li>
             ))}
           </ul>
         </section>
 
         <section
-          className={`${styles.provinces} ${styles.section}`}
-          id="provinces"
+          className={`${styles.nocCodes} ${styles.section}`}
+          id="noc-codes"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <h2 className={`text-3xl mb-4 ${styles.subheading}`}>{pData?.provincesHeading}</h2>
-          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
-            {pData?.provincesList?.map((province, index) => (
-              <li key={index}>
-                <strong>{province.province}</strong>: {province.communities.join(", ")}
-              </li>
-            ))}
-          </ul>
+          <h2 className="text-3xl">{pData?.eligibleNOCCodesHeading}</h2>
+          <table className={styles.nocTable}>
+            <thead>
+              <tr>
+                <th>Occupation Title</th>
+                <th>NOC 2021 Code</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pData?.eligibleNOCCodesList?.map((noc, index) => (
+                <tr key={index}>
+                  <td>{noc.occupation}</td>
+                  <td>{noc.nocCode}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p>{pData?.eligibleNOCCodesNote}</p>
+        </section>
+
+        <section
+          className={`${styles.drawHistory} ${styles.section}`}
+          id="draw-history"
+          ref={(el) => (sectionsRef.current[5] = el)}
+        >
+          <h2 className="text-3xl">{pData?.drawHistoryHeading}</h2>
+          <p>{pData?.drawHistoryPara}</p>
+          <button
+            onClick={() => (window.location.href = "/previous-draw-history")}
+            className={styles.drawHistoryButton}
+          >
+            View Previous Draw History
+          </button>
         </section>
 
         <section
           className={`${styles.howToApply} ${styles.section}`}
           id="how-to-apply"
-          ref={(el) => (sectionsRef.current[5] = el)}
+          ref={(el) => (sectionsRef.current[6] = el)}
         >
-          <h2 className={`text-3xl mb-4 ${styles.subheading}`}>{pData?.howToApplyHeading}</h2>
-          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
+          <h2 className="text-3xl">{pData?.howToApplyHeading}</h2>
+          <ol style={{ marginLeft: "40px", marginTop: "20px" }}>
             {pData?.howToApplySteps?.map((step, index) => (
-              <li key={index}>{step}</li>
+              <li key={index}>
+                <strong>{step.split(":")[0]}:</strong> {step.split(":")[1]?.trim()}
+              </li>
             ))}
-          </ul>
+          </ol>
         </section>
 
         <section
-          className={`${styles.refusal} ${styles.section}`}
-          id="refusal-reasons"
-          ref={(el) => (sectionsRef.current[6] = el)}
+          className={`${styles.refusals} ${styles.section}`}
+          id="refusals"
+          ref={(el) => (sectionsRef.current[7] = el)}
         >
-          <h2 className={`text-3xl mb-4 ${styles.subheading}`}>{pData?.refusalHeading}</h2>
-          <ul className="list-disc ml-10 flex flex-col gap-4 mb-10">
+          <h2 className="text-3xl">{pData?.refusalHeading}</h2>
+          <ul style={{ marginLeft: "40px", marginTop: "20px" }}>
             {pData?.refusalList?.map((reason, index) => (
               <li key={index}>{reason}</li>
             ))}
@@ -268,25 +309,27 @@ const Rcip = ({ metaData }) => {
         </section>
 
         <section
-          className={`${styles.assistance} ${styles.section}`}
-          id="book-appointment"
-          ref={(el) => (sectionsRef.current[7] = el)}
+          className={`${styles.consultation} ${styles.section}`}
+          id="still-not-sure"
+          ref={(el) => (sectionsRef.current[8] = el)}
         >
+          <h2 className="text-3xl">{pData?.stillNotSureHeading}</h2>
+          <p>{pData?.stillNotSurePara}</p>
           <button
-            className={styles.button}
             onClick={() => (window.location.href = "/booking")}
+            className={styles.bookButton}
           >
-            {pData?.bookAppointment}
+            {pData?.bookAppointmentText}
           </button>
         </section>
 
         <section
           className={`${styles.whyChooseUs} ${styles.section}`}
           id="why-choose-us"
-          ref={(el) => (sectionsRef.current[8] = el)}
+          ref={(el) => (sectionsRef.current[9] = el)}
         >
           <h2 className="text-3xl">{pData?.whyChooseUsHeading}</h2>
-          <ul className={`list-disc flex flex-col gap-2 ${styles.whychooseusLi}`} style={{ marginLeft: "40px" }}>
+          <ul className={styles.whyChooseUsLi} style={{ marginLeft: "40px" }}>
             <li>
               <strong>{strongText1}</strong> {remainingText1}
             </li>
@@ -301,30 +344,31 @@ const Rcip = ({ metaData }) => {
             </li>
           </ul>
         </section>
-      </div>
 
-      <div id="faqs">
-        <FAQ_White_Internal data={pData} />
+        <div id="faqs">
+          <FAQ_White_Internal data={pData} />
+        </div>
+
+        {pData?.showTestimonials === "Y" && (
+          <div id="testimonials">
+            <Testimonials />
+          </div>
+        )}
+        {pData?.showBlogs === "Y" && (
+          <div id="blogs">
+            <RecentBlogs />
+          </div>
+        )}
+        {pData?.showEligibilityAssessment === "Y" && (
+          <div id="eligibility-assessment">
+            <h2>Eligibility Assessment</h2>
+            {/* Add your Eligibility Assessment component or content here */}
+          </div>
+        )}
+        <Footer1 />
       </div>
-      {pData?.showTestimonials === "Y" && (
-        <div id="testimonials">
-          <Testimonials />
-        </div>
-      )}
-      {pData?.showBlogs === "Y" && (
-        <div id="blogs">
-          <RecentBlogs />
-        </div>
-      )}
-      {pData?.showEligibilityAssessment === "Y" && (
-        <div id="eligibility-assessment">
-          <h2>Eligibility Assessment</h2>
-          {/* Add your Eligibility Assessment component or content here */}
-        </div>
-      )}
-      <Footer1 />
     </>
   );
 };
 
-export default Rcip;
+export default EducationCategory;
